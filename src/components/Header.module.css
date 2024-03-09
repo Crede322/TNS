@@ -2,6 +2,7 @@
   height: 100px;
   width: 100vw;
   background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .header__container {
@@ -20,6 +21,7 @@
   margin: none;
 }
 
+/* кнопки */
 .menu__main_button {
   width: 200px;
   height: 60px;
@@ -29,7 +31,7 @@
 }
 
 .search {
-  width: 600px;
+  width: 650px;
   background-color: #f7f7f7;
   height: 60px;
   border-radius: 12px;
@@ -51,4 +53,16 @@
 
 .menu__btn:hover {
   background-color: #f7f7f7;
+}
+
+/* Nav */
+
+.nav {
+  width: 500px;
+  height: 400px;
+}
+
+.nav img {
+  width: 55px;
+  height: 55px;
 }
