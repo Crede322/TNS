@@ -57,11 +57,15 @@
 
 /* Nav */
 
+.nav__wrapper {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .nav {
   margin: auto;
   margin-top: 15px;
   width: 1270px;
-  height: 400px;
+  height: 105px;
 }
 
 .nav button {
@@ -70,7 +74,7 @@
   padding: 0 25px 0 25px;
   border-radius: 12px;
   margin: 0 5px 0 5px;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.2s;
 }
 
 .nav button:hover {
