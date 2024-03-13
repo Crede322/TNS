@@ -6,6 +6,7 @@
 }
 
 .header__container {
+  position: relative;
   width: 1200px;
   margin: auto;
 }
@@ -53,6 +54,64 @@
 
 .menu__btn:hover {
   background-color: #f7f7f7;
+}
+
+/* login popup */
+
+.login_popup {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 650px;
+  height: 600px;
+
+  border-radius: 12px;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: #f7f7f7;
+  overflow: hidden;
+}
+
+.login__right_section {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 45%;
+  background-color: #fff;
+  padding: 25px 15px 25px 15px;
+}
+
+.login__title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.login__inner_button {
+  padding-top: 12px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  width: 260px;
+  height: 45px;
+  background-color: #2c7da0;
+
+  font-weight: 500;
+  color: #fff;
+}
+
+.login__inner_button:hover {
+  background-color: #4187a5;
+}
+
+.login_popup a {
+  color: #333333;
+  font-size: 16px;
+  line-height: 35px;
+}
+
+.login_popup a:hover {
+  color: #2c7da0;
 }
 
 /* Nav */

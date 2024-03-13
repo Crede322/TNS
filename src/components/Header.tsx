@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Header.module.css";
 
 import search from "../img/search.svg";
@@ -16,6 +16,15 @@ import hhd from "../img/nav/hhd.svg";
 import power from "../img/nav/power.svg";
 
 const Header = () => {
+  const [isLoginHovered, setIsLoginHovered] = useState(false);
+  const handleLoginHover = () => {
+    setIsLoginHovered(true);
+    console.log("login hover");
+  };
+  const handleLoginLeave = () => {
+    setIsLoginHovered(false);
+  };
+
   return (
     <div>
       <div className={classes.wrapper}>
@@ -36,12 +45,39 @@ const Header = () => {
                 <img src={cart} alt="img_cart" />
                 <h2>Корзина</h2>
               </button>
-              <button className={classes.menu__btn}>
+              <button
+                className={classes.menu__btn}
+                onMouseEnter={handleLoginHover}
+              >
                 <img src={profile} alt="img_profile" />
                 <h2>Войти</h2>
               </button>
             </li>
           </ul>
+          <div
+            className={classes.login_popup}
+            onMouseLeave={handleLoginLeave}
+            style={{
+              transition: "all 0.4s",
+              transformOrigin: "top right",
+              transform: isLoginHovered ? "scale(1)" : "scale(0)",
+            }}
+          >
+            <div className={classes.login__right_section}>
+              <h3 className={classes.login__title}>
+                Получайте бонусы, сохраняйте и отслеживайте заказы
+              </h3>
+              <button className={classes.login__inner_button}>
+                <h3>Войти</h3>
+              </button>
+              <a href="!#">Узнать статус заказа</a>
+              <br />
+              <a href="!#">Обратная связь</a>
+              <br />
+              <a href="!#">Обмен, возврат, гарантия</a>
+              <br />
+            </div>
+          </div>
         </div>
         <div className={classes.nav__wrapper}>
           <div className={classes.nav}>
