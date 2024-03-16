@@ -6,23 +6,31 @@ import favorite from "../img/favorite.svg";
 import profile from "../img/profile.svg";
 import cart from "../img/cart.svg";
 
-import videocard from "../img/nav/videocard.svg";
 import cpu from "../img/nav/cpu.svg";
 import ram from "../img/nav/ram.svg";
-import motherboard from "../img/nav/motherboard.svg";
-import compCase from "../img/nav/case.svg";
-import cpuFan from "../img/nav/cpuFan.svg";
 import hhd from "../img/nav/hhd.svg";
 import power from "../img/nav/power.svg";
+import compCase from "../img/nav/case.svg";
+import cpuFan from "../img/nav/cpuFan.svg";
+import videocard from "../img/nav/videocard.svg";
+import motherboard from "../img/nav/motherboard.svg";
+import bell from "../img/nav/login/bell.svg";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
   const handleLoginHover = () => {
     setIsLoginHovered(true);
     console.log("login hover");
   };
+
   const handleLoginLeave = () => {
     setIsLoginHovered(false);
+  };
+
+  const handleLoginModal = () => {
+    setLoginModal(true);
   };
 
   return (
@@ -59,16 +67,33 @@ const Header = () => {
             onMouseLeave={handleLoginLeave}
             style={{
               transition: "all 0.4s",
-              transformOrigin: "top right",
+              transformOrigin: "90% 5%",
               transform: isLoginHovered ? "scale(1)" : "scale(0)",
             }}
           >
+            <div className={classes.login__left_section}>
+              <h3>Уведомления</h3>
+              <div className={classes.login__left_wrapper}>
+                <div className={classes.login__left_section_notification}>
+                  <img src={bell} alt="img bell" />
+                </div>
+                <h4>Пока пусто</h4>
+                <h5>
+                  &nbsp;&nbsp;Здесь будут храниться
+                  <br />
+                  уведомления о событиях
+                </h5>
+              </div>
+            </div>
             <div className={classes.login__right_section}>
               <h3 className={classes.login__title}>
                 Получайте бонусы, сохраняйте и отслеживайте заказы
               </h3>
-              <button className={classes.login__inner_button}>
-                <h3>Войти</h3>
+              <button
+                className={classes.login__inner_button}
+                onClick={handleLoginModal}
+              >
+                <h3 className={classes.login__first_button}>Войти</h3>
               </button>
               <a href="!#">Узнать статус заказа</a>
               <br />
@@ -114,6 +139,29 @@ const Header = () => {
               <h3>Блок питания</h3>
             </button>
           </div>
+        </div>
+      </div>
+      <div
+        className={classes.modal__bg}
+        style={{
+          height: "100vh",
+          width: "100vw",
+          background: "rgba(0, 0, 0, 0.4)",
+          position: "absolute",
+          left: "0",
+          top: "0",
+          display: loginModal ? "block" : "none",
+        }}
+        onClick={() => {
+          setLoginModal(false);
+        }}
+      >
+        <div className={classes.popup__form}>
+          <h2>
+            Войти
+            <br />
+            или зарегистрироваться
+          </h2>
         </div>
       </div>
     </div>

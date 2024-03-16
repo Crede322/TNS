@@ -1,9 +1,15 @@
 /* Сброс стилей */
+
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+
+* {
+  font-family: "PT Sans", sans-serif;
+}
 * {
   padding: 0px;
   margin: 0px;
   border: none;
-  font-family: "Inter";
+  font-family: "PT Sans";
   font-weight: 500;
 }
 
