@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import classes from "./Header.module.css";
+import BlueButton from "../divided/BlueButton";
 
-import search from "../img/search.svg";
-import favorite from "../img/favorite.svg";
-import profile from "../img/profile.svg";
-import cart from "../img/cart.svg";
+import search from "../../img/search.svg";
+import favorite from "../../img/favorite.svg";
+import profile from "../../img/profile.svg";
+import cart from "../../img/cart.svg";
 
-import cpu from "../img/nav/cpu.svg";
-import ram from "../img/nav/ram.svg";
-import hhd from "../img/nav/hhd.svg";
-import power from "../img/nav/power.svg";
-import compCase from "../img/nav/case.svg";
-import cpuFan from "../img/nav/cpuFan.svg";
-import videocard from "../img/nav/videocard.svg";
-import motherboard from "../img/nav/motherboard.svg";
-import bell from "../img/nav/login/bell.svg";
+import cpu from "../../img/nav/cpu.svg";
+import ram from "../../img/nav/ram.svg";
+import hhd from "../../img/nav/hhd.svg";
+import power from "../../img/nav/power.svg";
+import compCase from "../../img/nav/case.svg";
+import cpuFan from "../../img/nav/cpuFan.svg";
+import videocard from "../../img/nav/videocard.svg";
+import motherboard from "../../img/nav/motherboard.svg";
+import bell from "../../img/nav/login/bell.svg";
+import { supabase } from "../../helper/supabaseClient";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [inputFocus, setInputFocus] = useState(false);
 
   const handleLoginHover = () => {
     setIsLoginHovered(true);
@@ -31,6 +34,29 @@ const Header = () => {
 
   const handleLoginModal = () => {
     setLoginModal(true);
+  };
+
+  // supabase
+
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithOtp({ email });
+
+    if (error) {
+      alert("что-то пошло не так");
+    } else {
+      alert("Проверьте свою почту");
+    }
+    setLoading(false);
+  };
+
+  const handleInputFocus = () => {
+    setInputFocus(!inputFocus);
   };
 
   return (
@@ -89,12 +115,13 @@ const Header = () => {
               <h3 className={classes.login__title}>
                 Получайте бонусы, сохраняйте и отслеживайте заказы
               </h3>
-              <button
-                className={classes.login__inner_button}
+              <BlueButton
                 onClick={handleLoginModal}
-              >
-                <h3 className={classes.login__first_button}>Войти</h3>
-              </button>
+                width={230}
+                height={45}
+                text="Войти"
+                margin="10px 0 20px 0"
+              />
               <a href="!#">Узнать статус заказа</a>
               <br />
               <a href="!#">Обратная связь</a>
@@ -142,6 +169,52 @@ const Header = () => {
         </div>
       </div>
       <div
+        className={classes.popup__form}
+        style={{ display: loginModal ? "block" : "none" }}
+      >
+        <h2>
+          Войти
+          <br />
+          или зарегистрироваться
+        </h2>
+        <form className={classes.form__widget} onSubmit={handleLogin}>
+          <div>
+            <input
+              className={classes.supabaseInput}
+              type="email"
+              value={email}
+              required={true}
+              onChange={(e) => setEmail(e.target.value)}
+              onFocus={handleInputFocus}
+              onBlur={handleInputFocus}
+              style={{
+                boxShadow: inputFocus
+                  ? "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+                  : "none",
+              }}
+            />
+            <h3
+              style={{
+                transition: "all 0.3s",
+                position: "absolute",
+                top: inputFocus || email !== "" ? "5px" : "20px",
+                left: "20px",
+                color: "#8c8c8c",
+                pointerEvents: "none",
+                fontSize: inputFocus || email !== "" ? "14px" : "16px",
+              }}
+            >
+              e-mail
+            </h3>
+          </div>
+          <div>
+            <button className={"button block"} disabled={loading}>
+              {loading ? <span>Loading</span> : <span>Send magic link</span>}
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
         className={classes.modal__bg}
         style={{
           height: "100vh",
@@ -155,15 +228,7 @@ const Header = () => {
         onClick={() => {
           setLoginModal(false);
         }}
-      >
-        <div className={classes.popup__form}>
-          <h2>
-            Войти
-            <br />
-            или зарегистрироваться
-          </h2>
-        </div>
-      </div>
+      />
     </div>
   );
 };
