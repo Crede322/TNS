@@ -1,8 +1,8 @@
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../divided/BlueButton";
 
-import search from "../../img/search.svg";
+// import search from "../../img/search.svg";
 import favorite from "../../img/favorite.svg";
 import profile from "../../img/profile.svg";
 import cart from "../../img/cart.svg";

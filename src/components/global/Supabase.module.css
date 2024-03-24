@@ -15,3 +15,12 @@
   font-weight: 700;
   color: #4e4e4e;
 }
+
+.errorBox {
+  margin-top: 15px;
+  border-radius: 8px;
+  width: 280px;
+  height: 64px;
+  /* color: #d6ffd5; */
+  background-color: #00be3f;
+}
