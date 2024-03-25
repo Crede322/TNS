@@ -51,27 +51,10 @@ const Supabase = () => {
   };
 
   const checkEmail = async () => {
-    try {
-      const { data: users, error } = await supabase
-        .from("users")
-        .select("*")
-        .eq("email", email);
-
-      if (error) {
-        console.error(error.message);
-      }
-
-      if (users.length > 0) {
-        return 2;
-      } else {
-        return 1;
-      }
-    } catch (error) {
-      console.error(
-        "Ошибка при проверке электронного адреса пользователя:",
-        error.message,
-      );
-    }
+    const { data: users, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email);
   };
 
   const handleSubmit = async (event) => {
