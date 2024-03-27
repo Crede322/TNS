@@ -9,6 +9,10 @@ const Supabase = () => {
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [formState, setFormState] = useState(0);
+  const [loginSwitcher, setLoginSwitcher] = useState(false);
+  const handleLoginSwitcher = () => {
+    setLoginSwitcher(!loginSwitcher);
+  };
 
   const handleInputFocus = () => {
     setEmailFocus(!emailFocus);
@@ -34,6 +38,19 @@ const Supabase = () => {
 
   return (
     <form className={classes.form__widget} onSubmit={handleSubmit}>
+      <div className={classes.switcher} onClick={handleLoginSwitcher}>
+        <div className={classes.switch}>
+          <div
+            className={classes.moving_box}
+            style={{
+              left: loginSwitcher === false ? "2px" : "65px",
+              width: loginSwitcher === false ? "80px" : "210px",
+            }}
+          >
+            <h2>{loginSwitcher === false ? "Войти" : "Зарегистрироваться"}</h2>
+          </div>
+        </div>
+      </div>
       <div style={{ position: "relative" }}>
         <input
           className={classes.supabaseInput}

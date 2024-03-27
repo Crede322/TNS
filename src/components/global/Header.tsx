@@ -21,6 +21,7 @@ import Supabase from "./Supabase";
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [loginSwitcher, setLoginSwitcher] = useState(false);
 
   const handleLoginHover = () => {
     setIsLoginHovered(true);
@@ -148,11 +149,6 @@ const Header = () => {
         className={classes.popup__form}
         style={{ display: loginModal ? "block" : "none" }}
       >
-        <h2>
-          Войти
-          <br />
-          или зарегистрироваться
-        </h2>
         <Supabase />
       </div>
       <div
