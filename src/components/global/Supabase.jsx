@@ -9,6 +9,7 @@ const Supabase = () => {
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [formState, setFormState] = useState(0);
+
   const handleInputFocus = () => {
     setEmailFocus(!emailFocus);
   };
@@ -16,66 +17,18 @@ const Supabase = () => {
     setPasswordFocus(!passwordFocus);
   };
 
-  const loginUser = async () => {
-    try {
-      const { user, session, error } = await supabase.auth.signIn({
-        email,
-        password,
-      });
-      if (error) {
-        console.error("Ошибка при входе:", error.message);
-      }
-      console.log("Успешный вход в систему для пользователя:", user);
-      console.log("Информация о сеансе:", session);
-    } catch (error) {
-      console.error("Ошибка при входе:", error.message);
-    }
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const registerUser = async () => {
-    try {
-      const { user, session, error } = await supabase.auth.signUp(
-        {
-          email,
-          password,
-        },
-        {
-          redirectTo: window.location.origin,
-        },
-      );
-      if (error) throw error;
-      return { user, session };
-    } catch (e) {
-      throw e;
-    }
-  };
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
-  const checkEmail = async () => {
-    const { data: users, error } = await supabase
-      .from("users")
-      .select("*")
-      .eq("email", email);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (password.length > 6) {
-      const emailStatus = await checkEmail();
-      if (emailStatus === 1) {
-        try {
-          const { user, session } = await registerUser();
-          console.log("Пользователь успешно зарегистрирован:", user);
-          console.log("Информация о сеансе:", session);
-          setFormState(2);
-        } catch (error) {
-          console.error("Ошибка регистрации:", error.message);
-          setFormState(1);
-        }
-      } else if (emailStatus === 2) {
-        loginUser();
-      }
-    } else if (password.length < 6) {
-      setFormState(1);
+    if (error) {
+      console.error("Ошибка регистрации:", error.message);
+    } else {
+      console.log("Пользователь зарегистрирован:", data, data.user.id);
     }
   };
 
