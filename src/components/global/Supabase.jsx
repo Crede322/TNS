@@ -21,6 +21,21 @@ const Supabase = () => {
     setPasswordFocus(!passwordFocus);
   };
 
+  const userExists = async (email) => {
+    const { data, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email);
+
+    if (error) {
+      console.error(error);
+    } else {
+      console.log("да вроде нормик");
+    }
+    return data.length > 0;
+  };
+
+  // userExists();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,9 +45,11 @@ const Supabase = () => {
     });
 
     if (error) {
-      console.error("Ошибка регистрации:", error.message);
+      console.log(error);
+    } else if (data.user.identities.length === 0) {
+      console.error("User already registered");
     } else {
-      console.log("Пользователь зарегистрирован:", data, data.user.id);
+      console.log("пользователь успешно зарегистрирован", data.user.id);
     }
   };
 
