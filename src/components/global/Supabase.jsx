@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { supabase } from "../../helper/supabaseClient";
 import BlueButton from "../divided/BlueButton";
 import classes from "./Supabase.module.css";
+import eyeOne from "../../img/nav/login/eyeOne.svg";
+import eyeTwo from "../../img/nav/login/eyeTwo.svg";
 
 const Supabase = () => {
   const [email, setEmail] = useState("");
@@ -10,10 +12,12 @@ const Supabase = () => {
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [formState, setFormState] = useState(0);
   const [loginSwitcher, setLoginSwitcher] = useState(false);
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
+  const [formAlert, setFormAlert] = useState("");
+
   const handleLoginSwitcher = () => {
     setLoginSwitcher(!loginSwitcher);
   };
-
   const handleInputFocus = () => {
     setEmailFocus(!emailFocus);
   };
@@ -21,40 +25,61 @@ const Supabase = () => {
     setPasswordFocus(!passwordFocus);
   };
 
-  const userExists = async (email) => {
-    const { data, error } = await supabase
-      .from("users")
-      .select("*")
-      .eq("email", email);
-
-    if (error) {
-      console.error(error);
-    } else {
-      console.log("да вроде нормик");
-    }
-    return data.length > 0;
-  };
-
-  // userExists();
-  const handleSubmit = async (e) => {
+  const handleSubmitRegister = async (e) => {
     e.preventDefault();
-
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
-
-    if (error) {
-      console.log(error);
-    } else if (data.user.identities.length === 0) {
-      console.error("User already registered");
+    if (error.message === "Too Many Requests") {
+      setFormAlert("Повторите попытку позже");
+      console.error(error);
+      setFormState(2);
+    } else if (data && data.user && data.user.identities.length === 0) {
+      setFormAlert("Пользователь уже существует");
+      console.error(error);
+      setFormState(2);
     } else {
-      console.log("пользователь успешно зарегистрирован", data.user.id);
+      console.log("пользователь успешно зарегистрирован.", data.user.id);
+      setFormAlert("пользователь успешно зарегистрирован.");
+      setFormState(1);
     }
   };
 
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+    if (error && error.message === "Invalid login credentials") {
+      console.log("error 1");
+      setFormState(2);
+      setFormAlert("Неправильный e-mail/пароль");
+    } else if (error && error.message === "Email not confirmed") {
+      console.log("error 2");
+      setFormState(2);
+      setFormAlert("подтвердите свой аккаунт через e-mail");
+    } else if (data.user.id) {
+      console.log("succes 1");
+      setFormAlert("вы вошли в аккаунт.");
+      console.log("user id is =", data, data.user.id);
+      setFormState(1);
+    }
+  };
+
+  const showPassword = () => {
+    setIsPasswordShown(!isPasswordShown);
+    console.log("asda");
+  };
+
   return (
-    <form className={classes.form__widget} onSubmit={handleSubmit}>
+    <form
+      className={classes.form__widget}
+      onSubmit={
+        loginSwitcher === false ? handleSubmitLogin : handleSubmitRegister
+      }
+    >
       <div className={classes.switcher} onClick={handleLoginSwitcher}>
         <div className={classes.switch}>
           <div
@@ -102,7 +127,7 @@ const Supabase = () => {
       <div style={{ position: "relative" }}>
         <input
           className={classes.supabaseInput}
-          type="password"
+          type={isPasswordShown ? "text" : "password"}
           value={password}
           required={true}
           onChange={(e) => setPassword(e.target.value)}
@@ -127,22 +152,29 @@ const Supabase = () => {
         >
           пароль
         </h3>
+        <img
+          src={isPasswordShown ? eyeTwo : eyeOne}
+          alt="img show password"
+          style={{
+            position: "absolute",
+            width: "40px",
+            right: "12px",
+            top: "12px",
+            cursor: "pointer",
+          }}
+          onClick={showPassword}
+        />
       </div>
       <div
         className={classes.errorBox}
         style={{
-          background: formState === 1 ? "#ffebea" : "#d6ffd5",
-          color: formState === 1 ? "#ff635b" : "#00be3f",
+          background: formState === 1 ? "#d6ffd5" : "#ffebea",
+          color: formState === 1 ? "#00be3f" : "#ff635b",
           display: formState !== 0 ? "block" : "none",
           padding: "20px 10px",
         }}
       >
-        <h3>
-          {formState === 1
-            ? "E-mail или пароль указаны неверно"
-            : "Проверьте свою почту"}
-          .
-        </h3>
+        <h3>{formAlert}</h3>
       </div>
       <BlueButton
         width={280}
