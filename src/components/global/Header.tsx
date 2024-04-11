@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../divided/BlueButton";
+import Supabase from "./Supabase";
 
 // import search from "../../img/search.svg";
 import favorite from "../../img/favorite.svg";
@@ -16,7 +17,6 @@ import cpuFan from "../../img/nav/cpuFan.svg";
 import videocard from "../../img/nav/videocard.svg";
 import motherboard from "../../img/nav/motherboard.svg";
 import bell from "../../img/nav/login/bell.svg";
-import Supabase from "./Supabase";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);

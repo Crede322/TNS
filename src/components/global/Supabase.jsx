@@ -31,11 +31,11 @@ const Supabase = () => {
       email,
       password,
     });
-    if (error.message === "Too Many Requests") {
+    if (error) {
       setFormAlert("Повторите попытку позже");
-      console.error(error);
+      console.log(error);
       setFormState(2);
-    } else if (data && data.user && data.user.identities.length === 0) {
+    } else if (data.user.identities.length === 0) {
       setFormAlert("Пользователь уже существует");
       console.error(error);
       setFormState(2);
@@ -45,7 +45,6 @@ const Supabase = () => {
       setFormState(1);
     }
   };
-
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -53,15 +52,12 @@ const Supabase = () => {
       password: password,
     });
     if (error && error.message === "Invalid login credentials") {
-      console.log("error 1");
       setFormState(2);
       setFormAlert("Неправильный e-mail/пароль");
     } else if (error && error.message === "Email not confirmed") {
-      console.log("error 2");
       setFormState(2);
       setFormAlert("подтвердите свой аккаунт через e-mail");
     } else if (data.user.id) {
-      console.log("succes 1");
       setFormAlert("вы вошли в аккаунт.");
       console.log("user id is =", data, data.user.id);
       setFormState(1);
@@ -70,7 +66,6 @@ const Supabase = () => {
 
   const showPassword = () => {
     setIsPasswordShown(!isPasswordShown);
-    console.log("asda");
   };
 
   return (
