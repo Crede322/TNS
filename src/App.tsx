@@ -1,8 +1,11 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Mainpage from "./pages/Mainpage";
+import { Provider } from "react-redux";
+import store from "./store/redux";
+import Mainpage from "./pages/mainpage/Mainpage";
 import PageTwo from "./pages/PageTwo";
 import "./common.css";
+import Header from "./components/global/Header";
 
 const router = createBrowserRouter([
   {
@@ -17,9 +20,12 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <Provider store={store}>
+      <div>
+        <Header />
+        <RouterProvider router={router} />
+      </div>
+    </Provider>
   );
 };
 
