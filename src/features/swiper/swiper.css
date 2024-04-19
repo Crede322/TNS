@@ -1,0 +1,19 @@
+.swiper-container {
+  display: flex;
+  height: 206px;
+  overflow: hidden;
+  width: 400px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  height: 200px;
+}
+
+.swiper-slide {
+  height: 206px !important;
+  width: 183px !important;
+  margin: 0px !important;
+  margin: 0 15px 0 0 !important;
+  z-index: 1 !important;
+}

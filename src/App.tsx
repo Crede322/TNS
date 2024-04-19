@@ -5,7 +5,7 @@ import store from "./store/redux";
 import Mainpage from "./pages/mainpage/Mainpage";
 import PageTwo from "./pages/PageTwo";
 import "./common.css";
-import Header from "./components/global/Header";
+import Header from "./components/global/header/Header";
 
 const router = createBrowserRouter([
   {

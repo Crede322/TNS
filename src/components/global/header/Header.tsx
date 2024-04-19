@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import classes from "./Header.module.css";
-import BlueButton from "../divided/BlueButton";
-import Supabase from "./Supabase";
+import BlueButton from "../../divided/BlueButton";
+import Supabase from "../Supabase";
 
 // import search from "../../img/search.svg";
-import favorite from "../../img/favorite.svg";
-import profile from "../../img/profile.svg";
-import cart from "../../img/cart.svg";
+import favorite from "../../../img/favorite.svg";
+import profile from "../../../img/profile.svg";
+import cart from "../../../img/cart.svg";
 
-import cpu from "../../img/nav/cpu.svg";
-import ram from "../../img/nav/ram.svg";
-import hhd from "../../img/nav/hhd.svg";
-import power from "../../img/nav/power.svg";
-import compCase from "../../img/nav/case.svg";
-import cpuFan from "../../img/nav/cpuFan.svg";
-import videocard from "../../img/nav/videocard.svg";
-import motherboard from "../../img/nav/motherboard.svg";
-import bell from "../../img/nav/login/bell.svg";
+import bell from "../../../img/nav/login/bell.svg";
+import HeaderNav from "./HeaderNav";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -42,7 +35,9 @@ const Header = () => {
           <div className={classes.header__container}>
             <ul className={classes.header__row}>
               <li>
-                <button className={classes.menu__main_button}></button>
+                <button className={classes.menu__main_button}>
+                  <h1>TNS</h1>
+                </button>
               </li>
               <li>
                 <div className={classes.search}>Поиск</div>
@@ -65,6 +60,7 @@ const Header = () => {
                 </button>
               </li>
             </ul>
+            {/* <HeaderNav /> */}
             <div
               className={classes.login_popup}
               onMouseLeave={handleLoginLeave}
@@ -106,42 +102,6 @@ const Header = () => {
                 <a href="!#">Обмен, возврат, гарантия</a>
                 <br />
               </div>
-            </div>
-          </div>
-          <div className={classes.nav__wrapper}>
-            <div className={classes.nav}>
-              <button>
-                <img src={videocard} alt="img videocard" />
-                <h3>Видеокарта</h3>
-              </button>
-              <button>
-                <img src={cpu} alt="img cpu" />
-                <h3>Процессор</h3>
-              </button>
-              <button>
-                <img src={motherboard} alt="motherboard" />
-                <h3>Мат. плата</h3>
-              </button>
-              <button className={classes.ram__btn}>
-                <img src={ram} alt="img ram" className={classes.ram__img} />
-                <h3>Оперативная память</h3>
-              </button>
-              <button>
-                <img src={compCase} alt="img case" />
-                <h3>Корпус</h3>
-              </button>
-              <button>
-                <img src={cpuFan} alt="img fan" />
-                <h3>Охлаждение</h3>
-              </button>
-              <button>
-                <img src={hhd} alt="img hard disk" />
-                <h3>Накопители</h3>
-              </button>
-              <button>
-                <img src={power} alt="img power supply" />
-                <h3>Блок питания</h3>
-              </button>
             </div>
           </div>
         </div>
