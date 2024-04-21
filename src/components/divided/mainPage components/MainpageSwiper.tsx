@@ -1,5 +1,5 @@
 import React from "react";
-import MenuButton from "../MenuButton";
+import MenuButton from "./MenuButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";

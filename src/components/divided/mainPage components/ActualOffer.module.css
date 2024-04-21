@@ -1,0 +1,52 @@
+.actual_offers_row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.actual_offer_wrapper {
+  width: 333px;
+  height: 160px;
+}
+
+.actual_offer_wrapper h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4e4e4e;
+  margin-bottom: 16px;
+}
+
+.content {
+  display: flex;
+}
+
+.offer_button {
+  height: 108px;
+  width: 108px;
+  box-shadow: 0 1px 2px #0000001a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.offer_button img {
+  height: 77px;
+  width: 78px;
+}
+
+.offer_categories {
+  margin-left: 14px;
+}
+
+.offer_categories h3 {
+  font-size: 14px;
+  color: #8c8c8c;
+  margin-bottom: 6px;
+}
+
+.actual_offers_row h3:hover,
+h2:hover {
+  color: #2c7da0;
+}
