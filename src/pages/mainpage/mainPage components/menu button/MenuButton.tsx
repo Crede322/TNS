@@ -22,7 +22,6 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   background,
   innerButton,
   marginRight,
-  opacity,
   imageSrc,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -41,6 +40,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     borderRadius: "16px",
     marginRight: marginRight,
     transition: "background-color 0.3s",
+    minWidth: innerButton ? "283px" : "",
   };
 
   return (

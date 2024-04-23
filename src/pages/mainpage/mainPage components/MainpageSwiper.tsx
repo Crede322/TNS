@@ -1,5 +1,5 @@
 import React from "react";
-import MenuButton from "./MenuButton";
+import MenuButton from "./menu button/MenuButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
@@ -14,6 +14,10 @@ import shieldImg from "../../../img/mainMenu/shieldImg.png";
 import gear from "../../../img/mainMenu/gear.png";
 import question from "../../../img/mainMenu/question.png";
 import classes from "../../../pages/mainpage/Mainpage.module.css";
+
+const sliderStyle = {
+  maxWidth: "160px",
+};
 
 const MainpageSwiper = () => {
   return (
@@ -31,16 +35,15 @@ const MainpageSwiper = () => {
         />
         <div className={classes.rightside__menu}>
           <Swiper
-            slidesPerView={6}
-            spaceBetween={30}
+            slidesPerView={5.8}
+            spaceBetween={40}
             freeMode={true}
-            loop={true}
             pagination={{
               clickable: true,
             }}
             modules={[FreeMode]}
           >
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}
@@ -50,7 +53,7 @@ const MainpageSwiper = () => {
                 imageSrc={catalogueImg}
               />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}
@@ -60,7 +63,7 @@ const MainpageSwiper = () => {
                 imageSrc={megaphoneImg}
               />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}
@@ -70,7 +73,7 @@ const MainpageSwiper = () => {
                 imageSrc={assemblePC}
               />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}
@@ -80,7 +83,7 @@ const MainpageSwiper = () => {
                 imageSrc={fireEmoji}
               />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}
@@ -90,7 +93,7 @@ const MainpageSwiper = () => {
                 imageSrc={shieldImg}
               />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}
@@ -100,7 +103,7 @@ const MainpageSwiper = () => {
                 imageSrc={gear}
               />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={sliderStyle}>
               <MenuButton
                 width={183}
                 height={206}

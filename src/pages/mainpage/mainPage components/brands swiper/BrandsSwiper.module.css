@@ -1,0 +1,16 @@
+.wrapper {
+  width: 2600px;
+  margin-top: 50px;
+}
+
+.slide {
+  display: flex;
+  height: 69px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #0000001a;
+  margin: 0;
+  width: 140px !important;
+}

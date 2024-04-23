@@ -122,6 +122,7 @@ const Header = () => {
           left: "0",
           top: "0",
           display: loginModal ? "block" : "none",
+          zIndex: "2",
         }}
         onClick={() => {
           setLoginModal(false);
