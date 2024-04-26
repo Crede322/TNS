@@ -6,8 +6,10 @@
   border: 1px solid #0000001a;
   border-radius: 12px;
   text-align: left;
-  /* padding: 28px 24px; */
+  padding: 28px 24px;
   padding: 25px 0 80px 25px;
+  position: relative;
+  overflow: hidden;
 }
 
 .discounts_slide_wrapper h2 {
@@ -36,10 +38,9 @@
 
 .discounts_slide_wrapper img {
   height: 120px;
-  width: 120px;
+  width: 150px;
   position: absolute;
   bottom: -20px;
-  right: 20px;
 }
 
 .discounts_button {
@@ -48,4 +49,8 @@
   height: 44px;
   border-radius: 8px;
   margin-top: 22px;
+}
+
+.discounts_button:hover {
+  background-color: #f7f7f7;
 }

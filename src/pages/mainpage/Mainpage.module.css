@@ -1,8 +1,13 @@
+.top_line {
+  height: 20px;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 3;
+}
+
 .wrapper {
   width: 1400px;
   margin: auto;
-  background-color: #fff;
-  overflow: hidden;
 }
 
 .mainpage__row {
@@ -10,7 +15,7 @@
   height: 206px;
   margin: auto;
   display: flex;
-  justify-content: spa;
+  overflow: hidden;
 }
 
 .rightside__menu {

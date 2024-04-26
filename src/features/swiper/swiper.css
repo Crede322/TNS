@@ -2,10 +2,20 @@
   margin: 0 40px 0 0;
 }
 
+.brands_swiper_wrapper {
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.brands_swiper_wrapper .swiper {
+  width: 2600px;
+}
+
 .discount_wrapper .swiper-slide {
   margin: 0;
 }
 
 .discount_wrapper {
   margin-top: 50px;
+  margin-bottom: 50px;
 }

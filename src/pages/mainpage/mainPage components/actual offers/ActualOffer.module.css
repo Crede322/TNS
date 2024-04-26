@@ -1,7 +1,7 @@
 .actual_offers_row {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .actual_offer_wrapper {

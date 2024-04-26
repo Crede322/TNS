@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "../../../../features/swiper/swiper.css";
 import DiscountsSlide from "./discounts slide/DiscountsSlide";
+import MenuButton from "../menu button/MenuButton";
 
 interface Item {
   id: number;
@@ -45,64 +46,49 @@ const Discounts = () => {
         <SwiperSlide style={{ marginRight: "10px" }}>
           <DiscountsSlide
             title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
+            description="AMD Ryzen Threadripper 3960X"
+            price="120 000 ₽"
+            prevPrice="140 000 ₽"
+            link="https://vk.com/im?sel=c460"
+            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/15"
+            imgWidth="150px"
+            imgRight="0px"
           />
         </SwiperSlide>
-        <SwiperSlide style={{ margin: "0 10px 0 0" }}>
+        <SwiperSlide>
           <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
+            title="Ещё 2 дня скидка"
+            description="AMD Ryzen 9 7950X3D"
+            price="60 000 ₽"
+            prevPrice="65 000 ₽"
+            link="https://vk.com/im?sel=c460"
+            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/18"
+            imgWidth="130px"
+            imgBottom="-10px"
           />
         </SwiperSlide>
-        <SwiperSlide style={{ margin: "0 10px 0 0" }}>
+        <SwiperSlide>
           <DiscountsSlide
             title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
+            description="AMD FX-8350"
+            price="5 000 ₽"
+            prevPrice="6 000 ₽"
+            link="https://vk.com/im?sel=c460"
+            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/19"
+            imgWidth="130px"
+            imgBottom="-10px"
           />
         </SwiperSlide>
-        <SwiperSlide style={{ margin: "0 10px 0 0" }}>
+        <SwiperSlide>
           <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
-          />
-        </SwiperSlide>
-        <SwiperSlide style={{ margin: "0 10px 0 0" }}>
-          <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
-          />
-        </SwiperSlide>
-        <SwiperSlide style={{ margin: "0 10px 0 0" }}>
-          <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
-          />
-        </SwiperSlide>
-        <SwiperSlide style={{ margin: "0 10px 0 0" }}>
-          <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="процессор"
-            price="4500 ₽"
-            prevPrice="5200 ₽"
-            link="asasdf"
+            title="Ещё 1 день скидка"
+            description="AMD Ryzen 5 5600X"
+            price="12 600 ₽"
+            prevPrice="14 000 ₽"
+            link="https://vk.com/im?sel=c460"
+            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/20"
+            imgWidth="130px"
+            imgBottom="-10px"
           />
         </SwiperSlide>
       </Swiper>

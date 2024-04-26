@@ -19,7 +19,7 @@ import classes from "./BrandsSwiper.module.css";
 
 const BrandsSwiper = () => {
   return (
-    <div className={classes.wrapper}>
+    <div className="brands_swiper_wrapper">
       <Swiper slidesPerView={10} spaceBetween={30}>
         <SwiperSlide className={classes.slide}>
           <img src={acer} alt="brand logo" />

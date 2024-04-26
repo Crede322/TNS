@@ -7,6 +7,10 @@ interface DiscountsSlideProps {
   price: string;
   prevPrice: string;
   link: string;
+  img: string;
+  imgWidth?: string;
+  imgRight?: string;
+  imgBottom?: string;
 }
 
 const DiscountsSlide: React.FC<DiscountsSlideProps> = ({
@@ -15,9 +19,22 @@ const DiscountsSlide: React.FC<DiscountsSlideProps> = ({
   price,
   prevPrice,
   link,
+  img,
+  imgWidth,
+  imgRight,
+  imgBottom,
 }) => {
+  const handleClick = () => {
+    window.location.href = link;
+  };
+
+  const imageStyle = {
+    width: imgWidth ? imgWidth : "120px",
+    right: imgRight ? imgRight : "10px",
+    bottom: imgBottom ? imgBottom : "-20px",
+  };
   return (
-    <div className={classes.discounts_slide_wrapper}>
+    <div className={classes.discounts_slide_wrapper} onClick={handleClick}>
       <h2>{title}</h2>
       <h3>{description}</h3>
       <div style={{ display: "flex" }}>
@@ -27,10 +44,7 @@ const DiscountsSlide: React.FC<DiscountsSlideProps> = ({
       <button className={classes.discounts_button}>
         <h3>Подробнее</h3>
       </button>
-      <img
-        src="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/10"
-        alt="discount img"
-      />
+      <img src={img} alt="discount img" style={imageStyle} />
     </div>
   );
 };

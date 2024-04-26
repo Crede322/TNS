@@ -1,3 +1,14 @@
+.header_fixer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.pseudo_header {
+  width: 100vw;
+  height: 100px;
+}
 .wrapper {
   height: 100px;
   width: 100vw;
@@ -29,7 +40,7 @@
 
 /* кнопки */
 .menu__main_button {
-  width: 283px;
+  width: 273px;
   height: 60px;
 
   background-color: #2c7da0;
