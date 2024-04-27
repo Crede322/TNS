@@ -1,6 +1,63 @@
 .footer {
   background-color: #333;
-  height: 100px;
   width: 100vw;
   margin: auto;
+}
+
+.container {
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
+
+footer h1 {
+  font-family: "Anta", sans-serif;
+  color: #0080f5;
+  font-weight: 700;
+  font-size: 30px;
+  width: 100px;
+}
+
+.footer_list {
+  display: flex;
+  margin-top: 50px;
+}
+
+.row_two {
+  margin-left: 100px;
+}
+
+.footer_title {
+  font-weight: 600;
+  width: 250px;
+  line-height: 50px;
+  border-bottom: 1px solid #4e4e4e;
+}
+
+.title_two {
+  width: 500px;
+}
+
+.title_two_divider {
+  display: flex;
+}
+
+.footer_row h2 {
+  color: #fff;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.footer_row a {
+  color: #fff;
+  display: block;
+  margin-bottom: 16px;
+  max-width: max-content;
+}
+
+.footer_row a:hover {
+  color: #0080f5;
 }

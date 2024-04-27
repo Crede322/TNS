@@ -7,7 +7,7 @@ const ActualOffer: React.FC = () => {
     <div className={classes.actual_offers_row}>
       <div className={classes.actual_offer_wrapper}>
         <a href="!#">
-          <h2>Домашний офис</h2>
+          <h4>Домашний офис</h4>
         </a>
         <div className={classes.content}>
           <a href="!#" className={classes.offer_button}>
@@ -15,23 +15,23 @@ const ActualOffer: React.FC = () => {
           </a>
           <div className={classes.offer_categories}>
             <a href="!#">
-              <h3>Персональные компьютеры</h3>
+              <h5>Персональные компьютеры</h5>
             </a>
             <a href="!#">
-              <h3>Периферия</h3>
+              <h5>Периферия</h5>
             </a>
             <a href="!#">
-              <h3>Мониторы</h3>
+              <h5>Мониторы</h5>
             </a>
             <a href="!#">
-              <h3>Моноблоки</h3>
+              <h5>Моноблоки</h5>
             </a>
           </div>
         </div>
       </div>
       <div className={classes.actual_offer_wrapper}>
         <a href="!#">
-          <h2>Домашний офис</h2>
+          <h4>Домашний офис</h4>
         </a>
         <div className={classes.content}>
           <a href="!#" className={classes.offer_button}>
@@ -39,23 +39,23 @@ const ActualOffer: React.FC = () => {
           </a>
           <div className={classes.offer_categories}>
             <a href="!#">
-              <h3>Персональные компьютеры</h3>
+              <h5>Персональные компьютеры</h5>
             </a>
             <a href="!#">
-              <h3>Периферия</h3>
+              <h5>Периферия</h5>
             </a>
             <a href="!#">
-              <h3>Мониторы</h3>
+              <h5>Мониторы</h5>
             </a>
             <a href="!#">
-              <h3>Моноблоки</h3>
+              <h5>Моноблоки</h5>
             </a>
           </div>
         </div>
       </div>
       <div className={classes.actual_offer_wrapper}>
         <a href="!#">
-          <h2>Домашний офис</h2>
+          <h4>Домашний офис</h4>
         </a>
         <div className={classes.content}>
           <a href="!#" className={classes.offer_button}>
@@ -63,23 +63,23 @@ const ActualOffer: React.FC = () => {
           </a>
           <div className={classes.offer_categories}>
             <a href="!#">
-              <h3>Персональные компьютеры</h3>
+              <h5>Персональные компьютеры</h5>
             </a>
             <a href="!#">
-              <h3>Периферия</h3>
+              <h5>Периферия</h5>
             </a>
             <a href="!#">
-              <h3>Мониторы</h3>
+              <h5>Мониторы</h5>
             </a>
             <a href="!#">
-              <h3>Моноблоки</h3>
+              <h5>Моноблоки</h5>
             </a>
           </div>
         </div>
       </div>
       <div className={classes.actual_offer_wrapper}>
         <a href="!#">
-          <h2>Домашний офис</h2>
+          <h4>Домашний офис</h4>
         </a>
         <div className={classes.content}>
           <a href="!#" className={classes.offer_button}>
@@ -87,16 +87,16 @@ const ActualOffer: React.FC = () => {
           </a>
           <div className={classes.offer_categories}>
             <a href="!#">
-              <h3>Персональные компьютеры</h3>
+              <h5>Персональные компьютеры</h5>
             </a>
             <a href="!#">
-              <h3>Периферия</h3>
+              <h5>Периферия</h5>
             </a>
             <a href="!#">
-              <h3>Мониторы</h3>
+              <h5>Мониторы</h5>
             </a>
             <a href="!#">
-              <h3>Моноблоки</h3>
+              <h5>Моноблоки</h5>
             </a>
           </div>
         </div>

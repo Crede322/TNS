@@ -10,6 +10,7 @@ import cart from "../../../img/cart.svg";
 
 import bell from "../../../img/nav/login/bell.svg";
 import HeaderNav from "./HeaderNav";
+import HeaderSearch from "./HeaderSearch";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -41,7 +42,9 @@ const Header = () => {
                   </button>
                 </li>
                 <li>
-                  <div className={classes.search}>Поиск</div>
+                  <div className={classes.search}>
+                    <HeaderSearch />
+                  </div>
                 </li>
                 <li>
                   <button className={classes.menu__btn}>

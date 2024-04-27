@@ -9,7 +9,7 @@
   height: 160px;
 }
 
-.actual_offer_wrapper h2 {
+.actual_offer_wrapper h4 {
   font-size: 18px;
   font-weight: 700;
   color: #4e4e4e;
@@ -40,13 +40,13 @@
   margin-left: 14px;
 }
 
-.offer_categories h3 {
+.offer_categories h5 {
   font-size: 14px;
   color: #8c8c8c;
   margin-bottom: 6px;
 }
 
-.actual_offers_row h3:hover,
-h2:hover {
+.actual_offer_wrapper h4:hover,
+h5:hover {
   color: #2c7da0;
 }

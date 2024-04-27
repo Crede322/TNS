@@ -9,6 +9,7 @@
   width: 100vw;
   height: 100px;
 }
+
 .wrapper {
   height: 100px;
   width: 100vw;
@@ -43,7 +44,7 @@
   width: 273px;
   height: 60px;
 
-  background-color: #2c7da0;
+  background-color: #0080f5;
   border-radius: 12px;
 }
 
@@ -55,13 +56,6 @@
   font-weight: 700;
   font-size: 30px;
   width: 100px;
-}
-
-.search {
-  width: 800px;
-  background-color: #f7f7f7;
-  height: 60px;
-  border-radius: 12px;
 }
 
 .menu__btn {
