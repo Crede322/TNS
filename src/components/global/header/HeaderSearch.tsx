@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import classes from "./HeaderSearch.module.css";
 import { supabase } from "../../../helper/supabaseClient";
 import searchImg from "../../../img/search.svg";
+import crossImg from "../../../img/header images/cross.svg";
 
 const HeaderSearch = () => {
   const [data, setData] = useState<products[]>([]);
@@ -90,6 +91,20 @@ const HeaderSearch = () => {
             </li>
           ))}
         </ul>
+        <div className={classes.search_buttons}>
+          <button
+            className={classes.button_one}
+            style={{ display: searchTerm.length > 0 ? "inline-block" : "none" }}
+            onClick={() => {
+              setSearchTerm("");
+            }}
+          >
+            <img src={crossImg} alt="cross img" />
+          </button>
+          <button className={classes.button_two}>
+            <img src={searchImg} alt="search img" />
+          </button>
+        </div>
       </div>
     </div>
   );
