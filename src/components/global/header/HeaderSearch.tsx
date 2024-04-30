@@ -1,20 +1,29 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import {
+  clearSearchTerm,
+  setSearchTerm,
+  selectSearchTerm,
+} from "../../../features/counter/searchSlice";
 import classes from "./HeaderSearch.module.css";
 import { supabase } from "../../../helper/supabaseClient";
 import searchImg from "../../../img/search.svg";
 import crossImg from "../../../img/header images/cross.svg";
+import { useDispatch } from "react-redux";
 
 const HeaderSearch = () => {
   const [data, setData] = useState<products[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>("");
   const [overlay, changeOverlay] = useState<boolean>(false);
   const [hover, changeHover] = useState<boolean>(false);
+  const searchTerm = useSelector(selectSearchTerm);
 
   interface products {
     id: number;
     cpuName: string;
   }
   const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
+
   const handleWrapperClick = () => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -23,7 +32,6 @@ const HeaderSearch = () => {
   };
 
   const inputBlur = () => {
-    console.log("blurred");
     if (inputRef.current) {
       inputRef.current.blur();
     }
@@ -42,7 +50,7 @@ const HeaderSearch = () => {
   }, []);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+    dispatch(setSearchTerm(event.target.value));
   };
 
   const filteredData = data.filter((product) =>
@@ -96,7 +104,7 @@ const HeaderSearch = () => {
             className={classes.button_one}
             style={{ display: searchTerm.length > 0 ? "inline-block" : "none" }}
             onClick={() => {
-              setSearchTerm("");
+              dispatch(clearSearchTerm());
             }}
           >
             <img src={crossImg} alt="cross img" />

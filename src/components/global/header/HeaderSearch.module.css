@@ -80,7 +80,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .search_buttons {
   position: absolute;
   right: 10px;
-  bottom: 5px;
+  bottom: 8px;
 }
 
 .search_buttons button {

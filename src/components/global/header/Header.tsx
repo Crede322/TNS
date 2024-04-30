@@ -3,13 +3,11 @@ import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
 import Supabase from "../Supabase";
 
-// import search from "../../img/search.svg";
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
 
 import bell from "../../../img/nav/login/bell.svg";
-import HeaderNav from "./HeaderNav";
 import HeaderSearch from "./HeaderSearch";
 
 const Header = () => {
