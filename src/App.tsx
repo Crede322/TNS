@@ -4,7 +4,6 @@ import store from "./store/redux";
 import Mainpage from "./pages/mainpage/Mainpage";
 import SearchPage from "./pages/searchPage/SearchPage";
 import "./common.css";
-import Header from "./components/global/header/Header";
 import Footer from "./components/global/footer/Footer";
 
 const router = createBrowserRouter([
@@ -22,11 +21,8 @@ const App = () => {
   return (
     <div style={{ overflowX: "hidden" }}>
       <Provider store={store}>
-        <div>
-          <Header />
-          <RouterProvider router={router} />
-          <Footer />
-        </div>
+        <RouterProvider router={router} />
+        <Footer />
       </Provider>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
 import Supabase from "../Supabase";
+import { useNavigate } from "react-router-dom";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
@@ -9,6 +10,7 @@ import cart from "../../../img/cart.svg";
 
 import bell from "../../../img/nav/login/bell.svg";
 import HeaderSearch from "./HeaderSearch";
+import { redirect } from "react-router-dom";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -27,6 +29,11 @@ const Header = () => {
     setLoginModal(true);
   };
 
+  const navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
+
   return (
     <header>
       <div className={classes.header_fixer}>
@@ -35,7 +42,10 @@ const Header = () => {
             <div className={classes.header__container}>
               <ul className={classes.header__row}>
                 <li>
-                  <button className={classes.menu__main_button}>
+                  <button
+                    className={classes.menu__main_button}
+                    onClick={redirect}
+                  >
                     <h1>TNS</h1>
                   </button>
                 </li>

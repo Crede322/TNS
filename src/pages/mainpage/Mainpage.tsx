@@ -1,3 +1,5 @@
+import Footer from "../../components/global/footer/Footer";
+import Header from "../../components/global/header/Header";
 import classes from "./Mainpage.module.css";
 import MainpageSwiper from "./mainPage components/MainpageSwiper";
 import ActualOffers from "./mainPage components/actual offers/ActualOffers";
@@ -7,7 +9,7 @@ import Discounts from "./mainPage components/discounts/Discounts";
 const Mainpage = () => {
   return (
     <div>
-      {/* <div className={classes.top_line} /> */}
+      <Header />
       <div className={classes.wrapper}>
         <MainpageSwiper />
         <ActualOffers />

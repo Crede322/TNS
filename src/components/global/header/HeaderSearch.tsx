@@ -1,28 +1,30 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   clearSearchTerm,
   setSearchTerm,
   selectSearchTerm,
 } from "../../../features/counter/searchSlice";
+import { useDispatch } from "react-redux";
 import classes from "./HeaderSearch.module.css";
 import { supabase } from "../../../helper/supabaseClient";
 import searchImg from "../../../img/search.svg";
 import crossImg from "../../../img/header images/cross.svg";
-import { useDispatch } from "react-redux";
 
 const HeaderSearch = () => {
   const [data, setData] = useState<products[]>([]);
   const [overlay, changeOverlay] = useState<boolean>(false);
   const [hover, changeHover] = useState<boolean>(false);
   const searchTerm = useSelector(selectSearchTerm);
+  const navigate = useNavigate();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   interface products {
     id: number;
     cpuName: string;
   }
-  const inputRef = useRef<HTMLInputElement>(null);
-  const dispatch = useDispatch();
 
   const handleWrapperClick = () => {
     if (inputRef.current) {
@@ -48,6 +50,17 @@ const HeaderSearch = () => {
     }
     fetchData();
   }, []);
+
+  const getResults = () => {
+    if (searchTerm.length > 0) {
+      if (inputRef.current) {
+        inputRef.current.blur();
+      }
+      changeOverlay(false);
+      const searchQuery = encodeURIComponent(searchTerm);
+      navigate(`/search/?q=${searchQuery}`);
+    }
+  };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchTerm(event.target.value));
@@ -109,7 +122,7 @@ const HeaderSearch = () => {
           >
             <img src={crossImg} alt="cross img" />
           </button>
-          <button className={classes.button_two}>
+          <button className={classes.button_two} onClick={getResults}>
             <img src={searchImg} alt="search img" />
           </button>
         </div>
