@@ -40,6 +40,7 @@ const HeaderSearch = () => {
     changeOverlay(false);
   };
 
+  // Supabase
   useEffect(() => {
     async function fetchData() {
       const { data } = await supabase.from("cpu").select();
@@ -51,6 +52,7 @@ const HeaderSearch = () => {
     fetchData();
   }, []);
 
+  //Redux
   const getResults = () => {
     if (searchTerm.length > 0) {
       if (inputRef.current) {
