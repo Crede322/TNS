@@ -62,6 +62,12 @@ const HeaderSearch = () => {
     }
   };
 
+  const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      getResults();
+    }
+  };
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchTerm(event.target.value));
   };
@@ -96,6 +102,7 @@ const HeaderSearch = () => {
           placeholder="Поиск по сайту"
           value={searchTerm}
           onChange={handleSearch}
+          onKeyDown={handleKeydown}
         />
         <ul
           className={classes.result_list}
