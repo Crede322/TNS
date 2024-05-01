@@ -46,13 +46,12 @@ const HeaderSearch = () => {
 
   // Supabase
   useEffect(() => {
-    async function fetchData() {
+    (async () => {
       const { data } = await supabase.from("cpu").select();
       if (data) {
         dispatch(putData(data));
       }
-    }
-    fetchData();
+    })();
   }, [dispatch]);
 
   //Redux
@@ -62,6 +61,7 @@ const HeaderSearch = () => {
         inputRef.current.blur();
       }
       changeOverlay(false);
+      //Router
       const searchQuery = encodeURIComponent(searchTerm);
       navigate(`/search/?q=${searchQuery}`);
     }
