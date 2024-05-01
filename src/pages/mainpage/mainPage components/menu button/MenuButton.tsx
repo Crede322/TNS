@@ -27,7 +27,6 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const handleHover = () => {
     setIsHovered(!isHovered);
-    console.log("hover!");
   };
 
   const buttonStyle = {

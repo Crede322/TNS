@@ -5,7 +5,6 @@ const pageTwo = () => {
   return (
     <div>
       <Header />
-      <h2>Эта страница успешно работает!</h2>
     </div>
   );
 };

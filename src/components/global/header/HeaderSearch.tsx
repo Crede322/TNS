@@ -5,23 +5,27 @@ import {
   clearSearchTerm,
   setSearchTerm,
   selectSearchTerm,
-} from "../../../features/counter/searchSlice";
+} from "../../../features/searchSlice";
+import {
+  putData,
+  selectSupabaseData,
+} from "../../../features/supabaseDataSlice";
 import { useDispatch } from "react-redux";
-import classes from "./HeaderSearch.module.css";
 import { supabase } from "../../../helper/supabaseClient";
+import classes from "./HeaderSearch.module.css";
 import searchImg from "../../../img/search.svg";
 import crossImg from "../../../img/header images/cross.svg";
 
 const HeaderSearch = () => {
-  const [data, setData] = useState<products[]>([]);
   const [overlay, changeOverlay] = useState<boolean>(false);
   const [hover, changeHover] = useState<boolean>(false);
   const searchTerm = useSelector(selectSearchTerm);
+  const supabaseData: product[] = useSelector(selectSupabaseData);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
 
-  interface products {
+  interface product {
     id: number;
     cpuName: string;
   }
@@ -45,12 +49,11 @@ const HeaderSearch = () => {
     async function fetchData() {
       const { data } = await supabase.from("cpu").select();
       if (data) {
-        setData(data);
-        console.log(data);
+        dispatch(putData(data));
       }
     }
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   //Redux
   const getResults = () => {
@@ -74,7 +77,7 @@ const HeaderSearch = () => {
     dispatch(setSearchTerm(event.target.value));
   };
 
-  const filteredData = data.filter((product) =>
+  const filteredData = supabaseData.filter((product: product) =>
     Object.values(product).some((value) =>
       product.cpuName.toLowerCase().includes(searchTerm.toLowerCase()),
     ),

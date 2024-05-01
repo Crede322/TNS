@@ -10,7 +10,6 @@ import cart from "../../../img/cart.svg";
 
 import bell from "../../../img/nav/login/bell.svg";
 import HeaderSearch from "./HeaderSearch";
-import { redirect } from "react-router-dom";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -18,7 +17,6 @@ const Header = () => {
 
   const handleLoginHover = () => {
     setIsLoginHovered(true);
-    console.log("login hover");
   };
 
   const handleLoginLeave = () => {
