@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -37,12 +37,12 @@ const HeaderSearch = () => {
     changeOverlay(true);
   };
 
-  const inputBlur = () => {
+  const inputBlur = useCallback(() => {
     if (inputRef.current) {
       inputRef.current.blur();
     }
     changeOverlay(false);
-  };
+  }, []);
 
   // Supabase
   useEffect(() => {
@@ -116,7 +116,7 @@ const HeaderSearch = () => {
           {filteredData.map((product, index) => (
             <li
               className={classes.result}
-              key={index}
+              key={product.id}
               style={{ display: overlay ? "flex" : "none" }}
             >
               <img src={searchImg} alt="search img" />
