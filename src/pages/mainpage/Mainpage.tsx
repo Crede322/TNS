@@ -1,6 +1,5 @@
-import Footer from "../../components/global/footer/Footer";
 import Header from "../../components/global/header/Header";
-import classes from "./Mainpage.module.css";
+import classes from "./MainPage.module.css";
 import MainpageSwiper from "./mainPage components/MainpageSwiper";
 import ActualOffers from "./mainPage components/actual offers/ActualOffers";
 import BrandsSwiper from "./mainPage components/brands swiper/BrandsSwiper";

@@ -5,6 +5,7 @@ import {
   clearSearchTerm,
   setSearchTerm,
   selectSearchTerm,
+  setSearchResult,
 } from "../../../features/searchSlice";
 import {
   putData,
@@ -64,6 +65,7 @@ const HeaderSearch = () => {
       //Router
       const searchQuery = encodeURIComponent(searchTerm);
       navigate(`/search/?q=${searchQuery}`);
+      dispatch(setSearchResult());
     }
   };
 

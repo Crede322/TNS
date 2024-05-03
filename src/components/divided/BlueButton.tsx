@@ -5,6 +5,10 @@ interface BlueButtonProps {
   height: number;
   text: string;
   margin?: string;
+  fontWeight?: number;
+  fontColor?: string;
+  borderRadius?: number;
+  background?: string;
   onClick?: () => void;
 }
 
@@ -14,18 +18,22 @@ const BlueButton: React.FC<BlueButtonProps> = ({
   text,
   margin,
   onClick,
+  fontWeight,
+  fontColor,
+  borderRadius,
+  background,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const buttonStyle = {
     width: width,
     height: height,
-    background: isHovered ? "#4187a5" : "#2c7da0",
-    borderRadius: "12px",
-    color: "#fff",
-    fontWeight: "700",
+    background: background ? background : isHovered ? "#4187a5" : "#2c7da0",
+    borderRadius: borderRadius ? borderRadius : "12px",
+    color: fontColor ? fontColor : "#fff",
     margin: margin,
     transition: "background-color 0.3s",
+    fontWeight: fontWeight ? fontWeight : 700,
   };
 
   return (

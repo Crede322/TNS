@@ -2,7 +2,7 @@ import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
 import Supabase from "../Supabase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
@@ -14,6 +14,8 @@ import HeaderSearch from "./HeaderSearch";
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const location = useLocation();
+  const currentPage = location.pathname;
 
   const handleLoginHover = () => {
     setIsLoginHovered(true);
@@ -34,7 +36,13 @@ const Header = () => {
 
   return (
     <header>
-      <div className={classes.header_fixer}>
+      <div
+        className={classes.header_fixer}
+        style={{
+          boxShadow:
+            currentPage === "/" ? "none" : "0 1px 2px rgba(0, 0, 0, 0.1)",
+        }}
+      >
         <div className={classes.header__inner}>
           <div className={classes.wrapper}>
             <div className={classes.header__container}>
@@ -63,7 +71,9 @@ const Header = () => {
                   </button>
                   <button
                     className={classes.menu__btn}
-                    onMouseEnter={handleLoginHover}
+                    onMouseEnter={() => {
+                      setIsLoginHovered(!isLoginHovered);
+                    }}
                   >
                     <img src={profile} alt="img_profile" />
                     <h2>Войти</h2>
@@ -73,7 +83,9 @@ const Header = () => {
               {/* <HeaderNav /> */}
               <div
                 className={classes.login_popup}
-                onMouseLeave={handleLoginLeave}
+                onMouseLeave={() => {
+                  setIsLoginHovered(!isLoginHovered);
+                }}
                 style={{
                   transition: "all 0.4s",
                   transformOrigin: "90% 5%",

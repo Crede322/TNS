@@ -3,10 +3,12 @@ import { RootState } from "../store/redux";
 
 interface searchState {
   searchTerm: string;
+  searchResult: string;
 }
 
 const initialState: searchState = {
   searchTerm: "",
+  searchResult: "",
 };
 
 const searchSlice = createSlice({
@@ -19,9 +21,17 @@ const searchSlice = createSlice({
     clearSearchTerm(state) {
       state.searchTerm = "";
     },
+    setSearchResult(state) {
+      state.searchResult = state.searchTerm;
+      console.log("searched!");
+      console.log(state.searchResult);
+    },
   },
 });
 
-export const { setSearchTerm, clearSearchTerm } = searchSlice.actions;
+export const { setSearchTerm, clearSearchTerm, setSearchResult } =
+  searchSlice.actions;
 export default searchSlice.reducer;
 export const selectSearchTerm = (state: RootState) => state.search.searchTerm;
+export const selectSearchResult = (state: RootState) =>
+  state.search.searchResult;

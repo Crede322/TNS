@@ -13,7 +13,7 @@ import fireEmoji from "../../../img/mainMenu/fireEmoji.png";
 import shieldImg from "../../../img/mainMenu/shieldImg.png";
 import gear from "../../../img/mainMenu/gear.png";
 import question from "../../../img/mainMenu/question.png";
-import classes from "../../../pages/mainpage/Mainpage.module.css";
+import classes from "../../../pages/mainpage/MainPage.module.css";
 
 const sliderStyle = {
   maxWidth: "160px",

@@ -1,0 +1,40 @@
+.search_wrapper {
+  width: 1400px;
+  height: 177px;
+  background-color: #fff;
+  margin: auto;
+  padding: 16px 24px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_wrapper h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 11px 0;
+  color: #333333;
+}
+
+.search_wrapper h3 {
+  margin: 11px 0;
+}
+
+.received_items {
+  width: 1400px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px 24px;
+}
+
+.received_items h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 11px 0;
+  color: #333333;
+}
+
+.result_list {
+  display: flex;
+}
