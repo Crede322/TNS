@@ -4,6 +4,7 @@ import classes from "./SearchPage.module.css";
 import { selectSearchResult } from "../../features/searchSlice";
 import { selectSupabaseData } from "../../features/supabaseDataSlice";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import BlueButton from "../../components/divided/BlueButton";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
 
@@ -15,6 +16,11 @@ interface product {
 const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
   const supabaseData: product[] = useSelector(selectSupabaseData);
+  const navigate = useNavigate();
+
+  const mainPageRedirect = () => {
+    navigate("/");
+  };
 
   const filteredData = supabaseData.filter((product: product) =>
     Object.values(product).some((value) =>
@@ -42,6 +48,7 @@ const SearchPage = () => {
                 fontWeight={500}
                 borderRadius={8}
                 margin="0 10px 0 0"
+                onClick={mainPageRedirect}
               />
               <BlueButton
                 width={119}
@@ -51,6 +58,7 @@ const SearchPage = () => {
                 fontColor="#000"
                 borderRadius={8}
                 background="#F7F7F7"
+                onClick={mainPageRedirect}
               />
             </div>
           </div>

@@ -84,6 +84,7 @@ const HeaderSearch = () => {
       product.cpuName.toLowerCase().includes(searchTerm.toLowerCase()),
     ),
   );
+
   return (
     <div>
       <div
