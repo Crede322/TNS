@@ -11,6 +11,7 @@ import noResultsImg from "../../img/searchPage/no results illust.jpg";
 interface product {
   id: number;
   cpuName: string;
+  img: string;
 }
 
 const SearchPage = () => {
@@ -70,9 +71,14 @@ const SearchPage = () => {
         >
           <h2>Процессоры</h2>
           <ul className={classes.result_list}>
-            {filteredData.map((product, index) => (
+            {filteredData.slice(0, 3).map((product, index) => (
               <li className={classes.result} key={product.id}>
-                <h3>{product.cpuName}</h3>
+                <div className={classes.result_inner}>
+                  <img src={product.img} alt="product img" />
+                </div>
+                <div className={classes.result_description}>
+                  <h3>{product.cpuName}</h3>
+                </div>
               </li>
             ))}
           </ul>
