@@ -8,8 +8,8 @@ import "../../../features/swiper/swiper.css";
 import phoneImg from "../../../img/mainMenu/phoneImg.jpg";
 import catalogueImg from "../../../img/mainMenu/catalogueImg.png";
 import megaphoneImg from "../../../img/mainMenu/megaphoneImg.png";
-import assemblePC from "../../../img/mainMenu/assemblePC.png";
-import fireEmoji from "../../../img/mainMenu/fireEmoji.png";
+import cpuImg from "../../../img/mainMenu/cpuImg.png";
+import doubleArrow from "../../../img/mainMenu/doubleArrow.png";
 import shieldImg from "../../../img/mainMenu/shieldImg.png";
 import gear from "../../../img/mainMenu/gear.png";
 import question from "../../../img/mainMenu/question.png";
@@ -46,7 +46,7 @@ const MainpageSwiper = () => {
               width={183}
               height={206}
               title="Каталог"
-              text="Большой выбор комплектующих"
+              text="Большой выбор процессоров"
               background="rgb(229, 244, 251)"
               imageSrc={catalogueImg}
             />
@@ -65,20 +65,20 @@ const MainpageSwiper = () => {
             <MenuButton
               width={183}
               height={206}
-              title="Собрать ПК"
+              title="Подобрать CPU"
               text="Без проблем c совместимостью"
               background="rgb(242, 243, 245)"
-              imageSrc={assemblePC}
+              imageSrc={cpuImg}
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
             <MenuButton
               width={183}
               height={206}
-              title="Готовые сборки"
-              text="Горячие сборки ПК от пользователей"
+              title="Новинки"
+              text="Лучшие в производительности"
               background="rgb(255, 239, 239)"
-              imageSrc={fireEmoji}
+              imageSrc={doubleArrow}
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -96,7 +96,7 @@ const MainpageSwiper = () => {
               width={183}
               height={206}
               title="Тесты"
-              text="Проверка и идентификация комплектующих вашего ПК"
+              text="Проверка и идентификация процессоров"
               background="rgb(252, 246, 215)"
               imageSrc={gear}
             />
