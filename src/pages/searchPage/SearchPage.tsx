@@ -7,10 +7,16 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "../../components/divided/BlueButton";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
+import starsImg from "../../img/searchPage/stars.svg";
 
 interface product {
   id: number;
   cpuName: string;
+  socket: string;
+  coresNumber: number;
+  frequency: string;
+  cacheL2: string;
+  cacheL3: string;
   img: string;
 }
 
@@ -32,7 +38,6 @@ const SearchPage = () => {
   return (
     <div>
       <Header />
-      <div className={classes.top_line} />
       <div style={{ background: "#f6f6f6", padding: "25px 0" }}>
         <div
           className={classes.search_wrapper}
@@ -69,19 +74,23 @@ const SearchPage = () => {
           className={classes.received_items}
           style={{ display: filteredData.length >= 1 ? "block" : "none" }}
         >
-          <h2>Процессоры</h2>
-          <ul className={classes.result_list}>
-            {filteredData.slice(0, 3).map((product, index) => (
-              <li className={classes.result} key={product.id}>
+          <div className={classes.result_list}>
+            {filteredData.map((product, index) => (
+              <div className={classes.result} key={product.id}>
                 <div className={classes.result_inner}>
                   <img src={product.img} alt="product img" />
                 </div>
                 <div className={classes.result_description}>
-                  <h3>{product.cpuName}</h3>
+                  <h3>
+                    {product.cpuName} <br />[{product.socket},{" "}
+                    {product.coresNumber}x{product.frequency}, L2 -{" "}
+                    {product.cacheL2}, L3 -{product.cacheL3}]
+                  </h3>
+                  <img src={starsImg} alt="rating img" />
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

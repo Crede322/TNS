@@ -7,7 +7,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
-
 import bell from "../../../img/nav/login/bell.svg";
 import HeaderSearch from "./HeaderSearch";
 
