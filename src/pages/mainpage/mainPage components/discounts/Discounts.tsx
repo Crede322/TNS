@@ -7,7 +7,7 @@ import DiscountsSlide from "./discounts slide/DiscountsSlide";
 const Discounts = () => {
   return (
     <div className="discount_wrapper">
-      <Swiper slidesPerView={6}>
+      <Swiper slidesPerView={4}>
         <SwiperSlide style={{ marginRight: "10px" }}>
           <DiscountsSlide
             title="Ещё 3 дня скидка"

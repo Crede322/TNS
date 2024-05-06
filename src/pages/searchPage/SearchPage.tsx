@@ -7,11 +7,13 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "../../components/divided/BlueButton";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import starsImg from "../../img/searchPage/stars.svg";
+import starImg from "../../img/searchPage/star.svg";
+import imgFavorite from "../../img/favorite.svg";
 
 interface product {
   id: number;
   cpuName: string;
+  price: string;
   socket: string;
   coresNumber: number;
   frequency: string;
@@ -34,6 +36,10 @@ const SearchPage = () => {
       product.cpuName.toLowerCase().includes(searchResult.toLowerCase()),
     ),
   );
+
+  const handlePurchaseClick = () => {
+    console.log("purchased");
+  };
 
   return (
     <div>
@@ -74,10 +80,14 @@ const SearchPage = () => {
           className={classes.received_items}
           style={{ display: filteredData.length >= 1 ? "block" : "none" }}
         >
-          <div className={classes.result_list}>
+          <div className={classes.results_list}>
             {filteredData.map((product, index) => (
-              <div className={classes.result} key={product.id}>
-                <div className={classes.result_inner}>
+              <div
+                className={classes.result}
+                key={product.id}
+                onClick={handlePurchaseClick}
+              >
+                <div className={classes.result__product_image}>
                   <img src={product.img} alt="product img" />
                 </div>
                 <div className={classes.result_description}>
@@ -86,7 +96,32 @@ const SearchPage = () => {
                     {product.coresNumber}x{product.frequency}, L2 -{" "}
                     {product.cacheL2}, L3 -{product.cacheL3}]
                   </h3>
-                  <img src={starsImg} alt="rating img" />
+                  <div className={classes.purchase}>
+                    <h2>{product.price}</h2>
+                    <button
+                      className={classes.purchase_button}
+                      onClick={handlePurchaseClick}
+                    >
+                      <h3>Купить</h3>
+                    </button>
+                    <button className={classes.fav_button}>
+                      <img src={imgFavorite} alt="imgFavorite" />
+                    </button>
+                  </div>
+                  <div className={classes.product_subInfo}>
+                    <div className={classes.stars}>
+                      <img src={starImg} alt="rating img" />
+                      <img src={starImg} alt="rating img" />
+                      <img src={starImg} alt="rating img" />
+                      <img src={starImg} alt="rating img" />
+                      <img src={starImg} alt="rating img" />
+                      <h4>10</h4>
+                    </div>
+                    <div>
+                      <h4>В наличии</h4>
+                      <h3>Послезавтра</h3>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
