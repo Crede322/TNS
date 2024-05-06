@@ -32,7 +32,7 @@
   width: 1400px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding-left: 8px;
@@ -103,6 +103,15 @@
   align-items: center;
 }
 
+.product_info:hover {
+  transition: color 0.3s;
+  color: #0080f5;
+}
+
+.product_info {
+  height: 62px;
+}
+
 .product_subInfo {
   display: flex;
 }
@@ -159,4 +168,23 @@
 
 .fav_button:hover img {
   filter: brightness(0.1);
+}
+
+/* Пагинация */
+.pagination_row {
+  width: 830px;
+  height: 50px;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: hidden;
+}
+
+.pagination_row button {
+  width: 65px;
+  height: 100%;
+  background-color: red;
+  border: 1px solid black;
 }
