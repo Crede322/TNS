@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./SearchPage.module.css";
 import { selectSearchResult } from "../../features/searchSlice";
@@ -11,6 +11,8 @@ import starImg from "../../img/searchPage/star.svg";
 import imgFavorite from "../../img/favorite.svg";
 import {
   buttonPageClick,
+  buttonPagePrev,
+  buttonPageNext,
   selectCurrentPage,
 } from "../../features/searchPaginationSlice";
 import { useDispatch } from "react-redux";
@@ -31,6 +33,7 @@ const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
   const supabaseData: product[] = useSelector(selectSupabaseData);
   const togglePage = useSelector(selectCurrentPage);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -44,26 +47,33 @@ const SearchPage = () => {
     ),
   );
 
+  const handlePurchaseClick = () => {
+    console.log("purchased");
+  };
+
+  const scrollToTop = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Пагинация
   const numItemsPerPage = 10;
   const numPages = Math.ceil(filteredData.length / numItemsPerPage);
 
-  const cases = Array.from({ length: numPages }, (_, i) => i + 1).map(
+  const cases = Array.from({ length: numPages }, (_, i: number) => i + 1).map(
     (page) => (
       <button
         key={page}
         onClick={() => {
           dispatch(buttonPageClick(page));
-          console.log(togglePage);
+          scrollToTop();
         }}
       >
         {page}
       </button>
     ),
   );
-
-  const handlePurchaseClick = () => {
-    console.log("purchased");
-  };
 
   let startIdx = 0;
   let endIdx = 10;
@@ -80,6 +90,7 @@ const SearchPage = () => {
 
   return (
     <div>
+      <div ref={scrollRef} />
       <Header />
       <div style={{ background: "#f6f6f6", padding: "25px 0" }}>
         <div
@@ -163,7 +174,25 @@ const SearchPage = () => {
               </div>
             ))}
           </div>
-          <div className={classes.pagination_row}>{cases}</div>
+          <div className={classes.pagination_row}>
+            <button
+              onClick={() => {
+                dispatch(buttonPagePrev());
+                scrollToTop();
+              }}
+            >
+              prev
+            </button>
+            {cases}
+            <button
+              onClick={() => {
+                dispatch(buttonPageNext());
+                scrollToTop();
+              }}
+            >
+              next
+            </button>
+          </div>
         </div>
       </div>
     </div>

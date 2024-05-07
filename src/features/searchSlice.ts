@@ -23,8 +23,6 @@ const searchSlice = createSlice({
     },
     setSearchResult(state) {
       state.searchResult = state.searchTerm;
-      console.log("searched!");
-      console.log(state.searchResult);
     },
   },
 });

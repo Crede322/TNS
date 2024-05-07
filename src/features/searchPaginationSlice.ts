@@ -16,10 +16,17 @@ const paginationSlice = createSlice({
     buttonPageClick(state, action: PayloadAction<number>) {
       return { ...state, currentPage: action.payload };
     },
+    buttonPagePrev(state) {
+      state.currentPage -= 1;
+    },
+    buttonPageNext(state) {
+      state.currentPage += 1;
+    },
   },
 });
 
-export const { buttonPageClick } = paginationSlice.actions;
+export const { buttonPageClick, buttonPagePrev, buttonPageNext } =
+  paginationSlice.actions;
 export const selectCurrentPage = (state: RootState) =>
   state.pagination.currentPage;
 export default paginationSlice.reducer;
