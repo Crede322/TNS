@@ -51,6 +51,11 @@ const SearchPage = () => {
     console.log("purchased");
   };
 
+  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    console.log("favorite");
+  };
+
   const scrollToTop = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
@@ -152,7 +157,10 @@ const SearchPage = () => {
                     >
                       <h3>Купить</h3>
                     </button>
-                    <button className={classes.fav_button}>
+                    <button
+                      className={classes.fav_button}
+                      onClick={handleFavorite}
+                    >
                       <img src={imgFavorite} alt="imgFavorite" />
                     </button>
                   </div>
