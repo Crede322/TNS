@@ -65,6 +65,7 @@ const SearchPage = () => {
   // Пагинация
   const numItemsPerPage = 10;
   const numPages = Math.ceil(filteredData.length / numItemsPerPage);
+  const isLastPage = togglePage === numPages - 1;
 
   const cases = Array.from({ length: numPages }, (_, i: number) => i + 1).map(
     (page) => (
@@ -74,6 +75,7 @@ const SearchPage = () => {
           dispatch(buttonPageClick(page));
           scrollToTop();
         }}
+        className={togglePage === page ? classes.currentPage : ""}
       >
         {page}
       </button>
@@ -185,8 +187,10 @@ const SearchPage = () => {
           <div className={classes.pagination_row}>
             <button
               onClick={() => {
-                dispatch(buttonPagePrev());
-                scrollToTop();
+                if (togglePage !== 1) {
+                  dispatch(buttonPagePrev());
+                  scrollToTop();
+                }
               }}
             >
               prev
@@ -194,8 +198,11 @@ const SearchPage = () => {
             {cases}
             <button
               onClick={() => {
-                dispatch(buttonPageNext());
-                scrollToTop();
+                if (isLastPage === true) {
+                  dispatch(buttonPageNext());
+                  scrollToTop();
+                  console.log("next");
+                }
               }}
             >
               next

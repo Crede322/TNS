@@ -206,9 +206,20 @@
 .pagination_row button {
   width: 65px;
   height: 100%;
+  position: relative;
 }
 
 .pagination_row button:hover {
   color: #0080f5;
   background-color: #dbeaf8;
+}
+
+.currentPage::after {
+  position: absolute;
+  content: "";
+  width: 65px;
+  height: 3px;
+  background-color: red;
+  bottom: 0;
+  left: 0;
 }
