@@ -182,7 +182,6 @@
   width: 20px;
   height: 20px;
   margin: 0;
-  transition: filter 0.3s;
 }
 
 .fav_button:hover img {
@@ -201,11 +200,27 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.button_prev img {
+  width: 12px;
+  height: 12px;
+  transform: rotate(-90deg);
+}
+
+.button_next img {
+  width: 12px;
+  height: 12px;
+  transform: rotate(90deg);
 }
 
 .pagination_row button {
   width: 65px;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -219,7 +234,7 @@
   content: "";
   width: 65px;
   height: 3px;
-  background-color: red;
+  background-color: #0080f5;
   bottom: 0;
   left: 0;
 }

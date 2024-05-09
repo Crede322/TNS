@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./SearchPage.module.css";
 import { selectSearchResult } from "../../features/searchSlice";
@@ -16,6 +16,8 @@ import {
   selectCurrentPage,
 } from "../../features/searchPaginationSlice";
 import { useDispatch } from "react-redux";
+import arrow from "../../img/arrow.svg";
+import arrowBlue from "../../img/arrowBlue.svg";
 
 interface product {
   id: number;
@@ -36,6 +38,15 @@ const SearchPage = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [hoverPrev, setHoverPrev] = useState(false);
+  const [hoverNext, setHoverNext] = useState(false);
+  const handleHoverPrev = () => {
+    setHoverPrev(!hoverPrev);
+  };
+  const handleHoverNext = () => {
+    setHoverNext(!hoverNext);
+  };
 
   const mainPageRedirect = () => {
     navigate("/");
@@ -186,6 +197,10 @@ const SearchPage = () => {
           </div>
           <div className={classes.pagination_row}>
             <button
+              onMouseEnter={handleHoverPrev}
+              onMouseLeave={handleHoverPrev}
+              className={classes.button_prev}
+              style={{ cursor: togglePage === 1 ? "not-allowed" : "pointer" }}
               onClick={() => {
                 if (togglePage !== 1) {
                   dispatch(buttonPagePrev());
@@ -193,19 +208,22 @@ const SearchPage = () => {
                 }
               }}
             >
-              prev
+              <img src={hoverPrev ? arrowBlue : arrow} alt="arrow img" />
             </button>
             {cases}
             <button
+              className={classes.button_next}
+              onMouseEnter={handleHoverNext}
+              onMouseLeave={handleHoverNext}
+              style={{ cursor: isLastPage ? "pointer" : "not-allowed" }}
               onClick={() => {
                 if (isLastPage === true) {
                   dispatch(buttonPageNext());
                   scrollToTop();
-                  console.log("next");
                 }
               }}
             >
-              next
+              <img src={hoverNext ? arrowBlue : arrow} alt="arrow img" />
             </button>
           </div>
         </div>
