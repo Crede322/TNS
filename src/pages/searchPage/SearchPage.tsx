@@ -4,8 +4,6 @@ import classes from "./SearchPage.module.css";
 import { selectSearchResult } from "../../features/searchSlice";
 import { selectSupabaseData } from "../../features/supabaseDataSlice";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import BlueButton from "../../components/divided/BlueButton";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
 import starImg from "../../img/searchPage/star.svg";
 import imgFavorite from "../../img/favorite.svg";
@@ -18,6 +16,7 @@ import {
 import { useDispatch } from "react-redux";
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
+import SearchNoResults from "./no results/SearchNoResults";
 
 interface product {
   id: number;
@@ -26,8 +25,8 @@ interface product {
   socket: string;
   coresNumber: number;
   frequency: string;
-  cacheL2: string;
-  cacheL3: string;
+  cacheL2: number;
+  cacheL3: number;
   img: string;
 }
 
@@ -37,7 +36,6 @@ const SearchPage = () => {
   const togglePage = useSelector(selectCurrentPage);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
@@ -46,10 +44,6 @@ const SearchPage = () => {
   };
   const handleHoverNext = () => {
     setHoverNext(!hoverNext);
-  };
-
-  const mainPageRedirect = () => {
-    navigate("/");
   };
 
   const filteredData = supabaseData.filter((product: product) =>
@@ -109,39 +103,20 @@ const SearchPage = () => {
   return (
     <div>
       <div ref={scrollRef} />
-      <Header />
       <div style={{ background: "#f6f6f6", padding: "25px 0" }}>
+        <Header />
+
         <div
           className={classes.search_wrapper}
           style={{ display: filteredData.length !== 0 ? "none" : "flex" }}
         >
-          <div>
-            <h2>Странно, но по запросу "{searchResult}" ничего нет</h2>
-            <h3>Попробуйте изменить критерии поиска</h3>
-            <div>
-              <BlueButton
-                width={105}
-                height={44}
-                text="В каталог"
-                fontWeight={500}
-                borderRadius={8}
-                margin="0 10px 0 0"
-                onClick={mainPageRedirect}
-              />
-              <BlueButton
-                width={119}
-                height={44}
-                text="На главную"
-                fontWeight={500}
-                fontColor="#000"
-                borderRadius={8}
-                background="#F7F7F7"
-                onClick={mainPageRedirect}
-              />
-            </div>
-          </div>
+          <SearchNoResults
+            searchResult={searchResult}
+            filteredData={filteredData}
+          />
           <img src={noResultsImg} alt="no results img" />
         </div>
+
         <div
           className={classes.received_items}
           style={{ display: filteredData.length >= 1 ? "block" : "none" }}
@@ -159,8 +134,8 @@ const SearchPage = () => {
                 <div className={classes.result_description}>
                   <h3 className={classes.product_info}>
                     {product.cpuName} <br />[{product.socket},{" "}
-                    {product.coresNumber}x{product.frequency}, L2 -{" "}
-                    {product.cacheL2}, L3 -{product.cacheL3}]
+                    {product.coresNumber} x {product.frequency} ГГц, L2 -{" "}
+                    {product.cacheL2} МБ, L3 - {product.cacheL3} МБ]
                   </h3>
                   <div className={classes.purchase}>
                     <h2>{product.price}</h2>
