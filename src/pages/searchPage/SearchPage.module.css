@@ -117,8 +117,9 @@
 
   position: absolute;
   height: 44px;
-  width: 250px;
+  width: 220px;
   top: -50px;
+  right: -50px;
   background-color: #333333;
 }
 
@@ -190,9 +191,11 @@
 
 /* Пагинация */
 .pagination_row {
-  width: 830px;
   height: 50px;
+  width: fit-content;
+  max-width: 1380px;
   background-color: #fff;
+  padding: 0 100px 0 100px;
   margin: auto;
   margin-top: 25px;
   border-radius: 12px;
