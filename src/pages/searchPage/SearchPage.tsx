@@ -46,12 +46,6 @@ const SearchPage = () => {
     setHoverNext(!hoverNext);
   };
 
-  const filteredData = supabaseData.filter((product: product) =>
-    Object.values(product).some((value) =>
-      product.cpuName.toLowerCase().includes(searchResult.toLowerCase()),
-    ),
-  );
-
   const handlePurchaseClick = () => {
     console.log("purchased");
   };
@@ -69,7 +63,7 @@ const SearchPage = () => {
 
   // Пагинация
   const numItemsPerPage = 10;
-  const numPages = Math.ceil(filteredData.length / numItemsPerPage);
+  const numPages = Math.ceil(supabaseData.length / numItemsPerPage);
   const isLastPage = togglePage === numPages - 1;
 
   const cases = Array.from({ length: numPages }, (_, i: number) => i + 1).map(
@@ -108,21 +102,21 @@ const SearchPage = () => {
 
         <div
           className={classes.search_wrapper}
-          style={{ display: filteredData.length !== 0 ? "none" : "flex" }}
+          style={{ display: supabaseData.length !== 0 ? "none" : "flex" }}
         >
           <SearchNoResults
             searchResult={searchResult}
-            filteredData={filteredData}
+            filteredData={supabaseData}
           />
           <img src={noResultsImg} alt="no results img" />
         </div>
 
         <div
           className={classes.received_items}
-          style={{ display: filteredData.length >= 1 ? "block" : "none" }}
+          style={{ display: supabaseData.length >= 1 ? "block" : "none" }}
         >
           <div className={classes.results_list}>
-            {filteredData.slice(startIdx, endIdx).map((product, index) => (
+            {supabaseData.slice(startIdx, endIdx).map((product, index) => (
               <div
                 className={classes.result}
                 key={product.id}

@@ -27,7 +27,6 @@ const HeaderSearch = () => {
   const dispatch = useDispatch();
 
   interface product {
-    id: number;
     cpuName: string;
   }
 
@@ -45,15 +44,18 @@ const HeaderSearch = () => {
     changeOverlay(false);
   }, []);
 
-  // Supabase
-  useEffect(() => {
-    (async () => {
-      const { data } = await supabase.from("cpu").select();
-      if (data) {
-        dispatch(putData(data));
-      }
-    })();
-  }, [dispatch]);
+  const fetchData = async (searchTerm: string) => {
+    try {
+      const { data } = await supabase
+        .from("cpu")
+        .select("cpuName")
+        .ilike("cpuName", `%${searchTerm}%`);
+      dispatch(putData(data));
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching supabase data", error);
+    }
+  };
 
   //Redux
   const getResults = () => {
@@ -69,6 +71,10 @@ const HeaderSearch = () => {
     }
   };
 
+  useEffect(() => {
+    fetchData("amd");
+  }, []);
+
   const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       getResults();
@@ -76,14 +82,10 @@ const HeaderSearch = () => {
   };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSearchTerm(event.target.value));
+    const searchTerm = event.target.value;
+    dispatch(setSearchTerm(searchTerm));
+    fetchData(searchTerm);
   };
-
-  const filteredData = supabaseData.filter((product: product) =>
-    Object.values(product).some((value) =>
-      product.cpuName.toLowerCase().includes(searchTerm.toLowerCase()),
-    ),
-  );
 
   return (
     <div>
@@ -116,10 +118,10 @@ const HeaderSearch = () => {
           className={classes.result_list}
           style={{ display: searchTerm.length > 0 ? "block" : "none" }}
         >
-          {filteredData.map((product, index) => (
+          {supabaseData.map((product, index) => (
             <li
               className={classes.result}
-              key={product.id}
+              key={index}
               style={{ display: overlay ? "flex" : "none" }}
             >
               <img src={searchImg} alt="search img" />

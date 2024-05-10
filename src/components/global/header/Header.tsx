@@ -16,14 +16,6 @@ const Header = () => {
   const location = useLocation();
   const currentPage = location.pathname;
 
-  const handleLoginHover = () => {
-    setIsLoginHovered(true);
-  };
-
-  const handleLoginLeave = () => {
-    setIsLoginHovered(false);
-  };
-
   const handleLoginModal = () => {
     setLoginModal(true);
   };
