@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/redux";
 
-interface searchState {
+interface searchTypes {
   searchTerm: string;
   searchResult: string;
 }
 
-const initialState: searchState = {
+const initialState: searchTypes = {
   searchTerm: "",
   searchResult: "",
 };

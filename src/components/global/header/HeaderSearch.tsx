@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -10,6 +10,7 @@ import {
 import {
   putData,
   selectSupabaseData,
+  putFilteredData,
 } from "../../../features/supabaseDataSlice";
 import { useDispatch } from "react-redux";
 import { supabase } from "../../../helper/supabaseClient";
@@ -51,7 +52,6 @@ const HeaderSearch = () => {
         .select("cpuName")
         .ilike("cpuName", `%${searchTerm}%`);
       dispatch(putData(data));
-      console.log(data);
     } catch (error) {
       console.error("Error fetching supabase data", error);
     }
@@ -65,15 +65,12 @@ const HeaderSearch = () => {
       }
       changeOverlay(false);
       //Router
+      dispatch(putFilteredData(supabaseData));
       const searchQuery = encodeURIComponent(searchTerm);
       navigate(`/search/?q=${searchQuery}`);
       dispatch(setSearchResult());
     }
   };
-
-  useEffect(() => {
-    fetchData("amd");
-  }, []);
 
   const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {

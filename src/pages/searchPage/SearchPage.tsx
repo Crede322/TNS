@@ -1,9 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./SearchPage.module.css";
-import { selectSearchResult } from "../../features/searchSlice";
-import { selectSupabaseData } from "../../features/supabaseDataSlice";
 import { useSelector } from "react-redux";
+import { selectSearchResult } from "../../features/searchSlice";
+import {
+  putFilteredData,
+  selectFilteredSBData,
+} from "../../features/supabaseDataSlice";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
 import starImg from "../../img/searchPage/star.svg";
 import imgFavorite from "../../img/favorite.svg";
@@ -14,6 +17,7 @@ import {
   selectCurrentPage,
 } from "../../features/searchPaginationSlice";
 import { useDispatch } from "react-redux";
+import { supabase } from "../../helper/supabaseClient";
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
 import SearchNoResults from "./no results/SearchNoResults";
@@ -32,7 +36,7 @@ interface product {
 
 const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
-  const supabaseData: product[] = useSelector(selectSupabaseData);
+  const filteredData = useSelector(selectFilteredSBData) as product[];
   const togglePage = useSelector(selectCurrentPage);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
@@ -61,9 +65,26 @@ const SearchPage = () => {
     }
   };
 
+  useEffect(() => {
+    fetchData(searchResult);
+  }, []);
+
+  const fetchData = async (searchResult: string) => {
+    try {
+      const { data } = await supabase
+        .from("cpu")
+        .select("")
+        .ilike("cpuName", `%${searchResult}%`);
+      dispatch(putFilteredData(data));
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching supabase filtered data", error);
+    }
+  };
+
   // Пагинация
   const numItemsPerPage = 10;
-  const numPages = Math.ceil(supabaseData.length / numItemsPerPage);
+  const numPages = Math.ceil(filteredData.length / numItemsPerPage);
   const isLastPage = togglePage === numPages - 1;
 
   const cases = Array.from({ length: numPages }, (_, i: number) => i + 1).map(
@@ -102,21 +123,21 @@ const SearchPage = () => {
 
         <div
           className={classes.search_wrapper}
-          style={{ display: supabaseData.length !== 0 ? "none" : "flex" }}
+          style={{ display: filteredData.length !== 0 ? "none" : "flex" }}
         >
           <SearchNoResults
             searchResult={searchResult}
-            filteredData={supabaseData}
+            filteredData={searchResult}
           />
           <img src={noResultsImg} alt="no results img" />
         </div>
 
         <div
           className={classes.received_items}
-          style={{ display: supabaseData.length >= 1 ? "block" : "none" }}
+          style={{ display: filteredData.length >= 1 ? "block" : "none" }}
         >
           <div className={classes.results_list}>
-            {supabaseData.slice(startIdx, endIdx).map((product, index) => (
+            {filteredData.slice(startIdx, endIdx).map((product, index) => (
               <div
                 className={classes.result}
                 key={product.id}
