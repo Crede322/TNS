@@ -1,26 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./SearchPage.module.css";
+// redux
 import { useSelector } from "react-redux";
 import { selectSearchResult } from "../../features/searchSlice";
-import {
-  putFilteredData,
-  selectFilteredSBData,
-} from "../../features/supabaseDataSlice";
-import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import starImg from "../../img/searchPage/star.svg";
-import imgFavorite from "../../img/favorite.svg";
+import { selectFilteredSBData } from "../../features/supabaseDataSlice";
+import { useDispatch } from "react-redux";
 import {
   buttonPageClick,
   buttonPagePrev,
   buttonPageNext,
   selectCurrentPage,
 } from "../../features/searchPaginationSlice";
-import { useDispatch } from "react-redux";
-import { supabase } from "../../helper/supabaseClient";
+//img
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
 import SearchNoResults from "./no results/SearchNoResults";
+import noResultsImg from "../../img/searchPage/no results illust.jpg";
+import starImg from "../../img/searchPage/star.svg";
+import imgFavorite from "../../img/favorite.svg";
 
 interface product {
   id: number;
@@ -49,7 +47,6 @@ const SearchPage = () => {
   const handleHoverNext = () => {
     setHoverNext(!hoverNext);
   };
-
   const handlePurchaseClick = () => {
     console.log("purchased");
   };
@@ -62,23 +59,6 @@ const SearchPage = () => {
   const scrollToTop = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    fetchData(searchResult);
-  }, []);
-
-  const fetchData = async (searchResult: string) => {
-    try {
-      const { data } = await supabase
-        .from("cpu")
-        .select("")
-        .ilike("cpuName", `%${searchResult}%`);
-      dispatch(putFilteredData(data));
-      console.log(data);
-    } catch (error) {
-      console.error("Error fetching supabase filtered data", error);
     }
   };
 
@@ -127,7 +107,7 @@ const SearchPage = () => {
         >
           <SearchNoResults
             searchResult={searchResult}
-            filteredData={searchResult}
+            filteredData={filteredData}
           />
           <img src={noResultsImg} alt="no results img" />
         </div>

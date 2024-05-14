@@ -94,9 +94,9 @@
 
 .fav_button {
   position: relative;
-  margin-left: 10px;
   width: 44px;
   height: 44px;
+  margin-right: 5px;
   background: #f7f7f7;
   border-radius: 8px;
   display: flex;
