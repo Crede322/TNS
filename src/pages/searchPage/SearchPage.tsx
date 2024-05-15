@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./SearchPage.module.css";
+import { Link } from "react-router-dom";
+import SearchNoResults from "./no results/SearchNoResults";
 // redux
 import { useSelector } from "react-redux";
 import { selectSearchResult } from "../../features/searchSlice";
@@ -15,7 +17,6 @@ import {
 //img
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
-import SearchNoResults from "./no results/SearchNoResults";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
 import starImg from "../../img/searchPage/star.svg";
 import imgFavorite from "../../img/favorite.svg";
@@ -47,12 +48,12 @@ const SearchPage = () => {
   const handleHoverNext = () => {
     setHoverNext(!hoverNext);
   };
-  const handlePurchaseClick = () => {
-    console.log("purchased");
+  const handlePurchaseClick = (productId: number) => {
+    console.log("Navigating to product:", productId);
   };
 
   const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
+    event.preventDefault();
     console.log("favorite");
   };
 
@@ -118,51 +119,53 @@ const SearchPage = () => {
         >
           <div className={classes.results_list}>
             {filteredData.slice(startIdx, endIdx).map((product, index) => (
-              <div
-                className={classes.result}
-                key={product.id}
-                onClick={handlePurchaseClick}
-              >
-                <div className={classes.result__product_image}>
-                  <img src={product.img} alt="product img" />
-                </div>
-                <div className={classes.result_description}>
-                  <h3 className={classes.product_info}>
-                    {product.cpuName} <br />[{product.socket},{" "}
-                    {product.coresNumber} x {product.frequency} ГГц, L2 -{" "}
-                    {product.cacheL2} МБ, L3 - {product.cacheL3} МБ]
-                  </h3>
-                  <div className={classes.purchase}>
-                    <h2>{product.price}</h2>
-                    <button
-                      className={classes.purchase_button}
-                      onClick={handlePurchaseClick}
-                    >
-                      <h3>Купить</h3>
-                    </button>
-                    <button
-                      className={classes.fav_button}
-                      onClick={handleFavorite}
-                    >
-                      <img src={imgFavorite} alt="imgFavorite" />
-                    </button>
+              <Link to={`/product/${product.id}`}>
+                <div
+                  className={classes.result}
+                  key={product.id}
+                  onClick={() => handlePurchaseClick(product.id)}
+                >
+                  <div className={classes.result__product_image}>
+                    <img src={product.img} alt="product img" />
                   </div>
-                  <div className={classes.product_subInfo}>
-                    <div className={classes.stars}>
-                      <img src={starImg} alt="rating img" />
-                      <img src={starImg} alt="rating img" />
-                      <img src={starImg} alt="rating img" />
-                      <img src={starImg} alt="rating img" />
-                      <img src={starImg} alt="rating img" />
-                      <h4>10</h4>
+                  <div className={classes.result_description}>
+                    <h3 className={classes.product_info}>
+                      {product.cpuName} <br />[{product.socket},{" "}
+                      {product.coresNumber} x {product.frequency} ГГц, L2 -{" "}
+                      {product.cacheL2} МБ, L3 - {product.cacheL3} МБ]
+                    </h3>
+                    <div className={classes.purchase}>
+                      <h2>{product.price}</h2>
+                      <button
+                        className={classes.purchase_button}
+                        onClick={() => handlePurchaseClick(product.id)}
+                      >
+                        <h3>Купить</h3>
+                      </button>
+                      <button
+                        className={classes.fav_button}
+                        onClick={handleFavorite}
+                      >
+                        <img src={imgFavorite} alt="imgFavorite" />
+                      </button>
                     </div>
-                    <div>
-                      <h4>В наличии</h4>
-                      <h3>Послезавтра</h3>
+                    <div className={classes.product_subInfo}>
+                      <div className={classes.stars}>
+                        <img src={starImg} alt="rating img" />
+                        <img src={starImg} alt="rating img" />
+                        <img src={starImg} alt="rating img" />
+                        <img src={starImg} alt="rating img" />
+                        <img src={starImg} alt="rating img" />
+                        <h4>10</h4>
+                      </div>
+                      <div>
+                        <h4>В наличии</h4>
+                        <h3>Послезавтра</h3>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className={classes.pagination_row}>
