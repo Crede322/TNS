@@ -30,7 +30,7 @@ const ProductPage: React.FC = () => {
   useEffect(() => {
     fetchData(parsedProductId);
     console.log("effect");
-  }, [parsedProductId]); // Добавление parsedProductId в зависимости useEffect
+  }, [parsedProductId]);
 
   if (!product) {
     return <div>Loading...</div>;
