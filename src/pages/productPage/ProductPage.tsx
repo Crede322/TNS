@@ -4,6 +4,7 @@ import { supabase } from "../../helper/supabaseClient";
 import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
 import starImg from "../../img/searchPage/star.svg";
+import imgFavorite from "../../img/favorite.svg";
 
 interface Product {
   id: string;
@@ -17,6 +18,7 @@ interface Product {
   DDR: string;
   ramFrequency: number;
   TDP: number;
+  price: string;
 }
 
 const ProductPage: React.FC = () => {
@@ -75,6 +77,14 @@ const ProductPage: React.FC = () => {
                   <img src={starImg} alt="rating img" />
                   <img src={starImg} alt="rating img" />
                   <h4>10</h4>
+                </div>
+                <div className={classes.product_section_price}>
+                  <div className={classes.product_section_price_cost}>
+                    <h2>{product.price}</h2>
+                  </div>
+                  <button className={classes.fav_button}>
+                    <img src={imgFavorite} alt="imgFavorite" />
+                  </button>
                 </div>
               </div>
             </div>

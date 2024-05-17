@@ -66,3 +66,35 @@
   margin-top: 5px;
   color: #333333;
 }
+
+.product_section_price {
+  display: flex;
+  margin-top: 15px;
+}
+
+.product_section_price_cost {
+  align-items: center;
+  display: flex;
+  background-color: #f7f7f7;
+  font-size: 22px;
+  color: #333333;
+  font-weight: 600;
+  height: 64px;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-right: 12px;
+  margin-right: 8px;
+  width: 450px;
+}
+
+.fav_button {
+  width: 64px;
+  height: 64px;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+}
+
+.fav_button img {
+  width: 18px;
+  height: 18px;
+}
