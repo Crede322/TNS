@@ -25,6 +25,7 @@ const ProductPage: React.FC = () => {
   const { productId }: { productId?: string } = useParams();
   const parsedProductId = parseInt(productId || "", 10);
   const [product, setProduct] = useState<Product | null>(null);
+  const [additionalButtonsState, setAdditionalButtonsState] = useState(1);
 
   const fetchData = async (parsedProductId: number) => {
     console.log(parsedProductId);
@@ -84,6 +85,61 @@ const ProductPage: React.FC = () => {
                   </div>
                   <button className={classes.fav_button}>
                     <img src={imgFavorite} alt="imgFavorite" />
+                  </button>
+                  <button className={classes.product_section_price_buy}>
+                    <h2>Купить</h2>
+                  </button>
+                </div>
+                <div className={classes.product_avails}>
+                  <div className={classes.availability}>
+                    <h2>В магазинах</h2>
+                    <h3>Завтра (перечитать завтра)</h3>
+                  </div>
+                  <div className={classes.availability}>
+                    <h2>Доставим на дом</h2>
+                    <h3>Как только так сразу</h3>
+                  </div>
+                </div>
+                <div className={classes.mockup_buttons_row}>
+                  <button
+                    className={
+                      additionalButtonsState === 1 ? classes.active_button : ""
+                    }
+                    onClick={() => {
+                      setAdditionalButtonsState(1);
+                    }}
+                  >
+                    <h2>Mockup-кнопки</h2>
+                  </button>
+                  <button
+                    className={
+                      additionalButtonsState === 2 ? classes.active_button : ""
+                    }
+                    onClick={() => {
+                      setAdditionalButtonsState(2);
+                    }}
+                  >
+                    <h2>Аксессуары</h2>
+                  </button>
+                  <button
+                    className={
+                      additionalButtonsState === 3 ? classes.active_button : ""
+                    }
+                    onClick={() => {
+                      setAdditionalButtonsState(3);
+                    }}
+                  >
+                    <h2>Услуги</h2>
+                  </button>
+                  <button
+                    className={
+                      additionalButtonsState === 4 ? classes.active_button : ""
+                    }
+                    onClick={() => {
+                      setAdditionalButtonsState(4);
+                    }}
+                  >
+                    <h2>Аналоги</h2>
                   </button>
                 </div>
               </div>

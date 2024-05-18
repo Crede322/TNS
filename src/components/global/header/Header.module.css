@@ -24,14 +24,24 @@
 
 .header__container {
   position: relative;
-  width: 1400px;
+  width: 1410px;
   margin: auto;
+}
+
+@media (max-width: 1410px) {
+  .header__container {
+    width: 95%;
+  }
 }
 
 .header__row {
   display: flex;
   justify-content: space-between;
   padding: 20px 0 20px 0;
+}
+
+.header__row_left {
+  display: flex;
 }
 
 .header__row li {
@@ -41,9 +51,9 @@
 
 /* кнопки */
 .menu__main_button {
-  width: 273px;
+  min-width: 283px;
   height: 60px;
-
+  margin-right: 20px;
   background-color: #0080f5;
   border-radius: 12px;
 }
@@ -220,7 +230,6 @@
 .nav {
   margin: auto;
   margin-top: 15px;
-  width: 950px;
   height: 115px;
   display: flex;
   justify-content: space-between;

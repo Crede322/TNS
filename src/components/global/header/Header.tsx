@@ -38,38 +38,32 @@ const Header = () => {
           <div className={classes.wrapper}>
             <div className={classes.header__container}>
               <ul className={classes.header__row}>
-                <li>
+                <div className={classes.header__row_left}>
                   <button
                     className={classes.menu__main_button}
                     onClick={redirect}
                   >
                     <h1>TNS</h1>
                   </button>
-                </li>
-                <li>
-                  <div className={classes.search}>
-                    <HeaderSearch />
-                  </div>
-                </li>
-                <li>
-                  <button className={classes.menu__btn}>
-                    <img src={favorite} alt="img_favorite" />
-                    <h2>Избранное</h2>
-                  </button>
-                  <button className={classes.menu__btn}>
-                    <img src={cart} alt="img_cart" />
-                    <h2>Корзина</h2>
-                  </button>
-                  <button
-                    className={classes.menu__btn}
-                    onMouseEnter={() => {
-                      setIsLoginHovered(!isLoginHovered);
-                    }}
-                  >
-                    <img src={profile} alt="img_profile" />
-                    <h2>Войти</h2>
-                  </button>
-                </li>
+                  <HeaderSearch />
+                </div>
+                <button className={classes.menu__btn}>
+                  <img src={favorite} alt="img_favorite" />
+                  <h2>Избранное</h2>
+                </button>
+                <button className={classes.menu__btn}>
+                  <img src={cart} alt="img_cart" />
+                  <h2>Корзина</h2>
+                </button>
+                <button
+                  className={classes.menu__btn}
+                  onMouseEnter={() => {
+                    setIsLoginHovered(!isLoginHovered);
+                  }}
+                >
+                  <img src={profile} alt="img_profile" />
+                  <h2>Войти</h2>
+                </button>
               </ul>
               {/* <HeaderNav /> */}
               <div
