@@ -1,7 +1,6 @@
 import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
-import Supabase from "../Supabase";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import favorite from "../../../img/favorite.svg";
@@ -116,9 +115,7 @@ const Header = () => {
         <div
           className={classes.popup__form}
           style={{ display: loginModal ? "block" : "none" }}
-        >
-          <Supabase />
-        </div>
+        />
         <div
           className={classes.modal__bg}
           style={{

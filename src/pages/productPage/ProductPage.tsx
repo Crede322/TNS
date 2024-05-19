@@ -5,20 +5,29 @@ import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
 import starImg from "../../img/searchPage/star.svg";
 import imgFavorite from "../../img/favorite.svg";
+import ProductTable from "./productPage components/ProductTable";
 
 interface Product {
   id: string;
   cpuName: string;
-  img: string;
   socket: string;
-  frequency: number;
+  price: string;
+  year: number;
+  coresNumber: number;
+  threads: number;
   cacheL2: number;
   cacheL3: number;
-  coresNumber: number;
+  frequency: number;
+  overclockedFrequency: string;
+  img: string;
   DDR: string;
+  maxRam: string;
+  multiplier: boolean;
   ramFrequency: number;
   TDP: number;
-  price: string;
+  maxHeat: number;
+  integratedGPU: boolean;
+  ramChannels: number;
 }
 
 const ProductPage: React.FC = () => {
@@ -68,8 +77,9 @@ const ProductPage: React.FC = () => {
               <div className={classes.product_characteristics}>
                 <h3>
                   {product.socket}, {product.coresNumber} x {product.frequency}{" "}
-                  ГГц, L2 - {product.cacheL2} МБ, L3 - {product.cacheL3} МБ, 2 x{" "}
-                  {product.DDR}-{product.ramFrequency} МГц, TDP {product.TDP} Вт
+                  ГГц, L2 - {product.cacheL2} МБ, L3 - {product.cacheL3} МБ,{" "}
+                  {product.ramChannels} x {product.DDR}-{product.ramFrequency}{" "}
+                  МГц, TDP {product.TDP} Вт
                 </h3>
                 <div className={classes.stars}>
                   <img src={starImg} alt="rating img" />
@@ -143,6 +153,71 @@ const ProductPage: React.FC = () => {
                   </button>
                 </div>
               </div>
+            </div>
+            <div className={classes.product_info}>
+              <h2>Характеристики процессора {product.cpuName}</h2>
+              <ProductTable
+                title="Заводские данные"
+                parameters={[
+                  "Гарантия продавца / производителя",
+                  "Страна-производитель",
+                ]}
+                values={["12 мес", "Китай"]}
+              />
+              <ProductTable
+                title="Общие параметры"
+                parameters={["Модель", "Сокет", "Год релиза"]}
+                values={[
+                  `${product.cpuName}`,
+                  `${product.socket}`,
+                  `${product.year}`,
+                ]}
+              />
+              <ProductTable
+                title="Ядро и архитектура"
+                parameters={[
+                  "Общее количество ядер",
+                  "Количество производительных ядер",
+                  "Максимальное число потоков",
+                  "Объём кэша L2",
+                  "Объём кэша L3",
+                ]}
+                values={[
+                  `${product.coresNumber}`,
+                  `${product.coresNumber}`,
+                  `${product.threads}`,
+                  `${product.cacheL2} МБ`,
+                  `${product.cacheL3} МБ`,
+                ]}
+              />
+              <ProductTable
+                title="Частота и возможность разгона"
+                parameters={[
+                  "Базовая частота процессора",
+                  "Максимальная частота в турбо режиме",
+                  "Свободный множитель",
+                ]}
+                values={[
+                  `${product.frequency} ГГц`,
+                  `${product.overclockedFrequency} ГГц`,
+                  `${product.multiplier === true ? "Да" : "Нет"}`,
+                ]}
+              />
+              <ProductTable
+                title="Параметры оперативной памяти"
+                parameters={[
+                  "Тип памяти",
+                  "Максимально поддерживаемый объём памяти",
+                  "Количество каналов",
+                  "Частота оперативной памяти",
+                ]}
+                values={[
+                  `${product.DDR}`,
+                  `${product.maxRam} ГБ`,
+                  `${product.ramChannels}`,
+                  `${product.ramFrequency} МГц`,
+                ]}
+              />
             </div>
           </div>
         </div>
