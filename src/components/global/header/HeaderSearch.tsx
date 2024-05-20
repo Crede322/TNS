@@ -29,6 +29,7 @@ const HeaderSearch = () => {
 
   interface product {
     cpuName: string;
+    id: number;
   }
 
   const handleWrapperClick = () => {
@@ -50,7 +51,7 @@ const HeaderSearch = () => {
     try {
       const { data } = await supabase
         .from("cpu")
-        .select("cpuName")
+        .select("cpuName, id")
         .ilike("cpuName", `%${searchTerm}%`);
       dispatch(putData(data));
     } catch (error) {
@@ -99,6 +100,11 @@ const HeaderSearch = () => {
     fetchData(searchTerm);
   };
 
+  const handleClickResult = (id: number) => {
+    navigate(`/product/${id}`);
+    window.location.reload();
+  };
+
   return (
     <div>
       <div
@@ -135,6 +141,7 @@ const HeaderSearch = () => {
               className={classes.result}
               key={index}
               style={{ display: overlay ? "flex" : "none" }}
+              onClick={() => handleClickResult(product.id)}
             >
               <img src={searchImg} alt="search img" />
               <h3>{product.cpuName}</h3>

@@ -38,6 +38,7 @@
   top: 50px;
   background-color: #fff;
   padding-top: 10px;
+  cursor: pointer;
 }
 
 .result h3 {

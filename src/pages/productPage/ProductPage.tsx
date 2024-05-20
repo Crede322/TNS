@@ -218,6 +218,19 @@ const ProductPage: React.FC = () => {
                   `${product.ramFrequency} МГц`,
                 ]}
               />
+              <ProductTable
+                title="Тепловые характеристики"
+                parameters={[
+                  "Тепловыделение(TDP)",
+                  "Базовое тепловыделение",
+                  "Максимальная температура процессора",
+                ]}
+                values={[
+                  `${product.TDP} Вт`,
+                  `${product.TDP} Вт`,
+                  `${product.maxHeat} °C`,
+                ]}
+              />
             </div>
           </div>
         </div>

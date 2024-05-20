@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import BlueButton from "../../../components/divided/BlueButton";
 
 interface SearchNoResultsProps {
@@ -11,6 +11,9 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
   searchResult,
   filteredData,
 }) => {
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const currentLocation = urlParams.get("q");
   const navigate = useNavigate();
   const mainPageRedirect = () => {
     navigate("/");
@@ -18,7 +21,10 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
 
   return (
     <div style={{ display: filteredData.length !== 0 ? "none" : "block" }}>
-      <h2>Странно, но по запросу "{searchResult}" ничего нет</h2>
+      <h2>
+        Странно, но по запросу "{searchResult ? searchResult : currentLocation}"
+        ничего нет
+      </h2>
       <h3>Попробуйте изменить критерии поиска</h3>
       <div>
         <BlueButton
