@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import Header from "../../components/global/header/Header";
-import classes from "./SearchPage.module.css";
 import { Link, useLocation } from "react-router-dom";
-import { supabase } from "../../helper/supabaseClient";
+
+// компоненты
+import Header from "../../components/global/header/Header";
 import SearchNoResults from "./no results/SearchNoResults";
-// redux
-import { useSelector } from "react-redux";
+import classes from "./SearchPage.module.css";
+
+// redux и supabase
+import { supabase } from "../../helper/supabaseClient";
+import { useDispatch, useSelector } from "react-redux";
 import {
   selectSearchResult,
   setReloadedResult,
@@ -15,13 +18,15 @@ import {
   putFilteredData,
   selectFilteredSBData,
 } from "../../features/supabaseDataSlice";
-import { useDispatch } from "react-redux";
+
+// пагинация через redux
 import {
   buttonPageClick,
   buttonPagePrev,
   buttonPageNext,
   selectCurrentPage,
 } from "../../features/searchPaginationSlice";
+
 //img
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
@@ -45,11 +50,13 @@ const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
   const filteredData = useSelector(selectFilteredSBData) as product[];
   const togglePage = useSelector(selectCurrentPage);
-  const scrollRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
+
+  // функции на кнопки
   const handleHoverPrev = () => {
     setHoverPrev(!hoverPrev);
   };
@@ -59,12 +66,10 @@ const SearchPage = () => {
   const handlePurchaseClick = (productId: number) => {
     console.log("Navigating to product:", productId);
   };
-
   const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     console.log("favorite");
   };
-
   const scrollToTop = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
@@ -104,6 +109,19 @@ const SearchPage = () => {
       break;
   }
 
+  // Redux + supabase
+  const fetchFilteredData = async (location: string) => {
+    try {
+      const { data } = await supabase
+        .from("cpu")
+        .select("*")
+        .ilike("cpuName", `%${currentLocation}%`);
+      dispatch(putFilteredData(data));
+    } catch (error) {
+      console.error("Error fetching supabase filtered data", error);
+    }
+  };
+
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const currentLocation: any = urlParams.get("q");
@@ -111,17 +129,6 @@ const SearchPage = () => {
     if (searchResult === "") {
       dispatch(setSearchTerm(currentLocation));
       dispatch(setReloadedResult(currentLocation));
-      const fetchFilteredData = async (location: string) => {
-        try {
-          const { data } = await supabase
-            .from("cpu")
-            .select("*")
-            .ilike("cpuName", `%${currentLocation}%`);
-          dispatch(putFilteredData(data));
-        } catch (error) {
-          console.error("Error fetching supabase filtered data", error);
-        }
-      };
       fetchFilteredData(currentLocation);
     }
   }, []);
@@ -156,6 +163,7 @@ const SearchPage = () => {
                   <div className={classes.result__product_image}>
                     <img src={product.img} alt="product img" />
                   </div>
+
                   <div className={classes.result_description}>
                     <h3 className={classes.product_info}>
                       {product.cpuName} <br />[{product.socket},{" "}
@@ -164,12 +172,14 @@ const SearchPage = () => {
                     </h3>
                     <div className={classes.purchase}>
                       <h2>{product.price}</h2>
+
                       <button
                         className={classes.purchase_button}
                         onClick={() => handlePurchaseClick(product.id)}
                       >
                         <h3>Купить</h3>
                       </button>
+
                       <button
                         className={classes.fav_button}
                         onClick={handleFavorite}
@@ -177,6 +187,7 @@ const SearchPage = () => {
                         <img src={imgFavorite} alt="imgFavorite" />
                       </button>
                     </div>
+
                     <div className={classes.product_subInfo}>
                       <div className={classes.stars}>
                         <img src={starImg} alt="rating img" />
@@ -211,7 +222,9 @@ const SearchPage = () => {
             >
               <img src={hoverPrev ? arrowBlue : arrow} alt="arrow img" />
             </button>
+
             {cases}
+
             <button
               className={classes.button_next}
               onMouseEnter={handleHoverNext}

@@ -1,6 +1,11 @@
 import React, { useRef, useState, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import classes from "./HeaderSearch.module.css";
+
+import { supabase } from "../../../helper/supabaseClient";
+
+// Redux
 import {
   clearSearchTerm,
   setSearchTerm,
@@ -12,26 +17,28 @@ import {
   selectSupabaseData,
   putFilteredData,
 } from "../../../features/supabaseDataSlice";
-import { useDispatch } from "react-redux";
-import { supabase } from "../../../helper/supabaseClient";
-import classes from "./HeaderSearch.module.css";
+
+// img
 import searchImg from "../../../img/search.svg";
 import crossImg from "../../../img/header images/cross.svg";
 
 const HeaderSearch = () => {
+  //для css
   const [overlay, changeOverlay] = useState<boolean>(false);
   const [hover, changeHover] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const inputRef = useRef<HTMLInputElement>(null);
   const searchTerm = useSelector(selectSearchTerm);
   const supabaseData: product[] = useSelector(selectSupabaseData);
-  const navigate = useNavigate();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const dispatch = useDispatch();
 
   interface product {
     cpuName: string;
     id: number;
   }
 
+  // => клик на инпут
   const handleWrapperClick = () => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -39,6 +46,7 @@ const HeaderSearch = () => {
     changeOverlay(true);
   };
 
+  //фокус на инпут
   const inputBlur = useCallback(() => {
     if (inputRef.current) {
       inputRef.current.blur();
@@ -46,7 +54,13 @@ const HeaderSearch = () => {
     changeOverlay(false);
   }, []);
 
-  // данные с поиска хедера, только наименования
+  const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      getResults();
+    }
+  };
+
+  // данные полученные с инпута при поиске, только наименования
   const fetchData = async (searchTerm: string) => {
     try {
       const { data } = await supabase
@@ -59,36 +73,45 @@ const HeaderSearch = () => {
     }
   };
 
-  //Redux
+  // поиск и проверка что инпут не пустой
   const getResults = () => {
     if (searchTerm.length > 0) {
       if (inputRef.current) {
         inputRef.current.blur();
       }
       changeOverlay(false);
-      //Router
       const searchQuery = encodeURIComponent(searchTerm);
       navigate(`/search/?q=${searchQuery}`);
       dispatch(setSearchResult());
-      dispatch(putFilteredData(searchTerm));
+      fetchFilteredData(searchTerm);
     }
   };
 
-  const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      getResults();
-    }
-  };
-
+  // ввод символов в инпут
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value;
     dispatch(setSearchTerm(searchTerm));
     fetchData(searchTerm);
   };
 
+  // клик на элемент из dropdown при поиске
   const handleClickResult = (id: number) => {
     navigate(`/product/${id}`);
     window.location.reload();
+  };
+
+  //полные данные грузящиеся при нажатии кнопки поиска, показываемые на странице searchPage
+  const fetchFilteredData = async (searchResult: string) => {
+    try {
+      const { data } = await supabase
+        .from("cpu")
+        .select("*")
+        .ilike("cpuName", `%${searchResult}%`);
+      dispatch(putFilteredData(data));
+      console.log(data ? data.length : "nullified");
+    } catch (error) {
+      console.error("Error fetching supabase filtered data", error);
+    }
   };
 
   return (
@@ -98,6 +121,7 @@ const HeaderSearch = () => {
         onClick={inputBlur}
         style={{ display: overlay ? "block" : "none" }}
       />
+
       <div
         className={classes.search_wrapper}
         onClick={handleWrapperClick}
@@ -118,6 +142,8 @@ const HeaderSearch = () => {
           onChange={handleSearch}
           onKeyDown={handleKeydown}
         />
+
+        {/* map списка с результатами */}
         <ul
           className={classes.result_list}
           style={{ display: searchTerm.length > 0 ? "block" : "none" }}
@@ -134,6 +160,7 @@ const HeaderSearch = () => {
             </li>
           ))}
         </ul>
+
         <div className={classes.search_buttons}>
           <button
             className={classes.button_one}
@@ -144,6 +171,7 @@ const HeaderSearch = () => {
           >
             <img src={crossImg} alt="cross img" />
           </button>
+
           <button className={classes.button_two} onClick={getResults}>
             <img src={searchImg} alt="search img" />
           </button>

@@ -1,15 +1,16 @@
 import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
+import HeaderSearch from "./HeaderSearch";
+
 import { useNavigate, useLocation } from "react-router-dom";
-import { clearSearchTerm } from "../../../features/searchSlice";
 import { useDispatch } from "react-redux";
+import { clearSearchTerm } from "../../../features/searchSlice";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
 import bell from "../../../img/nav/login/bell.svg";
-import HeaderSearch from "./HeaderSearch";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
