@@ -17,6 +17,7 @@ import {
 import {
   putFilteredData,
   selectFilteredSBData,
+  selectNoResults,
 } from "../../features/supabaseDataSlice";
 
 // пагинация через redux
@@ -50,6 +51,7 @@ const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
   const filteredData = useSelector(selectFilteredSBData) as product[];
   const togglePage = useSelector(selectCurrentPage);
+  const noResults = useSelector(selectNoResults);
   const dispatch = useDispatch();
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -140,7 +142,7 @@ const SearchPage = () => {
         <Header />
         <div
           className={classes.search_wrapper}
-          style={{ display: filteredData.length !== 0 ? "none" : "flex" }}
+          style={{ display: noResults ? "flex" : "none" }}
         >
           <SearchNoResults
             searchResult={searchResult}
@@ -148,9 +150,10 @@ const SearchPage = () => {
           />
           <img src={noResultsImg} alt="no results img" />
         </div>
+
         <div
           className={classes.received_items}
-          style={{ display: filteredData.length >= 1 ? "block" : "none" }}
+          style={{ display: noResults ? "none" : "block" }}
         >
           <div className={classes.results_list}>
             {filteredData.slice(startIdx, endIdx).map((product, index) => (

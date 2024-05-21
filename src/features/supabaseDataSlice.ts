@@ -5,11 +5,13 @@ import { RootState } from "../store/redux";
 interface dataTypes {
   headerSBData: [];
   filteredSBData: [];
+  noResults: boolean;
 }
 
 const initialState: dataTypes = {
   headerSBData: [],
   filteredSBData: [],
+  noResults: false,
 };
 
 const supabaseDataSlice = createSlice({
@@ -21,6 +23,11 @@ const supabaseDataSlice = createSlice({
     },
     putFilteredData(state, action) {
       state.filteredSBData = action.payload;
+      if (state.filteredSBData.length === 0) {
+        state.noResults = true;
+      } else {
+        state.noResults = false;
+      }
     },
   },
 });
@@ -31,3 +38,5 @@ export const selectSupabaseData = (state: RootState) =>
   state.supabaseData.headerSBData;
 export const selectFilteredSBData = (state: RootState) =>
   state.supabaseData.filteredSBData;
+export const selectNoResults = (state: RootState) =>
+  state.supabaseData.noResults;

@@ -20,7 +20,7 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
   };
 
   return (
-    <div style={{ display: filteredData.length !== 0 ? "none" : "block" }}>
+    <div>
       <h2>
         Странно, но по запросу "{searchResult ? searchResult : currentLocation}"
         ничего нет
