@@ -4,11 +4,15 @@ import { RootState } from "../store/redux";
 interface searchTypes {
   searchTerm: string;
   searchResult: string;
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: searchTypes = {
   searchTerm: "",
   searchResult: "",
+  loading: false,
+  error: null,
 };
 
 const searchSlice = createSlice({
@@ -24,11 +28,18 @@ const searchSlice = createSlice({
     setSearchResult(state) {
       state.searchResult = state.searchTerm;
     },
+    setReloadedResult(state, action: PayloadAction<string>) {
+      state.searchResult = action.payload;
+    },
   },
 });
 
-export const { setSearchTerm, clearSearchTerm, setSearchResult } =
-  searchSlice.actions;
+export const {
+  setSearchTerm,
+  clearSearchTerm,
+  setSearchResult,
+  setReloadedResult,
+} = searchSlice.actions;
 export default searchSlice.reducer;
 export const selectSearchTerm = (state: RootState) => state.search.searchTerm;
 export const selectSearchResult = (state: RootState) =>

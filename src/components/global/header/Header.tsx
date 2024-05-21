@@ -2,6 +2,8 @@ import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
 import { useNavigate, useLocation } from "react-router-dom";
+import { clearSearchTerm } from "../../../features/searchSlice";
+import { useDispatch } from "react-redux";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
@@ -12,6 +14,7 @@ import HeaderSearch from "./HeaderSearch";
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const dispatch = useDispatch();
   const location = useLocation();
   const currentPage = location.pathname;
 
@@ -22,6 +25,7 @@ const Header = () => {
   const navigate = useNavigate();
   const redirect = () => {
     navigate("/");
+    dispatch(clearSearchTerm());
   };
 
   return (

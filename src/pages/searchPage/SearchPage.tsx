@@ -1,12 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./SearchPage.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { supabase } from "../../helper/supabaseClient";
 import SearchNoResults from "./no results/SearchNoResults";
 // redux
 import { useSelector } from "react-redux";
-import { selectSearchResult } from "../../features/searchSlice";
-import { selectFilteredSBData } from "../../features/supabaseDataSlice";
+import {
+  selectSearchResult,
+  setReloadedResult,
+  setSearchTerm,
+} from "../../features/searchSlice";
+import {
+  putFilteredData,
+  selectFilteredSBData,
+} from "../../features/supabaseDataSlice";
 import { useDispatch } from "react-redux";
 import {
   buttonPageClick,
@@ -96,12 +104,33 @@ const SearchPage = () => {
       break;
   }
 
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const currentLocation: any = urlParams.get("q");
+  useEffect(() => {
+    if (searchResult === "") {
+      dispatch(setSearchTerm(currentLocation));
+      dispatch(setReloadedResult(currentLocation));
+      const fetchFilteredData = async (location: string) => {
+        try {
+          const { data } = await supabase
+            .from("cpu")
+            .select("*")
+            .ilike("cpuName", `%${currentLocation}%`);
+          dispatch(putFilteredData(data));
+        } catch (error) {
+          console.error("Error fetching supabase filtered data", error);
+        }
+      };
+      fetchFilteredData(currentLocation);
+    }
+  }, []);
+
   return (
     <div>
       <div ref={scrollRef} />
       <div style={{ background: "#f6f6f6", padding: "25px 0" }}>
         <Header />
-
         <div
           className={classes.search_wrapper}
           style={{ display: filteredData.length !== 0 ? "none" : "flex" }}
@@ -112,7 +141,6 @@ const SearchPage = () => {
           />
           <img src={noResultsImg} alt="no results img" />
         </div>
-
         <div
           className={classes.received_items}
           style={{ display: filteredData.length >= 1 ? "block" : "none" }}

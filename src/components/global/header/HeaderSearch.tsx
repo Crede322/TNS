@@ -70,21 +70,7 @@ const HeaderSearch = () => {
       const searchQuery = encodeURIComponent(searchTerm);
       navigate(`/search/?q=${searchQuery}`);
       dispatch(setSearchResult());
-      fetchFilteredData(searchTerm);
-    }
-  };
-
-  //полные данные при нажатии кнопки поиска, показываемые на странице searchPage
-  const fetchFilteredData = async (searchResult: string) => {
-    try {
-      const { data } = await supabase
-        .from("cpu")
-        .select("*")
-        .ilike("cpuName", `%${searchResult}%`);
-      dispatch(putFilteredData(data));
-      console.log(data ? data.length : "nullified");
-    } catch (error) {
-      console.error("Error fetching supabase filtered data", error);
+      dispatch(putFilteredData(searchTerm));
     }
   };
 
