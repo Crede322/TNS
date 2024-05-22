@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
 import HeaderSearch from "./HeaderSearch";
+import Supabase from "../supabase/Supabase";
 
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -117,10 +118,13 @@ const Header = () => {
             </div>
           </div>
         </div>
+
         <div
           className={classes.popup__form}
           style={{ display: loginModal ? "block" : "none" }}
-        />
+        >
+          <Supabase />
+        </div>
         <div
           className={classes.modal__bg}
           style={{
