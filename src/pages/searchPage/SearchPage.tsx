@@ -17,7 +17,6 @@ import {
 import {
   putFilteredData,
   selectFilteredSBData,
-  selectNoResults,
 } from "../../features/supabaseDataSlice";
 
 // пагинация через redux
@@ -51,12 +50,13 @@ const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
   const filteredData = useSelector(selectFilteredSBData) as product[];
   const togglePage = useSelector(selectCurrentPage);
-  const noResults = useSelector(selectNoResults);
   const dispatch = useDispatch();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
+  const [currentSearchResult, setCurrentSearchResult] = useState(0);
+  // тут 0 = дефолт, 1 = ошибка, 2 = показ товаров
 
   // функции на кнопки
   const handleHoverPrev = () => {
@@ -119,6 +119,11 @@ const SearchPage = () => {
         .select("*")
         .ilike("cpuName", `%${currentLocation}%`);
       dispatch(putFilteredData(data));
+      if (data && data.length <= 0) {
+        setCurrentSearchResult(1);
+      } else {
+        setCurrentSearchResult(2);
+      }
     } catch (error) {
       console.error("Error fetching supabase filtered data", error);
     }
@@ -127,12 +132,11 @@ const SearchPage = () => {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const currentLocation: any = urlParams.get("q");
+
   useEffect(() => {
-    if (searchResult === "") {
-      dispatch(setSearchTerm(currentLocation));
-      dispatch(setReloadedResult(currentLocation));
-      fetchFilteredData(currentLocation);
-    }
+    dispatch(setSearchTerm(currentLocation));
+    dispatch(setReloadedResult(currentLocation));
+    fetchFilteredData(currentLocation);
   }, []);
 
   return (
@@ -142,7 +146,9 @@ const SearchPage = () => {
         <Header />
         <div
           className={classes.search_wrapper}
-          style={{ display: noResults ? "flex" : "none" }}
+          style={{
+            display: currentSearchResult === 1 ? "flex" : "none",
+          }}
         >
           <SearchNoResults
             searchResult={searchResult}
@@ -153,7 +159,7 @@ const SearchPage = () => {
 
         <div
           className={classes.received_items}
-          style={{ display: noResults ? "none" : "block" }}
+          style={{ display: currentSearchResult === 2 ? "block" : "none" }}
         >
           <div className={classes.results_list}>
             {filteredData.slice(startIdx, endIdx).map((product, index) => (
