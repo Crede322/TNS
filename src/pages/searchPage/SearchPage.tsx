@@ -163,10 +163,9 @@ const SearchPage = () => {
         >
           <div className={classes.results_list}>
             {filteredData.slice(startIdx, endIdx).map((product, index) => (
-              <Link to={`/product/${product.id}`}>
+              <Link key={product.id} to={`/product/${product.id}`}>
                 <div
                   className={classes.result}
-                  key={product.id}
                   onClick={() => handlePurchaseClick(product.id)}
                 >
                   <div className={classes.result__product_image}>

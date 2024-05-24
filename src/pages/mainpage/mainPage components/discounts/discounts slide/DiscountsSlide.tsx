@@ -24,24 +24,25 @@ const DiscountsSlide: React.FC<DiscountsSlideProps> = ({
   imgRight,
   imgBottom,
 }) => {
-  const handleClick = () => {
-    window.location.href = link;
-  };
-
   const imageStyle = {
     width: imgWidth ? imgWidth : "120px",
     right: imgRight ? imgRight : "10px",
     bottom: imgBottom ? imgBottom : "-20px",
   };
+
+  const handleClick = () => {
+    window.location.href = link;
+  };
+
   return (
-    <div className={classes.discounts_slide_wrapper} onClick={handleClick}>
+    <div className={classes.discounts_slide_wrapper}>
       <h2>{title}</h2>
       <h3>{description}</h3>
       <div style={{ display: "flex" }}>
         <h4>{price}</h4>
         <h5>{prevPrice}</h5>
       </div>
-      <button className={classes.discounts_button}>
+      <button className={classes.discounts_button} onClick={handleClick}>
         <h3>Подробнее</h3>
       </button>
       <img src={img} alt="discount img" style={imageStyle} />

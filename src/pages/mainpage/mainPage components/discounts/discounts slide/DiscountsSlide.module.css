@@ -1,6 +1,5 @@
 .discounts_slide_wrapper {
   height: 206px;
-  width: 314px;
   background-color: #fff;
   box-shadow: 0 2px 4px #0000001a;
   border: 1px solid #0000001a;
@@ -10,6 +9,7 @@
   padding: 25px 0 80px 25px;
   position: relative;
   overflow: hidden;
+  color: #333;
 }
 
 .discounts_slide_wrapper h2 {
