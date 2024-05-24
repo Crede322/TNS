@@ -1,4 +1,10 @@
-.search_wrapper {
+.searchpage_background {
+  padding: 25px 0;
+  min-height: 800px;
+  background-color: #f7f7f7;
+}
+
+.noResults_wrapper {
   width: 1400px;
   height: 177px;
   background-color: #fff;
@@ -7,17 +13,23 @@
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
 }
 
-.search_wrapper h2 {
+.noResults_wrapper h2 {
   font-size: 20px;
   font-weight: 600;
   margin: 11px 0;
   color: #333333;
 }
 
-.search_wrapper h3 {
+.noResults_wrapper h3 {
   margin: 11px 0;
+}
+
+.noResults_wrapper img {
+  width: 145px;
+  height: 145px;
 }
 
 .received_items h2 {

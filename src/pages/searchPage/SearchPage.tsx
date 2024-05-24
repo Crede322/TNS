@@ -142,10 +142,10 @@ const SearchPage = () => {
   return (
     <div>
       <div ref={scrollRef} />
-      <div style={{ background: "#f6f6f6", padding: "25px 0" }}>
+      <div className={classes.searchpage_background}>
         <Header />
         <div
-          className={classes.search_wrapper}
+          className={classes.noResults_wrapper}
           style={{
             display: currentSearchResult === 1 ? "flex" : "none",
           }}
