@@ -37,7 +37,6 @@ const ProductPage: React.FC = () => {
   const [additionalButtonsState, setAdditionalButtonsState] = useState(1);
 
   const fetchData = async (parsedProductId: number) => {
-    console.log(parsedProductId);
     try {
       const { data } = await supabase
         .from("cpu")
@@ -45,7 +44,6 @@ const ProductPage: React.FC = () => {
         .eq("id", `${parsedProductId}`);
       if (data) {
         setProduct(data[0]);
-        console.log(data);
       }
     } catch (error) {
       console.error("Error fetching supabase data", error);
@@ -54,11 +52,15 @@ const ProductPage: React.FC = () => {
 
   useEffect(() => {
     fetchData(parsedProductId);
-    console.log("effect");
   }, [parsedProductId]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Header />
+        <div style={{ background: "F6F6F6", height: "800px" }} />
+      </div>
+    );
   }
 
   return (
