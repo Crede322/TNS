@@ -51,6 +51,15 @@ const ProductPage: React.FC = () => {
   };
 
   useEffect(() => {
+    const updateHistory = (id: number) => {
+      const history = JSON.parse(localStorage.getItem("history") || "[]");
+      if (!history.includes(id)) {
+        history.push(id);
+        localStorage.setItem("history", JSON.stringify(history));
+      }
+    };
+
+    updateHistory(parsedProductId);
     fetchData(parsedProductId);
   }, [parsedProductId]);
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import classes from "./HeaderSearch.module.css";
@@ -99,7 +99,10 @@ const HeaderSearch = () => {
     window.location.reload();
   };
 
-  //полные данные грузящиеся при нажатии кнопки поиска, показываемые на странице searchPage
+  // история
+  useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem("history") || "www"));
+  }, []);
 
   return (
     <div>

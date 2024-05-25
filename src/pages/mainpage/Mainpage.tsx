@@ -1,4 +1,5 @@
 import Header from "../../components/global/header/Header";
+import RecentViewed from "../../components/global/recentViewed/RecentViewed";
 import classes from "./MainPage.module.css";
 import MainpageSwiper from "./mainPage components/MainpageSwiper";
 import ActualOffers from "./mainPage components/actual offers/ActualOffers";
@@ -9,11 +10,14 @@ const Mainpage = () => {
   return (
     <div>
       <Header />
-      <div className={classes.wrapper}>
-        <MainpageSwiper />
-        <Discounts />
-        <BrandsSwiper />
-        <ActualOffers />
+      <div className={classes.background}>
+        <div className={classes.wrapper}>
+          <MainpageSwiper />
+          <Discounts />
+          <BrandsSwiper />
+          <ActualOffers />
+          <RecentViewed />
+        </div>
       </div>
     </div>
   );
