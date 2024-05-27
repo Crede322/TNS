@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import classes from "./HeaderSearch.module.css";
@@ -98,11 +98,6 @@ const HeaderSearch = () => {
     navigate(`/product/${id}`);
     window.location.reload();
   };
-
-  // история
-  useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem("history") || "www"));
-  }, []);
 
   return (
     <div>
