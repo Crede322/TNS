@@ -49,3 +49,10 @@
   height: 22px;
   width: 22px;
 }
+
+.recentViewed h1 {
+  font-size: 24px;
+  color: #000;
+  font-weight: 900;
+  margin-bottom: 15px;
+}

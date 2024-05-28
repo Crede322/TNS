@@ -9,8 +9,9 @@ const RecentViewed = () => {
   history.slice(-4).forEach((element: number) => console.log(element));
 
   return (
-    <div className="recentViewed_wrapper">
-      <Swiper slidesPerView={4} className={classes.slider}>
+    <div className={classes.recentViewed}>
+      <h1>Вы недавно смотрели</h1>
+      <Swiper slidesPerView={4} className="recentViewed_wrapper">
         {history.reverse().map((id: number, index: number) => (
           <SwiperSlide key={index}>
             <RecentItem historyObj={id} />
