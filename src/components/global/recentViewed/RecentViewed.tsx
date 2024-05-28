@@ -10,8 +10,8 @@ const RecentViewed = () => {
 
   return (
     <div className="recentViewed_wrapper">
-      <Swiper slidesPerView={4.1}>
-        {history.slice(-4).map((id: number, index: number) => (
+      <Swiper slidesPerView={4} className={classes.slider}>
+        {history.reverse().map((id: number, index: number) => (
           <SwiperSlide key={index}>
             <RecentItem historyObj={id} />
           </SwiperSlide>
