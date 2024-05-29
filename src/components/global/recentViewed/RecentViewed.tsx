@@ -6,7 +6,10 @@ import RecentItem from "./RecentItem";
 
 const RecentViewed = () => {
   const history = JSON.parse(localStorage.getItem("history") || "null");
-  history.slice(-4).forEach((element: number) => console.log(element));
+
+  if (history === null) {
+    return <div></div>;
+  }
 
   return (
     <div className={classes.recentViewed}>

@@ -15,6 +15,11 @@
 .item_card h2 {
   margin-top: 16px;
   height: 70px;
+  color: #333;
+}
+
+.item_card h2:hover {
+  color: #0080f5;
 }
 
 .item_buttons {
@@ -27,12 +32,12 @@
   height: 44px;
   width: 68%;
   background: linear-gradient(270deg, #f6f6f6, hsla(0, 0%, 100%, 0));
+  padding-top: 10px;
 }
 
 .item_cost h1 {
-  margin-top: 12px;
   color: #000;
-  height: 44px;
+  width: 120px;
   font-size: 18px;
   font-weight: 900;
   text-wrap: nowrap;

@@ -55,8 +55,9 @@ const SearchPage = () => {
 
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
-  const [currentSearchResult, setCurrentSearchResult] = useState(0);
+
   // тут 0 = дефолт, 1 = ошибка, 2 = показ товаров
+  const [currentSearchResult, setCurrentSearchResult] = useState(0);
 
   // функции на кнопки
   const handleHoverPrev = () => {
