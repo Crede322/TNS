@@ -119,6 +119,7 @@ const HeaderSearch = () => {
         }}
       >
         <input
+          id="header_input"
           ref={inputRef}
           className={classes.search_input}
           type="search"
@@ -129,11 +130,12 @@ const HeaderSearch = () => {
         />
 
         {/* map списка с результатами */}
+
         <ul
           className={classes.result_list}
           style={{ display: searchTerm.length > 0 ? "block" : "none" }}
         >
-          {supabaseData.map((product, index) => (
+          {supabaseData.slice(0, 10).map((product, index) => (
             <li
               className={classes.result}
               key={index}

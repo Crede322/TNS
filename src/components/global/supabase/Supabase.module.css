@@ -4,7 +4,19 @@
   position: relative;
 }
 
-.supabaseInput {
+.input_email {
+  border-radius: 8px;
+  border: 1px solid #e7e7e7;
+
+  height: 64px;
+  width: 280px;
+  padding: 20px 20px 10px;
+
+  font-weight: 700;
+  color: #4e4e4e;
+}
+
+.input_password {
   border-radius: 8px;
   border: 1px solid #e7e7e7;
 

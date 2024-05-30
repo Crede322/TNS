@@ -52,7 +52,7 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
 
   return (
     <a href={href}>
-      <button className={classes.item_card}>
+      <div className={classes.item_card}>
         <div className={classes.img_container}>
           <img src={productData.img} alt="recent viewed item" />
         </div>
@@ -71,7 +71,7 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
             <img src={cartImg} alt="cart img" />
           </button>
         </div>
-      </button>
+      </div>
     </a>
   );
 };

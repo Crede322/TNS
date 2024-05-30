@@ -90,7 +90,7 @@ const Supabase = () => {
       </div>
       <div style={{ position: "relative" }}>
         <input
-          className={classes.supabaseInput}
+          className={classes.input_email}
           type="email"
           value={email}
           required={true}
@@ -121,7 +121,7 @@ const Supabase = () => {
 
       <div style={{ position: "relative" }}>
         <input
-          className={classes.supabaseInput}
+          className={classes.input_password}
           type={isPasswordShown ? "text" : "password"}
           value={password}
           required={true}

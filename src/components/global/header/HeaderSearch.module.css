@@ -34,7 +34,12 @@
 
 .result {
   left: 0;
-  top: 50px;
+  background-color: #fff;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.history_result {
   background-color: #fff;
   padding-top: 10px;
   cursor: pointer;

@@ -12,6 +12,7 @@ import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
 import bell from "../../../img/nav/login/bell.svg";
+import Auth from "../supabase/Auth";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -70,7 +71,6 @@ const Header = () => {
                   <h2>Войти</h2>
                 </button>
               </ul>
-              {/* <HeaderNav /> */}
               <div
                 className={classes.login_popup}
                 onMouseLeave={() => {
@@ -123,7 +123,8 @@ const Header = () => {
           className={classes.popup__form}
           style={{ display: loginModal ? "block" : "none" }}
         >
-          <Supabase />
+          {/* <Supabase /> */}
+          <Auth />
         </div>
         <div
           className={classes.modal__bg}
