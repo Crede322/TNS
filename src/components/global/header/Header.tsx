@@ -123,7 +123,6 @@ const Header = () => {
           className={classes.popup__form}
           style={{ display: loginModal ? "block" : "none" }}
         >
-          {/* <Supabase /> */}
           <Auth />
         </div>
         <div
