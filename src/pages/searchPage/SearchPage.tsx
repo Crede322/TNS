@@ -163,7 +163,7 @@ const SearchPage = () => {
           style={{ display: currentSearchResult === 2 ? "block" : "none" }}
         >
           <div className={classes.results_list}>
-            {filteredData.slice(startIdx, endIdx).map((product, index) => (
+            {filteredData.slice(startIdx, endIdx).map((product) => (
               <Link key={product.id} to={`/product/${product.id}`}>
                 <div
                   className={classes.result}

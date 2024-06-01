@@ -63,12 +63,6 @@ const ProductPage: React.FC = () => {
     fetchData(parsedProductId);
   }, [parsedProductId]);
 
-  useEffect(() => {
-    let num = 15;
-    console.log((num = 20));
-    console.log(num);
-  }, []);
-
   if (!product) {
     return (
       <div>

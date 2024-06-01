@@ -15,6 +15,13 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
   ) => {
     e.stopPropagation();
     console.log(id);
+
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (!favorites.includes(id)) {
+      favorites.push(id);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+    console.log(favorites);
   };
 
   if (favStyle === "mainFav") {
