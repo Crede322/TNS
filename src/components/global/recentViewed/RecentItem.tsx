@@ -51,28 +51,28 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
   const href = `https://crede322.github.io/TNS/#/product/${productData.id}`;
 
   return (
-    <a href={href}>
-      <div className={classes.item_card}>
-        <div className={classes.img_container}>
-          <img src={productData.img} alt="recent viewed item" />
-        </div>
-        <h2>
-          {productData.cpuName}[{productData.socket}, {productData.coresNumber}{" "}
-          x {productData.frequency} ГГц, L2 - {productData.cacheL2} МБ, L3 -{" "}
-          {productData.cacheL3} МБ, {productData.ramChannels} x{" "}
-          {productData.DDR}-{productData.ramFrequency}МГц, {productData.TDP} Вт]
-        </h2>
-        <div className={classes.item_buttons}>
-          <div className={classes.item_cost}>
-            <h1>{productData.price}</h1>
-          </div>
-          <FavButton favStyle="mainFav" id={productData.id} />
-          <button className={classes.button_cart}>
-            <img src={cartImg} alt="cart img" />
-          </button>
-        </div>
+    // <a href={href}>
+    <div className={classes.item_card}>
+      <div className={classes.img_container}>
+        <img src={productData.img} alt="recent viewed item" />
       </div>
-    </a>
+      <h2>
+        {productData.cpuName}[{productData.socket}, {productData.coresNumber} x{" "}
+        {productData.frequency} ГГц, L2 - {productData.cacheL2} МБ, L3 -{" "}
+        {productData.cacheL3} МБ, {productData.ramChannels} x {productData.DDR}-
+        {productData.ramFrequency}МГц, {productData.TDP} Вт]
+      </h2>
+      <div className={classes.item_buttons}>
+        <div className={classes.item_cost}>
+          <h1>{productData.price}</h1>
+        </div>
+        <FavButton favStyle="mainFav" id={productData.id} />
+        <button className={classes.button_cart}>
+          <img src={cartImg} alt="cart img" />
+        </button>
+      </div>
+    </div>
+    // </a>
   );
 };
 

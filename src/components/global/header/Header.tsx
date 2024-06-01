@@ -2,7 +2,6 @@ import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../divided/BlueButton";
 import HeaderSearch from "./HeaderSearch";
-import Supabase from "../supabase/Supabase";
 
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -30,6 +29,9 @@ const Header = () => {
     navigate("/");
     dispatch(clearSearchTerm());
   };
+  const toWishlist = () => {
+    navigate("/wishlist");
+  };
 
   return (
     <header>
@@ -53,7 +55,7 @@ const Header = () => {
                   </button>
                   <HeaderSearch />
                 </div>
-                <button className={classes.menu__btn}>
+                <button className={classes.menu__btn} onClick={toWishlist}>
                   <img src={favorite} alt="img_favorite" />
                   <h2>Избранное</h2>
                 </button>

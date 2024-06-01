@@ -6,9 +6,16 @@ interface FavButtonProps {
   id: number;
 }
 
-const FavButton: React.FC<FavButtonProps> = ({ favStyle }) => {
+const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
   let style;
   let wrapper;
+
+  const handleFavButton = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    e.stopPropagation();
+    console.log(id);
+  };
 
   if (favStyle === "mainFav") {
     wrapper = {
@@ -29,7 +36,7 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle }) => {
   }
 
   return (
-    <button style={wrapper}>
+    <button style={wrapper} onClick={handleFavButton}>
       <img src={favImg} alt="fav icon" style={style} />
     </button>
   );

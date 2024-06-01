@@ -6,6 +6,7 @@ import SearchPage from "./pages/searchPage/SearchPage";
 import ProductPage from "./pages/productPage/ProductPage";
 import "./common.css";
 import Footer from "./components/global/footer/Footer";
+import Wishlist from "./pages/wishlist/Wishlist";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<Mainpage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path="/wishlist" element={<Wishlist />} />
           </Routes>
         </HashRouter>
         <Footer />
