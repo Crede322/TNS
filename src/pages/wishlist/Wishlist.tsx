@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import Header from "../../components/global/header/Header";
-import { supabase } from "../../helper/supabaseClient";
 import classes from "./Wishlist.module.css";
 
-interface product {
+// supabase
+import { supabase } from "../../helper/supabaseClient";
+import { useDispatch, useSelector } from "react-redux";
+import { putFavoriteData, selectFavorites } from "../../features/favoriteSlice";
+import { RootState } from "../../store/redux";
+
+interface Product {
   id: number;
   cpuName: string;
   price: string;
@@ -16,6 +21,11 @@ interface product {
 }
 
 const Wishlist = () => {
+  const dispatch = useDispatch();
+  const favoriteData = useSelector((state: RootState) =>
+    selectFavorites(state),
+  ) as Product[];
+
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     fetchFilteredData(favorites);
@@ -26,9 +36,9 @@ const Wishlist = () => {
       const { data } = await supabase
         .from("cpu")
         .select("*")
-        .in("id", [favorites]);
+        .in("id", favorites);
       if (data) {
-        console.log("успешно получены данные фаворитов ", data);
+        dispatch(putFavoriteData(data));
       }
     } catch (error) {
       console.error("Error fetching supabase filtered data", error);
@@ -41,7 +51,11 @@ const Wishlist = () => {
       <div className={classes.wishlist_background}>
         <div className={classes.wishlist_container}>
           <h1>Избранное</h1>
-          <div className={classes.wishlist_management}></div>
+          <ul className={classes.wishlist_management}>
+            {favoriteData.map((product) => (
+              <li key={product.id}>{product.cpuName}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
