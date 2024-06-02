@@ -15,6 +15,9 @@ interface Product {
   socket: string;
   coresNumber: number;
   frequency: string;
+  ramChannels: number;
+  ramFrequency: number;
+  TDP: number;
   cacheL2: number;
   cacheL3: number;
   img: string;
@@ -51,11 +54,19 @@ const Wishlist = () => {
       <div className={classes.wishlist_background}>
         <div className={classes.wishlist_container}>
           <h1>Избранное</h1>
-          <ul className={classes.wishlist_management}>
-            {favoriteData.map((product) => (
-              <li key={product.id}>{product.cpuName}</li>
-            ))}
-          </ul>
+          {favoriteData.map((product) => (
+            <div key={product.id} className={classes.favorite_product}>
+              <img src={product.img} alt="product img" />
+              <div className={classes.favorite_product_main}>
+                <h2>
+                  {product.cpuName} [{product.socket}, {product.coresNumber} x{" "}
+                  {product.frequency} ГГц, L2 - {product.cacheL2} МБ, L3 -{" "}
+                  {product.cacheL3} МБ, {product.ramChannels} x{" "}
+                  {product.ramFrequency} МГц, TDP {product.TDP} Вт]
+                </h2>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
