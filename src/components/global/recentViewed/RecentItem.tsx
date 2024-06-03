@@ -57,7 +57,7 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
         <img src={productData.img} alt="recent viewed item" />
       </div>
       <h2>
-        {productData.cpuName}[{productData.socket}, {productData.coresNumber} x{" "}
+        {productData.cpuName} [{productData.socket}, {productData.coresNumber} x{" "}
         {productData.frequency} ГГц, L2 - {productData.cacheL2} МБ, L3 -{" "}
         {productData.cacheL3} МБ, {productData.ramChannels} x {productData.DDR}-
         {productData.ramFrequency}МГц, {productData.TDP} Вт]
