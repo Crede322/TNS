@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Header from "../../components/global/header/Header";
 import classes from "./Wishlist.module.css";
 import FavoriteProduct from "./FavoriteProduct";
