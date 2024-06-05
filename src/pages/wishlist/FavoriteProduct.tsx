@@ -4,7 +4,7 @@ import FavButton from "../../components/divided/FavButton";
 import classes from "./Wishlist.module.css";
 
 interface FavoriteProductProps {
-  id: number;
+  id: string;
 }
 
 interface Product {
@@ -23,9 +23,11 @@ interface Product {
 }
 
 const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
-  const [favoriteProductData, setFavoriteProductData] = useState<Product>();
+  const [favoriteProductData, setFavoriteProductData] = useState<
+    Partial<Product>
+  >({});
 
-  const fetchFilteredData = async (favoriteProduct: number) => {
+  const fetchFilteredData = async (favoriteProduct: string) => {
     try {
       const { data } = await supabase
         .from("cpu")
@@ -47,18 +49,18 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
     <div>
       {id}
       <div className={classes.favorite_product}>
-        <img src={favoriteProductData?.img} alt="product img" />
+        <img src={favoriteProductData.img} alt="product img" />
         <h3>
-          {favoriteProductData?.cpuName} [{favoriteProductData?.socket},{" "}
-          {favoriteProductData?.coresNumber} x {favoriteProductData?.frequency}{" "}
-          ГГц, L2 - {favoriteProductData?.cacheL2} МБ, L3 -{" "}
-          {favoriteProductData?.cacheL3} МБ, {favoriteProductData?.ramChannels}{" "}
-          x {favoriteProductData?.ramFrequency} МГц, TDP{" "}
-          {favoriteProductData?.TDP} Вт]
+          {favoriteProductData.cpuName} [{favoriteProductData.socket},{" "}
+          {favoriteProductData.coresNumber} x {favoriteProductData.frequency}{" "}
+          ГГц, L2 - {favoriteProductData.cacheL2} МБ, L3 -{" "}
+          {favoriteProductData.cacheL3} МБ, {favoriteProductData.ramChannels} x{" "}
+          {favoriteProductData.ramFrequency} МГц, TDP {favoriteProductData.TDP}{" "}
+          Вт]
         </h3>
         <div>
           <h2>{favoriteProductData?.price}</h2>
-          <FavButton favStyle="mainFav" id={favoriteProductData?.id} />
+          <FavButton favStyle="mainFav" id={favoriteProductData.id} />
         </div>
       </div>
     </div>

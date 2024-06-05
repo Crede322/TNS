@@ -1,12 +1,12 @@
 import Header from "../../components/global/header/Header";
 import classes from "./Wishlist.module.css";
 import FavoriteProduct from "./FavoriteProduct";
+import { selectFavorites } from "../../features/favoriteSlice";
+import { useSelector } from "react-redux";
 
 const Wishlist = () => {
-  const favorites: number[] = JSON.parse(
-    localStorage.getItem("favorites") || "[]",
-  );
-  console.log(favorites);
+  const wishlistIDs = useSelector(selectFavorites);
+  console.log(wishlistIDs);
 
   return (
     <div>
@@ -14,7 +14,7 @@ const Wishlist = () => {
       <div className={classes.wishlist_background}>
         <div className={classes.wishlist_container}>
           <h1>Избранное</h1>
-          {favorites.map((id) => (
+          {wishlistIDs.map((id) => (
             <FavoriteProduct id={id} key={id} />
           ))}
         </div>

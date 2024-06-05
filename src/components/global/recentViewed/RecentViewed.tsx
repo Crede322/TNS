@@ -3,9 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import RecentItem from "./RecentItem";
+import { selectFavorites } from "../../../features/favoriteSlice";
+import { useSelector } from "react-redux";
 
 const RecentViewed = () => {
   const history = JSON.parse(localStorage.getItem("history") || "null");
+  const wishlistIDs = useSelector(selectFavorites);
+  console.log("detectIDS", wishlistIDs);
 
   if (history === null) {
     return <div></div>;
