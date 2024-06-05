@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import favImg from "../../img/favorite.svg";
 import { putFavoriteData } from "../../features/favoriteSlice";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "../../features/favoriteSlice";
 
 interface FavButtonProps {
   favStyle: string;
@@ -11,16 +13,22 @@ interface FavButtonProps {
 const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
   const [isProductFaved, setIsProductFaved] = useState(false);
   const dispatch = useDispatch();
+  const wishlistIDs = useSelector(selectFavorites);
+
+  useEffect(() => {
+    if (id !== undefined && wishlistIDs.includes(id)) {
+      setIsProductFaved(true);
+    } else {
+      setIsProductFaved(false);
+    }
+  }, [wishlistIDs, id]);
 
   const handleFavButton = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     e.stopPropagation();
 
-    if (id !== undefined) {
-      dispatch(putFavoriteData(id));
-    } else {
-    }
+    dispatch(putFavoriteData(id));
   };
 
   //стили

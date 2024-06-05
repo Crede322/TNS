@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store/redux";
 
 interface favoriteTypes {
-  wishlistIDs: string[];
+  wishlistIDs: number[];
 }
 
 const initialState: favoriteTypes = {
@@ -12,8 +12,7 @@ const initialState: favoriteTypes = {
 let storedFavorites: string[] = JSON.parse(
   localStorage.getItem("favorites") || "[]",
 );
-
-console.log(storedFavorites);
+console.log("избранные", storedFavorites);
 
 const favoriteSlice = createSlice({
   name: "favoritesData",
@@ -28,7 +27,7 @@ const favoriteSlice = createSlice({
         );
       }
       localStorage.setItem("favorites", JSON.stringify(storedFavorites));
-      state.wishlistIDs = storedFavorites;
+      state.wishlistIDs = storedFavorites.map(Number);
     },
   },
 });
