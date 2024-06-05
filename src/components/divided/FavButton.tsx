@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import favImg from "../../img/favorite.svg";
+import favColored from "../../img/favoriteColored.svg";
+import classes from "./FavButton.module.css";
 import { putFavoriteData } from "../../features/favoriteSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -39,7 +41,7 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
     wrapper = {
       height: "44px",
       width: "44px",
-      border: "1px solid #d9d9d9",
+      border: isProductFaved ? "1px solid #0080f5" : "1px solid #d9d9d9",
       borderRadius: "8px",
     };
     style = {
@@ -54,9 +56,16 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
   }
 
   return (
-    <button style={wrapper} onClick={handleFavButton}>
-      <img src={favImg} alt="fav icon" style={style} />
-      {isProductFaved ? "true" : "false"}
+    <button
+      className={classes.fav_wrapper}
+      style={wrapper}
+      onClick={handleFavButton}
+    >
+      <img
+        src={isProductFaved ? favColored : favImg}
+        alt="fav icon"
+        style={style}
+      />
     </button>
   );
 };

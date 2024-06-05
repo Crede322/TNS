@@ -1,0 +1,7 @@
+.fav_wrapper {
+  transition: background-color, 0.3s;
+}
+
+.fav_wrapper:hover {
+  background-color: #b7dcff;
+}
