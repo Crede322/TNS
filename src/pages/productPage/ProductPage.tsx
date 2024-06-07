@@ -6,6 +6,7 @@ import classes from "./ProductPage.module.css";
 import starImg from "../../img/searchPage/star.svg";
 import imgFavorite from "../../img/favorite.svg";
 import ProductTable from "./productPage components/ProductTable";
+import FavButton from "../../components/divided/FavButton";
 
 interface Product {
   id: string;
@@ -104,9 +105,7 @@ const ProductPage: React.FC = () => {
                   <div className={classes.product_section_price_cost}>
                     <h2>{product.price}</h2>
                   </div>
-                  <button className={classes.fav_button}>
-                    <img src={imgFavorite} alt="imgFavorite" />
-                  </button>
+                  <FavButton favStyle="wishlistStyle" />
                   <button className={classes.product_section_price_buy}>
                     <h2>Купить</h2>
                   </button>

@@ -1,7 +1,27 @@
-.fav_wrapper {
+.mainPageStyle {
+  height: 44px;
+  width: 44px;
+  border-radius: 8px;
   transition: background-color, 0.3s;
 }
 
-.fav_wrapper:hover {
+.mainPageStyle:hover {
   background-color: #b7dcff;
+}
+
+.mainPageStyle img {
+  max-height: 18px;
+  max-width: 18px;
+}
+
+.productPageStyle {
+  height: 44px;
+  width: 44px;
+  border-radius: 8px;
+  transition: background-color, 0.3s;
+}
+
+.productPageStyle img {
+  max-height: 18px;
+  max-width: 18px;
 }

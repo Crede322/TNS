@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import favImg from "../../img/favorite.svg";
 import favColored from "../../img/favoriteColored.svg";
+import favPressed from "../../img/favoritePressed.svg";
 import classes from "./FavButton.module.css";
-import { putFavoriteData } from "../../features/favoriteSlice";
+import { putFavoriteData, selectFavorites } from "../../features/favoriteSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { selectFavorites } from "../../features/favoriteSlice";
 
 interface FavButtonProps {
   favStyle: string;
@@ -20,10 +20,8 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
   const checkFavs = () => {
     if (id !== undefined && wishlistIDs.includes(id)) {
       setIsProductFaved(true);
-      console.log("продакФав = тру");
     } else {
       setIsProductFaved(false);
-      console.log("продакФав = фолс");
     }
   };
 
@@ -39,38 +37,45 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
     dispatch(putFavoriteData(id));
   };
 
-  //стили
-  let style;
-  let wrapper;
+  const getClasses = () => {
+    switch (favStyle) {
+      case "mainPageStyle":
+        return classes.mainPageStyle;
+      case "wishlistStyle":
+        return classes.productPageStyle;
+      default:
+        return classes.mainPageStyle;
+    }
+  };
 
-  if (favStyle === "mainFav") {
-    wrapper = {
-      height: "44px",
-      width: "44px",
-      border: isProductFaved ? "1px solid #0080f5" : "1px solid #d9d9d9",
-      borderRadius: "8px",
-    };
-    style = {
-      width: "20px",
-      height: "20px",
-    };
-  } else if (favStyle === "headerFav") {
-    style = {
-      width: "40px",
-      height: "40px",
-    };
-  }
+  const getStyle = () => {
+    switch (favStyle) {
+      case "mainPageStyle":
+        return {
+          border: isProductFaved ? "1px solid #0080f5" : "1px solid #d9d9d9",
+        };
+      case "wishlistStyle":
+        return {
+          backgroundColor: "#f7f7f7",
+        };
+    }
+  };
 
   return (
     <button
-      className={classes.fav_wrapper}
-      style={wrapper}
+      className={getClasses()}
       onClick={handleFavButton}
+      style={getStyle()}
     >
       <img
-        src={isProductFaved ? favColored : favImg}
+        src={
+          favStyle === "wishlistStyle"
+            ? favPressed
+            : isProductFaved
+            ? favColored
+            : favImg
+        }
         alt="fav icon"
-        style={style}
       />
     </button>
   );

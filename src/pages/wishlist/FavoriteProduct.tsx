@@ -60,7 +60,7 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
         </h3>
         <div>
           <h2>{favoriteProductData?.price}</h2>
-          <FavButton favStyle="mainFav" id={favoriteProductData.id} />
+          <FavButton favStyle="wishlistStyle" id={favoriteProductData.id} />
         </div>
       </div>
     </div>

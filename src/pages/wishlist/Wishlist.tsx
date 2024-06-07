@@ -1,11 +1,20 @@
 import Header from "../../components/global/header/Header";
 import classes from "./Wishlist.module.css";
 import FavoriteProduct from "./FavoriteProduct";
+import { useEffect, useState } from "react";
+import { selectFavorites } from "../../features/favoriteSlice";
+import { useSelector } from "react-redux";
 
 const Wishlist = () => {
-  let storedFavorites: string[] = JSON.parse(
-    localStorage.getItem("favorites") || "[]",
-  );
+  const [storedFavorites, setStoredFavorites] = useState<string[]>([]);
+  const favoriteList = useSelector(selectFavorites);
+  useEffect(() => {
+    setStoredFavorites(JSON.parse(localStorage.getItem("favorites") || "[]"));
+  }, []);
+
+  useEffect(() => {
+    setStoredFavorites(JSON.parse(localStorage.getItem("favorites") || "[]"));
+  }, [favoriteList]);
 
   return (
     <div>
