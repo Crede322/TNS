@@ -5,14 +5,13 @@ interface favoriteTypes {
   wishlistIDs: number[];
 }
 
-const initialState: favoriteTypes = {
-  wishlistIDs: [],
-};
-
 let storedFavorites: string[] = JSON.parse(
   localStorage.getItem("favorites") || "[]",
 );
-console.log("избранные", storedFavorites);
+
+const initialState: favoriteTypes = {
+  wishlistIDs: storedFavorites.map(Number),
+};
 
 const favoriteSlice = createSlice({
   name: "favoritesData",

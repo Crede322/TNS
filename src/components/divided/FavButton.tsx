@@ -17,13 +17,19 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
   const dispatch = useDispatch();
   const wishlistIDs = useSelector(selectFavorites);
 
-  useEffect(() => {
+  const checkFavs = () => {
     if (id !== undefined && wishlistIDs.includes(id)) {
       setIsProductFaved(true);
+      console.log("продакФав = тру");
     } else {
       setIsProductFaved(false);
+      console.log("продакФав = фолс");
     }
-  }, [wishlistIDs, id]);
+  };
+
+  useEffect(() => {
+    checkFavs();
+  });
 
   const handleFavButton = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
