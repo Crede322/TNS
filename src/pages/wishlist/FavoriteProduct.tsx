@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../../helper/supabaseClient";
 import FavButton from "../../components/divided/FavButton";
 import classes from "./Wishlist.module.css";
+import BlueButton from "../../components/divided/BlueButton";
 
 interface FavoriteProductProps {
   id: string;
@@ -23,9 +24,8 @@ interface Product {
 }
 
 const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
-  const [favoriteProductData, setFavoriteProductData] = useState<
-    Partial<Product>
-  >({});
+  const [favoriteProductData, setFavoriteProductData] =
+    useState<Product | null>(null);
 
   const fetchFilteredData = async (favoriteProduct: string) => {
     try {
@@ -45,22 +45,43 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
     fetchFilteredData(id);
   }, []);
 
+  if (!favoriteProductData) {
+    return <div className={classes.favorite_product} />;
+  }
+
   return (
     <div>
-      {id}
       <div className={classes.favorite_product}>
-        <img src={favoriteProductData.img} alt="product img" />
-        <h3>
-          {favoriteProductData.cpuName} [{favoriteProductData.socket},{" "}
-          {favoriteProductData.coresNumber} x {favoriteProductData.frequency}{" "}
-          ГГц, L2 - {favoriteProductData.cacheL2} МБ, L3 -{" "}
-          {favoriteProductData.cacheL3} МБ, {favoriteProductData.ramChannels} x{" "}
-          {favoriteProductData.ramFrequency} МГц, TDP {favoriteProductData.TDP}{" "}
-          Вт]
-        </h3>
-        <div>
-          <h2>{favoriteProductData?.price}</h2>
-          <FavButton favStyle="wishlistStyle" id={favoriteProductData.id} />
+        <img
+          src={favoriteProductData.img}
+          alt="product img"
+          className={classes.card_img}
+        />
+        <div className={classes.favorite_product_card}>
+          <h3>
+            Процессор {favoriteProductData.cpuName} [
+            {favoriteProductData.socket}, {favoriteProductData.coresNumber} x{" "}
+            {favoriteProductData.frequency} ГГц, L2 -{" "}
+            {favoriteProductData.cacheL2} МБ, L3 - {favoriteProductData.cacheL3}{" "}
+            МБ, {favoriteProductData.ramChannels} x{" "}
+            {favoriteProductData.ramFrequency} МГц, TDP{" "}
+            {favoriteProductData.TDP} Вт]
+          </h3>
+          <div>
+            <h2 className={classes.favorite_product_price}>
+              {favoriteProductData?.price}
+            </h2>
+            <div className={classes.favorite_product_buttons}>
+              <FavButton favStyle="wishlistStyle" id={favoriteProductData.id} />
+              <BlueButton
+                width={90}
+                height={44}
+                text="Купить"
+                borderRadius={8}
+                margin="0 0 0 10px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
