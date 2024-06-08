@@ -73,13 +73,9 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
             </h2>
             <div className={classes.favorite_product_buttons}>
               <FavButton favStyle="wishlistStyle" id={favoriteProductData.id} />
-              <BlueButton
-                width={90}
-                height={44}
-                text="Купить"
-                borderRadius={8}
-                margin="0 0 0 10px"
-              />
+              <button className={classes.favorite_product_button_purchase}>
+                Купить
+              </button>
             </div>
           </div>
         </div>

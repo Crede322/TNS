@@ -37,6 +37,10 @@
   width: 100%;
 }
 
+.favorite_product_buttons {
+  display: flex;
+}
+
 .favorite_product_price {
   color: #333;
   font-size: 20px;
@@ -45,8 +49,17 @@
   margin-bottom: 10px;
 }
 
-.favorite_product_buttons {
-  display: flex;
+.favorite_product_button_purchase {
+  width: 90px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid #0000001a;
+  margin-left: 10px;
+}
+
+.favorite_product:hover .favorite_product_button_purchase {
+  background-color: #0080f5;
+  color: #fff;
 }
 /* wishlist */
 
