@@ -123,6 +123,7 @@ const HeaderSearch = () => {
           ref={inputRef}
           className={classes.search_input}
           type="search"
+          autoComplete="off"
           placeholder="Поиск по сайту"
           value={searchTerm}
           onChange={handleSearch}

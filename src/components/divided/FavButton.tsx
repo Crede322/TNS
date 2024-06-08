@@ -42,6 +42,8 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
       case "mainPageStyle":
         return classes.mainPageStyle;
       case "wishlistStyle":
+        return classes.wishlistStyle;
+      case "productPageStyle":
         return classes.productPageStyle;
       default:
         return classes.mainPageStyle;

@@ -105,7 +105,7 @@ const ProductPage: React.FC = () => {
                   <div className={classes.product_section_price_cost}>
                     <h2>{product.price}</h2>
                   </div>
-                  <FavButton favStyle="wishlistStyle" />
+                  <FavButton favStyle="productPageStyle" id={parsedProductId} />
                   <button className={classes.product_section_price_buy}>
                     <h2>Купить</h2>
                   </button>

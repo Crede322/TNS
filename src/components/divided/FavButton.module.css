@@ -14,14 +14,27 @@
   max-width: 18px;
 }
 
-.productPageStyle {
+.wishlistStyle {
   height: 44px;
   width: 44px;
   border-radius: 8px;
   transition: background-color, 0.3s;
 }
 
-.productPageStyle img {
+.wishlistStyle img {
   max-height: 18px;
   max-width: 18px;
+}
+
+.productPageStyle {
+  min-height: 64px;
+  min-width: 64px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.productPageStyle img {
+  width: 18px;
+  height: 18px;
 }

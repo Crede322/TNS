@@ -29,6 +29,11 @@
   width: 200px;
   height: 200px;
   margin-right: 20px;
+  cursor: pointer;
+}
+
+.favorite_product h3 {
+  cursor: pointer;
 }
 
 .favorite_product_card {
@@ -61,7 +66,8 @@
   background-color: #0080f5;
   color: #fff;
 }
-/* wishlist */
+
+/* wishlist no results*/
 
 .wishlist_noResults {
   min-height: 600px;

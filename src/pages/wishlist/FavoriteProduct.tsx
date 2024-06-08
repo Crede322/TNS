@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../../helper/supabaseClient";
 import FavButton from "../../components/divided/FavButton";
 import classes from "./Wishlist.module.css";
-import BlueButton from "../../components/divided/BlueButton";
+import { useNavigate } from "react-router-dom";
 
 interface FavoriteProductProps {
   id: string;
@@ -45,6 +45,11 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
     fetchFilteredData(id);
   }, []);
 
+  const navigate = useNavigate();
+  const handleProductClick = () => {
+    navigate(`/product/${id}`);
+  };
+
   if (!favoriteProductData) {
     return <div className={classes.favorite_product} />;
   }
@@ -56,9 +61,10 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
           src={favoriteProductData.img}
           alt="product img"
           className={classes.card_img}
+          onClick={handleProductClick}
         />
         <div className={classes.favorite_product_card}>
-          <h3>
+          <h3 onClick={handleProductClick}>
             Процессор {favoriteProductData.cpuName} [
             {favoriteProductData.socket}, {favoriteProductData.coresNumber} x{" "}
             {favoriteProductData.frequency} ГГц, L2 -{" "}
