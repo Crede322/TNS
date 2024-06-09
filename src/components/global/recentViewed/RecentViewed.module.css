@@ -5,6 +5,7 @@
 .img_container {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .item_card img {
@@ -16,6 +17,7 @@
   margin-top: 16px;
   height: 70px;
   color: #333;
+  cursor: pointer;
 }
 
 .item_card h2:hover {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../../../helper/supabaseClient";
+import { useNavigate } from "react-router-dom";
 import classes from "./RecentViewed.module.css";
 import FavButton from "../../divided/FavButton";
 import cartImg from "../../../img/cart.svg";
@@ -26,6 +27,7 @@ interface ProductTypes {
 
 const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
   const [productData, setProductData] = useState<ProductTypes | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchFilteredData = async (historyObj: number) => {
@@ -48,15 +50,16 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
     return <div></div>;
   }
 
-  const href = `https://crede322.github.io/TNS/#/product/${productData.id}`;
+  const handleProductClick = () => {
+    navigate(`/product/${historyObj}`);
+  };
 
   return (
-    // <a href={href}>
     <div className={classes.item_card}>
-      <div className={classes.img_container}>
+      <div className={classes.img_container} onClick={handleProductClick}>
         <img src={productData.img} alt="recent viewed item" />
       </div>
-      <h2>
+      <h2 onClick={handleProductClick}>
         {productData.cpuName} [{productData.socket}, {productData.coresNumber} x{" "}
         {productData.frequency} ГГц, L2 - {productData.cacheL2} МБ, L3 -{" "}
         {productData.cacheL3} МБ, {productData.ramChannels} x {productData.DDR}-
@@ -72,7 +75,6 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
         </button>
       </div>
     </div>
-    // </a>
   );
 };
 

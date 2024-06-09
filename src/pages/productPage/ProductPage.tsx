@@ -4,7 +4,6 @@ import { supabase } from "../../helper/supabaseClient";
 import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
 import starImg from "../../img/searchPage/star.svg";
-import imgFavorite from "../../img/favorite.svg";
 import ProductTable from "./productPage components/ProductTable";
 import FavButton from "../../components/divided/FavButton";
 
