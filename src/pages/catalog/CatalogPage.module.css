@@ -1,0 +1,25 @@
+.catalog_background {
+  background-color: #f7f7f7;
+}
+
+.catalog_container {
+  margin: auto;
+  width: 93.5vw;
+  padding-top: 40px;
+}
+
+.catalog_container h1 {
+  color: #333;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.catalog_query {
+  height: 66px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px #0000001a;
+  margin-bottom: 10px;
+  padding: 16px 12px 0;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import MenuButton from "./menu button/MenuButton";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
@@ -17,9 +18,16 @@ import classes from "../../../pages/mainpage/MainPage.module.css";
 
 const sliderStyle = {
   maxWidth: "160px",
+  cursor: "pointer",
 };
 
 const MainpageSwiper = () => {
+  const navigate = useNavigate();
+
+  const handleButtonCatalog = () => {
+    navigate("/catalog");
+  };
+
   return (
     <div className={classes.mainpage__row}>
       <MenuButton
@@ -41,7 +49,7 @@ const MainpageSwiper = () => {
           }}
           modules={[FreeMode]}
         >
-          <SwiperSlide style={sliderStyle}>
+          <SwiperSlide style={sliderStyle} onClick={handleButtonCatalog}>
             <MenuButton
               width={183}
               height={206}
