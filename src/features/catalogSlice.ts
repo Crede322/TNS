@@ -10,8 +10,8 @@ interface catalogTypes {
 const initialState: catalogTypes = {
   receivedQuery: "2023 Год",
   queries: [
-    "AM4",
     "2023 Год",
+    "AM4",
     "6 Ядер",
     "8 Ядер",
     "12 Потоков",
@@ -20,7 +20,7 @@ const initialState: catalogTypes = {
     "Встроенный видеочип",
   ],
   newQueries: [
-    "2023 Год",
+    "AM4",
     "6 Ядер",
     "8 Ядер",
     "12 Потоков",
