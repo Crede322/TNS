@@ -1,0 +1,25 @@
+.product_table {
+  color: #333;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+.product_table h3 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.product_table h4 {
+  width: 50%;
+  text-wrap: nowrap;
+  border-bottom: 1px dotted #ddd;
+  margin-bottom: 10px;
+}
+
+.product_table h5 {
+  margin-left: 18px;
+}
+
+.product_value {
+  display: flex;
+}

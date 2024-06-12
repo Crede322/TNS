@@ -1,0 +1,17 @@
+.query_button {
+  border-radius: 17px;
+  background-color: #f7f7f7;
+  height: 35px;
+  width: fit-content;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.query_button:hover {
+  background-color: #eeeeee;
+  color: #0080f5;
+}

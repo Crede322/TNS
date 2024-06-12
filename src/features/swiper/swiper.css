@@ -1,0 +1,33 @@
+.swiper-slide {
+  margin: 0 40px 0 0;
+}
+
+.brands_swiper_wrapper {
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.brands_swiper_wrapper .swiper {
+  width: 2600px;
+}
+
+.discount_wrapper .swiper-slide {
+  margin: 0;
+}
+
+.discount_wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.recentViewed_wrapper .swiper-slide {
+  height: 300px;
+  max-width: 304px;
+}
+
+.recentViewed_wrapper {
+  background-color: #fff;
+  box-shadow: 0 1px 3px #0000001a;
+  border-radius: 12px;
+  padding: 24px;
+}
