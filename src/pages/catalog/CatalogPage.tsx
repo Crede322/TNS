@@ -1,6 +1,7 @@
 import Header from "../../components/global/header/Header";
 import classes from "./CatalogPage.module.css";
 import CatalogQueryButton from "./catalog query button/CatalogQueryButton";
+import CatalogTable from "./catalog table/CatalogTable";
 import {
   queryButtonClick,
   clearQueriesClick,
@@ -52,6 +53,7 @@ const CatalogPage = () => {
               />
             ))}
           </div>
+          <CatalogTable />
         </div>
       </div>
     </div>
