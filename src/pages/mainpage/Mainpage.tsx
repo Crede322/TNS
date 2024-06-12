@@ -6,7 +6,7 @@ import ActualOffers from "./mainPage components/actual offers/ActualOffers";
 import BrandsSwiper from "./mainPage components/brands swiper/BrandsSwiper";
 import Discounts from "./mainPage components/discounts/Discounts";
 
-const Mainpage = () => {
+const MainPage = () => {
   return (
     <div>
       <Header />
@@ -23,4 +23,4 @@ const Mainpage = () => {
   );
 };
 
-export default Mainpage;
+export default MainPage;

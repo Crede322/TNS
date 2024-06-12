@@ -36,6 +36,8 @@ const CatalogTable = () => {
       case "Частота RAM: 3200МГц":
         query = query.eq("ramFrequency", 3200);
         break;
+      case "Встроенный видеочип":
+        query = query.eq("integratedGPU", true);
     }
     const { data, error } = await query;
     if (error) {

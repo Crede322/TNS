@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/redux";
-import Mainpage from "./pages/mainpage/MainPage";
+import MainPage from "./pages/mainpage/MainPage";
 import SearchPage from "./pages/searchPage/SearchPage";
 import ProductPage from "./pages/productPage/ProductPage";
 import "./common.css";
@@ -15,7 +15,7 @@ const App = () => {
       <Provider store={store}>
         <HashRouter>
           <Routes>
-            <Route path="/" element={<Mainpage />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/wishlist" element={<Wishlist />} />
