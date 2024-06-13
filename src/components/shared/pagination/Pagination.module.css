@@ -1,0 +1,62 @@
+.results_list {
+  margin: auto;
+  width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+/* Пагинация */
+.pagination_row {
+  height: 50px;
+  width: fit-content;
+  max-width: 1380px;
+  background-color: #fff;
+  padding: 0 100px 0 100px;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_prev img {
+  width: 12px;
+  height: 12px;
+  transform: rotate(-90deg);
+}
+
+.button_next img {
+  width: 12px;
+  height: 12px;
+  transform: rotate(90deg);
+}
+
+.pagination_row button {
+  width: 65px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pagination_row button:hover {
+  color: #0080f5;
+  background-color: #dbeaf8;
+}
+
+.currentPage::after {
+  position: absolute;
+  content: "";
+  width: 65px;
+  height: 3px;
+  background-color: #0080f5;
+  bottom: 0;
+  left: 0;
+}

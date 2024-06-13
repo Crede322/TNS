@@ -1,7 +1,7 @@
 import classes from "./TableProduct.module.css";
 import { Link } from "react-router-dom";
-import starImg from "../../../../img/searchPage/star.svg";
-import imgFavorite from "../../../../img/favorite.svg";
+import starImg from "../../../img/searchPage/star.svg";
+import imgFavorite from "../../../img/favorite.svg";
 
 interface TableProductProps {
   product: Product;

@@ -31,7 +31,8 @@ import {
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import TableProduct from "../../components/shared/Fav button/table product/TableProduct";
+import TableProduct from "../../components/shared/table product/TableProduct";
+import Pagination from "../../components/shared/pagination/Pagination";
 
 interface product {
   id: number;
@@ -50,7 +51,6 @@ const SearchPage = () => {
   const filteredData = useSelector(selectFilteredSBData) as product[];
   const togglePage = useSelector(selectCurrentPage);
   const dispatch = useDispatch();
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
@@ -65,11 +65,6 @@ const SearchPage = () => {
   const handleHoverNext = () => {
     setHoverNext(!hoverNext);
   };
-  const scrollToTop = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   // Пагинация
   const numItemsPerPage = 10;
@@ -82,7 +77,6 @@ const SearchPage = () => {
         key={page}
         onClick={() => {
           dispatch(buttonPageClick(page));
-          scrollToTop();
         }}
         className={togglePage === page ? classes.currentPage : ""}
       >
@@ -134,7 +128,7 @@ const SearchPage = () => {
 
   return (
     <div>
-      <div ref={scrollRef} />
+      <div />
       <div className={classes.searchpage_background}>
         <Header />
         <div
@@ -149,49 +143,11 @@ const SearchPage = () => {
           />
           <img src={noResultsImg} alt="no results img" />
         </div>
-
         <div
           className={classes.received_items}
           style={{ display: currentSearchResult === 2 ? "block" : "none" }}
         >
-          <div className={classes.results_list}>
-            {filteredData.slice(startIdx, endIdx).map((product) => (
-              <TableProduct product={product} key={product.id} />
-            ))}
-          </div>
-          <div className={classes.pagination_row}>
-            <button
-              onMouseEnter={handleHoverPrev}
-              onMouseLeave={handleHoverPrev}
-              className={classes.button_prev}
-              style={{ cursor: togglePage === 1 ? "not-allowed" : "pointer" }}
-              onClick={() => {
-                if (togglePage !== 1) {
-                  dispatch(buttonPagePrev());
-                  scrollToTop();
-                }
-              }}
-            >
-              <img src={hoverPrev ? arrowBlue : arrow} alt="arrow img" />
-            </button>
-
-            {cases}
-
-            <button
-              className={classes.button_next}
-              onMouseEnter={handleHoverNext}
-              onMouseLeave={handleHoverNext}
-              style={{ cursor: isLastPage ? "pointer" : "not-allowed" }}
-              onClick={() => {
-                if (isLastPage === true) {
-                  dispatch(buttonPageNext());
-                  scrollToTop();
-                }
-              }}
-            >
-              <img src={hoverNext ? arrowBlue : arrow} alt="arrow img" />
-            </button>
-          </div>
+          <Pagination />
         </div>
       </div>
     </div>

@@ -1,26 +1,14 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import classes from "./CatalogTable.module.css";
+import { useEffect } from "react";
 import { supabase } from "../../../helper/supabaseClient";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectSelectedQuery } from "../../../features/catalogSlice";
-import TableProduct from "../../../components/shared/Fav button/table product/TableProduct";
-
-interface Product {
-  id: number;
-  cpuName: string;
-  price: string;
-  socket: string;
-  coresNumber: number;
-  frequency: string;
-  cacheL2: number;
-  cacheL3: number;
-  img: string;
-}
+import { putFilteredData } from "../../../features/supabaseDataSlice";
+import Pagination from "../../../components/shared/pagination/Pagination";
 
 const CatalogTable = () => {
   const selectedQuery = useSelector(selectSelectedQuery);
-  const [catalogData, setCatalogData] = useState<Product[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchFilteredData();
@@ -58,18 +46,13 @@ const CatalogTable = () => {
     if (error) {
       console.error(error);
     } else {
-      console.log(data);
-      setCatalogData(data);
+      dispatch(putFilteredData(data));
     }
   };
 
   return (
-    <div className={classes.catalog__table_wrapper}>
-      <div className={classes.results_list}>
-        {catalogData.map((product) => (
-          <TableProduct product={product} key={product.id} />
-        ))}
-      </div>
+    <div>
+      <Pagination />
     </div>
   );
 };
