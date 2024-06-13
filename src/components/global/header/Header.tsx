@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./Header.module.css";
-import BlueButton from "../../divided/BlueButton";
+import BlueButton from "../../shared/BlueButton";
 import HeaderSearch from "./HeaderSearch";
 
 import { useNavigate, useLocation } from "react-router-dom";

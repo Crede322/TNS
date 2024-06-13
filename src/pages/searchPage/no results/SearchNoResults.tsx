@@ -1,6 +1,5 @@
-import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import BlueButton from "../../../components/divided/BlueButton";
+import BlueButton from "../../../components/shared/BlueButton";
 
 interface SearchNoResultsProps {
   searchResult: string;

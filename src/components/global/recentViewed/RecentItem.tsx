@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../../../helper/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import classes from "./RecentViewed.module.css";
-import FavButton from "../../divided/FavButton";
+import FavButton from "../../shared/Fav button/FavButton";
 import cartImg from "../../../img/cart.svg";
 
 interface RecentItemProps {

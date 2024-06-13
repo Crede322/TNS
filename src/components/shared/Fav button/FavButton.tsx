@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
-import favImg from "../../img/favorite.svg";
-import favColored from "../../img/favoriteColored.svg";
-import favPressed from "../../img/favoritePressed.svg";
+import { useState, useEffect } from "react";
+import favImg from "../../../img/favorite.svg";
+import favColored from "../../../img/favoriteColored.svg";
+import favPressed from "../../../img/favoritePressed.svg";
 import classes from "./FavButton.module.css";
-import { putFavoriteData, selectFavorites } from "../../features/favoriteSlice";
+import {
+  putFavoriteData,
+  selectFavorites,
+} from "../../../features/favoriteSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 

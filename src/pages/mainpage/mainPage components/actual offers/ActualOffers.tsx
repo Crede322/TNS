@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./ActualOffer.module.css";
 import offerImg from "../../../../img/mainMenu/actual offer img.png";
 

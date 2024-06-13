@@ -1,4 +1,3 @@
-import React from "react";
 import cpu from "../../../img/nav/cpu.svg";
 import ram from "../../../img/nav/ram.svg";
 import hhd from "../../../img/nav/hhd.svg";

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import BlueButton from "../../divided/BlueButton";
+import { useState } from "react";
+import BlueButton from "../../shared/BlueButton";
 import classes from "./Auth.module.css";
 
 interface LoginProps {

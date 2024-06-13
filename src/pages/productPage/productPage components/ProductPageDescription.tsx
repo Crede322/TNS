@@ -1,13 +1,12 @@
-import React from "react";
-import classes from "./ProductTable.module.css";
+import classes from "./ProductPageDescription.module.css";
 
-interface ProductTableProps {
+interface ProductPageDescriptionProps {
   title: string;
   parameters: string[];
   values: string[];
 }
 
-const ProductTable: React.FC<ProductTableProps> = ({
+const ProductPageDescription: React.FC<ProductPageDescriptionProps> = ({
   title,
   parameters,
   values,
@@ -27,4 +26,4 @@ const ProductTable: React.FC<ProductTableProps> = ({
   );
 };
 
-export default ProductTable;
+export default ProductPageDescription;

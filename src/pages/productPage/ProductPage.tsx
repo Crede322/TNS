@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../../helper/supabaseClient";
 import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
 import starImg from "../../img/searchPage/star.svg";
-import ProductTable from "./productPage components/ProductTable";
-import FavButton from "../../components/divided/FavButton";
+import ProductPageDescription from "./productPage components/ProductPageDescription";
+import FavButton from "../../components/shared/Fav button/FavButton";
 
 interface Product {
   id: string;
@@ -165,7 +165,7 @@ const ProductPage: React.FC = () => {
             </div>
             <div className={classes.product_info}>
               <h2>Характеристики процессора {product.cpuName}</h2>
-              <ProductTable
+              <ProductPageDescription
                 title="Заводские данные"
                 parameters={[
                   "Гарантия продавца / производителя",
@@ -173,7 +173,7 @@ const ProductPage: React.FC = () => {
                 ]}
                 values={["12 мес", "Китай"]}
               />
-              <ProductTable
+              <ProductPageDescription
                 title="Общие параметры"
                 parameters={["Модель", "Сокет", "Год релиза"]}
                 values={[
@@ -182,7 +182,7 @@ const ProductPage: React.FC = () => {
                   `${product.year}`,
                 ]}
               />
-              <ProductTable
+              <ProductPageDescription
                 title="Ядро и архитектура"
                 parameters={[
                   "Общее количество ядер",
@@ -199,7 +199,7 @@ const ProductPage: React.FC = () => {
                   `${product.cacheL3} МБ`,
                 ]}
               />
-              <ProductTable
+              <ProductPageDescription
                 title="Частота и возможность разгона"
                 parameters={[
                   "Базовая частота процессора",
@@ -212,7 +212,7 @@ const ProductPage: React.FC = () => {
                   `${product.multiplier === true ? "Да" : "Нет"}`,
                 ]}
               />
-              <ProductTable
+              <ProductPageDescription
                 title="Параметры оперативной памяти"
                 parameters={[
                   "Тип памяти",
@@ -227,7 +227,7 @@ const ProductPage: React.FC = () => {
                   `${product.ramFrequency} МГц`,
                 ]}
               />
-              <ProductTable
+              <ProductPageDescription
                 title="Тепловые характеристики"
                 parameters={[
                   "Тепловыделение(TDP)",

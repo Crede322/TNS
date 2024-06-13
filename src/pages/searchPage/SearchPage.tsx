@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 // компоненты
 import Header from "../../components/global/header/Header";
@@ -31,8 +31,7 @@ import {
 import arrow from "../../img/arrow.svg";
 import arrowBlue from "../../img/arrowBlue.svg";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import starImg from "../../img/searchPage/star.svg";
-import imgFavorite from "../../img/favorite.svg";
+import TableProduct from "../../components/shared/Fav button/table product/TableProduct";
 
 interface product {
   id: number;
@@ -65,13 +64,6 @@ const SearchPage = () => {
   };
   const handleHoverNext = () => {
     setHoverNext(!hoverNext);
-  };
-  const handlePurchaseClick = (productId: number) => {
-    console.log("Navigating to product:", productId);
-  };
-  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    console.log("favorite");
   };
   const scrollToTop = () => {
     if (scrollRef.current) {
@@ -164,56 +156,7 @@ const SearchPage = () => {
         >
           <div className={classes.results_list}>
             {filteredData.slice(startIdx, endIdx).map((product) => (
-              <Link key={product.id} to={`/product/${product.id}`}>
-                <div
-                  className={classes.result}
-                  onClick={() => handlePurchaseClick(product.id)}
-                >
-                  <div className={classes.result__product_image}>
-                    <img src={product.img} alt="product img" />
-                  </div>
-
-                  <div className={classes.result_description}>
-                    <h3 className={classes.product_info}>
-                      {product.cpuName} <br />[{product.socket},{" "}
-                      {product.coresNumber} x {product.frequency} ГГц, L2 -{" "}
-                      {product.cacheL2} МБ, L3 - {product.cacheL3} МБ]
-                    </h3>
-                    <div className={classes.purchase}>
-                      <h2>{product.price}</h2>
-
-                      <button
-                        className={classes.purchase_button}
-                        onClick={() => handlePurchaseClick(product.id)}
-                      >
-                        <h3>Купить</h3>
-                      </button>
-
-                      <button
-                        className={classes.fav_button}
-                        onClick={handleFavorite}
-                      >
-                        <img src={imgFavorite} alt="imgFavorite" />
-                      </button>
-                    </div>
-
-                    <div className={classes.product_subInfo}>
-                      <div className={classes.stars}>
-                        <img src={starImg} alt="rating img" />
-                        <img src={starImg} alt="rating img" />
-                        <img src={starImg} alt="rating img" />
-                        <img src={starImg} alt="rating img" />
-                        <img src={starImg} alt="rating img" />
-                        <h4>10</h4>
-                      </div>
-                      <div>
-                        <h4>В наличии</h4>
-                        <h3>Послезавтра</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+              <TableProduct product={product} key={product.id} />
             ))}
           </div>
           <div className={classes.pagination_row}>

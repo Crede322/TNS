@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { selectFavorites } from "../../features/favoriteSlice";
 import { useSelector } from "react-redux";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import BlueButton from "../../components/divided/BlueButton";
+import BlueButton from "../../components/shared/BlueButton";
 
 const Wishlist = () => {
   const [storedFavorites, setStoredFavorites] = useState<string[]>([]);

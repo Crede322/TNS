@@ -1,4 +1,3 @@
-import React from "react";
 import MenuButton from "./menu button/MenuButton";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Auth.module.css";
 import Login from "./Login";
 import Register from "./Register";
