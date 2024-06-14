@@ -14,9 +14,11 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
   const urlParams = new URLSearchParams(location.search);
   const currentLocation = urlParams.get("q");
   const navigate = useNavigate();
+
   const mainPageRedirect = () => {
     navigate("/");
   };
+
   const catalogRedirect = () => {
     navigate("/catalog");
   };
