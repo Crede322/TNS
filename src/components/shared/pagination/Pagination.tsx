@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Pagination.module.css";
 import { selectFilteredSBData } from "../../../features/supabaseDataSlice";
-import { useSelector, useDispatch } from "react-redux";
 import TableProduct from "../table product/TableProduct";
+import { useSelector, useDispatch } from "react-redux";
 import {
   buttonPageClick,
   buttonPagePrev,
@@ -26,12 +26,19 @@ interface product {
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const scrollRef = useRef<HTMLDivElement>(null);
   const filteredData = useSelector(selectFilteredSBData) as product[];
   let togglePage = useSelector(selectCurrentPage);
   const numItemsPerPage = 10;
   let numPages = Math.ceil(filteredData.length / numItemsPerPage);
   let isLastPage = togglePage === numPages - 1;
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   useEffect(() => {
     numPages = Math.ceil(filteredData.length / numItemsPerPage);
@@ -40,10 +47,6 @@ const Pagination = () => {
       dispatch(buttonPageClick(1));
     }
   }, [filteredData]);
-
-  useEffect(() => {
-    console.log("togglePage changed to", togglePage);
-  }, [togglePage]);
 
   const cases = Array.from({ length: numPages }, (_, i: number) => i + 1).map(
     (page) => (
@@ -59,12 +62,6 @@ const Pagination = () => {
       </button>
     ),
   );
-
-  const scrollToTop = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   let startIdx = 0;
   let endIdx = 10;
@@ -88,14 +85,18 @@ const Pagination = () => {
   const handleHoverNext = () => {
     setHoverNext(!hoverNext);
   };
+
   return (
-    <div>
+    <div className={classes.pagination_wrapper}>
       <div className={classes.results_list}>
         {filteredData.slice(startIdx, endIdx).map((product) => (
           <TableProduct product={product} key={product.id} />
         ))}
       </div>
-      <div className={classes.pagination_row}>
+      <div
+        className={classes.pagination_row}
+        style={{ display: filteredData.length > 0 ? "flex" : "none" }}
+      >
         <button
           onMouseEnter={handleHoverPrev}
           onMouseLeave={handleHoverPrev}
@@ -104,6 +105,7 @@ const Pagination = () => {
           onClick={() => {
             if (togglePage !== 1) {
               dispatch(buttonPagePrev());
+              scrollToTop();
             }
           }}
         >
@@ -118,6 +120,7 @@ const Pagination = () => {
           onClick={() => {
             if (isLastPage === true) {
               dispatch(buttonPageNext());
+              scrollToTop();
             }
           }}
         >

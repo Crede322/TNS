@@ -1,7 +1,7 @@
 .results_list {
   margin: auto;
-  width: 1400px;
   display: grid;
+  width: 93.5vw;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 10px;
@@ -9,6 +9,11 @@
 }
 
 /* Пагинация */
+
+.pagination_wrapper {
+  padding-bottom: 50px;
+}
+
 .pagination_row {
   height: 50px;
   width: fit-content;

@@ -22,6 +22,14 @@ const Wishlist = () => {
     console.log("lolo");
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
   const noResults = (
     <div className={classes.wishlist_noResults}>
       <h1>Избранное</h1>

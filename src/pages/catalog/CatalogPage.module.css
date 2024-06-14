@@ -6,6 +6,7 @@
   margin: auto;
   width: 93.5vw;
   padding-top: 40px;
+  min-height: 600px;
 }
 
 .catalog_container h1 {
@@ -21,6 +22,7 @@
   width: fit-content;
   border-radius: 8px;
   box-shadow: 0 1px 3px #0000001a;
+  margin: auto;
   margin-bottom: 10px;
   padding: 16px 12px 0;
 }

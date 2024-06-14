@@ -5,6 +5,7 @@
   height: 350px;
   cursor: pointer;
   padding: 8px;
+  width: 275px;
 }
 
 .result__product_image {

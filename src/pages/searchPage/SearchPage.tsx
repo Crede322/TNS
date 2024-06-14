@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 // компоненты
@@ -19,19 +19,8 @@ import {
   selectFilteredSBData,
 } from "../../features/supabaseDataSlice";
 
-// пагинация через redux
-import {
-  buttonPageClick,
-  buttonPagePrev,
-  buttonPageNext,
-  selectCurrentPage,
-} from "../../features/searchPaginationSlice";
-
 //img
-import arrow from "../../img/arrow.svg";
-import arrowBlue from "../../img/arrowBlue.svg";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import TableProduct from "../../components/shared/table product/TableProduct";
 import Pagination from "../../components/shared/pagination/Pagination";
 
 interface product {
@@ -49,54 +38,10 @@ interface product {
 const SearchPage = () => {
   const searchResult = useSelector(selectSearchResult);
   const filteredData = useSelector(selectFilteredSBData) as product[];
-  const togglePage = useSelector(selectCurrentPage);
   const dispatch = useDispatch();
-
-  const [hoverPrev, setHoverPrev] = useState(false);
-  const [hoverNext, setHoverNext] = useState(false);
 
   // тут 0 = дефолт, 1 = ошибка, 2 = показ товаров
   const [currentSearchResult, setCurrentSearchResult] = useState(0);
-
-  // функции на кнопки
-  const handleHoverPrev = () => {
-    setHoverPrev(!hoverPrev);
-  };
-  const handleHoverNext = () => {
-    setHoverNext(!hoverNext);
-  };
-
-  // Пагинация
-  const numItemsPerPage = 10;
-  const numPages = Math.ceil(filteredData.length / numItemsPerPage);
-  const isLastPage = togglePage === numPages - 1;
-
-  const cases = Array.from({ length: numPages }, (_, i: number) => i + 1).map(
-    (page) => (
-      <button
-        key={page}
-        onClick={() => {
-          dispatch(buttonPageClick(page));
-        }}
-        className={togglePage === page ? classes.currentPage : ""}
-      >
-        {page}
-      </button>
-    ),
-  );
-
-  let startIdx = 0;
-  let endIdx = 10;
-  switch (togglePage) {
-    case 1:
-      startIdx = 0;
-      endIdx = 10;
-      break;
-    case 2:
-      startIdx = 10;
-      endIdx = 20;
-      break;
-  }
 
   // Redux + supabase
   const fetchFilteredData = async (location: string) => {
@@ -124,6 +69,14 @@ const SearchPage = () => {
     dispatch(setSearchTerm(currentLocation));
     dispatch(setReloadedResult(currentLocation));
     fetchFilteredData(currentLocation);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToTop();
   }, []);
 
   return (

@@ -63,6 +63,14 @@ const ProductPage: React.FC = () => {
     fetchData(parsedProductId);
   }, [parsedProductId]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
   if (!product) {
     return (
       <div>

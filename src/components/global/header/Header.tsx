@@ -6,7 +6,6 @@ import HeaderSearch from "./HeaderSearch";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
-
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
@@ -20,6 +19,10 @@ const Header = () => {
   const location = useLocation();
   const currentPage = location.pathname;
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleLoginModal = () => {
     setLoginModal(true);
   };
@@ -28,6 +31,7 @@ const Header = () => {
   const redirect = () => {
     navigate("/");
     dispatch(clearSearchTerm());
+    scrollToTop();
   };
   const toWishlist = () => {
     navigate("/wishlist");
@@ -35,6 +39,7 @@ const Header = () => {
 
   return (
     <header>
+      <div className={classes.pseudo_header} />
       <div
         className={classes.header_fixer}
         style={{
@@ -144,7 +149,6 @@ const Header = () => {
           }}
         />
       </div>
-      <div className={classes.pseudo_header} />
     </header>
   );
 };
