@@ -17,3 +17,7 @@
 Стейт-менеджер использован в компонентах Header, HeaderSearch, ProductPage
 и находится в папке store.
 Слайдеры на сайте реализованы через Swiper.js
+
+## Деплой
+
+crede322.github.io/TNS/
