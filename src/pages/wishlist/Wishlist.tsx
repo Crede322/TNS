@@ -6,10 +6,12 @@ import { selectFavorites } from "../../features/favoriteSlice";
 import { useSelector } from "react-redux";
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
 import BlueButton from "../../components/shared/BlueButton";
+import { useNavigate } from "react-router-dom";
 
 const Wishlist = () => {
   const [storedFavorites, setStoredFavorites] = useState<string[]>([]);
   const favoriteList = useSelector(selectFavorites);
+  const navigate = useNavigate();
   useEffect(() => {
     setStoredFavorites(JSON.parse(localStorage.getItem("favorites") || "[]"));
   }, []);
@@ -19,7 +21,7 @@ const Wishlist = () => {
   }, [favoriteList]);
 
   const handleClick = () => {
-    console.log("lolo");
+    navigate(`/catalog/`);
   };
 
   const scrollToTop = () => {

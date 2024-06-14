@@ -17,6 +17,9 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
   const mainPageRedirect = () => {
     navigate("/");
   };
+  const catalogRedirect = () => {
+    navigate("/catalog");
+  };
 
   return (
     <div>
@@ -33,7 +36,7 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
           fontWeight={500}
           borderRadius={8}
           margin="0 10px 0 0"
-          onClick={mainPageRedirect}
+          onClick={catalogRedirect}
         />
         <BlueButton
           width={119}
