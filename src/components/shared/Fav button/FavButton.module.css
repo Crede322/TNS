@@ -10,8 +10,9 @@
 }
 
 .mainPageStyle img {
-  max-height: 18px;
-  max-width: 18px;
+  height: 18px !important;
+  width: 18px !important;
+  margin: 0px !important;
 }
 
 .wishlistStyle {
