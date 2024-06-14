@@ -20,4 +20,4 @@
 
 ## Деплой
 
-crede322.github.io/TNS/
+[crede322.github.io/TNS/](https://crede322.github.io/TNS/)
