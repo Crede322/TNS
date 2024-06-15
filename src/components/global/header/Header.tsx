@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../shared/BlueButton";
-import HeaderSearch from "./HeaderSearch";
+import HeaderSearch from "./header search/HeaderSearch";
 
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -11,6 +11,7 @@ import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
 import bell from "../../../img/nav/login/bell.svg";
 import Auth from "../supabase/Auth";
+import HeaderCartModal from "./cart modal/HeaderCartModal";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -60,23 +61,29 @@ const Header = () => {
                   </button>
                   <HeaderSearch />
                 </div>
-                <button className={classes.menu__btn} onClick={toWishlist}>
-                  <img src={favorite} alt="img_favorite" />
-                  <h2>Избранное</h2>
-                </button>
-                <button className={classes.menu__btn}>
-                  <img src={cart} alt="img_cart" />
-                  <h2>Корзина</h2>
-                </button>
-                <button
-                  className={classes.menu__btn}
-                  onMouseEnter={() => {
-                    setIsLoginHovered(!isLoginHovered);
-                  }}
-                >
-                  <img src={profile} alt="img_profile" />
-                  <h2>Войти</h2>
-                </button>
+                <div className={classes.menu__buttons_row}>
+                  <button className={classes.menu__btn} onClick={toWishlist}>
+                    <img src={favorite} alt="img_favorite" />
+                    <h2>Избранное</h2>
+                  </button>
+                  <button className={classes.menu__btn_cart}>
+                    <img src={cart} alt="img_cart" />
+                    <h2>Корзина</h2>
+                    <div className={classes.cart__popup}>
+                      <HeaderCartModal />
+                    </div>
+                  </button>
+                  <div className={classes.cart__overlay}></div>
+                  <button
+                    className={classes.menu__btn}
+                    onMouseEnter={() => {
+                      setIsLoginHovered(!isLoginHovered);
+                    }}
+                  >
+                    <img src={profile} alt="img_profile" />
+                    <h2>Войти</h2>
+                  </button>
+                </div>
               </ul>
               <div
                 className={classes.login_popup}
@@ -125,7 +132,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
         <div
           className={classes.popup__form}
           style={{ display: loginModal ? "block" : "none" }}

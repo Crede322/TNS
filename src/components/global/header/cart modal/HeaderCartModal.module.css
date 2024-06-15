@@ -1,0 +1,9 @@
+.cart__modal {
+  position: absolute;
+  height: 400px;
+  width: 408px;
+  right: 0;
+  top: 0;
+  border-radius: 12px;
+  background-color: red;
+}

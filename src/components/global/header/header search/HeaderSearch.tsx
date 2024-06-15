@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import classes from "./HeaderSearch.module.css";
 
-import { supabase } from "../../../helper/supabaseClient";
+import { supabase } from "../../../../helper/supabaseClient";
 
 // Redux
 import {
@@ -11,15 +11,15 @@ import {
   setSearchTerm,
   selectSearchTerm,
   setSearchResult,
-} from "../../../features/searchSlice";
+} from "../../../../features/searchSlice";
 import {
   putData,
   selectSupabaseData,
-} from "../../../features/supabaseDataSlice";
+} from "../../../../features/supabaseDataSlice";
 
 // img
-import searchImg from "../../../img/search.svg";
-import crossImg from "../../../img/header images/cross.svg";
+import searchImg from "../../../../img/search.svg";
+import crossImg from "../../../../img/header images/cross.svg";
 
 const HeaderSearch = () => {
   //для css
