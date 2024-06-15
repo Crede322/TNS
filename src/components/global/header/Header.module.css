@@ -102,7 +102,7 @@
   transform: scale(0);
   opacity: 0;
   transform-origin: 100% 10%;
-  transition: transform 0.4s, opacity 0.2s;
+  transition: transform 0.4s, opacity 0.3s;
 }
 
 .menu__btn img {
