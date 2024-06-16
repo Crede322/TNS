@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/redux";
-import { useEffect } from "react";
 
 interface catalogTypes {
   receivedQuery: string;

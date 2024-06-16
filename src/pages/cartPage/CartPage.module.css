@@ -1,0 +1,28 @@
+.cartPage__background {
+  background-color: #f6f6f6;
+  padding: 40px;
+}
+
+.container {
+  width: 93.5vw;
+  height: 400px;
+  background-color: #fff;
+  margin: auto;
+}
+
+.cart__span {
+  display: flex;
+}
+
+.cart__span h1 {
+  font-size: 32px;
+  color: #333;
+  font-weight: 700;
+}
+
+.cart__span h4 {
+  font-size: 16px;
+  color: #999;
+  line-height: 53px;
+  margin-left: 12px;
+}

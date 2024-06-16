@@ -6,6 +6,7 @@ import HeaderSearch from "./header search/HeaderSearch";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
+import { putCartData } from "../../../features/cartSlice";
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
@@ -38,6 +39,11 @@ const Header = () => {
     navigate("/wishlist");
   };
 
+  const handleClickCart = () => {
+    dispatch(putCartData(1));
+    navigate("/cart");
+  };
+
   return (
     <header>
       <div className={classes.pseudo_header} />
@@ -66,7 +72,10 @@ const Header = () => {
                     <img src={favorite} alt="img_favorite" />
                     <h2>Избранное</h2>
                   </button>
-                  <button className={classes.menu__btn_cart}>
+                  <button
+                    className={classes.menu__btn_cart}
+                    onClick={handleClickCart}
+                  >
                     <img src={cart} alt="img_cart" />
                     <h2>Корзина</h2>
                     <div className={classes.cart__popup}>

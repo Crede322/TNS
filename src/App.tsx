@@ -1,13 +1,14 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
+import "./common.css";
 import store from "./store/redux";
 import MainPage from "./pages/mainpage/MainPage";
 import SearchPage from "./pages/searchPage/SearchPage";
 import ProductPage from "./pages/productPage/ProductPage";
-import "./common.css";
 import Footer from "./components/global/footer/Footer";
 import Wishlist from "./pages/wishlist/Wishlist";
 import CatalogPage from "./pages/catalog/CatalogPage";
+import CartPage from "./pages/cartPage/CartPage";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </HashRouter>
         <Footer />
