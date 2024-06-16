@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import classes from "./RecentViewed.module.css";
 import FavButton from "../../shared/Fav button/FavButton";
 import cartImg from "../../../img/cart.svg";
+import CartButton from "../../shared/cart button/CartButton";
 
 interface RecentItemProps {
   historyObj: number;
@@ -70,9 +71,7 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
           <h1>{productData.price}</h1>
         </div>
         <FavButton favStyle="mainPageStyle" id={productData.id} />
-        <button className={classes.button_cart}>
-          <img src={cartImg} alt="cart img" />
-        </button>
+        <CartButton />
       </div>
     </div>
   );
