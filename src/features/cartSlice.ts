@@ -18,10 +18,11 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     putCartData(state, action) {
-      console.log(state.cartProducts);
+      state.cartProducts = [12, 12, 12, 12];
     },
   },
 });
 
 export const { putCartData } = cartSlice.actions;
 export default cartSlice.reducer;
+export const selectCart = (state: RootState) => state.cart.cartProducts;
