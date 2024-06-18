@@ -2,23 +2,34 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/redux";
 
 interface cartTypes {
-  cartProducts: number[];
+  cartProducts: Record<number, string>;
 }
 
-let localStoredCart: string[] = JSON.parse(
-  localStorage.getItem("cart") || "[]",
-);
+const localStoredCart: {} = JSON.parse(localStorage.getItem("cart") || "{}");
 
 const initialState: cartTypes = {
-  cartProducts: localStoredCart.map(Number),
+  cartProducts: localStoredCart,
 };
 
 const cartSlice = createSlice({
   name: "cartData",
   initialState,
   reducers: {
-    putCartData(state, action) {
-      state.cartProducts = [12, 12, 12, 12];
+    putCartData(
+      state,
+      action: PayloadAction<{ productId: number; quantity: string }>,
+    ) {
+      const { productId, quantity } = action.payload;
+      console.log(productId, quantity);
+      const updatedCartProducts = {
+        ...state.cartProducts,
+        [productId]: quantity,
+      };
+      return {
+        ...state,
+        cartProducts: updatedCartProducts,
+      };
+      console.log(state.cartProducts);
     },
   },
 });

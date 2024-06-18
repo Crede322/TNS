@@ -40,7 +40,6 @@ const Header = () => {
   };
 
   const handleClickCart = () => {
-    dispatch(putCartData(1));
     navigate("/cart");
   };
 
