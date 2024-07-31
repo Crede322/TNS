@@ -4,10 +4,10 @@ import { selectCart } from "../../features/cartSlice";
 import { useSelector } from "react-redux";
 
 import CartButton from "../../components/shared/cart button/CartButton";
+import CartPageProduct from "./CartPage product/CartPageProduct";
 
 const CartPage = () => {
   const cart = useSelector(selectCart);
-  console.log(cart);
 
   return (
     <div>
@@ -21,9 +21,13 @@ const CartPage = () => {
           <CartButton id={13} />
           <CartButton id={15} />
           <CartButton id={17} />
-          {/* {cart.map((cartProduct) => (
-            <div key={cartProduct}>{cartProduct}</div>
-          ))} */}
+          {cart.map((product, index) => (
+            <CartPageProduct
+              key={index}
+              productId={product.productId}
+              quantity={product.quantity}
+            />
+          ))}
         </div>
       </div>
     </div>
