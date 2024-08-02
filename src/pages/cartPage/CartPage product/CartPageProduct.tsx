@@ -4,7 +4,7 @@ import classes from "./CartPageProduct.module.css";
 import FavButton from "../../../components/shared/Fav button/FavButton";
 import iconDelete from "../../../img/trash-bin.svg";
 import { useDispatch } from "react-redux";
-import { putCartData } from "../../../features/cartSlice";
+import { addCartData, removeCartData } from "../../../features/cartSlice";
 
 interface CartPageProductProps {
   productId: number;
@@ -37,11 +37,11 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
 
   const buttonIncrement = () => {
     setInputQuantity(inputQuantity + 1)
-    dispatch(putCartData({ productId: productId, quantity: inputQuantity }));
+    dispatch(addCartData({ productId: productId }));
   };
   const buttonDecrement = () => {
     setInputQuantity(inputQuantity - 1)
-    dispatch(putCartData({ productId: productId, quantity: inputQuantity }));
+    dispatch(removeCartData({ productId: productId }));
   };
 
   useEffect(() => {

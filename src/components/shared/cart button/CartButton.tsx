@@ -1,7 +1,7 @@
 import classes from "./CartButton.module.css";
 import cartImg from "../../../img/cart.svg";
 import { useDispatch } from "react-redux";
-import { putCartData } from "../../../features/cartSlice";
+import { addCartData } from "../../../features/cartSlice";
 
 interface CartButtonProps {
   id: number;
@@ -11,7 +11,7 @@ const CartButton: React.FC<CartButtonProps> = ({ id }) => {
   const dispatch = useDispatch();
 
   const handleCartClick = () => {
-    dispatch(putCartData({ productId: id, quantity: 1 }));
+    dispatch(addCartData({ productId: id }));
   };
 
   return (

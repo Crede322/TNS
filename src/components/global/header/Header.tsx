@@ -6,7 +6,7 @@ import HeaderSearch from "./header search/HeaderSearch";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
-import { putCartData } from "../../../features/cartSlice";
+import { addCartData } from "../../../features/cartSlice";
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";

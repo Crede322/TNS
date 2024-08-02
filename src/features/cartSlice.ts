@@ -2,15 +2,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/redux";
 
 interface CartProduct {
- productId: number;
- quantity: number;
-};
+  productId: number;
+  quantity: number;
+}
 
 interface CartState {
   productsStore: CartProduct[];
 }
 
-const localStoredCart: CartProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
+const localStoredCart: CartProduct[] = JSON.parse(
+  localStorage.getItem("cart") || "[]",
+);
 console.log(localStoredCart, "лог");
 
 const initialState: CartState = {
@@ -21,30 +23,42 @@ const cartSlice = createSlice({
   name: "cartData",
   initialState,
   reducers: {
-    putCartData(
-      state,
-      action: PayloadAction<{ productId: number; quantity: number }>,
-    ) {
-      const { productId, quantity } = action.payload;
-      const productCount = state.productsStore.findIndex(product => product.productId === productId);
+
+    addCartData(state, action: PayloadAction<{ productId: number }>) {
+      const { productId } = action.payload;
+      const productCount = state.productsStore.findIndex(
+        (product) => product.productId === productId,
+      );
 
       if (productCount !== -1) {
-        state.productsStore[productCount].quantity += quantity;
+        state.productsStore[productCount].quantity += 1;
       } else if (productCount === -1) {
-        state.productsStore.push({ productId, quantity });
+        state.productsStore.push({ productId, quantity: 1 });
       }
 
       localStorage.setItem("cart", JSON.stringify(state.productsStore));
     },
-    changeCartData(
-      state,
-      action: PayloadAction<{ productId: number; quantity:number }>,
-    ) {
-      
-    }
+
+    removeCartData(state, action: PayloadAction<{ productId: number }>) {
+      const { productId } = action.payload;
+      const productCount = state.productsStore.findIndex(
+        (product) => product.productId === productId,
+      );
+
+      if (productCount !== -1) {
+        if (state.productsStore[productCount].quantity > 1) {
+          state.productsStore[productCount].quantity -= 1;
+        } else {
+          state.productsStore.splice(productCount, 1);
+        }
+      }
+
+      localStorage.setItem("cart", JSON.stringify(state.productsStore));
+    },
+    
   },
 });
 
-export const { putCartData } = cartSlice.actions;
+export const { addCartData, removeCartData } = cartSlice.actions;
 export default cartSlice.reducer;
 export const selectCart = (state: RootState) => state.cart.productsStore;
