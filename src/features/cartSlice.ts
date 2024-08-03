@@ -36,6 +36,12 @@ const cartSlice = createSlice({
 
       localStorage.setItem("cart", JSON.stringify(state.productsStore));
     },
+    changeCartData(
+      state,
+      action: PayloadAction<{ productId: number; quantity:number }>,
+    ) {
+      
+    }
   },
 });
 
