@@ -14,6 +14,11 @@
 .product__container h2 {
     flex-grow: 1;
     margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.product__container h2:hover {
+    color: #0080f5;
 }
 
 .product__image {

@@ -5,6 +5,7 @@ import FavButton from "../../../components/shared/Fav button/FavButton";
 import iconDelete from "../../../img/trash-bin.svg";
 import { useDispatch } from "react-redux";
 import { addCartData, removeCartData } from "../../../features/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 interface CartPageProductProps {
   productId: number;
@@ -34,6 +35,11 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
   const [productData, setProductData] = useState<ProductTypes | null>(null);
   const [inputQuantity, setInputQuantity] = useState(quantity);
   const dispatch = useDispatch()
+  const navigate = useNavigate();
+
+  const handleProductClick = () => {
+    navigate(`/product/${productId}`);
+  };
 
   const buttonIncrement = () => {
     setInputQuantity(inputQuantity + 1)
@@ -55,7 +61,7 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
           setProductData(data[0]);
         }
       } catch (error) {
-        console.error("ошибка supabase из истории товаров", error);
+        console.error("ошибка supabase из cart", error);
       }
     };
     fetchFilteredData(productId);
@@ -74,7 +80,7 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
           className={classes.product__image}
         />
         <div className={classes.product__container_description}>
-          <h2>{productData.cpuName}</h2>
+          <h2 onClick={handleProductClick}>{productData.cpuName}</h2>
           <div className={classes.product__container_count}>
             <button onClick={buttonDecrement}>
               <h3>-</h3>
@@ -85,7 +91,7 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
             </button>
           </div>
         </div>
-        <FavButton favStyle="mainFav" />
+        <FavButton favStyle="mainFav" id={productId}/>
         <button className={classes.button__delete}>
           <img src={iconDelete} alt="delete" />
         </button>

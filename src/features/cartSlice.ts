@@ -13,7 +13,6 @@ interface CartState {
 const localStoredCart: CartProduct[] = JSON.parse(
   localStorage.getItem("cart") || "[]",
 );
-console.log(localStoredCart, "лог");
 
 const initialState: CartState = {
   productsStore: localStoredCart,
