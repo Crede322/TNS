@@ -1,6 +1,6 @@
 .product__wrapper {
     background-color: #fff;
-    width: 70vw;
+    width: 65vw;
     border-radius: 12px;
     margin-bottom: 15px;
 }
@@ -23,7 +23,7 @@
 
 .product__image {
     width: 100px;
-    height: 80px;
+    height: 100px;
 }
 
 .product__container_description {
@@ -43,14 +43,15 @@
     width: 40px;
     height: 32px;
     color: #afafaf;
-    font-size: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18px;
 }
 
-.product__container_count h3 {
-    height: 35px;
+.button__decrement::after {
+    content: "-";
+}
+
+.button__increment::after {
+    content: "+";
 }
 
 .button__delete {

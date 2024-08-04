@@ -19,7 +19,7 @@ const CartButton: React.FC<CartButtonProps> = ({ id }) => {
   };
 
   const pressStyle = {
-    border: isInCart ? "1px solid #0080f5" : "none"
+    border: isInCart ? "1px solid #0080f5" : "1px solid #d9d9d9"
   }
 
 

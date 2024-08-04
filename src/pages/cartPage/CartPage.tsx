@@ -1,13 +1,13 @@
 import Header from "../../components/global/header/Header";
 import classes from "./CartPage.module.css";
-import { selectCart } from "../../features/cartSlice";
+import { selectCart, totalQuantity, } from "../../features/cartSlice";
 import { useSelector } from "react-redux";
 
-import CartButton from "../../components/shared/cart button/CartButton";
 import CartPageProduct from "./CartPage product/CartPageProduct";
 
 const CartPage = () => {
   const cart = useSelector(selectCart);
+  const totalProductsQuantity = useSelector(totalQuantity);
 
   return (
     <div>
@@ -16,16 +16,12 @@ const CartPage = () => {
         <div className={classes.container}>
           <div className={classes.cart__span}>
             <h1>Корзина</h1>
+            <h2>{totalProductsQuantity}</h2>
           </div>
-          <CartButton id={14} />
-          <CartButton id={13} />
-          <CartButton id={15} />
-          <CartButton id={17} />
           {cart.map((product, index) => (
             <CartPageProduct
               key={index}
               productId={product.productId}
-              quantity={product.quantity}
             />
           ))}
         </div>
