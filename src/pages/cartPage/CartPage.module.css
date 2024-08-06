@@ -10,12 +10,21 @@
 
 .cart__span {
   display: flex;
+  align-items: center;
 }
 
 .cart__span h1 {
   font-size: 32px;
-  color: #333;
+  color: var(--main-gray);
   font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cart__span h2 {
+  font-size: 16px;
+  color: #999;
+  height: fit-content;
+  margin-left: 10px;
 }
 
 .cart__span h4 {

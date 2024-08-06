@@ -22,5 +22,5 @@
 }
 
 .switch_auth h3:hover {
-  color: #0080f5;
+  color: var(--main-color);
 }

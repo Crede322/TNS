@@ -21,7 +21,7 @@
 
 .product_container h1 {
   font-size: 32px;
-  color: #333333;
+  color: var(--main-gray);
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -37,7 +37,7 @@
   display: flex;
   justify-content: center;
   background-color: #fff;
-  box-shadow: 0 1px 2px 0 #0000001a;
+  box-shadow: 0 1px 2px 0 var(--border-gray)
 }
 
 .product_img {
@@ -51,12 +51,12 @@
 }
 
 .product_characteristics h3 {
-  color: #333333;
+  color: var(--main-gray);
   margin-bottom: 20px;
 }
 
 .stars {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   display: flex;
   border-radius: 8px;
   width: fit-content;
@@ -73,7 +73,7 @@
 .stars h4 {
   margin-right: 4px;
   margin-top: 5px;
-  color: #333333;
+  color: var(--main-gray);
 }
 
 .product_section_price {
@@ -84,9 +84,9 @@
 .product_section_price_cost {
   align-items: center;
   display: flex;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   font-size: 22px;
-  color: #333333;
+  color: var(--main-gray);
   font-weight: 600;
   height: 64px;
   border-radius: 12px;
@@ -100,7 +100,7 @@
 .fav_button {
   min-width: 64px;
   height: 64px;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   border-radius: 12px;
   margin-right: 8px;
 }
@@ -114,7 +114,7 @@
   height: 64px;
   min-width: 150px;
   border-radius: 12px;
-  background-color: #0080f5;
+  background-color: var(--main-color);
 
   color: #fff;
   font-weight: 700;
@@ -127,7 +127,7 @@
 
 .mockup_buttons_row button {
   height: 38px;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   border-radius: 8px;
   color: #4e4e4e;
   text-wrap: nowrap;
@@ -154,7 +154,7 @@
   margin-top: 15px;
   height: 64px;
   width: fit-content;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   border-radius: 12px;
   padding: 12px 15px;
   font-size: 14px;
@@ -171,7 +171,7 @@
 }
 
 .availability h3 {
-  color: #0080f5;
+  color: var(--main-color);
 }
 
 .product_info {
@@ -179,12 +179,12 @@
   border-radius: 12px;
   background-color: #fff;
   padding: 16px;
-  box-shadow: 0 1px 2px 0 #0000001a;
+  box-shadow: 0 1px 2px 0 var(--border-gray);
 }
 
 .product_info h2 {
   font-size: 24px;
-  color: #333333;
+  color: var(--main-gray);
   font-weight: 700;
   margin-bottom: 30px;
 }

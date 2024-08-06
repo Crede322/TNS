@@ -1,6 +1,6 @@
 .query_button {
   border-radius: 17px;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   height: 35px;
   width: fit-content;
   padding: 0 12px;
@@ -13,5 +13,5 @@
 
 .query_button:hover {
   background-color: #eeeeee;
-  color: #0080f5;
+  color: var(--main-color);
 }

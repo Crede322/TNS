@@ -1,5 +1,5 @@
 .catalog_background {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }
 
 .catalog_container {
@@ -10,7 +10,7 @@
 }
 
 .catalog_container h1 {
-  color: #333;
+  color: var(--main-gray);
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -21,7 +21,7 @@
   background-color: #fff;
   width: fit-content;
   border-radius: 8px;
-  box-shadow: 0 1px 3px #0000001a;
+  box-shadow: 0 1px 3px var(--border-gray);
   margin: auto;
   margin-bottom: 10px;
   padding: 16px 12px 0;
@@ -29,7 +29,7 @@
 
 .query_button {
   border-radius: 17px;
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   height: 35px;
   width: fit-content;
   padding: 0 12px;
@@ -43,7 +43,7 @@
 
 .query_button:hover {
   background-color: #eeeeee;
-  color: #0080f5;
+  color: var(--main-color);
 }
 
 .query_button h4 {

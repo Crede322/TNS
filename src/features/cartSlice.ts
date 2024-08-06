@@ -37,11 +37,7 @@ const cartSlice = createSlice({
       );
 
       if (productCount !== -1) {
-        state.productsStore = state.productsStore.map((product) =>
-          product.productId === productId
-            ? { ...product, quantity: product.quantity + 1 }
-            : product,
-        );
+        state.productsStore[productCount].quantity +=1;
       } else if (productCount === -1) {
         state.productsStore.push({ productId, quantity: 1 });
       }
@@ -58,15 +54,9 @@ const cartSlice = createSlice({
 
       if (productCount !== -1) {
         if (state.productsStore[productCount].quantity > 1) {
-          state.productsStore = state.productsStore.map((product) =>
-            product.productId === productId
-              ? { ...product, quantity: product.quantity - 1 }
-              : product,
-          );
+          state.productsStore[productCount].quantity -= 1;
         } else {
-          state.productsStore = state.productsStore.filter(
-            (product) => product.productId !== productId,
-          );
+          state.productsStore.splice(productCount, 1);
         }
       }
 

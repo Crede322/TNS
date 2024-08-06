@@ -18,7 +18,7 @@
 }
 
 .product__container h2:hover {
-    color: #0080f5;
+    color: var(--main-color);
 }
 
 .product__image {

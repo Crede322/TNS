@@ -22,7 +22,6 @@ const CartButton: React.FC<CartButtonProps> = ({ id }) => {
     border: isInCart ? "1px solid #0080f5" : "1px solid #d9d9d9"
   }
 
-
   return (
     <button className={classes.cart__button} style={pressStyle} onClick={handleCartClick}>
       <img src={isInCart ? checkmark : cartImg} alt="cart" />

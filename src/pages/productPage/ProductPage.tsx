@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../../helper/supabaseClient";
+
 import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
 import starImg from "../../img/searchPage/star.svg";
 import ProductPageDescription from "./productPage components/ProductPageDescription";
 import FavButton from "../../components/shared/Fav button/FavButton";
+import CartButton from "../../components/shared/cart button/CartButton";
 
 interface Product {
   id: string;
@@ -113,9 +115,7 @@ const ProductPage: React.FC = () => {
                     <h2>{product.price}</h2>
                   </div>
                   <FavButton favStyle="productPageStyle" id={parsedProductId} />
-                  <button className={classes.product_section_price_buy}>
-                    <h2>Купить</h2>
-                  </button>
+                  <CartButton id={parsedProductId}/>
                 </div>
                 <div className={classes.product_avails}>
                   <div className={classes.availability}>

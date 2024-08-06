@@ -52,7 +52,7 @@
 }
 
 .pagination_row button:hover {
-  color: #0080f5;
+  color: var(--main-color);
   background-color: #dbeaf8;
 }
 
@@ -61,7 +61,7 @@
   content: "";
   width: 65px;
   height: 3px;
-  background-color: #0080f5;
+  background-color: var(--main-color);
   bottom: 0;
   left: 0;
 }

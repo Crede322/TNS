@@ -54,7 +54,7 @@
   min-width: 283px;
   height: 60px;
   margin-right: 20px;
-  background-color: #0080f5;
+  background-color: var(--main-color);
   border-radius: 12px;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .menu__btn_cart:hover {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }
 
 .cart__popup {
@@ -136,7 +136,7 @@
 }
 
 .menu__btn:hover {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }
 
 /* login popup */
@@ -152,7 +152,7 @@
 
   border-radius: 12px;
   border: 1px solid rgb(200, 200, 200);
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   overflow: hidden;
   padding-left: 25px;
 }
@@ -165,7 +165,7 @@
   margin-top: 20px;
   margin-left: 20px;
   font-weight: 700;
-  color: #333333;
+  color: var(--main-gray);
 }
 
 .login__left_section_notification {
@@ -181,7 +181,7 @@
 .login__left_section h4 {
   font-size: 18px;
   text-wrap: nowrap;
-  color: #333333;
+  color: var(--main-gray);
   width: 90px;
   margin: auto;
 }
@@ -244,7 +244,7 @@
 }
 
 .login_popup a {
-  color: #333333;
+  color: var(--main-gray);
   font-size: 16px;
   line-height: 35px;
 }
@@ -266,7 +266,7 @@
 
 .popup__form h2 {
   font-size: 22px;
-  color: #333;
+  color: var(--main-gray);
   font-weight: 700;
   margin-bottom: 20px;
 }

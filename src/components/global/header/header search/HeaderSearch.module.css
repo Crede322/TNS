@@ -48,7 +48,7 @@
 
 .result h3 {
   font-size: 16px;
-  color: #333333;
+  color: var(--main-gray);
 }
 
 .result img {
@@ -70,7 +70,7 @@
 }
 
 .result:hover {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }
 
 .search_overlay {
@@ -121,5 +121,5 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .search_buttons button:hover {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }

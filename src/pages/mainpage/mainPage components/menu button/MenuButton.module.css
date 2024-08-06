@@ -1,5 +1,5 @@
 .menu__button_cabinet {
-  color: #333333;
+  color: var(--main-gray);
   padding: 24px 14px 24px 20px;
   position: relative;
   overflow: hidden;
@@ -36,5 +36,5 @@
 }
 
 .inner__button:hover {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }

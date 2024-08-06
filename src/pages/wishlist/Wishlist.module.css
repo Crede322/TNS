@@ -10,7 +10,7 @@
 
 .wishlist_background h1 {
   font-size: 32px;
-  color: #333;
+  color: var(--main-gray);
   font-weight: 700;
 }
 
@@ -22,7 +22,7 @@
   border-radius: 8px;
   margin-top: 16px;
   background-color: #fff;
-  box-shadow: 0 1px 2px 0 #0000001a;
+  box-shadow: 0 1px 2px 0 var(--border-gray);
 }
 
 .card_img {
@@ -47,7 +47,7 @@
 }
 
 .favorite_product_price {
-  color: #333;
+  color: var(--main-gray);
   font-size: 20px;
   font-weight: 700;
   text-align: right;
@@ -58,12 +58,12 @@
   width: 90px;
   height: 44px;
   border-radius: 8px;
-  border: 1px solid #0000001a;
+  border: 1px solid var(--border-gray);
   margin-left: 10px;
 }
 
 .favorite_product:hover .favorite_product_button_purchase {
-  background-color: #0080f5;
+  background-color: var(--main-color);
   color: #fff;
 }
 

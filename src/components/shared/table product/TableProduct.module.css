@@ -21,7 +21,7 @@
 }
 
 .result_description h3 {
-  color: #333333;
+  color: var(--main-gray);
 }
 
 .purchase_wrapper {
@@ -38,7 +38,7 @@
 
 .purchase h2 {
   width: 80px;
-  color: #333333;
+  color: var(--main-gray);
   font-size: 20px;
   margin-left: 10px;
   margin-right: 5px;
@@ -59,7 +59,7 @@
   width: 44px;
   height: 44px;
   margin-right: 0px;
-  background: #f7f7f7;
+  background: var(--lightgray);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -82,7 +82,7 @@
   width: 220px;
   top: -50px;
   right: -50px;
-  background-color: #333333;
+  background-color: var(--main-gray);
 }
 
 .result_description img {
@@ -92,7 +92,7 @@
 }
 
 .stars {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
   margin-top: 5px;
   display: flex;
   padding: 10px;
@@ -102,7 +102,7 @@
 
 /* hover */
 .result:hover .purchase_button {
-  background-color: #0080f5;
+  background-color: var(--main-color);
 }
 
 .result:hover .purchase_button h3 {
@@ -121,7 +121,7 @@
 
 .product_info:hover {
   transition: color 0.3s;
-  color: #0080f5;
+  color: var(--main-color);
 }
 
 .product_info {
@@ -136,11 +136,11 @@
   font-size: 14px;
   margin-top: 6px;
   margin-left: 15px;
-  color: #333333;
+  color: var(--main-gray);
 }
 
 .product_subInfo h3 {
-  color: #0080f5;
+  color: var(--main-color);
   margin-left: 15px;
 }
 .product_subInfo h3:hover {

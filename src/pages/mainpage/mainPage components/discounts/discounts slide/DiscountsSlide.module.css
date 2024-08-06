@@ -2,21 +2,21 @@
   height: 206px;
   width: 314px;
   background-color: #fff;
-  box-shadow: 0 2px 4px #0000001a;
-  border: 1px solid #0000001a;
+  box-shadow: 0 2px 4px var(--border-gray);
+  border: 1px solid var(--border-gray);
   border-radius: 12px;
   text-align: left;
   padding: 28px 24px;
   padding: 25px 0 80px 25px;
   position: relative;
   overflow: hidden;
-  color: #333;
+  color: var(--main-gray);
 }
 
 .discounts_slide_wrapper h2 {
   font-size: 18px;
   font-weight: 700;
-  color: #333;
+  color: var(--main-gray);
   margin-bottom: 6px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .discounts_slide_wrapper h4 {
-  color: #0080f5;
+  color: var(--main-color);
   font-weight: 700;
   font-size: 22px;
 }
@@ -53,5 +53,5 @@
 }
 
 .discounts_button:hover {
-  background-color: #f7f7f7;
+  background-color: var(--lightgray);
 }

@@ -1,5 +1,5 @@
 .item_card {
-  color: #333;
+  color: var(--main-gray);
 }
 
 .img_container {
@@ -16,12 +16,12 @@
 .item_card h2 {
   margin-top: 16px;
   height: 70px;
-  color: #333;
+  color: var(--main-gray);
   cursor: pointer;
 }
 
 .item_card h2:hover {
-  color: #0080f5;
+  color: var(--main-color);
 }
 
 .item_buttons {

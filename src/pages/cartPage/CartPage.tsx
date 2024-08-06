@@ -9,6 +9,12 @@ const CartPage = () => {
   const cart = useSelector(selectCart);
   const totalProductsQuantity = useSelector(totalQuantity);
 
+  const cartLength = 
+  totalProductsQuantity === 0 ? null :
+  totalProductsQuantity === 1 ? totalProductsQuantity + " Товар" :
+  totalProductsQuantity < 5 ? totalProductsQuantity + " Товара" :
+  totalProductsQuantity >= 5 ? totalProductsQuantity + " Товаров" : null
+
   return (
     <div>
       <Header />
@@ -16,7 +22,7 @@ const CartPage = () => {
         <div className={classes.container}>
           <div className={classes.cart__span}>
             <h1>Корзина</h1>
-            <h2>{totalProductsQuantity}</h2>
+            <h2>{cartLength}</h2>
           </div>
           {cart.map((product, index) => (
             <CartPageProduct

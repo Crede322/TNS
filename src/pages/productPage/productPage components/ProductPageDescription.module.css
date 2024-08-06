@@ -1,5 +1,5 @@
 .product_table {
-  color: #333;
+  color: var(--main-gray);
   font-size: 16px;
   margin-top: 16px;
 }
