@@ -20,7 +20,7 @@ const CartPage = () => {
           </div>
           {cart.map((product, index) => (
             <CartPageProduct
-              key={index}
+              key={product.productId}
               productId={product.productId}
             />
           ))}
