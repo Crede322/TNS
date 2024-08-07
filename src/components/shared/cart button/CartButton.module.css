@@ -1,4 +1,5 @@
-.cart__button {
+/* mainpage button */
+.cart__button_mainpage {
   width: 44px;
   height: 44px;
   border-radius: 8px;
@@ -8,11 +9,33 @@
   transition: background-color, 0.3s;
 }
 
-.cart__button img {
+.cart__button_mainpage img {
   height: 24px;
   width: 24px;
 }
 
-.cart__button:hover {
+.cart__button_mainpage:hover {
   background-color: #b7dcff;
+}
+
+/* productpage button */
+.cart__button_productpage {
+  height: 64px;
+  min-width: 150px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+/* catalogpage button */
+.cart__button_catalogpage {
+  height: 44px;
+  width: 88px;
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: 700;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 8px;
 }

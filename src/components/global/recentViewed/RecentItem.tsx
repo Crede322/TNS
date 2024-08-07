@@ -3,7 +3,6 @@ import { supabase } from "../../../helper/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import classes from "./RecentViewed.module.css";
 import FavButton from "../../shared/Fav button/FavButton";
-import cartImg from "../../../img/cart.svg";
 import CartButton from "../../shared/cart button/CartButton";
 
 interface RecentItemProps {
@@ -71,7 +70,7 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
           <h1>{productData.price}</h1>
         </div>
         <FavButton favStyle="mainPageStyle" id={productData.id} />
-        <CartButton id={productData.id} />
+        <CartButton id={productData.id} cartStyle="mainpage" />
       </div>
     </div>
   );

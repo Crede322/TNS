@@ -115,7 +115,7 @@ const ProductPage: React.FC = () => {
                     <h2>{product.price}</h2>
                   </div>
                   <FavButton favStyle="productPageStyle" id={parsedProductId} />
-                  <CartButton id={parsedProductId}/>
+                  <CartButton id={parsedProductId} cartStyle="productpage" />
                 </div>
                 <div className={classes.product_avails}>
                   <div className={classes.availability}>
