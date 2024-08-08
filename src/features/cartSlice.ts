@@ -9,6 +9,7 @@ interface CartProduct {
 interface CartState {
   productsStore: CartProduct[];
   totalQuantity: number;
+  cartOverlay: boolean;
 }
 
 const calculateTotalQuantity = (productsStore: CartProduct[]): number => {
@@ -24,6 +25,7 @@ const localStoredCart: CartProduct[] = JSON.parse(
 const initialState: CartState = {
   productsStore: localStoredCart,
   totalQuantity: calculateTotalQuantity(localStoredCart),
+  cartOverlay: false,
 };
 
 const cartSlice = createSlice({
@@ -37,13 +39,14 @@ const cartSlice = createSlice({
       );
 
       if (productCount !== -1) {
-        state.productsStore[productCount].quantity +=1;
+        state.productsStore[productCount].quantity += 1;
       } else if (productCount === -1) {
         state.productsStore.push({ productId, quantity: 1 });
       }
 
       localStorage.setItem("cart", JSON.stringify(state.productsStore));
       state.totalQuantity = calculateTotalQuantity(state.productsStore);
+      state.cartOverlay = true;
     },
 
     removeCartData(state, action: PayloadAction<{ productId: number }>) {
@@ -63,10 +66,19 @@ const cartSlice = createSlice({
       localStorage.setItem("cart", JSON.stringify(state.productsStore));
       state.totalQuantity = calculateTotalQuantity(state.productsStore);
     },
+
+    showPopup(state) {
+      state.cartOverlay = true;
+    },
+    hidePopup(state) {
+      state.cartOverlay = false;
+    },
   },
 });
 
-export const { addCartData, removeCartData } = cartSlice.actions;
+export const { addCartData, removeCartData, showPopup, hidePopup } =
+  cartSlice.actions;
 export default cartSlice.reducer;
 export const selectCart = (state: RootState) => state.cart.productsStore;
 export const totalQuantity = (state: RootState) => state.cart.totalQuantity;
+export const cartOverlay = (state: RootState) => state.cart.cartOverlay;

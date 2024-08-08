@@ -1,32 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../shared/BlueButton";
 import HeaderSearch from "./header search/HeaderSearch";
+import HeaderCartModal from "./cart modal/HeaderCartModal";
 
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
-import { addCartData } from "../../../features/cartSlice";
+import { cartOverlay, showPopup, hidePopup } from "../../../features/cartSlice";
+
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
 import cart from "../../../img/cart.svg";
 import bell from "../../../img/nav/login/bell.svg";
 import Auth from "../supabase/Auth";
-import HeaderCartModal from "./cart modal/HeaderCartModal";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
+
+  const [cartOverlayState, setCartOverlayState] = useState(false);
+  const cartOverlayShown = useSelector(cartOverlay);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
   const currentPage = location.pathname;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleLoginModal = () => {
-    setLoginModal(true);
   };
 
   const navigate = useNavigate();
@@ -38,9 +40,19 @@ const Header = () => {
   const toWishlist = () => {
     navigate("/wishlist");
   };
-
   const handleClickCart = () => {
     navigate("/cart");
+  };
+
+  const cartMouseEnter = () => {
+    dispatch(showPopup());
+  };
+  const cartMouseLeave = () => {
+    dispatch(hidePopup());
+  };
+
+  const handleLoginModal = () => {
+    setLoginModal(true);
   };
 
   return (
@@ -71,17 +83,26 @@ const Header = () => {
                     <img src={favorite} alt="img_favorite" />
                     <h2>Избранное</h2>
                   </button>
+
                   <button
                     className={classes.menu__btn_cart}
                     onClick={handleClickCart}
+                    onMouseEnter={cartMouseEnter}
+                    onMouseLeave={cartMouseLeave}
                   >
                     <img src={cart} alt="img_cart" />
                     <h2>Корзина</h2>
-                    <div className={classes.cart__popup}>
-                      <HeaderCartModal />
-                    </div>
+                    {cartOverlayState ? (
+                      <div className={classes.cart__popup}>
+                        <HeaderCartModal />
+                      </div>
+                    ) : null}
                   </button>
-                  <div className={classes.cart__overlay}></div>
+
+                  {cartOverlayState ? (
+                    <div className={classes.cart__overlay} />
+                  ) : null}
+
                   <button
                     className={classes.menu__btn}
                     onMouseEnter={() => {
