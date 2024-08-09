@@ -32,3 +32,8 @@
   line-height: 53px;
   margin-left: 12px;
 }
+
+.cart__overview {
+  display: flex;
+  justify-content: space-between;
+}

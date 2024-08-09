@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import CartPageProduct from "./CartPage product/CartPageProduct";
 import NoResults from "../wishlist/wishlist no results/NoResults";
+import CartPageInfo from "./CartPage product/CartPageInfo/CartPageInfo";
 
 const CartPage = () => {
   const cart = useSelector(selectCart);
@@ -32,13 +33,20 @@ const CartPage = () => {
           </div>
           {totalProductsQuantity === 0 ? (
             <NoResults text="Корзина пока пуста" />
-          ) : null}
-          {cart.map((product, index) => (
-            <CartPageProduct
-              key={product.productId}
-              productId={product.productId}
-            />
-          ))}
+          ) : (
+            <div className={classes.cart__overview}>
+              <div>
+                {cart.map((product) => (
+                  <CartPageProduct
+                    key={product.productId}
+                    productId={product.productId}
+                  />
+                ))}
+              </div>
+              <div className={classes.cart__info}></div>
+              <CartPageInfo />
+            </div>
+          )}
         </div>
       </div>
     </div>
