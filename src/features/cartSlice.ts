@@ -66,6 +66,18 @@ const cartSlice = createSlice({
       state.totalQuantity = calculateTotalQuantity(state.productsStore);
     },
 
+    deleteCartProduct(state, action: PayloadAction<{ productId: number }>) {
+      const { productId } = action.payload;
+      const productCount = state.productsStore.findIndex(
+        (product) => product.productId === productId,
+      );
+      if (productCount !== -1) {
+        state.productsStore.splice(productCount, 1);
+        localStorage.setItem("cart", JSON.stringify(state.productsStore));
+        state.totalQuantity = calculateTotalQuantity(state.productsStore);
+      }
+    },
+
     showPopup(state) {
       state.cartOverlay = true;
     },
@@ -75,8 +87,13 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addCartData, removeCartData, showPopup, hidePopup } =
-  cartSlice.actions;
+export const {
+  addCartData,
+  removeCartData,
+  showPopup,
+  hidePopup,
+  deleteCartProduct,
+} = cartSlice.actions;
 export default cartSlice.reducer;
 export const selectCart = (state: RootState) => state.cart.productsStore;
 export const totalQuantity = (state: RootState) => state.cart.totalQuantity;

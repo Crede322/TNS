@@ -8,6 +8,7 @@ import {
   addCartData,
   removeCartData,
   selectCart,
+  deleteCartProduct,
 } from "../../../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -50,6 +51,10 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({ productId }) => {
   };
   const buttonDecrement = () => {
     dispatch(removeCartData({ productId: productId }));
+  };
+
+  const handleButtonDelete = () => {
+    dispatch(deleteCartProduct({ productId }));
   };
 
   useEffect(() => {
@@ -96,7 +101,7 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({ productId }) => {
           </div>
         </div>
         <FavButton buttonStyle="mainpage" id={productId} />
-        <button className={classes.button__delete}>
+        <button className={classes.button__delete} onClick={handleButtonDelete}>
           <img src={iconDelete} alt="delete" />
         </button>
       </div>

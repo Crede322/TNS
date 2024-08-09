@@ -4,14 +4,11 @@ import FavoriteProduct from "./FavoriteProduct";
 import { useEffect, useState } from "react";
 import { selectFavorites } from "../../features/favoriteSlice";
 import { useSelector } from "react-redux";
-import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import BlueButton from "../../components/shared/BlueButton";
-import { useNavigate } from "react-router-dom";
+import NoResults from "./wishlist no results/NoResults";
 
 const Wishlist = () => {
   const [storedFavorites, setStoredFavorites] = useState<string[]>([]);
   const favoriteList = useSelector(selectFavorites);
-  const navigate = useNavigate();
   useEffect(() => {
     setStoredFavorites(JSON.parse(localStorage.getItem("favorites") || "[]"));
   }, []);
@@ -19,10 +16,6 @@ const Wishlist = () => {
   useEffect(() => {
     setStoredFavorites(JSON.parse(localStorage.getItem("favorites") || "[]"));
   }, [favoriteList]);
-
-  const handleClick = () => {
-    navigate(`/catalog/`);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -35,22 +28,7 @@ const Wishlist = () => {
   const noResults = (
     <div className={classes.wishlist_noResults}>
       <h1>Избранное</h1>
-      <div className={classes.wishlist_noResults_container}>
-        <div className={classes.wishlist_noResults_info}>
-          <img src={noResultsImg} alt="noResults" />
-          <h3>В списке пока нет ни одного избранного товара</h3>
-          <div className={classes.noResults_button}>
-            <BlueButton
-              width={170}
-              height={44}
-              text="Перейти в каталог"
-              fontWeight={500}
-              borderRadius={8}
-              onClick={handleClick}
-            />
-          </div>
-        </div>
-      </div>
+      <NoResults text="В списке пока нет ни одного избранного товара" />
     </div>
   );
 

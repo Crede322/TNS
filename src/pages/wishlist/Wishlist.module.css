@@ -63,37 +63,3 @@
   background-color: var(--main-color);
   color: #fff;
 }
-
-/* wishlist no results*/
-
-.wishlist_noResults {
-  min-height: 600px;
-  width: 93.5vw;
-  margin: auto;
-}
-
-.wishlist_noResults_container {
-  background: #fff;
-  height: 500px;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
-  color: #808080;
-}
-
-.wishlist_noResults_info {
-  margin: auto;
-  width: fit-content;
-  padding-top: 50px;
-}
-
-.wishlist_noResults_info img {
-  width: 330px;
-  height: 330px;
-}
-
-.noResults_button {
-  margin: auto;
-  margin-top: 20px;
-  width: fit-content;
-}
