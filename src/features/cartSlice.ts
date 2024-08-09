@@ -46,7 +46,6 @@ const cartSlice = createSlice({
 
       localStorage.setItem("cart", JSON.stringify(state.productsStore));
       state.totalQuantity = calculateTotalQuantity(state.productsStore);
-      state.cartOverlay = true;
     },
 
     removeCartData(state, action: PayloadAction<{ productId: number }>) {

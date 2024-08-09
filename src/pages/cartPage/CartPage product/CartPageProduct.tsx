@@ -31,12 +31,12 @@ interface ProductTypes {
   TDP: number;
 }
 
-const CartPageProduct: React.FC<CartPageProductProps> = ({
-  productId,
-}) => {
+const CartPageProduct: React.FC<CartPageProductProps> = ({ productId }) => {
   const [productData, setProductData] = useState<ProductTypes | null>(null);
   const cart = useSelector(selectCart);
-  const receivedproduct = cart.find(product => product.productId === productId);
+  const receivedproduct = cart.find(
+    (product) => product.productId === productId,
+  );
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -52,10 +52,6 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
     dispatch(removeCartData({ productId: productId }));
   };
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-  
   useEffect(() => {
     const fetchFilteredData = async (productId: number) => {
       try {
@@ -88,12 +84,18 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({
         <div className={classes.product__container_description}>
           <h2 onClick={handleProductClick}>Процессор {productData.cpuName}</h2>
           <div className={classes.product__container_count}>
-            <button className={classes.button__decrement} onClick={buttonDecrement}/>
+            <button
+              className={classes.button__decrement}
+              onClick={buttonDecrement}
+            />
             <h4>{receivedproduct ? receivedproduct.quantity : "null"}</h4>
-            <button className={classes.button__increment} onClick={buttonIncrement}/>
+            <button
+              className={classes.button__increment}
+              onClick={buttonIncrement}
+            />
           </div>
         </div>
-        <FavButton favStyle="mainFav" id={productId} />
+        <FavButton buttonStyle="mainpage" id={productId} />
         <button className={classes.button__delete}>
           <img src={iconDelete} alt="delete" />
         </button>

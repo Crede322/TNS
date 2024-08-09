@@ -1,33 +1,33 @@
-.mainPageStyle {
+.button__mainpage {
   height: 44px;
   width: 44px;
   border-radius: 8px;
   transition: background-color, 0.3s;
 }
 
-.mainPageStyle:hover {
+.button__mainpage:hover {
   background-color: #b7dcff;
 }
 
-.mainPageStyle img {
+.button__mainpage img {
   height: 18px !important;
   width: 18px !important;
   margin: 0px !important;
 }
 
-.wishlistStyle {
+.button__wishlistpage {
   height: 44px;
   width: 44px;
   border-radius: 8px;
   transition: background-color, 0.3s;
 }
 
-.wishlistStyle img {
+.button__wishlistpage img {
   max-height: 18px;
   max-width: 18px;
 }
 
-.productPageStyle {
+.button__productpage {
   min-height: 64px;
   min-width: 64px;
   background-color: var(--lightgray);
@@ -35,7 +35,7 @@
   margin-right: 10px;
 }
 
-.productPageStyle img {
+.button__productpage img {
   width: 18px;
   height: 18px;
 }

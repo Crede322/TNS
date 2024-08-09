@@ -47,7 +47,7 @@ const TableProduct: React.FC<TableProductProps> = ({ product }) => {
         <div className={classes.purchase}>
           <h2>{product.price}</h2>
           <CartButton id={product.id} cartStyle="catalogpage" />
-          <FavButton favStyle="mainPageStyle" id={product.id} />
+          <FavButton buttonStyle="mainpage" id={product.id} />
         </div>
 
         <div className={classes.product_subInfo}>

@@ -1,71 +1,72 @@
 .product__wrapper {
-    background-color: #fff;
-    width: 65vw;
-    border-radius: 12px;
-    margin-bottom: 15px;
+  background-color: #fff;
+  width: 65vw;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
 .product__container {
-    display: flex;
-    justify-content: space-between;
-    padding: 28px 24px;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 24px;
+  gap: 10px;
 }
 
 .product__container h2 {
-    flex-grow: 1;
-    margin-bottom: 15px;
-    cursor: pointer;
+  flex-grow: 1;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .product__container h2:hover {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
 .product__image {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .product__container_description {
-    flex-grow: 1;
-    margin-left: 15px;
+  flex-grow: 1;
 }
 
 .product__container_count {
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid #e5e5e5;
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  width: fit-content;
 }
 
 .product__container_count button {
-    width: 40px;
-    height: 32px;
-    color: #afafaf;
-    font-size: 18px;
+  width: 40px;
+  height: 32px;
+  color: #afafaf;
+  font-size: 18px;
 }
 
 .button__decrement::after {
-    content: "-";
+  content: "-";
 }
 
 .button__increment::after {
-    content: "+";
+  content: "+";
 }
 
 .button__delete {
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    transition: background-color, 0.3s;
+  border: 1px solid red;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  transition: background-color, 0.3s;
 }
 
 .button__delete:hover {
-    background-color: #b7dcff;
+  background-color: #b7dcff;
 }
 
 .button__delete img {
-    height: 18px;
-    width: 18px;
+  height: 18px;
+  width: 18px;
 }

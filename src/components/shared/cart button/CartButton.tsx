@@ -65,6 +65,13 @@ const CartButton: React.FC<CartButtonProps> = ({ id, cartStyle }) => {
         >
           {isInCart ? "В корзине" : "Купить"}
         </button>
+      ) : cartStyle === "wishlistpage" ? (
+        <button
+          className={classes.cart__button_wishlistpage}
+          onClick={handleCartClick}
+        >
+          {isInCart ? "В корзине" : "Купить"}
+        </button>
       ) : null}
     </div>
   );

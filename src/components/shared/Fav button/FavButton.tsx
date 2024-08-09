@@ -11,11 +11,11 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 interface FavButtonProps {
-  favStyle: string;
+  buttonStyle: string;
   id?: number;
 }
 
-const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
+const FavButton: React.FC<FavButtonProps> = ({ buttonStyle, id }) => {
   const [isProductFaved, setIsProductFaved] = useState(false);
   const dispatch = useDispatch();
   const wishlistIDs = useSelector(selectFavorites);
@@ -40,49 +40,44 @@ const FavButton: React.FC<FavButtonProps> = ({ favStyle, id }) => {
     dispatch(putFavoriteData(id));
   };
 
-  const getClasses = () => {
-    switch (favStyle) {
-      case "mainPageStyle":
-        return classes.mainPageStyle;
-      case "wishlistStyle":
-        return classes.wishlistStyle;
-      case "productPageStyle":
-        return classes.productPageStyle;
-      default:
-        return classes.mainPageStyle;
-    }
+  const mainpageStyle = {
+    border: isProductFaved ? "1px solid #0080f5" : "1px solid #d9d9d9",
   };
-
-  const getStyle = () => {
-    switch (favStyle) {
-      case "mainPageStyle":
-        return {
-          border: isProductFaved ? "1px solid #0080f5" : "1px solid #d9d9d9",
-        };
-      case "wishlistStyle":
-        return {
-          backgroundColor: "#f7f7f7",
-        };
-    }
+  const productpageStyle = {
+    border: isProductFaved ? "1px solid #0080f5" : "1px solid #d9d9d9",
+  };
+  const wishlistpageStyle = {
+    border: "1px solid #e5e5e5",
   };
 
   return (
-    <button
-      className={getClasses()}
-      onClick={handleFavButton}
-      style={getStyle()}
-    >
-      <img
-        src={
-          favStyle === "wishlistStyle"
-            ? favPressed
-            : isProductFaved
-            ? favColored
-            : favImg
-        }
-        alt="fav icon"
-      />
-    </button>
+    <div>
+      {buttonStyle === "mainpage" ? (
+        <button
+          className={classes.button__mainpage}
+          onClick={handleFavButton}
+          style={mainpageStyle}
+        >
+          <img src={isProductFaved ? favColored : favImg} alt="favorite" />
+        </button>
+      ) : buttonStyle === "productpage" ? (
+        <button
+          className={classes.button__productpage}
+          onClick={handleFavButton}
+          style={productpageStyle}
+        >
+          <img src={isProductFaved ? favColored : favImg} alt="favorite" />
+        </button>
+      ) : buttonStyle === "wishlistpage" ? (
+        <button
+          className={classes.button__wishlistpage}
+          onClick={handleFavButton}
+          style={wishlistpageStyle}
+        >
+          <img src={isProductFaved ? favPressed : favImg} alt="favorite" />
+        </button>
+      ) : null}
+    </div>
   );
 };
 

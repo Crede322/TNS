@@ -69,7 +69,7 @@ const RecentItem: React.FC<RecentItemProps> = ({ historyObj }) => {
         <div className={classes.item_cost}>
           <h1>{productData.price}</h1>
         </div>
-        <FavButton favStyle="mainPageStyle" id={productData.id} />
+        <FavButton buttonStyle="mainpage" id={productData.id} />
         <CartButton id={productData.id} cartStyle="mainpage" />
       </div>
     </div>

@@ -44,6 +44,7 @@
 
 .favorite_product_buttons {
   display: flex;
+  gap: 15px;
 }
 
 .favorite_product_price {
@@ -54,15 +55,11 @@
   margin-bottom: 10px;
 }
 
-.favorite_product_button_purchase {
-  width: 90px;
-  height: 44px;
+.wrapper__cart_button {
   border-radius: 8px;
-  border: 1px solid var(--border-gray);
-  margin-left: 10px;
 }
 
-.favorite_product:hover .favorite_product_button_purchase {
+.favorite_product:hover .wrapper__cart_button {
   background-color: var(--main-color);
   color: #fff;
 }

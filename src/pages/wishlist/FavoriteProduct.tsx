@@ -3,6 +3,7 @@ import { supabase } from "../../helper/supabaseClient";
 import FavButton from "../../components/shared/Fav button/FavButton";
 import classes from "./Wishlist.module.css";
 import { useNavigate } from "react-router-dom";
+import CartButton from "../../components/shared/cart button/CartButton";
 
 interface FavoriteProductProps {
   id: string;
@@ -78,10 +79,16 @@ const FavoriteProduct: React.FC<FavoriteProductProps> = ({ id }) => {
               {favoriteProductData?.price}
             </h2>
             <div className={classes.favorite_product_buttons}>
-              <FavButton favStyle="wishlistStyle" id={favoriteProductData.id} />
-              <button className={classes.favorite_product_button_purchase}>
-                Купить
-              </button>
+              <FavButton
+                buttonStyle="wishlistpage"
+                id={favoriteProductData.id}
+              />
+              <div className={classes.wrapper__cart_button}>
+                <CartButton
+                  id={favoriteProductData.id}
+                  cartStyle="wishlistpage"
+                />
+              </div>
             </div>
           </div>
         </div>

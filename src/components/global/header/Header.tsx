@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import classes from "./Header.module.css";
 import BlueButton from "../../shared/BlueButton";
 import HeaderSearch from "./header search/HeaderSearch";
@@ -18,12 +18,9 @@ import Auth from "../supabase/Auth";
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const cartOverlayShown = useSelector(cartOverlay);
   const dispatch = useDispatch();
   const location = useLocation();
-
-  const [cartOverlayState, setCartOverlayState] = useState(false);
-  const cartOverlayShown = useSelector(cartOverlay);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const currentPage = location.pathname;
 
@@ -92,14 +89,14 @@ const Header = () => {
                   >
                     <img src={cart} alt="img_cart" />
                     <h2>Корзина</h2>
-                    {cartOverlayState ? (
+                    {cartOverlayShown ? (
                       <div className={classes.cart__popup}>
                         <HeaderCartModal />
                       </div>
                     ) : null}
                   </button>
 
-                  {cartOverlayState ? (
+                  {cartOverlayShown ? (
                     <div className={classes.cart__overlay} />
                   ) : null}
 
