@@ -20,3 +20,7 @@
 ## Деплой
 
 [crede322.github.io/TNS/](https://crede322.github.io/TNS/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
