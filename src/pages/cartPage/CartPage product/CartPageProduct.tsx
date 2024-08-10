@@ -99,6 +99,9 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({ productId }) => {
               onClick={buttonIncrement}
             />
           </div>
+          <span className={classes.product__price}>
+            {productData.price} / шт
+          </span>
         </div>
         <FavButton buttonStyle="mainpage" id={productId} />
         <button className={classes.button__delete} onClick={handleButtonDelete}>

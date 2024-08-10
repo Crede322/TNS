@@ -82,54 +82,7 @@
   position: relative;
 }
 
-.menu__btn_cart {
-  font-size: 12px;
-  width: 90px;
-  height: 60px;
-  background-color: #fff;
-  border-radius: 12px;
-  transition: color, 0.3s;
-  position: relative;
-}
-
-.menu__btn_cart:hover {
-  background-color: var(--lightgray);
-}
-
-.cart__popup {
-  position: relative;
-  top: 10px;
-  transform: scale(0);
-  transform-origin: 100% 10%;
-  transition:
-    transform 0.4s,
-    opacity 0.3s;
-}
-
 .menu__btn img {
-  width: 24px;
-  height: 24px;
-}
-
-.cart__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100vw;
-  height: 100vw;
-  background-color: rgba(0, 0, 0, 0.05);
-  pointer-events: none;
-  display: block;
-}
-
-.menu__btn_cart .cart__popup {
-  transform: scale(1);
-  opacity: 1;
-  z-index: 4;
-}
-
-.menu__btn_cart img {
   width: 24px;
   height: 24px;
 }

@@ -72,3 +72,8 @@
   height: 18px;
   width: 18px;
 }
+
+.product__price {
+  font-size: 14px;
+  color: #8c8c8c;
+}

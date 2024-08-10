@@ -1,7 +1,7 @@
 .cart__info {
   background-color: #fff;
   width: 27vw;
-  height: 40vh;
+  height: fit-content;
   border-radius: 8px;
   box-shadow: 0 1px 3px var(--border-gray);
 }

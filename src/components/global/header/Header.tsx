@@ -1,24 +1,22 @@
-import { useState } from "react";
 import classes from "./Header.module.css";
+
 import BlueButton from "../../shared/BlueButton";
 import HeaderSearch from "./header search/HeaderSearch";
-import HeaderCartModal from "./cart modal/HeaderCartModal";
+import HeaderCartButton from "./header cart button/HeaderCartButton";
 
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
-import { cartOverlay, showPopup, hidePopup } from "../../../features/cartSlice";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
-import cart from "../../../img/cart.svg";
 import bell from "../../../img/nav/login/bell.svg";
 import Auth from "../supabase/Auth";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
-  const cartOverlayShown = useSelector(cartOverlay);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -36,16 +34,6 @@ const Header = () => {
   };
   const toWishlist = () => {
     navigate("/wishlist");
-  };
-  const handleClickCart = () => {
-    navigate("/cart");
-  };
-
-  const cartMouseEnter = () => {
-    dispatch(showPopup());
-  };
-  const cartMouseLeave = () => {
-    dispatch(hidePopup());
   };
 
   const handleLoginModal = () => {
@@ -80,26 +68,7 @@ const Header = () => {
                     <img src={favorite} alt="img_favorite" />
                     <h2>Избранное</h2>
                   </button>
-
-                  <button
-                    className={classes.menu__btn_cart}
-                    onClick={handleClickCart}
-                    onMouseEnter={cartMouseEnter}
-                    onMouseLeave={cartMouseLeave}
-                  >
-                    <img src={cart} alt="img_cart" />
-                    <h2>Корзина</h2>
-                    {cartOverlayShown ? (
-                      <div className={classes.cart__popup}>
-                        <HeaderCartModal />
-                      </div>
-                    ) : null}
-                  </button>
-
-                  {cartOverlayShown ? (
-                    <div className={classes.cart__overlay} />
-                  ) : null}
-
+                  <HeaderCartButton />
                   <button
                     className={classes.menu__btn}
                     onMouseEnter={() => {

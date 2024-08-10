@@ -10,6 +10,7 @@ interface CartState {
   productsStore: CartProduct[];
   totalQuantity: number;
   cartOverlay: boolean;
+  totalProductsPrice: number;
 }
 
 const calculateTotalQuantity = (productsStore: CartProduct[]): number => {
@@ -26,6 +27,7 @@ const initialState: CartState = {
   productsStore: localStoredCart,
   totalQuantity: calculateTotalQuantity(localStoredCart),
   cartOverlay: false,
+  totalProductsPrice: 0,
 };
 
 const cartSlice = createSlice({
@@ -78,6 +80,10 @@ const cartSlice = createSlice({
       }
     },
 
+    setTotalProductsPrice(state, action: PayloadAction<number>) {
+      state.totalProductsPrice = action.payload;
+    },
+
     showPopup(state) {
       state.cartOverlay = true;
     },
@@ -93,8 +99,11 @@ export const {
   showPopup,
   hidePopup,
   deleteCartProduct,
+  setTotalProductsPrice,
 } = cartSlice.actions;
 export default cartSlice.reducer;
 export const selectCart = (state: RootState) => state.cart.productsStore;
 export const totalQuantity = (state: RootState) => state.cart.totalQuantity;
 export const cartOverlay = (state: RootState) => state.cart.cartOverlay;
+export const totalProductsPrice = (state: RootState) =>
+  state.cart.totalProductsPrice;

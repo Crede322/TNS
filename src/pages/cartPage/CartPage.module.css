@@ -10,7 +10,7 @@
 
 .cart__span {
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 
 .cart__span h1 {
@@ -24,6 +24,7 @@
   color: #999;
   height: fit-content;
   margin-left: 10px;
+  height: 25px;
 }
 
 .cart__span h4 {
