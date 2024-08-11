@@ -9,7 +9,8 @@
 - Supabase
 - Swiper.js React
 - React Router
-
+- CRA, node.js v.10.2.4
+  
 ## Описание :
 
 ##### Компоненты функциональные.
