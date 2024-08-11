@@ -111,8 +111,8 @@ const Header = () => {
                   </h3>
                   <BlueButton
                     onClick={handleLoginModal}
-                    width={230}
-                    height={45}
+                    width="230px"
+                    height="45px"
                     text="Войти"
                     margin="10px 0 20px 0"
                   />

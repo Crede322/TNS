@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 interface BlueButtonProps {
-  width: number;
-  height: number;
+  width: string;
+  height: string;
   text: string;
   margin?: string;
   fontWeight?: number;

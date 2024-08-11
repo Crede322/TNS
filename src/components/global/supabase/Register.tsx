@@ -65,8 +65,8 @@ const Register: React.FC<RegisterProps> = ({ handleSwitch }) => {
         <h3>Уже есть аккаунт?</h3>
       </button>
       <BlueButton
-        width={280}
-        height={64}
+        width="280px"
+        height="64px"
         text="Получить код"
         margin="15px 0 0 0"
       />

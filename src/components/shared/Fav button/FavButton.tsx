@@ -74,7 +74,7 @@ const FavButton: React.FC<FavButtonProps> = ({ buttonStyle, id }) => {
           onClick={handleFavButton}
           style={wishlistpageStyle}
         >
-          <img src={isProductFaved ? favPressed : favImg} alt="favorite" />
+          <img src={favPressed} alt="favorite" />
         </button>
       ) : null}
     </div>

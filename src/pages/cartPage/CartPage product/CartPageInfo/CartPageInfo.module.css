@@ -19,6 +19,7 @@
 
 .cart__info_total_amount {
   padding: 16px 16px 20px;
+  border-bottom: 1px solid #eee;
 }
 
 .cart__summary {
@@ -33,4 +34,30 @@
   font-weight: 700;
   color: var(--main-gray);
   display: block;
+}
+
+.product__avails_total {
+  display: flex;
+  gap: 10px;
+}
+
+.product__avails_block {
+  background-color: var(--lightgray);
+  flex-grow: 1;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.product__avails_block h4 {
+  font-size: 14px;
+  color: var(--main-gray);
+}
+
+.product__avails_block h5 {
+  color: var(--main-color);
+}
+
+.best__price {
+  padding: 16px;
+  color: var(--main-gray);
 }

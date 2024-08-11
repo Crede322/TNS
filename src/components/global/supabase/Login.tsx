@@ -69,7 +69,12 @@ const Login: React.FC<LoginProps> = ({ handleSwitch }) => {
       >
         <h3>Ещё нет аккаунта?</h3>
       </button>
-      <BlueButton width={280} height={64} text="Войти" margin="15px 0 0 0" />
+      <BlueButton
+        width="280px"
+        height="64px"
+        text="Войти"
+        margin="15px 0 0 0"
+      />
     </form>
   );
 };

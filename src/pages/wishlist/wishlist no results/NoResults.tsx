@@ -21,8 +21,8 @@ const NoResults: React.FC<NoResultsProps> = ({ text }) => {
         <h3>{text}</h3>
         <div className={classes.noResults_button}>
           <BlueButton
-            width={170}
-            height={44}
+            width="170px"
+            height="44px"
             text="Перейти в каталог"
             fontWeight={500}
             borderRadius={8}

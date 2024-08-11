@@ -6,10 +6,7 @@ interface SearchNoResultsProps {
   filteredData: any;
 }
 
-const SearchNoResults: React.FC<SearchNoResultsProps> = ({
-  searchResult,
-  filteredData,
-}) => {
+const SearchNoResults: React.FC<SearchNoResultsProps> = ({ searchResult }) => {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const currentLocation = urlParams.get("q");
@@ -32,8 +29,8 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
       <h3>Попробуйте изменить критерии поиска</h3>
       <div>
         <BlueButton
-          width={105}
-          height={44}
+          width="105px"
+          height="44px"
           text="В каталог"
           fontWeight={500}
           borderRadius={8}
@@ -41,8 +38,8 @@ const SearchNoResults: React.FC<SearchNoResultsProps> = ({
           onClick={catalogRedirect}
         />
         <BlueButton
-          width={119}
-          height={44}
+          width="119px"
+          height="44px"
           text="На главную"
           fontWeight={500}
           fontColor="#000"

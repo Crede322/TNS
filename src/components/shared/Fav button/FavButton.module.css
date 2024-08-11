@@ -7,12 +7,13 @@
 
 .button__mainpage:hover {
   background-color: #b7dcff;
+  border: 1px solid var(--main-color) !important;
 }
 
 .button__mainpage img {
-  height: 18px !important;
-  width: 18px !important;
-  margin: 0px !important;
+  height: 18px;
+  width: 18px;
+  margin: 0px;
 }
 
 .button__wishlistpage {
@@ -20,6 +21,22 @@
   width: 44px;
   border-radius: 8px;
   transition: background-color, 0.3s;
+  position: relative;
+}
+
+.button__wishlistpage:hover::after {
+  content: "Удалить из избранного";
+  background-color: var(--main-gray);
+  height: fit-content;
+  width: fit-content;
+  right: -150%;
+  position: absolute;
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: block;
+  bottom: 50px;
+  color: #fff;
+  text-wrap: nowrap;
 }
 
 .button__wishlistpage img {
