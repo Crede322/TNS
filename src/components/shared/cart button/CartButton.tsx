@@ -29,7 +29,7 @@ const CartButton: React.FC<CartButtonProps> = ({ id, cartStyle }) => {
     mainpage: { border: isInCart ? "1px solid #0080f5" : "1px solid #d9d9d9" },
     productpage: {
       border: isInCart ? "1px solid #0080f5" : "1px solid #0080f5",
-      backgroundColor: isInCart ? "#fff" : "#0080f5",
+      backgroundColor: isInCart ? "#f7f7f7" : "#0080f5",
       color: isInCart ? "#0080f5" : "#fff",
     },
     catalogpage: {

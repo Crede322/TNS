@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 // компоненты
 import Header from "../../components/global/header/Header";
-import SearchNoResults from "./no results/SearchNoResults";
+import SearchNoResults from "./searchPage components/no results/SearchNoResults";
 import classes from "./SearchPage.module.css";
 
 // redux и supabase

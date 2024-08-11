@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import { supabase } from "../../../helper/supabaseClient";
+import { supabase } from "../../../../helper/supabaseClient";
 import classes from "./CartPageProduct.module.css";
-import FavButton from "../../../components/shared/Fav button/FavButton";
-import iconDelete from "../../../img/trash-bin.svg";
+import FavButton from "../../../../components/shared/Fav button/FavButton";
+import iconDelete from "../../../../img/trash-bin.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addCartData,
   removeCartData,
   selectCart,
   deleteCartProduct,
-} from "../../../features/cartSlice";
+} from "../../../../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 interface CartPageProductProps {

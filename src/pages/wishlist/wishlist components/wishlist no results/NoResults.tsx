@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./NoResults.module.css";
-import BlueButton from "../../../components/shared/BlueButton";
-import noResultsImg from "../../../img/searchPage/no results illust.jpg";
+import BlueButton from "../../../../components/shared/BlueButton";
+import noResultsImg from "../../../../img/searchPage/no results illust.jpg";
 import { useNavigate } from "react-router-dom";
 
 interface NoResultsProps {

@@ -7,7 +7,7 @@ import SearchPage from "./pages/searchPage/SearchPage";
 import ProductPage from "./pages/productPage/ProductPage";
 import Footer from "./components/global/footer/Footer";
 import Wishlist from "./pages/wishlist/Wishlist";
-import CatalogPage from "./pages/catalog/CatalogPage";
+import CatalogPage from "./pages/catalogPage/CatalogPage";
 import CartPage from "./pages/cartPage/CartPage";
 
 const App = () => {

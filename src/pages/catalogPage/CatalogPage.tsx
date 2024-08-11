@@ -1,7 +1,7 @@
 import Header from "../../components/global/header/Header";
 import classes from "./CatalogPage.module.css";
-import CatalogQueryButton from "./catalog query button/CatalogQueryButton";
-import CatalogTable from "./catalog table/CatalogTable";
+import CatalogQueryButton from "./catalogPage components/catalog query button/CatalogQueryButton";
+import CatalogTable from "./catalogPage components/catalog table/CatalogTable";
 import {
   queryButtonClick,
   clearQueriesClick,

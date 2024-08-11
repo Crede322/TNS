@@ -3,9 +3,9 @@ import classes from "./CartPage.module.css";
 import { selectCart, totalQuantity } from "../../features/cartSlice";
 import { useSelector } from "react-redux";
 
-import CartPageProduct from "./CartPage product/CartPageProduct";
-import NoResults from "../wishlist/wishlist no results/NoResults";
-import CartPageInfo from "./CartPage product/CartPageInfo/CartPageInfo";
+import CartPageProduct from "./cartPage components/CartPage product/CartPageProduct";
+import NoResults from "../wishlist/wishlist components/wishlist no results/NoResults";
+import CartPageInfo from "./cartPage components/CartPageInfo/CartPageInfo";
 
 const CartPage = () => {
   const cart = useSelector(selectCart);

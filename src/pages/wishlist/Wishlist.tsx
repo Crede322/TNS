@@ -1,10 +1,10 @@
 import Header from "../../components/global/header/Header";
 import classes from "./Wishlist.module.css";
-import FavoriteProduct from "./FavoriteProduct";
+import FavoriteProduct from "./wishlist components/FavoriteProduct";
 import { useEffect, useState } from "react";
 import { selectFavorites } from "../../features/favoriteSlice";
 import { useSelector } from "react-redux";
-import NoResults from "./wishlist no results/NoResults";
+import NoResults from "./wishlist components/wishlist no results/NoResults";
 
 const Wishlist = () => {
   const [storedFavorites, setStoredFavorites] = useState<string[]>([]);

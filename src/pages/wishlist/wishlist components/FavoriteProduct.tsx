@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { supabase } from "../../helper/supabaseClient";
-import FavButton from "../../components/shared/Fav button/FavButton";
-import classes from "./Wishlist.module.css";
+import { supabase } from "../../../helper/supabaseClient";
+import FavButton from "../../../components/shared/Fav button/FavButton";
+import classes from "../Wishlist.module.css";
 import { useNavigate } from "react-router-dom";
-import CartButton from "../../components/shared/cart button/CartButton";
+import CartButton from "../../../components/shared/cart button/CartButton";
 
 interface FavoriteProductProps {
   id: string;
