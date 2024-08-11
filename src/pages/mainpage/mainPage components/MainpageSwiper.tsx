@@ -54,7 +54,7 @@ const MainpageSwiper = () => {
               height={206}
               title="Каталог"
               text="Большой выбор процессоров"
-              background="rgb(229, 244, 251)"
+              background="rgb(189, 215, 255)"
               imageSrc={catalogueImg}
             />
           </SwiperSlide>
@@ -64,7 +64,7 @@ const MainpageSwiper = () => {
               height={206}
               title="Акции"
               text="Скидки, рассрочки, выгодные комплекты"
-              background="rgb(235, 255, 237)"
+              background="rgb(202, 238, 255)"
               imageSrc={megaphoneImg}
             />
           </SwiperSlide>
@@ -74,7 +74,7 @@ const MainpageSwiper = () => {
               height={206}
               title="Подобрать CPU"
               text="Без проблем c совместимостью"
-              background="rgb(242, 243, 245)"
+              background="rgb(218, 240, 252)"
               imageSrc={cpuImg}
             />
           </SwiperSlide>
@@ -84,7 +84,7 @@ const MainpageSwiper = () => {
               height={206}
               title="Новинки"
               text="Лучшие в производительности"
-              background="rgb(255, 239, 239)"
+              background="rgb(189, 215, 255)"
               imageSrc={doubleArrow}
             />
           </SwiperSlide>
@@ -104,7 +104,7 @@ const MainpageSwiper = () => {
               height={206}
               title="Тесты"
               text="Проверка и идентификация процессоров"
-              background="rgb(252, 246, 215)"
+              background="rgb(202, 238, 255)"
               imageSrc={gear}
             />
           </SwiperSlide>
@@ -114,7 +114,7 @@ const MainpageSwiper = () => {
               height={206}
               title="Помощь"
               text="Частые вопросы, полезная информация"
-              background="rgb(255, 239, 239)"
+              background="rgb(218, 240, 252)"
               imageSrc={question}
             />
           </SwiperSlide>

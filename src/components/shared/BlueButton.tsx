@@ -30,7 +30,7 @@ const BlueButton: React.FC<BlueButtonProps> = ({
   const buttonStyle = {
     width: width,
     height: height,
-    background: background ? background : isHovered ? "#4187a5" : "#2c7da0",
+    background: background ? background : isHovered ? "#2796ff" : "#0080f5",
     borderRadius: borderRadius ? borderRadius : "12px",
     border: border ? border : "none",
     color: fontColor ? fontColor : "#fff",

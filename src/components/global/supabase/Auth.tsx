@@ -8,7 +8,6 @@ const Auth = () => {
 
   const handleSwitch = () => {
     setToggleSwitchState(!toggleSwitchState);
-    console.log("asd");
   };
 
   return (

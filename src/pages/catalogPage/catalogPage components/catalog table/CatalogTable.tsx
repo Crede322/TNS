@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { supabase } from "../../../../helper/supabaseClient";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectSelectedQuery } from "../../../../features/catalogSlice";
 import { putFilteredData } from "../../../../features/supabaseDataSlice";
 import Pagination from "../../../../components/shared/pagination/Pagination";

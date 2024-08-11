@@ -49,5 +49,5 @@
 
 .actual_offer_wrapper h4:hover,
 h5:hover {
-  color: #2c7da0;
+  color: var(--main-color);
 }
