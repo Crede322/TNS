@@ -1,13 +1,17 @@
 import useCartModalSupabaseFetch from "../../../../../hooks/useCartModalSupabaseFetch";
 import classes from "./HeaderCartModalProduct.module.css";
 import { useSelector } from "react-redux";
-import { selectCart } from "../../../../../features/cartSlice";
+import { selectCart, hidePopup } from "../../../../../features/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 interface ProductProps {
   id: number;
 }
 
 const HeaderCartModalProduct: React.FC<ProductProps> = ({ id }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const { product } = useCartModalSupabaseFetch(id);
   const productQuantity = cart.find(
@@ -19,6 +23,11 @@ const HeaderCartModalProduct: React.FC<ProductProps> = ({ id }) => {
   const productSumPrice = productQuantity ? productQuantity * productPrice : 0;
   const formattedSumPrice = productSumPrice.toLocaleString();
 
+  const handleClickProduct = () => {
+    navigate(`/product/${id}`);
+    dispatch(hidePopup());
+  };
+
   if (!product) {
     return <div></div>;
   }
@@ -26,9 +35,9 @@ const HeaderCartModalProduct: React.FC<ProductProps> = ({ id }) => {
   return (
     <div className={classes.modal__product}>
       <div className={classes.modal__product_container}>
-        <img src={product.img} alt="product" />
+        <img onClick={handleClickProduct} src={product.img} alt="product" />
         <div>
-          <h2>{product.cpuName}</h2>
+          <h2 onClick={handleClickProduct}>{product.cpuName}</h2>
           <h3>{productQuantity} шт.</h3>
         </div>
       </div>

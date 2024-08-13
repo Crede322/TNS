@@ -14,7 +14,6 @@
 
 .cart__popup {
   position: relative;
-  top: 10px;
   transform: scale(0);
   opacity: 0;
   transform-origin: 100% 10%;
@@ -24,7 +23,7 @@
   z-index: 4;
 }
 
-.menu__btn_cart:hover .cart__popup {
+.menu__btn__wrapper:hover .cart__popup {
   transform: scale(1);
   opacity: 1;
 }
@@ -42,6 +41,6 @@
   width: 100vw;
   height: 100vw;
   background-color: rgba(0, 0, 0, 0.08);
-  pointer-events: none;
   display: block;
+  pointer-events: none;
 }

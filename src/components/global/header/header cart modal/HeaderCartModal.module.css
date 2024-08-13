@@ -1,6 +1,6 @@
 .cart__modal {
   position: absolute;
-  height: 400px;
+  height: 410px;
   right: 0;
   top: 0;
   border-radius: 12px;
@@ -9,17 +9,13 @@
   display: flex;
 }
 
-.cart__modal__scroll_container {
-  max-height: 400px;
-}
-
 .cart__modal__content {
   font-size: 16px;
   color: #000;
   font-weight: 700;
   width: fit-content;
   min-width: 400px;
-  height: 340px;
+  height: 300px;
   overflow-y: scroll;
   padding-inline: 10px;
   border-bottom: 1px solid #eee;
@@ -33,4 +29,45 @@
   width: fit-content;
   color: var(--main-gray);
   margin-bottom: 10px;
+}
+
+.cart__modal__buttons {
+  display: flex;
+}
+
+.cart__modal__order {
+  padding-block: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.cart__modal__order_cost h3 {
+  font-size: 16px;
+  color: #000;
+}
+
+.cart__modal__order_cost h4 {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+}
+
+.cart__modal__buttons button {
+  padding: 10px 19px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.cart__modal__button_order {
+  color: var(--main-gray);
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+}
+
+.cart__modal__button_cart {
+  color: #fff;
+  background-color: var(--main-color);
+  margin-left: 20px;
 }

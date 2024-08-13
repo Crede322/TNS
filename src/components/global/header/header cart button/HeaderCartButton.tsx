@@ -1,6 +1,6 @@
 import classes from "./HeaderCartButton.module.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   showPopup,
@@ -16,21 +16,28 @@ import HeaderCartModal from "../header cart modal/HeaderCartModal";
 const HeaderCartButton = () => {
   const cartOverlayShown = useSelector(cartOverlay);
   const cart = useSelector(selectCart);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [calculateProductPrices, setProductPrices] = useState<{
     [key: number]: number;
   }>({});
 
+  const navigate = useNavigate();
   const handleClickCart = () => {
     navigate("/cart");
+    dispatch(hidePopup());
   };
 
+  const dispatch = useDispatch();
   const cartMouseEnter = () => {
     dispatch(showPopup());
   };
   const cartMouseLeave = () => {
     dispatch(hidePopup());
+  };
+
+  const location = useLocation();
+  const isCartPage = location.pathname === "/cart";
+  const disableEvents: React.CSSProperties = {
+    pointerEvents: isCartPage ? "none" : "auto",
   };
 
   useEffect(() => {
@@ -82,19 +89,21 @@ const HeaderCartButton = () => {
   }, [calculateProductPrices, cart]);
 
   return (
-    <button
-      className={classes.menu__btn_cart}
-      onClick={handleClickCart}
+    <div
+      style={disableEvents}
+      className={classes.menu__btn__wrapper}
       onMouseEnter={cartMouseEnter}
       onMouseLeave={cartMouseLeave}
     >
-      <img src={cartImg} alt="img_cart" />
-      <h2>Корзина</h2>
+      <button className={classes.menu__btn_cart} onClick={handleClickCart}>
+        <img src={cartImg} alt="img_cart" />
+        <h2>Корзина</h2>
+      </button>
       <div className={classes.cart__popup}>
         <HeaderCartModal />
       </div>
       {cartOverlayShown ? <div className={classes.cart__overlay} /> : null}
-    </button>
+    </div>
   );
 };
 

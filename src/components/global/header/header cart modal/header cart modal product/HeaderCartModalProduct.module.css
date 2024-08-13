@@ -12,6 +12,7 @@
 .modal__product img {
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 
 .modal__product h2 {
@@ -19,6 +20,7 @@
   color: var(--main-gray);
   margin-left: 10px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .modal__product h3 {
