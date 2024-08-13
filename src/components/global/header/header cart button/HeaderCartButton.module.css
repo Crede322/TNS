@@ -21,6 +21,7 @@
   transition:
     transform 0.4s,
     opacity 0.3s;
+  z-index: 4;
 }
 
 .menu__btn_cart:hover .cart__popup {
@@ -40,7 +41,7 @@
   z-index: 2;
   width: 100vw;
   height: 100vw;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.08);
   pointer-events: none;
   display: block;
 }

@@ -1,69 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { supabase } from "../../helper/supabaseClient";
+import useSupabaseFetch from "../../hooks/useSupabaseFetch";
 
 import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
-import starImg from "../../img/searchPage/star.svg";
 import ProductPageDescription from "./productPage components/ProductPageDescription";
 import FavButton from "../../components/shared/Fav button/FavButton";
 import CartButton from "../../components/shared/cart button/CartButton";
-
-interface Product {
-  id: string;
-  cpuName: string;
-  socket: string;
-  price: string;
-  year: number;
-  coresNumber: number;
-  threads: number;
-  cacheL2: number;
-  cacheL3: number;
-  frequency: number;
-  overclockedFrequency: string;
-  img: string;
-  DDR: string;
-  maxRam: string;
-  multiplier: boolean;
-  ramFrequency: number;
-  TDP: number;
-  maxHeat: number;
-  integratedGPU: boolean;
-  ramChannels: number;
-}
+import starImg from "../../img/searchPage/star.svg";
 
 const ProductPage: React.FC = () => {
   const { productId }: { productId?: string } = useParams();
   const parsedProductId = parseInt(productId || "", 10);
-  const [product, setProduct] = useState<Product | null>(null);
   const [additionalButtonsState, setAdditionalButtonsState] = useState(1);
 
-  const fetchData = async (parsedProductId: number) => {
-    try {
-      const { data } = await supabase
-        .from("cpu")
-        .select("*")
-        .eq("id", `${parsedProductId}`);
-      if (data) {
-        setProduct(data[0]);
-      }
-    } catch (error) {
-      console.error("Error fetching supabase data", error);
-    }
-  };
-
-  useEffect(() => {
-    const updateHistory = (id: number) => {
-      const history = JSON.parse(localStorage.getItem("history") || "[]");
-      if (!history.includes(id)) {
-        history.push(id);
-        localStorage.setItem("history", JSON.stringify(history));
-      }
-    };
-
-    updateHistory(parsedProductId);
-    fetchData(parsedProductId);
-  }, [parsedProductId]);
+  const { product } = useSupabaseFetch(parsedProductId);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
