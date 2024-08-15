@@ -30,7 +30,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   };
 
   const buttonStyle = {
-    width: width,
+    width: innerButton ? "19vw" : width,
     height: height,
     background:
       !innerButton && isHovered && background
@@ -39,7 +39,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     borderRadius: "16px",
     marginRight: marginRight,
     transition: "background-color 0.3s",
-    minWidth: innerButton ? "283px" : "",
+    minWidth: innerButton ? "19vw" : "",
   };
 
   return (
@@ -56,7 +56,15 @@ const MenuButton: React.FC<MenuButtonProps> = ({
           <h2>Мои заказы</h2>
         </button>
       ) : null}
-      <img src={imageSrc} alt="menu illustration" />
+      <img
+        src={imageSrc}
+        alt="menu illustration"
+        className={
+          innerButton
+            ? classes.cabinet__button_img
+            : classes.default__menu__button
+        }
+      />
     </div>
   );
 };

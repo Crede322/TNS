@@ -15,6 +15,12 @@
   z-index: -1;
 }
 
+@media (max-width: 1200px) {
+  .cabinet__button_img {
+    max-height: 110px;
+  }
+}
+
 .menu__button_cabinet h3 {
   font-weight: 600;
   font-size: 18px;

@@ -99,10 +99,14 @@ const HeaderCartButton = () => {
         <img src={cartImg} alt="img_cart" />
         <h2>Корзина</h2>
       </button>
-      <div className={classes.cart__popup}>
-        <HeaderCartModal />
-      </div>
-      {cartOverlayShown ? <div className={classes.cart__overlay} /> : null}
+      {cart.length > 0 ? (
+        <div>
+          <div className={classes.cart__popup}>
+            <HeaderCartModal />
+          </div>
+          {cartOverlayShown ? <div className={classes.cart__overlay} /> : null}
+        </div>
+      ) : null}
     </div>
   );
 };

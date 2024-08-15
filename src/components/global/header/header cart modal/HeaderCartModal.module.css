@@ -1,6 +1,5 @@
 .cart__modal {
   position: absolute;
-  height: 410px;
   right: 0;
   top: 0;
   border-radius: 12px;
@@ -15,7 +14,7 @@
   font-weight: 700;
   width: fit-content;
   min-width: 400px;
-  height: 300px;
+  max-height: 300px;
   overflow-y: scroll;
   padding-inline: 10px;
   border-bottom: 1px solid #eee;
@@ -36,7 +35,7 @@
 }
 
 .cart__modal__order {
-  padding-block: 20px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   flex-grow: 1;

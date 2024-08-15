@@ -17,21 +17,11 @@
   /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
 }
 
-.header__inner {
-  height: 100px;
-  width: 100vw;
-}
-
 .header__container {
   position: relative;
-  width: 1410px;
   margin: auto;
-}
-
-@media (max-width: 1410px) {
-  .header__container {
-    width: 95%;
-  }
+  min-width: 95vw;
+  max-width: 95vw;
 }
 
 .header__row {
@@ -42,6 +32,7 @@
 
 .header__row_left {
   display: flex;
+  gap: 24px;
 }
 
 .header__row li {
@@ -51,11 +42,10 @@
 
 /* кнопки */
 .menu__main_button {
-  min-width: 283px;
   height: 60px;
-  margin-right: 20px;
   background-color: var(--main-color);
   border-radius: 12px;
+  width: 19vw;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");

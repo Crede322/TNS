@@ -118,7 +118,9 @@ const HeaderSearch = () => {
       <div
         className={classes.search_wrapper}
         onClick={handleWrapperClick}
-        style={{ background: hover ? "#fff" : overlay ? "#fff" : "#f7f7f7" }}
+        style={{
+          background: hover ? "#fff" : overlay ? "#fff" : "#f7f7f7",
+        }}
         onMouseEnter={() => {
           changeHover(!hover);
         }}
@@ -126,7 +128,7 @@ const HeaderSearch = () => {
           changeHover(!hover);
         }}
       >
-        <input
+        {/* <input
           id="header_input"
           ref={inputRef}
           className={classes.search_input}
@@ -137,8 +139,6 @@ const HeaderSearch = () => {
           onChange={handleSearch}
           onKeyDown={handleKeydown}
         />
-
-        {/* map списка с результатами */}
 
         <ul
           className={classes.result_list}
@@ -171,7 +171,7 @@ const HeaderSearch = () => {
           <button className={classes.button_two} onClick={getResults}>
             <img src={searchImg} alt="search img" />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

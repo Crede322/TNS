@@ -4,22 +4,22 @@
     rgb(255, 255, 255) 50%,
     rgb(247, 247, 247) 60%
   );
+  width: 100vw;
+  margin: auto;
 }
 
 .wrapper {
-  width: 1400px;
+  max-width: 95vw;
   margin: auto;
 }
 
 .mainpage__row {
-  width: 1400px;
   height: 206px;
-  margin: auto;
   display: flex;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 .rightside__menu {
   padding-left: 12px;
-  width: 1400px;
 }
