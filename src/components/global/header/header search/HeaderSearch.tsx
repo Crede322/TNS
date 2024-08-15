@@ -128,7 +128,7 @@ const HeaderSearch = () => {
           changeHover(!hover);
         }}
       >
-        {/* <input
+        <input
           id="header_input"
           ref={inputRef}
           className={classes.search_input}
@@ -171,7 +171,7 @@ const HeaderSearch = () => {
           <button className={classes.button_two} onClick={getResults}>
             <img src={searchImg} alt="search img" />
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );
