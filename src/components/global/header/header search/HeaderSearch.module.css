@@ -10,19 +10,22 @@
 }
 
 @media (max-width: 1410px) {
-  .search_wrapper {
+  .search_wrapper,
+  .result_list {
     width: 660px;
   }
 }
 
 @media (max-width: 1210px) {
-  .search_wrapper {
+  .search_wrapper,
+  .result_list {
     width: 550px;
   }
 }
 
 @media (max-width: 1000px) {
-  .search_wrapper {
+  .search_wrapper,
+  .result_list {
     width: 420px;
   }
 }
@@ -71,6 +74,7 @@
   margin-left: -20px;
   border-radius: 0 0 8px 8px;
   overflow: hidden;
+  background-color: red;
 }
 
 .result_list li {

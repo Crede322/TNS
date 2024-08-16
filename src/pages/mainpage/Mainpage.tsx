@@ -13,9 +13,9 @@ const MainPage = () => {
       <div className={classes.background}>
         <div className={classes.wrapper}>
           <MainpageSwiper />
-          <Discounts />
-          <BrandsSwiper />
           <ActualOffers />
+          <BrandsSwiper />
+          <Discounts />
           <RecentViewed />
         </div>
       </div>

@@ -1,62 +1,44 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "../../../../features/swiper/swiper.css";
-import DiscountsSlide from "./discounts slide/DiscountsSlide";
+import classes from "./Discounts.module.css";
+import DiscountOffer from "./discounts components/DiscountOffer";
 
 const Discounts = () => {
   return (
-    <div className="discount_wrapper">
-      <Swiper slidesPerView={4}>
-        <SwiperSlide style={{ marginRight: "10px" }}>
-          <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="AMD Ryzen Threadripper 3960X"
-            price="120 000 ₽"
-            prevPrice="140 000 ₽"
-            link="https://crede322.github.io/TNS/"
-            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/15"
-            imgWidth="150px"
-            imgRight="0px"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DiscountsSlide
-            title="Ещё 2 дня скидка"
-            description="AMD Ryzen 9 7950X3D"
-            price="60 000 ₽"
-            prevPrice="65 000 ₽"
-            link="https://crede322.github.io/TNS/"
-            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/18"
-            imgWidth="130px"
-            imgBottom="-10px"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DiscountsSlide
-            title="Ещё 3 дня скидка"
-            description="AMD FX-8350"
-            price="5 000 ₽"
-            prevPrice="6 000 ₽"
-            link="https://crede322.github.io/TNS/"
-            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/19"
-            imgWidth="130px"
-            imgBottom="-10px"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DiscountsSlide
-            title="Ещё 1 день скидка"
-            description="AMD Ryzen 5 5600X"
-            price="12 600 ₽"
-            prevPrice="14 000 ₽"
-            link="https://crede322.github.io/TNS/"
-            img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/20"
-            imgWidth="130px"
-            imgBottom="-10px"
-          />
-        </SwiperSlide>
-      </Swiper>
+    <div className={classes.discounts__wrapper}>
+      <DiscountOffer
+        title="Ещё 3 дня скидка"
+        description="Процессор AMD Ryzen 7 2700X"
+        discountPrice={20000}
+        oldPrice={22500}
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/10?t=2024-05-04T01%3A43%3A25.866Z"
+        link="10"
+      />
+      <DiscountOffer
+        title="Ещё 2 дня скидка"
+        description="Процессор AMD FX-8350"
+        discountPrice={7000}
+        oldPrice={10000}
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/19?t=2024-05-04T01%3A44%3A35.565Z"
+        link="19"
+      />
+      <DiscountOffer
+        title="Ещё 3 дня скидка"
+        description="Процессор AMD Ryzen 5 3600"
+        discountPrice={15000}
+        oldPrice={17000}
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/7?t=2024-05-04T01%3A43%3A45.447Z"
+        link="7"
+      />
+      <DiscountOffer
+        title="Ещё 1 день скидка"
+        description="Процессор AMD Ryzen 7 1700X"
+        discountPrice={14000}
+        oldPrice={16000}
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/12?t=2024-05-04T01%3A43%3A36.056Z"
+        link="12"
+      />
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.discounts__wrapper {
+  width: 95vw;
+  height: 210px;
+  display: flex;
+  gap: 20px;
+  margin-block: 20px;
+}

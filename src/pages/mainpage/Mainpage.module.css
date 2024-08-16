@@ -17,7 +17,6 @@
   height: 206px;
   display: flex;
   overflow: hidden;
-  justify-content: space-between;
 }
 
 .rightside__menu {
