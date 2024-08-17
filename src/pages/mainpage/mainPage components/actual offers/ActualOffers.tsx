@@ -5,8 +5,8 @@ const ActualOffer: React.FC = () => {
   return (
     <div className={classes.actual_offers_row}>
       <div className={classes.actual_offer_wrapper}>
-        <a href="!#">
-          <h4>Домашний офис</h4>
+        <a href="!#" className={classes.actual_offer_title}>
+          Ryzen 5
         </a>
         <div className={classes.content}>
           <a href="!#" className={classes.offer_button}>
@@ -30,7 +30,7 @@ const ActualOffer: React.FC = () => {
       </div>
       <div className={classes.actual_offer_wrapper}>
         <a href="!#">
-          <h4>Домашний офис</h4>
+          <h4>Ryzen 7</h4>
         </a>
         <div className={classes.content}>
           <a href="!#" className={classes.offer_button}>

@@ -21,7 +21,8 @@ import {
 
 //img
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import Pagination from "../../components/shared/pagination/Pagination";
+import Pagination from "../../components/shared/pagination/CatalogPagination";
+import SearchPagination from "../../components/shared/pagination/SearchPagination";
 
 interface product {
   id: number;
@@ -100,7 +101,7 @@ const SearchPage = () => {
           className={classes.received_items}
           style={{ display: currentSearchResult === 2 ? "block" : "none" }}
         >
-          <Pagination />
+          <SearchPagination />
         </div>
       </div>
     </div>

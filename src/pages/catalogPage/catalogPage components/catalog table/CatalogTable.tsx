@@ -3,7 +3,8 @@ import { supabase } from "../../../../helper/supabaseClient";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSelectedQuery } from "../../../../features/catalogSlice";
 import { putFilteredData } from "../../../../features/supabaseDataSlice";
-import Pagination from "../../../../components/shared/pagination/Pagination";
+import Pagination from "../../../../components/shared/pagination/CatalogPagination";
+import CatalogPagination from "../../../../components/shared/pagination/CatalogPagination";
 
 const CatalogTable = () => {
   const selectedQuery = useSelector(selectSelectedQuery);
@@ -51,7 +52,7 @@ const CatalogTable = () => {
 
   return (
     <div>
-      <Pagination />
+      <CatalogPagination />
     </div>
   );
 };

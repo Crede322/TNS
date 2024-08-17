@@ -10,7 +10,7 @@
   height: 160px;
 }
 
-.actual_offer_wrapper h4 {
+.actual_offer_title {
   font-size: 18px;
   font-weight: 700;
   color: #4e4e4e;
@@ -47,7 +47,7 @@
   margin-bottom: 6px;
 }
 
-.actual_offer_wrapper h4:hover,
+.actual_offer_title:hover,
 h5:hover {
   color: var(--main-color);
 }

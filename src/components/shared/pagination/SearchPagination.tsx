@@ -4,10 +4,10 @@ import { selectFilteredSBData } from "../../../features/supabaseDataSlice";
 import TableProduct from "../table product/TableProduct";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  buttonPageClick,
-  buttonPagePrev,
-  buttonPageNext,
-  selectCurrentPage,
+  searchPaginationButtonPageClick,
+  searchPaginationButtonPagePrev,
+  searchPaginationButtonPageNext,
+  selectSearchPagination,
 } from "../../../features/searchPaginationSlice";
 import arrowBlue from "../../../img/arrowBlue.svg";
 import arrow from "../../../img/arrow.svg";
@@ -25,13 +25,13 @@ interface product {
   img: string;
 }
 
-const Pagination = () => {
+const SearchPagination = () => {
   const dispatch = useDispatch();
   const filteredData = useSelector(selectFilteredSBData) as product[];
   const [numItemsPerPage, setNumItemsPerPage] = useState(10);
 
   // Пагинация
-  let togglePage = useSelector(selectCurrentPage);
+  let togglePage = useSelector(selectSearchPagination);
   const startIdx = (togglePage - 1) * numItemsPerPage;
   const endIdx = togglePage * numItemsPerPage;
   let numPages = Math.ceil(filteredData.length / numItemsPerPage);
@@ -63,7 +63,7 @@ const Pagination = () => {
     numPages = Math.ceil(filteredData.length / numItemsPerPage);
     isLastPage = togglePage === numPages;
     if (filteredData.length <= 10) {
-      dispatch(buttonPageClick(1));
+      dispatch(searchPaginationButtonPageClick(1));
     }
   }, [filteredData]);
 
@@ -72,7 +72,7 @@ const Pagination = () => {
       <button
         key={page}
         onClick={() => {
-          dispatch(buttonPageClick(page));
+          dispatch(searchPaginationButtonPageClick(page));
           scrollToTop();
         }}
         className={togglePage === page ? classes.currentPage : ""}
@@ -110,7 +110,7 @@ const Pagination = () => {
           style={{ cursor: togglePage === 1 ? "not-allowed" : "pointer" }}
           onClick={() => {
             if (togglePage !== 1) {
-              dispatch(buttonPagePrev());
+              dispatch(searchPaginationButtonPagePrev());
               scrollToTop();
             }
           }}
@@ -125,7 +125,7 @@ const Pagination = () => {
           style={{ cursor: isLastPage ? "not-allowed" : "pointer" }}
           onClick={() => {
             if (!isLastPage) {
-              dispatch(buttonPageNext());
+              dispatch(searchPaginationButtonPageNext());
               scrollToTop();
             }
           }}
@@ -137,4 +137,4 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+export default SearchPagination;

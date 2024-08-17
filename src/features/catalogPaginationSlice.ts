@@ -10,26 +10,26 @@ const initialState: paginationState = {
 };
 
 const paginationSlice = createSlice({
-  name: "searchPagination",
+  name: "catalogPagination",
   initialState,
   reducers: {
-    searchPaginationButtonPageClick(state, action: PayloadAction<number>) {
+    catalogPaginationButtonPageClick(state, action: PayloadAction<number>) {
       return { ...state, currentPage: action.payload };
     },
-    searchPaginationButtonPagePrev(state) {
+    catalogPaginationButtonPagePrev(state) {
       state.currentPage -= 1;
     },
-    searchPaginationButtonPageNext(state) {
+    catalogPaginationButtonPageNext(state) {
       state.currentPage += 1;
     },
   },
 });
 
 export const {
-  searchPaginationButtonPageClick,
-  searchPaginationButtonPagePrev,
-  searchPaginationButtonPageNext,
+  catalogPaginationButtonPageClick,
+  catalogPaginationButtonPagePrev,
+  catalogPaginationButtonPageNext,
 } = paginationSlice.actions;
 export default paginationSlice.reducer;
-export const selectSearchPagination = (state: RootState) =>
-  state.searchPagination.currentPage;
+export const selectCatalogPagination = (state: RootState) =>
+  state.catalogPagination.currentPage;
