@@ -36,7 +36,7 @@ const CatalogPage = () => {
           )}
           <div className={classes.catalog_query}>
             <button
-              className={classes.query_button}
+              className={classes.query_button_active}
               onClick={handleCurrentQueryButton}
               style={{
                 display: selectedQuery === "null" ? "none" : "inline-flex",

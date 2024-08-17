@@ -28,11 +28,11 @@
 
 .menu__button_cabinet h4 {
   margin-top: 10px;
+  margin-bottom: 25px;
   font-size: 14px;
 }
 
 .inner__button {
-  margin-top: 50px;
   width: 116px;
   height: 43px;
   background-color: #fff;

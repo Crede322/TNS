@@ -99,7 +99,7 @@ const ProductPage: React.FC = () => {
                       setAdditionalButtonsState(1);
                     }}
                   >
-                    <h2>Mockup-кнопки</h2>
+                    <h2>Mockup</h2>
                   </button>
                   <button
                     className={

@@ -11,6 +11,7 @@ import {
 } from "../../../features/searchPaginationSlice";
 import arrowBlue from "../../../img/arrowBlue.svg";
 import arrow from "../../../img/arrow.svg";
+import useWindowWidth from "../../../hooks/useWindowWidth";
 
 interface product {
   id: number;
@@ -27,14 +28,32 @@ interface product {
 const Pagination = () => {
   const dispatch = useDispatch();
   const filteredData = useSelector(selectFilteredSBData) as product[];
+  const [numItemsPerPage, setNumItemsPerPage] = useState(10);
+
+  // Пагинация
   let togglePage = useSelector(selectCurrentPage);
-  const numItemsPerPage = 10;
+  const startIdx = (togglePage - 1) * numItemsPerPage;
+  const endIdx = togglePage * numItemsPerPage;
   let numPages = Math.ceil(filteredData.length / numItemsPerPage);
-  let isLastPage = togglePage === numPages - 1;
+  let isLastPage = togglePage === numPages;
+
+  const windowWidth = useWindowWidth();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    if (windowWidth > 2000) {
+      setNumItemsPerPage(10);
+    }
+    if (windowWidth < 1400) {
+      setNumItemsPerPage(8);
+    }
+    if (windowWidth < 1100) {
+      setNumItemsPerPage(6);
+    }
+  }, [windowWidth]);
 
   useEffect(() => {
     scrollToTop();
@@ -42,8 +61,8 @@ const Pagination = () => {
 
   useEffect(() => {
     numPages = Math.ceil(filteredData.length / numItemsPerPage);
-    isLastPage = togglePage === numPages - 1;
-    if (filteredData.length < 11) {
+    isLastPage = togglePage === numPages;
+    if (filteredData.length <= 10) {
       dispatch(buttonPageClick(1));
     }
   }, [filteredData]);
@@ -62,19 +81,6 @@ const Pagination = () => {
       </button>
     ),
   );
-
-  let startIdx = 0;
-  let endIdx = 10;
-  switch (togglePage) {
-    case 1:
-      startIdx = 0;
-      endIdx = 10;
-      break;
-    case 2:
-      startIdx = 10;
-      endIdx = 20;
-      break;
-  }
 
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
@@ -116,9 +122,9 @@ const Pagination = () => {
           className={classes.button_next}
           onMouseEnter={handleHoverNext}
           onMouseLeave={handleHoverNext}
-          style={{ cursor: isLastPage ? "pointer" : "not-allowed" }}
+          style={{ cursor: isLastPage ? "not-allowed" : "pointer" }}
           onClick={() => {
-            if (isLastPage === true) {
+            if (!isLastPage) {
               dispatch(buttonPageNext());
               scrollToTop();
             }

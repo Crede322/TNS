@@ -17,19 +17,19 @@
 }
 
 .catalog_query {
-  height: 66px;
+  height: fit-content;
   background-color: #fff;
   width: fit-content;
   border-radius: 8px;
   box-shadow: 0 1px 3px var(--border-gray);
   margin: auto;
   margin-bottom: 10px;
-  padding: 16px 12px 0;
+  padding: 16px 12px 0 12px;
 }
 
-.query_button {
-  border-radius: 17px;
+.query_button_active {
   background-color: var(--lightgray);
+  border-radius: 17px;
   height: 35px;
   width: fit-content;
   padding: 0 12px;
@@ -41,12 +41,12 @@
   transition: color 0.3s;
 }
 
-.query_button:hover {
+.query_button_active:hover {
   background-color: #eeeeee;
   color: var(--main-color);
 }
 
-.query_button h4 {
+.query_button_active h4 {
   font-size: 12px;
   margin-left: 6px;
   color: #afb0af;

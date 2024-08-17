@@ -8,7 +8,7 @@ interface catalogTypes {
 }
 
 const initialState: catalogTypes = {
-  receivedQuery: "2023 Год",
+  receivedQuery: "null",
   queries: [
     "2023 Год",
     "AM4",

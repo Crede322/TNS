@@ -9,6 +9,7 @@
   margin-right: 10px;
   cursor: pointer;
   transition: color 0.3s;
+  margin-bottom: 20px;
 }
 
 .query_button:hover {

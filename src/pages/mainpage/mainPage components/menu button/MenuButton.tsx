@@ -49,8 +49,8 @@ const MenuButton: React.FC<MenuButtonProps> = ({
       onMouseLeave={handleHover}
       onMouseEnter={handleHover}
     >
-      <h3 style={{ opacity: "1" }}>{title}</h3>
-      <h4 style={{ opacity: "1" }}>{text}</h4>
+      <h3>{title}</h3>
+      <h4>{text}</h4>
       {innerButton ? (
         <button className={classes.inner__button}>
           <h2>Мои заказы</h2>

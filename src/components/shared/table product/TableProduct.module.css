@@ -37,18 +37,21 @@
 }
 
 .purchase h2 {
+  line-height: 2.2;
+  display: block;
   width: 80px;
   color: var(--main-gray);
   font-size: 20px;
-  margin-left: 10px;
-  margin-right: 5px;
+  margin: 0 5px 0 10px;
   text-wrap: nowrap;
+  font-weight: 700;
 }
 
 .purchase_button {
   height: 44px;
   width: 88px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 8px;
   transition: background-color 0.2s;

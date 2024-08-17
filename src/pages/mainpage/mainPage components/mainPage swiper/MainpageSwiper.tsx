@@ -54,16 +54,16 @@ const MainpageSwiper = () => {
               slidesPerView: 5.8,
             },
             1300: {
-              slidesPerView: 5.4,
+              slidesPerView: 5.45,
             },
             1100: {
-              slidesPerView: 5,
+              slidesPerView: 5.1,
             },
             900: {
-              slidesPerView: 4.6,
+              slidesPerView: 4.7,
             },
             750: {
-              slidesPerView: 4.3,
+              slidesPerView: 4.5,
             },
             600: {
               slidesPerView: 4.1,
