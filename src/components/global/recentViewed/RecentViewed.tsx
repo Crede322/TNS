@@ -21,11 +21,11 @@ const RecentViewed = () => {
           1600: {
             slidesPerView: 4.5,
           },
-          1400: {
+          1360: {
             slidesPerView: 4.04,
           },
           1300: {
-            slidesPerView: 3.65,
+            slidesPerView: 3.55,
           },
           1100: {
             slidesPerView: 3.2,

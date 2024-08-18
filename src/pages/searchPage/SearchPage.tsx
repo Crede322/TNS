@@ -21,7 +21,6 @@ import {
 
 //img
 import noResultsImg from "../../img/searchPage/no results illust.jpg";
-import Pagination from "../../components/shared/pagination/CatalogPagination";
 import SearchPagination from "../../components/shared/pagination/SearchPagination";
 
 interface product {
@@ -82,7 +81,6 @@ const SearchPage = () => {
 
   return (
     <div>
-      <div />
       <div className={classes.searchpage_background}>
         <Header />
         <div
@@ -101,6 +99,7 @@ const SearchPage = () => {
           className={classes.received_items}
           style={{ display: currentSearchResult === 2 ? "block" : "none" }}
         >
+          <h2>Результаты по запросу: {currentLocation}</h2>
           <SearchPagination />
         </div>
       </div>

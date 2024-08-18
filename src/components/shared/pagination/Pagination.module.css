@@ -8,7 +8,7 @@
   grid-row-gap: 10px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1360px) {
   .results_list {
     grid-template-columns: repeat(4, 1fr);
   }

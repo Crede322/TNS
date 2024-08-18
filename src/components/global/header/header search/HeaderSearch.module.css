@@ -8,11 +8,9 @@
   z-index: 2;
 }
 
-@media (max-width: 2000px) {
-  .search_wrapper,
-  .result_list {
-    width: 800px;
-  }
+.search_wrapper,
+.result_list {
+  width: 800px;
 }
 
 @media (max-width: 1410px) {

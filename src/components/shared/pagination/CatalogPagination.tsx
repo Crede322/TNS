@@ -44,11 +44,13 @@ const CatalogPagination = () => {
   };
 
   useEffect(() => {
-    if (windowWidth > 2000) {
+    if (windowWidth > 1360) {
       setNumItemsPerPage(10);
+      console.log(windowWidth, "1400 +");
     }
-    if (windowWidth < 1400) {
+    if (windowWidth < 1360) {
       setNumItemsPerPage(8);
+      console.log(windowWidth, "1400 -");
     }
     if (windowWidth < 1100) {
       setNumItemsPerPage(6);
