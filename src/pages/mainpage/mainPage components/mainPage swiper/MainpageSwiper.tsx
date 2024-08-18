@@ -1,7 +1,6 @@
 import MenuButton from "../menu button/MenuButton";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "../../../../features/swiper/swiper.css";
@@ -45,10 +44,9 @@ const MainpageSwiper = () => {
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode]}
           breakpoints={{
             1600: {
-              slidesPerView: 6.3,
+              slidesPerView: 4.3,
             },
             1400: {
               slidesPerView: 5.8,
