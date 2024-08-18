@@ -21,16 +21,16 @@ const ActualOffer: React.FC = () => {
             />
           </a>
           <div className={classes.offer_categories}>
-            <a href="https://crede322.github.io/TNS/#/product/11">
+            <a href="https://crede322.github.io/TNS/#/product/6">
               <h5>AMD Ryzen 5 1600</h5>
             </a>
-            <a href="https://crede322.github.io/TNS/#/product/14">
+            <a href="https://crede322.github.io/TNS/#/product/9">
               <h5>AMD Ryzen 5 3600X</h5>
             </a>
-            <a href="https://crede322.github.io/TNS/#/product/20">
+            <a href="https://crede322.github.io/TNS/#/product/15">
               <h5>AMD Ryzen 5 5600X</h5>
             </a>
-            <a href="https://crede322.github.io/TNS/#/product/7">
+            <a href="https://crede322.github.io/TNS/#/product/2">
               <h5>AMD Ryzen 5 3600</h5>
             </a>
           </div>
@@ -54,16 +54,16 @@ const ActualOffer: React.FC = () => {
             />
           </a>
           <div className={classes.offer_categories}>
-            <a href="https://crede322.github.io/TNS/#/product/12">
+            <a href="https://crede322.github.io/TNS/#/product/7">
               <h5>AMD Ryzen 7 1700X</h5>
             </a>
-            <a href="https://crede322.github.io/TNS/#/product/10">
+            <a href="https://crede322.github.io/TNS/#/product/5">
               <h5>AMD Ryzen 7 2700X</h5>
             </a>
-            <a href="https://crede322.github.io/TNS/#/product/6">
+            <a href="https://crede322.github.io/TNS/#/product/1">
               <h5>AMD Ryzen 7 3700x</h5>
             </a>
-            <a href="https://crede322.github.io/TNS/#/product/16">
+            <a href="https://crede322.github.io/TNS/#/product/11">
               <h5>AMD Ryzen 7 7800X3D</h5>
             </a>
           </div>
