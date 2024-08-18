@@ -32,6 +32,11 @@
   font-size: 14px;
 }
 
+.menu__button_link h3,
+h4 {
+  color: var(--main-gray);
+}
+
 .inner__button {
   width: 116px;
   height: 43px;

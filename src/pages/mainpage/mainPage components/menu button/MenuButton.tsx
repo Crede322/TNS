@@ -51,7 +51,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
       onMouseLeave={handleHover}
       onMouseEnter={handleHover}
     >
-      <a href={link}>
+      <a href={link} className={classes.menu__button_link}>
         <h3>{title}</h3>
         <h4>{text}</h4>
         {innerButton ? (
