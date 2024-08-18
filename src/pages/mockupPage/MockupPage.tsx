@@ -15,7 +15,7 @@ const MockupPage = () => {
             Сюда ведут следующие кнопки :
           </h2>
           <div className={classes.mockup__buttons}>
-            <h3>"Акция"</h3>
+            <h3>"Акции"</h3>
             <h3>"Подобрать CPU"</h3>
             <h3>"Новинки"</h3>
             <h3>"Сервис"</h3>
