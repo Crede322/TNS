@@ -9,6 +9,7 @@ import Footer from "./components/global/footer/Footer";
 import Wishlist from "./pages/wishlist/Wishlist";
 import CatalogPage from "./pages/catalogPage/CatalogPage";
 import CartPage from "./pages/cartPage/CartPage";
+import MockupPage from "./pages/mockupPage/MockupPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/mockup" element={<MockupPage />} />
           </Routes>
         </HashRouter>
         <Footer />
