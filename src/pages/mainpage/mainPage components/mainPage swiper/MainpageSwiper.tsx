@@ -86,6 +86,7 @@ const MainpageSwiper = () => {
               text="Скидки, рассрочки, выгодные комплекты"
               background="rgb(202, 238, 255)"
               imageSrc={megaphoneImg}
+              link="https://crede322.github.io/TNS/#/mockup"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -96,6 +97,7 @@ const MainpageSwiper = () => {
               text="Без проблем c совместимостью"
               background="rgb(218, 240, 252)"
               imageSrc={cpuImg}
+              link="https://crede322.github.io/TNS/#/mockup"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -106,6 +108,7 @@ const MainpageSwiper = () => {
               text="Лучшие в производительности"
               background="rgb(189, 215, 255)"
               imageSrc={doubleArrow}
+              link="https://crede322.github.io/TNS/#/mockup"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -116,6 +119,7 @@ const MainpageSwiper = () => {
               text="Гарантия, возврат, обмен и ремонт"
               background="rgb(236, 249, 255)"
               imageSrc={shieldImg}
+              link="https://crede322.github.io/TNS/#/mockup"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -126,6 +130,7 @@ const MainpageSwiper = () => {
               text="Проверка и идентификация процессоров"
               background="rgb(202, 238, 255)"
               imageSrc={gear}
+              link="https://crede322.github.io/TNS/#/mockup"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -136,6 +141,7 @@ const MainpageSwiper = () => {
               text="Частые вопросы, полезная информация"
               background="rgb(218, 240, 252)"
               imageSrc={question}
+              link="https://crede322.github.io/TNS/#/mockup"
             />
           </SwiperSlide>
         </Swiper>

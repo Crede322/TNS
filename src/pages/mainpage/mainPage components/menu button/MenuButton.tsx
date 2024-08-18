@@ -12,6 +12,7 @@ interface MenuButtonProps {
   marginRight?: string;
   opacity?: string;
   imageSrc?: string;
+  link?: string;
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ({
@@ -23,6 +24,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   innerButton,
   marginRight,
   imageSrc,
+  link,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleHover = () => {
@@ -49,22 +51,24 @@ const MenuButton: React.FC<MenuButtonProps> = ({
       onMouseLeave={handleHover}
       onMouseEnter={handleHover}
     >
-      <h3>{title}</h3>
-      <h4>{text}</h4>
-      {innerButton ? (
-        <button className={classes.inner__button}>
-          <h2>Мои заказы</h2>
-        </button>
-      ) : null}
-      <img
-        src={imageSrc}
-        alt="menu illustration"
-        className={
-          innerButton
-            ? classes.cabinet__button_img
-            : classes.default__menu__button
-        }
-      />
+      <a href={link}>
+        <h3>{title}</h3>
+        <h4>{text}</h4>
+        {innerButton ? (
+          <button className={classes.inner__button}>
+            <h2>Мои заказы</h2>
+          </button>
+        ) : null}
+        <img
+          src={imageSrc}
+          alt="menu illustration"
+          className={
+            innerButton
+              ? classes.cabinet__button_img
+              : classes.default__menu__button
+          }
+        />
+      </a>
     </div>
   );
 };
