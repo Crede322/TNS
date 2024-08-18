@@ -36,9 +36,9 @@
 
 .product_img {
   margin-right: 10px;
-  /* flex-shrink: 1 1 470px; */
+  max-height: 560px;
+  max-width: 560px;
   flex-grow: 1;
-  /* aspect-ratio: 1 / 1; */
 }
 
 .product_characteristics {

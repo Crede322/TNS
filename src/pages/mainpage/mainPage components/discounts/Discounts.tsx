@@ -12,7 +12,7 @@ const Discounts = () => {
         description="Процессор AMD Ryzen 7 2700X"
         discountPrice={20000}
         oldPrice={22500}
-        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/10?t=2024-05-04T01%3A43%3A25.866Z"
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/ryzen%207%202700x?t=2024-08-18T06%3A43%3A02.033Z"
         link="10"
       />
       <DiscountOffer
@@ -20,7 +20,7 @@ const Discounts = () => {
         description="Процессор AMD FX-8350"
         discountPrice={7000}
         oldPrice={10000}
-        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/19?t=2024-05-04T01%3A44%3A35.565Z"
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/fx%208"
         link="19"
       />
       <DiscountOffer
@@ -28,7 +28,7 @@ const Discounts = () => {
         description="Процессор AMD Ryzen 5 3600"
         discountPrice={15000}
         oldPrice={17000}
-        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/7?t=2024-05-04T01%3A43%3A45.447Z"
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/ryzen%205%203600?t=2024-08-18T06%3A43%3A37.943Z"
         link="7"
       />
       <DiscountOffer
@@ -36,7 +36,7 @@ const Discounts = () => {
         description="Процессор AMD Ryzen 7 1700X"
         discountPrice={14000}
         oldPrice={16000}
-        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/12?t=2024-05-04T01%3A43%3A36.056Z"
+        img="https://bngqeagmdhtibgumjdyo.supabase.co/storage/v1/object/public/cpu%20images/ryzen%207%201700x?t=2024-08-18T06%3A44%3A37.031Z"
         link="12"
       />
     </div>

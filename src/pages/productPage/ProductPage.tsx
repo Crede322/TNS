@@ -211,6 +211,11 @@ const ProductPage: React.FC = () => {
                   `${product.maxHeat} °C`,
                 ]}
               />
+              <ProductPageDescription
+                title="Графическое ядро"
+                parameters={["Интегрированное графическое ядро"]}
+                values={[`${product.integratedGPU === true ? "Да" : "Нет"}`]}
+              />
             </div>
           </div>
         </div>

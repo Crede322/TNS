@@ -1,12 +1,18 @@
 .search_wrapper {
   height: 60px;
-  width: 800px;
   border-radius: 8px;
   padding: 20px;
   cursor: text;
   position: relative;
   user-select: none;
   z-index: 2;
+}
+
+@media (max-width: 2000px) {
+  .search_wrapper,
+  .result_list {
+    width: 800px;
+  }
 }
 
 @media (max-width: 1410px) {

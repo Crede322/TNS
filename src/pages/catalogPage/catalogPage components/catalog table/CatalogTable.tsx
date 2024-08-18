@@ -3,7 +3,6 @@ import { supabase } from "../../../../helper/supabaseClient";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSelectedQuery } from "../../../../features/catalogSlice";
 import { putFilteredData } from "../../../../features/supabaseDataSlice";
-import Pagination from "../../../../components/shared/pagination/CatalogPagination";
 import CatalogPagination from "../../../../components/shared/pagination/CatalogPagination";
 
 const CatalogTable = () => {
@@ -24,6 +23,9 @@ const CatalogTable = () => {
       case "AM4":
         query = query.eq("socket", "AM4");
         break;
+      case "LGA 1700":
+        query = query.eq("socket", "LGA 1700");
+        break;
       case "6 Ядер":
         query = query.eq("coresNumber", 6);
         break;
@@ -41,6 +43,13 @@ const CatalogTable = () => {
         break;
       case "Встроенный видеочип":
         query = query.eq("integratedGPU", true);
+        break;
+      case "Amd":
+        query = query.eq("brand", "amd");
+        break;
+      case "Intel":
+        query = query.eq("brand", "intel");
+        break;
     }
     const { data, error } = await query;
     if (error) {

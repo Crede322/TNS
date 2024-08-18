@@ -8,25 +8,31 @@ interface catalogTypes {
 }
 
 const initialState: catalogTypes = {
-  receivedQuery: "null",
+  receivedQuery: "AM4",
   queries: [
     "2023 Год",
     "AM4",
+    "LGA 1700",
     "6 Ядер",
     "8 Ядер",
     "12 Потоков",
     "Свободный множитель",
     "Частота RAM: 3200МГц",
     "Встроенный видеочип",
+    "Amd",
+    "Intel",
   ],
   newQueries: [
-    "AM4",
+    "2023 Год",
+    "LGA 1700",
     "6 Ядер",
     "8 Ядер",
     "12 Потоков",
     "Свободный множитель",
     "Частота RAM: 3200МГц",
     "Встроенный видеочип",
+    "Amd",
+    "Intel",
   ],
 };
 
