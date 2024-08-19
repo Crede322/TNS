@@ -9,6 +9,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
 import { selectFavorites } from "../../../features/favoriteSlice";
+import {
+  hideAuthModal,
+  selectModal,
+  showAuthModal,
+} from "../../../features/authSlice";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
@@ -17,7 +22,7 @@ import Auth from "../supabase/Auth";
 
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
-  const [loginModal, setLoginModal] = useState(false);
+  const loginModal = useSelector(selectModal);
   const favoriteList = useSelector(selectFavorites);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -39,7 +44,7 @@ const Header = () => {
   };
 
   const handleLoginModal = () => {
-    setLoginModal(true);
+    dispatch(showAuthModal());
   };
 
   return (
@@ -143,7 +148,7 @@ const Header = () => {
         </div>
         <div
           className={classes.popup__form}
-          style={{ display: loginModal ? "block" : "none" }}
+          style={{ display: loginModal ? "block" : "none", zIndex: 8 }}
         >
           <Auth />
         </div>
@@ -157,10 +162,10 @@ const Header = () => {
             left: "0",
             top: "0",
             display: loginModal ? "block" : "none",
-            zIndex: "2",
+            zIndex: "7",
           }}
           onClick={() => {
-            setLoginModal(false);
+            dispatch(hideAuthModal());
           }}
         />
       </div>

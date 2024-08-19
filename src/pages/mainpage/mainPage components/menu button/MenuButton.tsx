@@ -1,5 +1,7 @@
 import { useState } from "react";
 import classes from "./MenuButton.module.css";
+import { useDispatch } from "react-redux";
+import { showAuthModal } from "../../../../features/authSlice";
 
 interface MenuButtonProps {
   width: number;
@@ -31,6 +33,11 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     setIsHovered(!isHovered);
   };
 
+  const dispath = useDispatch();
+  const buttonClickCabinet = () => {
+    dispath(showAuthModal());
+  };
+
   const buttonStyle = {
     width: innerButton ? "19vw" : width,
     height: height,
@@ -55,7 +62,10 @@ const MenuButton: React.FC<MenuButtonProps> = ({
         <h3>{title}</h3>
         <h4>{text}</h4>
         {innerButton ? (
-          <button className={classes.inner__button}>
+          <button
+            className={classes.inner__button}
+            onClick={buttonClickCabinet}
+          >
             <h2>Мои заказы</h2>
           </button>
         ) : null}

@@ -6,6 +6,7 @@ import catalogPaginationReducer from "../features/catalogPaginationSlice";
 import favoriteReducer from "../features/favoriteSlice";
 import catalogReducer from "../features/catalogSlice";
 import cartReducer from "../features/cartSlice";
+import authReducer from "../features/authSlice";
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   favorites: favoriteReducer,
   catalog: catalogReducer,
   cart: cartReducer,
+  auth: authReducer,
 });
 
 export default rootReducer;

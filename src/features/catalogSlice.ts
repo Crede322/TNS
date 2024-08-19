@@ -8,7 +8,7 @@ interface catalogTypes {
 }
 
 const initialState: catalogTypes = {
-  receivedQuery: "AM4",
+  receivedQuery: "null",
   queries: [
     "2023 Год",
     "AM4",
@@ -24,6 +24,7 @@ const initialState: catalogTypes = {
   ],
   newQueries: [
     "2023 Год",
+    "AM4",
     "LGA 1700",
     "6 Ядер",
     "8 Ядер",

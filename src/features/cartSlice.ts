@@ -95,6 +95,7 @@ const cartSlice = createSlice({
   },
 });
 
+export default cartSlice.reducer;
 export const {
   addCartData,
   removeCartData,
@@ -103,7 +104,6 @@ export const {
   deleteCartProduct,
   setTotalProductsPrice,
 } = cartSlice.actions;
-export default cartSlice.reducer;
 export const selectCart = (state: RootState) => state.cart.productsStore;
 export const totalQuantity = (state: RootState) => state.cart.totalQuantity;
 export const cartOverlay = (state: RootState) => state.cart.cartOverlay;
