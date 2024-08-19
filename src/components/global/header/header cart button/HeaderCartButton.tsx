@@ -7,6 +7,7 @@ import {
   hidePopup,
   cartOverlay,
   selectCart,
+  totalQuantity,
   setTotalProductsPrice,
 } from "../../../../features/cartSlice";
 import { supabase } from "../../../../helper/supabaseClient";
@@ -16,6 +17,7 @@ import HeaderCartModal from "../header cart modal/HeaderCartModal";
 const HeaderCartButton = () => {
   const cartOverlayShown = useSelector(cartOverlay);
   const cart = useSelector(selectCart);
+  const cartLength = useSelector(totalQuantity);
   const [calculateProductPrices, setProductPrices] = useState<{
     [key: number]: number;
   }>({});
@@ -95,11 +97,17 @@ const HeaderCartButton = () => {
       onMouseEnter={cartMouseEnter}
       onMouseLeave={cartMouseLeave}
     >
+      <div
+        className={classes.counter_badge}
+        style={{ display: cartLength > 0 ? "flex" : "none" }}
+      >
+        {cartLength}
+      </div>
       <button className={classes.menu__btn_cart} onClick={handleClickCart}>
         <img src={cartImg} alt="img_cart" />
         <h2>Корзина</h2>
       </button>
-      {cart.length > 0 ? (
+      {cartLength > 0 ? (
         <div>
           <div className={classes.cart__popup}>
             <HeaderCartModal />

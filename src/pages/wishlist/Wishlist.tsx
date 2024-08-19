@@ -9,6 +9,7 @@ import NoResults from "./wishlist components/wishlist no results/NoResults";
 const Wishlist = () => {
   const [storedFavorites, setStoredFavorites] = useState<number[]>([]);
   const favoriteList = useSelector(selectFavorites);
+
   useEffect(() => {
     setStoredFavorites(JSON.parse(localStorage.getItem("favorites") || "[]"));
   }, []);

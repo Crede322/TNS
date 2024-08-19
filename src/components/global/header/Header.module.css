@@ -48,6 +48,27 @@
   width: 19vw;
 }
 
+/* counter-badge */
+.counter_badge {
+  position: absolute;
+  right: 24px;
+  top: 6px;
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  border: 2px solid #fff;
+  z-index: 1;
+  border-radius: 50%;
+  padding: 1px;
+  min-width: 18px;
+  min-height: 18px;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
 
 .menu__main_button h1 {
@@ -90,7 +111,7 @@
   top: 20px;
   width: 650px;
   height: 600px;
-  z-index: 2;
+  z-index: 6;
 
   border-radius: 12px;
   border: 1px solid rgb(200, 200, 200);

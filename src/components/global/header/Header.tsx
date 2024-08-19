@@ -6,8 +6,9 @@ import HeaderCartButton from "./header cart button/HeaderCartButton";
 
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearSearchTerm } from "../../../features/searchSlice";
+import { selectFavorites } from "../../../features/favoriteSlice";
 
 import favorite from "../../../img/favorite.svg";
 import profile from "../../../img/profile.svg";
@@ -17,6 +18,7 @@ import Auth from "../supabase/Auth";
 const Header = () => {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const favoriteList = useSelector(selectFavorites);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -64,6 +66,14 @@ const Header = () => {
               </div>
               <div className={classes.menu__buttons_row}>
                 <button className={classes.menu__btn} onClick={toWishlist}>
+                  <div
+                    className={classes.counter_badge}
+                    style={{
+                      display: favoriteList.length > 0 ? "flex" : "none",
+                    }}
+                  >
+                    {favoriteList.length}
+                  </div>
                   <img src={favorite} alt="img_favorite" />
                   <h2>Избранное</h2>
                 </button>
@@ -115,11 +125,17 @@ const Header = () => {
                   text="Войти"
                   margin="10px 0 20px 0"
                 />
-                <a href="!#">Узнать статус заказа</a>
+                <a href="https://crede322.github.io/TNS/#/mockup">
+                  Узнать статус заказа
+                </a>
                 <br />
-                <a href="!#">Обратная связь</a>
+                <a href="https://crede322.github.io/TNS/#/mockup">
+                  Обратная связь
+                </a>
                 <br />
-                <a href="!#">Обмен, возврат, гарантия</a>
+                <a href="https://crede322.github.io/TNS/#/mockup">
+                  Обмен, возврат, гарантия
+                </a>
                 <br />
               </div>
             </div>
