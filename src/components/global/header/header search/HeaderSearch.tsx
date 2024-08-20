@@ -11,6 +11,9 @@ import {
   setSearchTerm,
   selectSearchTerm,
   setSearchResult,
+  selectSearchHover,
+  searchMouseOn,
+  searchMouseOff,
 } from "../../../../features/searchSlice";
 import {
   putData,
@@ -24,7 +27,7 @@ import crossImg from "../../../../img/header images/cross.svg";
 const HeaderSearch = () => {
   //для css
   const [overlay, changeOverlay] = useState<boolean>(false);
-  const [hover, changeHover] = useState<boolean>(false);
+  const searchHover = useSelector(selectSearchHover);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -119,13 +122,13 @@ const HeaderSearch = () => {
         className={classes.search_wrapper}
         onClick={handleWrapperClick}
         style={{
-          background: hover ? "#fff" : overlay ? "#fff" : "#f7f7f7",
+          background: searchHover ? "#fff" : overlay ? "#fff" : "#f7f7f7",
         }}
         onMouseEnter={() => {
-          changeHover(!hover);
+          dispatch(searchMouseOn());
         }}
         onMouseLeave={() => {
-          changeHover(!hover);
+          dispatch(searchMouseOff());
         }}
       >
         <input

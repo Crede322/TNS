@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BlueButton from "../../shared/BlueButton";
+import BlueButton from "../../shared/blue button/BlueButton";
 import classes from "./Auth.module.css";
 
 interface LoginProps {

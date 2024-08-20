@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../../../helper/supabaseClient";
-import BlueButton from "../../shared/BlueButton";
+import BlueButton from "../../shared/blue button/BlueButton";
 import classes from "./Supabase.module.css";
 import eyeOne from "../../../img/nav/login/eyeOne.svg";
 import eyeTwo from "../../../img/nav/login/eyeTwo.svg";

@@ -4,7 +4,7 @@ import {
   totalQuantity,
   totalProductsPrice,
 } from "../../../../features/cartSlice";
-import BlueButton from "../../../../components/shared/BlueButton";
+import BlueButton from "../../../../components/shared/blue button/BlueButton";
 
 const CartPageInfo = () => {
   const totalProductsQuantity = useSelector(totalQuantity);

@@ -1,6 +1,6 @@
 import classes from "./Header.module.css";
 
-import BlueButton from "../../shared/BlueButton";
+import BlueButton from "../../shared/blue button/BlueButton";
 import HeaderSearch from "./header search/HeaderSearch";
 import HeaderCartButton from "./header cart button/HeaderCartButton";
 

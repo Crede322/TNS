@@ -6,6 +6,7 @@ interface searchTypes {
   searchResult: string;
   loading: boolean;
   error: string | null;
+  searchHover: boolean;
 }
 
 const initialState: searchTypes = {
@@ -13,6 +14,7 @@ const initialState: searchTypes = {
   searchResult: "",
   loading: false,
   error: null,
+  searchHover: false,
 };
 
 const searchSlice = createSlice({
@@ -31,6 +33,12 @@ const searchSlice = createSlice({
     setReloadedResult(state, action: PayloadAction<string>) {
       state.searchResult = action.payload;
     },
+    searchMouseOn(state) {
+      state.searchHover = true;
+    },
+    searchMouseOff(state) {
+      state.searchHover = false;
+    },
   },
 });
 
@@ -39,8 +47,11 @@ export const {
   clearSearchTerm,
   setSearchResult,
   setReloadedResult,
+  searchMouseOn,
+  searchMouseOff,
 } = searchSlice.actions;
 export default searchSlice.reducer;
 export const selectSearchTerm = (state: RootState) => state.search.searchTerm;
 export const selectSearchResult = (state: RootState) =>
   state.search.searchResult;
+export const selectSearchHover = (state: RootState) => state.search.searchHover;

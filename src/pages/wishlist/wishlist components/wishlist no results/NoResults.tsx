@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./NoResults.module.css";
-import BlueButton from "../../../../components/shared/BlueButton";
+import BlueButton from "../../../../components/shared/blue button/BlueButton";
 import noResultsImg from "../../../../img/searchPage/no results illust.jpg";
 import { useNavigate } from "react-router-dom";
 
