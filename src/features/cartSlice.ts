@@ -86,11 +86,9 @@ const cartSlice = createSlice({
 
     showPopup(state) {
       state.cartOverlay = true;
-      console.log("popup show");
     },
     hidePopup(state) {
       state.cartOverlay = false;
-      console.log("popup hide");
     },
   },
 });
