@@ -10,7 +10,7 @@
 - Supabase
 - Swiper.js React
 - React Router
-- CRA, node.js v.10.2.4
+- CRA, node.js v.10.8.0
 
 ## Страницы сайта :
 
