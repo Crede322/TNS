@@ -12,7 +12,7 @@ import doubleArrow from "../../../../img/mainMenu/doubleArrow.png";
 import shieldImg from "../../../../img/mainMenu/shieldImg.png";
 import gear from "../../../../img/mainMenu/gear.png";
 import question from "../../../../img/mainMenu/question.png";
-import classes from "../../../../pages/mainpage/MainPage.module.css";
+import classes from "../../MainPage.module.css";
 
 const sliderStyle = {
   maxWidth: "160px",
