@@ -2,7 +2,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import "./common.css";
 import store from "./store/redux";
-import MainPage from "./pages/mainpage/MainPage";
+// import MainPage from "./pages/mainPage/MainPage";
 import SearchPage from "./pages/searchPage/SearchPage";
 import ProductPage from "./pages/productPage/ProductPage";
 import Footer from "./components/global/footer/Footer";
