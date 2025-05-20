@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
+/* variables */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-main: #0080f5;
+  --color-lightgray: #f7f7f7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: sans-serif;
+    color: #333;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  .container-main {
+    @apply max-w-[1520px] mx-auto bg-white;
+  }
+}
+
+.font-anta {
+  font-family: "Anta";
+}
+
+input:focus {
+  outline: none;
 }
