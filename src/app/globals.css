@@ -5,6 +5,11 @@
 :root {
   --color-main: #0080f5;
   --color-lightgray: #f7f7f7;
+  --color-gray: #d9d9d9;
+}
+
+body {
+  font-family: var(--font-pt-sans), sans-serif;
 }
 
 @layer base {
@@ -34,7 +39,15 @@
   }
 
   .container-main {
-    @apply max-w-[1520px] mx-auto bg-white;
+    @apply max-w-[1520px] mx-auto  text-[var(--font-pt-sans)];
+  }
+
+  .tw-heading {
+    @apply text-[32px] text-[#333] font-bold mb-[20px];
+  }
+
+  .shadow-1 {
+    box-shadow: 0 2px 8px 0 #63636333;
   }
 }
 

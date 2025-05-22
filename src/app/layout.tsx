@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anta } from "next/font/google";
+import { Anta, PT_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 
@@ -7,6 +7,13 @@ const anta = Anta({
   display: "swap",
   weight: "400",
   variable: "--font-anta",
+  subsets: ["latin"],
+});
+
+const ptSans = PT_Sans({
+  display: "swap",
+  weight: ["400", "700"],
+  variable: "--font-pt-sans",
   subsets: ["latin"],
 });
 
@@ -21,10 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${anta.variable} antialiased`}>
+    <html lang="en" className={`${anta.variable} ${ptSans.variable}`}>
+      <body className="antialiased">
         <Header />
-        <div className="container-main font-[var(--font-anta)]">{children}</div>
+        <div>{children}</div>
         <div id="portal-root" />
       </body>
     </html>
