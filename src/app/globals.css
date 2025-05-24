@@ -6,6 +6,7 @@
   --color-main: #0080f5;
   --color-lightgray: #f7f7f7;
   --color-gray: #d9d9d9;
+  --color-lightblue: #dbeaf8;
 }
 
 body {
@@ -39,11 +40,11 @@ body {
   }
 
   .container-main {
-    @apply max-w-[1520px] mx-auto  text-[var(--font-pt-sans)];
+    @apply max-w-[1520px] mx-auto  text-[var(--font-pt-sans)] pb-[100px];
   }
 
   .tw-heading {
-    @apply text-[32px] text-[#333] font-bold mb-[20px];
+    @apply text-[32px] text-[#333] font-bold py-[20px];
   }
 
   .shadow-1 {
@@ -57,4 +58,8 @@ body {
 
 input:focus {
   outline: none;
+}
+
+button {
+  cursor: pointer;
 }

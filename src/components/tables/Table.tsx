@@ -18,8 +18,8 @@ interface TableProps {
 
 export default function Table({ results }: TableProps) {
   return (
-    <div className="w-full ">
-      <ul className="grid grid-cols-5 gap-[10px]  w-full">
+    <div className="w-full min-h-[780px]">
+      <ul className="grid lg:grid-cols-5 grid-cols-3 gap-[10px] w-full">
         {results.map((item) => {
           return <TableCard result={item} key={item.id} />;
         })}

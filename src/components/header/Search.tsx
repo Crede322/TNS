@@ -100,7 +100,7 @@ export default function Search() {
           } absolute top-1/2 -translate-y-1/2 right-[72px] border-r border-[var(--color-gray)] items-center justify-center px-[10px]`}
         >
           <button
-            className="cursor-pointer p-[10px] rounded-[6px] hover:bg-[var(--color-lightgray)]"
+            className="p-[10px] rounded-[6px] hover:bg-[var(--color-lightgray)]"
             type="button"
             onClick={() => {
               setQuery("");
@@ -111,7 +111,7 @@ export default function Search() {
         </div>
         <button
           type="submit"
-          className="cursor-pointer hover:bg-[var(--color-lightgray)] p-[10px] rounded-[6px] absolute top-1/2 -translate-y-1/2 right-[14px]"
+          className="hover:bg-[var(--color-lightgray)] p-[10px] rounded-[6px] absolute top-1/2 -translate-y-1/2 right-[14px]"
         >
           <Image src="/icons/search.svg" width={26} height={26} alt="search" />
         </button>
