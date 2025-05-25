@@ -103,10 +103,15 @@ const CartPageProduct: React.FC<CartPageProductProps> = ({ productId }) => {
             {productData.price} / шт
           </span>
         </div>
-        <FavButton buttonStyle="mainpage" id={productId} />
-        <button className={classes.button__delete} onClick={handleButtonDelete}>
-          <img src={iconDelete} alt="delete" />
-        </button>
+        <div className={classes.buttonlist}>
+          <FavButton buttonStyle="mainpage" id={productId} />
+          <button
+            className={classes.button__delete}
+            onClick={handleButtonDelete}
+          >
+            <img src={iconDelete} alt="delete" />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .cartPage__background {
   background-color: #f6f6f6;
-  padding: 40px;
+  padding-block: 40px;
 }
 
 .container {
@@ -37,4 +37,10 @@
 .cart__overview {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .cart__overview {
+    flex-direction: column;
+  }
 }

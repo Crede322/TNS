@@ -61,3 +61,13 @@
   padding: 16px;
   color: var(--main-gray);
 }
+
+@media (max-width: 768px) {
+  .cart__info {
+    display: block;
+    width: 100%;
+  }
+  .cart__info_total_amount {
+    flex-direction: column;
+  }
+}

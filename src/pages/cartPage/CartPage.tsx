@@ -43,7 +43,6 @@ const CartPage = () => {
                   />
                 ))}
               </div>
-              <div className={classes.cart__info}></div>
               <CartPageInfo />
             </div>
           )}

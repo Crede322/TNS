@@ -47,6 +47,11 @@
   font-size: 18px;
 }
 
+.buttonlist {
+  display: flex;
+  gap: 10px;
+}
+
 .button__decrement::after {
   content: "-";
 }
@@ -59,6 +64,8 @@
   border: 1px solid #d9d9d9;
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 8px;
   transition: background-color, 0.3s;
   position: relative;
@@ -92,4 +99,13 @@
 .product__price {
   font-size: 14px;
   color: #8c8c8c;
+}
+
+@media (max-width: 768px) {
+  .product__wrapper {
+    width: 100%;
+  }
+  .buttonlist {
+    flex-direction: column;
+  }
 }
