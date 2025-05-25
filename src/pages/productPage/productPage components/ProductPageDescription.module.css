@@ -11,15 +11,26 @@
 
 .product_table h4 {
   width: 50%;
-  text-wrap: nowrap;
   border-bottom: 1px dotted #ddd;
   margin-bottom: 10px;
 }
 
 .product_table h5 {
   margin-left: 18px;
+  text-wrap: nowrap;
+  margin-bottom: 10px;
 }
 
 .product_value {
   display: flex;
+  align-items: end;
+}
+
+@media (max-width: 768px) {
+  .product_value {
+    justify-content: space-between;
+  }
+  .product_table h4 {
+    width: 100%;
+  }
 }

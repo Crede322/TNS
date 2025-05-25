@@ -1,0 +1,20 @@
+.fav__button {
+  display: flex;
+  align-items: center;
+  background-color: var(--lightgray);
+  border-radius: 8px;
+  width: fit-content;
+  height: 30px;
+  padding-left: 12px;
+  padding-right: 12px;
+  gap: 6px;
+}
+
+.fav__button p {
+  text-wrap: nowrap;
+}
+
+.fav__button img {
+  width: 14px;
+  height: 14px;
+}

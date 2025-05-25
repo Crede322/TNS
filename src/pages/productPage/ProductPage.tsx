@@ -8,11 +8,12 @@ import ProductPageDescription from "./productPage components/ProductPageDescript
 import FavButton from "../../components/shared/Fav button/FavButton";
 import CartButton from "../../components/shared/cart button/CartButton";
 import starImg from "../../img/searchPage/star.svg";
+import FavButtonMobile from "../../components/shared/Fav button/FavButtonMobile";
 
 const ProductPage: React.FC = () => {
   const { productId }: { productId?: string } = useParams();
   const parsedProductId = parseInt(productId || "", 10);
-  const [additionalButtonsState, setAdditionalButtonsState] = useState(1);
+  const [additionalButtonsState, setAdditionalButtonsState] = useState(2);
 
   const { product } = useSupabaseFetch(parsedProductId);
 
@@ -65,19 +66,26 @@ const ProductPage: React.FC = () => {
                   {product.ramChannels} x {product.DDR}-{product.ramFrequency}{" "}
                   МГц, TDP {product.TDP} Вт
                 </h3>
-                <div className={classes.stars}>
-                  <img src={starImg} alt="rating img" />
-                  <img src={starImg} alt="rating img" />
-                  <img src={starImg} alt="rating img" />
-                  <img src={starImg} alt="rating img" />
-                  <img src={starImg} alt="rating img" />
-                  <h4>10</h4>
+                <div className={classes.wrapper__rating}>
+                  <div className={classes.stars}>
+                    <img src={starImg} alt="rating img" />
+                    <img src={starImg} alt="rating img" />
+                    <img src={starImg} alt="rating img" />
+                    <img src={starImg} alt="rating img" />
+                    <img src={starImg} alt="rating img" />
+                    <h4>10</h4>
+                  </div>
+                  <div className={classes.button_favorite_mobile}>
+                    <FavButtonMobile id={parsedProductId} />
+                  </div>
                 </div>
                 <div className={classes.product_section_price}>
                   <div className={classes.product_section_price_cost}>
                     <h2>{product.price}</h2>
                   </div>
-                  <FavButton buttonStyle="productpage" id={parsedProductId} />
+                  <div className={classes.button__favorite}>
+                    <FavButton buttonStyle="productpage" id={parsedProductId} />
+                  </div>
                   <CartButton id={parsedProductId} cartStyle="productpage" />
                 </div>
                 <div className={classes.product_avails}>
@@ -91,16 +99,6 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
                 <div className={classes.mockup_buttons_row}>
-                  <button
-                    className={
-                      additionalButtonsState === 1 ? classes.active_button : ""
-                    }
-                    onClick={() => {
-                      setAdditionalButtonsState(1);
-                    }}
-                  >
-                    <h2>Mockup</h2>
-                  </button>
                   <button
                     className={
                       additionalButtonsState === 2 ? classes.active_button : ""
