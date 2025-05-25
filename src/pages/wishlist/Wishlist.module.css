@@ -1,6 +1,6 @@
 .wishlist_background {
   background-color: #f6f6f6;
-  padding: 40px;
+  padding-block: 40px;
 }
 
 .wishlist_container {
@@ -62,4 +62,13 @@
 .favorite_product:hover .wrapper__cart_button {
   background-color: var(--main-color);
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .favorite_product {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    height: fit-content;
+  }
 }

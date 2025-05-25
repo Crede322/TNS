@@ -125,3 +125,9 @@ label {
 legend {
   display: block;
 }
+
+@media (max-width: 768px) {
+  button {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
