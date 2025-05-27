@@ -1,7 +1,21 @@
 .discounts__wrapper {
   width: 95vw;
   height: 210px;
-  display: flex;
   gap: 20px;
   margin-block: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1280px) {
+  .discounts__wrapper {
+    height: fit-content;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .discounts__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

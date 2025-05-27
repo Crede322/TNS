@@ -22,3 +22,32 @@
 .rightside__menu {
   padding-left: 12px;
 }
+
+@media (max-width: 1024px) {
+  .mainpage__row {
+    flex-direction: column;
+    height: fit-content;
+    gap: 20px;
+  }
+  .rightside__menu {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rightside__menu {
+    width: 65%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .rightside__menu {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1375px) {
+  .rightside__menu {
+    width: 80%;
+  }
+}

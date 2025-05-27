@@ -10,7 +10,7 @@
   position: relative;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .offer__wrapper:nth-child(4) {
     display: none;
   }
@@ -20,7 +20,7 @@
   .offer__wrapper:nth-child(3) {
     display: none;
   }
-}
+} */
 
 .offer__title {
   font-size: 18px;
@@ -68,4 +68,10 @@
   width: 120px;
   height: 120px;
   z-index: 0;
+}
+
+@media (max-width: 1280px) {
+  .offer__img {
+    bottom: 16px;
+  }
 }

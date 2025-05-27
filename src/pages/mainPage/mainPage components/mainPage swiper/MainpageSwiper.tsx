@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "../../../../features/swiper/swiper.css";
-import phoneImg from "../../../../img/mainMenu/phoneImg.jpg";
 import catalogueImg from "../../../../img/mainMenu/catalogueImg.png";
 import megaphoneImg from "../../../../img/mainMenu/megaphoneImg.png";
 import cpuImg from "../../../../img/mainMenu/cpuImg.png";
@@ -13,6 +12,7 @@ import shieldImg from "../../../../img/mainMenu/shieldImg.png";
 import gear from "../../../../img/mainMenu/gear.png";
 import question from "../../../../img/mainMenu/question.png";
 import classes from "../../MainPage.module.css";
+import MenuButtonMain from "../menu button/MenuButtonMain";
 
 const sliderStyle = {
   maxWidth: "160px",
@@ -28,45 +28,14 @@ const MainpageSwiper = () => {
 
   return (
     <div className={classes.mainpage__row}>
-      <MenuButton
-        width={283}
-        height={206}
-        title="Личный кабинет"
-        text="Получайте бонусы, отслеживайте заказы и делитесь мнением"
-        background="#fff7da"
-        innerButton={true}
-        marginRight="10px"
-        imageSrc={phoneImg}
-      />
+      <MenuButtonMain />
       <div className={classes.rightside__menu}>
         <Swiper
           freeMode={true}
           pagination={{
             clickable: true,
           }}
-          breakpoints={{
-            1600: {
-              slidesPerView: 4.3,
-            },
-            1400: {
-              slidesPerView: 5.8,
-            },
-            1300: {
-              slidesPerView: 5.45,
-            },
-            1100: {
-              slidesPerView: 5.1,
-            },
-            900: {
-              slidesPerView: 4.7,
-            },
-            750: {
-              slidesPerView: 4.5,
-            },
-            600: {
-              slidesPerView: 4.1,
-            },
-          }}
+          slidesPerView="auto"
         >
           <SwiperSlide style={sliderStyle} onClick={handleButtonCatalog}>
             <MenuButton

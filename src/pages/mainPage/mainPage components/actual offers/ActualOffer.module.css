@@ -1,6 +1,6 @@
 .actual_offers_row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 60px;
   margin-bottom: 35px;
 }
@@ -50,4 +50,49 @@
 .actual_offer_title:hover,
 h5:hover {
   color: var(--main-color);
+}
+
+@media (max-width: 1420px) {
+  .actual_offers_row {
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    gap: 30px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 660px) {
+  .actual_offers_row {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  .actual_offer_wrapper {
+    width: 80vw;
+    height: fit-content;
+  }
+  .offer_button {
+    height: 40%;
+    width: 40%;
+  }
+  .offer_button img {
+    min-width: 90%;
+    width: 90%;
+    min-height: 90%;
+    height: 90%;
+  }
+  .actual_offer_title {
+    font-size: 28px;
+  }
+  .offer_categories {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .offer_categories h5 {
+    font-size: 24px;
+    font-size: clamp(16px, 4vw, 24px);
+    text-wrap: nowrap;
+  }
 }

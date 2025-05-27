@@ -1,12 +1,14 @@
-.menu__button_cabinet {
+.menu__button {
   color: var(--main-gray);
   padding: 24px 14px 24px 20px;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  width: 183px;
+  height: 206px;
 }
 
-.menu__button_cabinet img {
+.menu__button img {
   position: absolute;
   height: 120px;
   width: 160px;
@@ -15,18 +17,12 @@
   z-index: -1;
 }
 
-@media (max-width: 1200px) {
-  .cabinet__button_img {
-    max-height: 110px;
-  }
-}
-
-.menu__button_cabinet h3 {
+.menu__button h3 {
   font-weight: 600;
   font-size: 18px;
 }
 
-.menu__button_cabinet h4 {
+.menu__button h4 {
   margin-top: 10px;
   margin-bottom: 25px;
   font-size: 14px;
@@ -48,4 +44,10 @@ h4 {
 
 .inner__button:hover {
   background-color: var(--lightgray);
+}
+
+@media (max-width: 1200px) {
+  .cabinet__button_img {
+    max-height: 110px;
+  }
 }
