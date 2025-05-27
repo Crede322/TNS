@@ -27,8 +27,8 @@ const Footer = () => {
             <h2 className={`${classes.footer_title} ${classes.title_two}`}>
               Покупателям
             </h2>
-            <div className={classes.title_two_divider}>
-              <div>
+            <ul className={classes.title_two_divider}>
+              <li>
                 <a href="https://crede322.github.io/TNS/#/mockup">
                   Как оформлять заказ
                 </a>
@@ -45,8 +45,8 @@ const Footer = () => {
                 <a href="https://crede322.github.io/TNS/#/mockup">
                   Проверка статуса ремонта
                 </a>
-              </div>
-              <div style={{ marginLeft: "80px" }}>
+              </li>
+              <li>
                 <a href="https://crede322.github.io/TNS/#/mockup">
                   Юридическим лицам
                 </a>
@@ -63,8 +63,8 @@ const Footer = () => {
                 <a href="https://crede322.github.io/TNS/#/mockup">
                   Обратная связь
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </ul>
       </div>

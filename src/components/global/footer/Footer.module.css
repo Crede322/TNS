@@ -22,7 +22,8 @@ footer h1 {
 }
 
 .footer_list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
   margin-top: 50px;
 }
 
@@ -45,6 +46,10 @@ footer h1 {
   display: flex;
 }
 
+.title_two_divider li:last-child {
+  margin-left: 80px;
+}
+
 .footer_row h2 {
   color: #fff;
   display: block;
@@ -60,4 +65,23 @@ footer h1 {
 
 .footer_row a:hover {
   color: var(--main-color);
+}
+
+@media (max-width: 900px) {
+  .footer_list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 36px;
+  }
+  .footer_title {
+    width: 100%;
+  }
+  .row_two {
+    margin-left: 0;
+  }
+  .title_two_divider {
+    flex-direction: column;
+  }
+  .title_two_divider li:last-child {
+    margin-left: 0;
+  }
 }
