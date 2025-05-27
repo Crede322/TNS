@@ -111,7 +111,7 @@ const HeaderSearch = () => {
   }, []);
 
   return (
-    <div>
+    <div className={classes.search}>
       <div
         className={classes.search_overlay}
         onClick={inputBlur}
