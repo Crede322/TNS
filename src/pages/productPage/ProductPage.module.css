@@ -29,6 +29,7 @@
   padding: 25px;
   border-radius: 12px;
   display: flex;
+  min-height: 560px;
   background-color: #fff;
   box-shadow: 0 1px 2px 0 var(--border-gray);
   justify-content: space-between;
@@ -152,6 +153,7 @@
 
 .product_avails {
   display: flex;
+  gap: 8px;
 }
 
 .availability {
@@ -164,7 +166,6 @@
   font-size: 14px;
   font-size: clamp(10px, 2.5vw, 14px);
   transition: background-color 0.2s;
-  margin-right: 8px;
 }
 
 .availability:hover {
