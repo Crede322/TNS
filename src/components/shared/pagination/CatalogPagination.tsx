@@ -3,6 +3,7 @@ import classes from "./Pagination.module.css";
 import { selectFilteredSBData } from "../../../features/supabaseDataSlice";
 import TableProduct from "../table product/TableProduct";
 import { useSelector, useDispatch } from "react-redux";
+
 import {
   catalogPaginationButtonPageClick,
   catalogPaginationButtonPagePrev,

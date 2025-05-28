@@ -44,24 +44,26 @@ const TableProduct: React.FC<TableProductProps> = ({ product }) => {
           {product.frequency} ГГц, L2 - {product.cacheL2} МБ, L3 -{" "}
           {product.cacheL3} МБ]
         </h3>
-        <div className={classes.purchase}>
-          <h2>{product.price}</h2>
-          <CartButton id={product.id} cartStyle="catalogpage" />
-          <FavButton buttonStyle="mainpage" id={product.id} />
-        </div>
-
-        <div className={classes.product_subInfo}>
-          <div className={classes.stars}>
-            <img src={starImg} alt="rating img" />
-            <img src={starImg} alt="rating img" />
-            <img src={starImg} alt="rating img" />
-            <img src={starImg} alt="rating img" />
-            <img src={starImg} alt="rating img" />
-            <h4>10</h4>
+        <div className={classes.result_description_inner}>
+          <div className={classes.purchase}>
+            <h2>{product.price}</h2>
+            <CartButton id={product.id} cartStyle="catalogpage" />
+            <FavButton buttonStyle="mainpage" id={product.id} />
           </div>
-          <div>
-            <h4>В наличии</h4>
-            <h3>Послезавтра</h3>
+
+          <div className={classes.product_subInfo}>
+            <div className={classes.stars}>
+              <img src={starImg} alt="rating img" />
+              <img src={starImg} alt="rating img" />
+              <img src={starImg} alt="rating img" />
+              <img src={starImg} alt="rating img" />
+              <img src={starImg} alt="rating img" />
+              <h4>10</h4>
+            </div>
+            <div>
+              <h4>В наличии</h4>
+              <h3>Послезавтра</h3>
+            </div>
           </div>
         </div>
       </div>

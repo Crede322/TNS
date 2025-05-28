@@ -1,4 +1,3 @@
-import Header from "../../components/global/header/Header";
 import classes from "./CartPage.module.css";
 import { selectCart, totalQuantity } from "../../features/cartSlice";
 import { useSelector } from "react-redux";
@@ -24,7 +23,6 @@ const CartPage = () => {
 
   return (
     <div>
-      <Header />
       <div className={classes.cartPage__background}>
         <div className={classes.container}>
           <div className={classes.cart__span}>

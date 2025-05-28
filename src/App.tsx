@@ -10,12 +10,14 @@ import Wishlist from "./pages/wishlist/Wishlist";
 import CatalogPage from "./pages/catalogPage/CatalogPage";
 import CartPage from "./pages/cartPage/CartPage";
 import MockupPage from "./pages/mockupPage/MockupPage";
+import Header from "./components/global/header/Header";
 
 const App = () => {
   return (
     <div style={{ overflowX: "hidden" }}>
       <Provider store={store}>
         <HashRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/search" element={<SearchPage />} />
@@ -25,8 +27,8 @@ const App = () => {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/mockup" element={<MockupPage />} />
           </Routes>
+          <Footer />
         </HashRouter>
-        <Footer />
       </Provider>
     </div>
   );

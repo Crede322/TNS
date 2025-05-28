@@ -1,4 +1,3 @@
-import Header from "../../components/global/header/Header";
 import RecentViewed from "../../components/global/recentViewed/RecentViewed";
 import classes from "./MainPage.module.css";
 import MainpageSwiper from "./mainPage components/mainPage swiper/MainpageSwiper";
@@ -9,7 +8,6 @@ import Discounts from "./mainPage components/discounts/Discounts";
 const MainPage = () => {
   return (
     <div>
-      <Header />
       <div className={classes.background}>
         <div className={classes.wrapper}>
           <MainpageSwiper />

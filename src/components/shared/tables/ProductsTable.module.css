@@ -1,0 +1,33 @@
+.table {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: auto;
+  gap: 10px;
+}
+
+@media (max-width: 1420px) {
+  .table {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .table {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .table {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .table {
+    grid-template-columns: repeat(1, 1fr);
+    width: 93.5vw;
+    margin: auto;
+  }
+}

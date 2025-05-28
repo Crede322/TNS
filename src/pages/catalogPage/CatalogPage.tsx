@@ -1,4 +1,3 @@
-import Header from "../../components/global/header/Header";
 import classes from "./CatalogPage.module.css";
 import CatalogQueryButton from "./catalogPage components/catalog query button/CatalogQueryButton";
 import CatalogTable from "./catalogPage components/catalog table/CatalogTable";
@@ -26,7 +25,6 @@ const CatalogPage = () => {
 
   return (
     <div>
-      <Header />
       <div className={classes.catalog_background}>
         <div className={classes.catalog_container}>
           {selectedQuery !== "null" ? (

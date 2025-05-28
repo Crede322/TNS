@@ -2,8 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import BlueButton from "../../../../components/shared/blue button/BlueButton";
 
 interface SearchNoResultsProps {
-  searchResult: string;
-  filteredData: any;
+  searchResult: string | null;
 }
 
 const SearchNoResults: React.FC<SearchNoResultsProps> = ({ searchResult }) => {

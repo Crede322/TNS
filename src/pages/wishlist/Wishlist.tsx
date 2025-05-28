@@ -1,4 +1,3 @@
-import Header from "../../components/global/header/Header";
 import classes from "./Wishlist.module.css";
 import FavoriteProduct from "./wishlist components/FavoriteProduct";
 import { useEffect, useState } from "react";
@@ -35,7 +34,6 @@ const Wishlist = () => {
 
   return (
     <div>
-      <Header />
       <div className={classes.wishlist_background}>
         {favoriteList.length === 0 ? (
           noResults

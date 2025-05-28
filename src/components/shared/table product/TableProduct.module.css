@@ -98,6 +98,7 @@
   background-color: var(--lightgray);
   margin-top: 5px;
   display: flex;
+  align-items: center;
   padding: 10px;
   border-radius: 8px;
   width: 135px;
@@ -152,4 +153,23 @@
 
 .stars h4 {
   margin: 0 0 0 4px;
+}
+
+@media (max-width: 600px) {
+  .result {
+    min-height: fit-content;
+    width: 100%;
+    max-width: 93.5vw;
+  }
+  .product_info {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+  .result_description_inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+  }
 }

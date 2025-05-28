@@ -1,10 +1,8 @@
-import Header from "../../components/global/header/Header";
 import classes from "./MockupPage.module.css";
 
 const MockupPage = () => {
   return (
     <div className={classes.mockupPage__wrapper}>
-      <Header />
       <div className={classes.mockup__container}>
         <div className={classes.mockup__content}>
           <h1>Мокап-страница</h1>

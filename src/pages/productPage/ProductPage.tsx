@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useSupabaseFetch from "../../hooks/useSupabaseFetch";
 
-import Header from "../../components/global/header/Header";
 import classes from "./ProductPage.module.css";
 import ProductPageDescription from "./productPage components/ProductPageDescription";
 import FavButton from "../../components/shared/Fav button/FavButton";
@@ -40,7 +39,6 @@ const ProductPage: React.FC = () => {
   if (!product) {
     return (
       <div>
-        <Header />
         <div style={{ background: "F6F6F6", height: "800px" }} />
       </div>
     );
@@ -48,7 +46,6 @@ const ProductPage: React.FC = () => {
 
   return (
     <div>
-      <Header />
       <div className={classes.product_background}>
         <div className={classes.product_container}>
           <h1>Процессор {product.cpuName}</h1>
