@@ -3,11 +3,7 @@ import { supabase } from "../helper/supabaseClient";
 import { TableProductType } from "../types/TableProductType";
 import { useComputeProductsPerPage } from "./useComputeProductsPerPage";
 
-export function useSearchResults(
-  column: string,
-  query: string | null,
-  page: number,
-) {
+export function useSearchResultsSearchpage(query: string | null, page: number) {
   const [productList, setProductList] = useState<TableProductType[]>([]);
   const [productListLoading, setProductListLoading] = useState<boolean>(false);
   const { productsPerPage } = useComputeProductsPerPage();
@@ -27,7 +23,7 @@ export function useSearchResults(
         .select(
           "cpuName, id, img, price, socket, coresNumber, frequency, cacheL2, cacheL3",
         )
-        .ilike(column, `%${query}%`)
+        .ilike("cpuName", `%${query}%`)
         .range(from, to);
 
       if (data) {

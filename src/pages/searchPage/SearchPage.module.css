@@ -1,7 +1,8 @@
 .searchpage_background {
   padding-top: 25px;
-  min-height: 600px;
+  min-height: 780px;
   background-color: var(--lightgray);
+  padding-bottom: 25px;
 }
 
 .noResults_wrapper {

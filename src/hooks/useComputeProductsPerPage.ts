@@ -16,7 +16,6 @@ export function useComputeProductsPerPage() {
       const match = breakpoints.find((bp) => width >= bp.min);
       if (match) {
         setProductsPerPage(match.value);
-        console.log(match.value);
       }
     };
 

@@ -1,5 +1,6 @@
 .table {
   width: fit-content;
+  min-height: 710px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin: auto;
