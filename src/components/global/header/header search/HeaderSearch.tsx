@@ -144,7 +144,7 @@ const HeaderSearch = () => {
         />
 
         <ul
-          className={classes.result_list}
+          className={`${classes.result_list} ${searchTerm.length > 0 ? classes.result_list_active : ""}`}
           style={{ display: searchTerm.length > 0 ? "block" : "none" }}
         >
           {supabaseData.slice(0, 10).map((product, index) => (

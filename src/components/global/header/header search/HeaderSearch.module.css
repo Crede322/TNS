@@ -123,3 +123,16 @@ input[type="search"]::-webkit-search-cancel-button {
 .search_buttons button:hover {
   background-color: var(--lightgray);
 }
+
+@media (max-width: 1024px) {
+  .result_list {
+    overflow-y: scroll;
+    max-height: 65vh;
+  }
+  *:has(.search_wrapper .search_input:focus) {
+    touch-action: none;
+  }
+  .search_input:focus ~ .result_list {
+    touch-action: auto;
+  }
+}
