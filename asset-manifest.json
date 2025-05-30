@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TNS/static/css/main.461c509c.css",
-    "main.js": "/TNS/static/js/main.a9357082.js",
+    "main.css": "/TNS/static/css/main.6ad68e5d.css",
+    "main.js": "/TNS/static/js/main.da281f4a.js",
     "static/js/952.0e1be8cb.chunk.js": "/TNS/static/js/952.0e1be8cb.chunk.js",
     "static/media/no results illust.jpg": "/TNS/static/media/no results illust.1d71f2cc2ef1f6da245c.jpg",
     "static/media/cpuImg.png": "/TNS/static/media/cpuImg.0ad47de2f0b9582d77fa.png",
@@ -15,23 +15,24 @@
     "static/media/trash-bin.svg": "/TNS/static/media/trash-bin.476aa4fcaecc6c139055ddf3886fd462.svg",
     "static/media/cross.svg": "/TNS/static/media/cross.6fa00c345df1e8b458b0826cc5453e8b.svg",
     "static/media/arrowBlue.svg": "/TNS/static/media/arrowBlue.697ec5cc15127feacd25b442695b6be3.svg",
-    "static/media/arrow.svg": "/TNS/static/media/arrow.5119d99c5085bd8f5eb2a46788d92b71.svg",
     "static/media/bell.svg": "/TNS/static/media/bell.591de920973346f7d46a33db4ac14f5c.svg",
     "index.html": "/TNS/index.html",
     "static/media/star.svg": "/TNS/static/media/star.daa0330fa0faf9acb38d467583505d44.svg",
     "static/media/cart.svg": "/TNS/static/media/cart.adf809b1511b0933ee5c4b5e5a89b9ba.svg",
+    "static/media/home.svg": "/TNS/static/media/home.764d339cb7b903e64c6b67d332ad5f99.svg",
+    "static/media/catalog.svg": "/TNS/static/media/catalog.4e4bdf2fdb33b060b3b1dbf8a02080cd.svg",
     "static/media/profile.svg": "/TNS/static/media/profile.73861c4041a14a98dc650d455227f0d9.svg",
     "static/media/favorite.svg": "/TNS/static/media/favorite.2e3f14a2d0ce358aa68352fe67ed80dd.svg",
     "static/media/favoriteColored.svg": "/TNS/static/media/favoriteColored.e3b71efdbecb2a42fe3d5bb2485ccb38.svg",
     "static/media/search.svg": "/TNS/static/media/search.b5e2881fe2ca21dcc0c81f085d03d768.svg",
     "static/media/favoritePressed.svg": "/TNS/static/media/favoritePressed.6e3fb6985fbe79dd66dbc862d30734e2.svg",
     "static/media/checkmark.svg": "/TNS/static/media/checkmark.ddaf4d070169777f103b29fe5e722cd9.svg",
-    "main.461c509c.css.map": "/TNS/static/css/main.461c509c.css.map",
-    "main.a9357082.js.map": "/TNS/static/js/main.a9357082.js.map",
+    "main.6ad68e5d.css.map": "/TNS/static/css/main.6ad68e5d.css.map",
+    "main.da281f4a.js.map": "/TNS/static/js/main.da281f4a.js.map",
     "952.0e1be8cb.chunk.js.map": "/TNS/static/js/952.0e1be8cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.461c509c.css",
-    "static/js/main.a9357082.js"
+    "static/css/main.6ad68e5d.css",
+    "static/js/main.da281f4a.js"
   ]
 }
