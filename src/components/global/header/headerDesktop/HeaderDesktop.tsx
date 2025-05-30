@@ -3,19 +3,18 @@ import HeaderCartButton from "../header cart button/HeaderCartButton";
 import BlueButton from "../../../shared/blue button/BlueButton";
 import classes from "./HeaderDesktop.module.css";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { selectModal, showAuthModal } from "../../../../features/authSlice";
-import { selectFavorites } from "../../../../features/favoriteSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { showAuthModal } from "../../../../features/authSlice";
+
 import { clearSearchTerm } from "../../../../features/searchSlice";
 
-import favorite from "../../../../img/favorite.svg";
 import profile from "../../../../img/profile.svg";
 import bell from "../../../../img/nav/login/bell.svg";
+import HeaderFavoriteButton from "../../../shared/nav/NavButtonFavorite";
 
 export default function HeaderDesktop() {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
-  const favoriteList = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
   const scrollToTop = () => {
@@ -27,9 +26,6 @@ export default function HeaderDesktop() {
     navigate("/");
     dispatch(clearSearchTerm());
     scrollToTop();
-  };
-  const toWishlist = () => {
-    navigate("/wishlist");
   };
 
   const handleLoginModal = () => {
@@ -45,18 +41,7 @@ export default function HeaderDesktop() {
           </button>
           <HeaderSearch />
           <div className={classes.menu__buttons_row}>
-            <button className={classes.menu__btn} onClick={toWishlist}>
-              <div
-                className={classes.counter_badge}
-                style={{
-                  display: favoriteList.length > 0 ? "flex" : "none",
-                }}
-              >
-                {favoriteList.length}
-              </div>
-              <img src={favorite} alt="img_favorite" />
-              <h2>Избранное</h2>
-            </button>
+            <HeaderFavoriteButton />
             <HeaderCartButton />
             <button
               className={classes.menu__btn}

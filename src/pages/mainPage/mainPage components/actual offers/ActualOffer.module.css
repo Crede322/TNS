@@ -55,11 +55,19 @@ h5:hover {
 @media (max-width: 1420px) {
   .actual_offers_row {
     grid-template-columns: repeat(2, 1fr);
-    width: fit-content;
+    width: 100%;
     gap: 30px;
     margin: auto;
     margin-top: 60px;
     margin-bottom: 35px;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+  }
+  .offer_wrapper {
+    width: fit-content;
+    margin: auto;
   }
 }
 
@@ -94,5 +102,8 @@ h5:hover {
     font-size: 24px;
     font-size: clamp(16px, 4vw, 24px);
     text-wrap: nowrap;
+  }
+  .content {
+    justify-content: start;
   }
 }

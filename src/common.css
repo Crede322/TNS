@@ -126,8 +126,9 @@ legend {
   display: block;
 }
 
-@media (max-width: 768px) {
-  button {
-    -webkit-tap-highlight-color: transparent !important;
-  }
+button,
+a,
+div {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none;
 }

@@ -15,7 +15,7 @@ export default function OfferExemplar({
   img,
 }: PropsWithChildren<OfferExemplarProps>) {
   return (
-    <div>
+    <div className={classes.offer_wrapper}>
       <Link to={link} className={classes.actual_offer_title}>
         {heading}
       </Link>

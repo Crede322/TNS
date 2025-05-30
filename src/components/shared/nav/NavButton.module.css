@@ -1,0 +1,48 @@
+.nav_button {
+  font-size: 12px;
+  width: 90px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 12px;
+  transition: color, 0.3s;
+  position: relative;
+}
+
+.nav_button p {
+  color: #afafaf;
+}
+
+.counter_badge {
+  position: absolute;
+  right: 24px;
+  top: 6px;
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  border: 2px solid #fff;
+  z-index: 1;
+  border-radius: 50%;
+  padding: 1px;
+  min-width: 18px;
+  min-height: 18px;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_button img {
+  width: 24px;
+  height: 24px;
+}
+
+.nav_button:hover {
+  background-color: var(--lightgray);
+}
+
+.nav_button_active img,
+.nav_button_active p {
+  filter: brightness(0) saturate(100%) invert(34%) sepia(83%) saturate(2966%)
+    hue-rotate(193deg) brightness(99%) contrast(101%);
+}

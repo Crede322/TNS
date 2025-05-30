@@ -11,6 +11,7 @@ import CatalogPage from "./pages/catalogPage/CatalogPage";
 import CartPage from "./pages/cartPage/CartPage";
 import MockupPage from "./pages/mockupPage/MockupPage";
 import Header from "./components/global/header/Header";
+import MobileMenu from "./components/shared/mobileMenu/MobileMenu";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/mockup" element={<MockupPage />} />
           </Routes>
           <Footer />
+          <MobileMenu />
         </HashRouter>
       </Provider>
     </div>

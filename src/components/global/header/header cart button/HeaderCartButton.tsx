@@ -45,7 +45,7 @@ const HeaderCartButton = () => {
   useEffect(() => {
     const fetchFilteredData = async (productIds: number[]) => {
       try {
-        // Выполняем запрос к Supabase
+        // запрос к Supabase
         const { data, error } = await supabase
           .from("cpu")
           .select("id, price")
@@ -57,7 +57,6 @@ const HeaderCartButton = () => {
         if (data) {
           // Преобразуем данные из Supabase в объект цен
           const prices = data.reduce<{ [key: number]: number }>((acc, item) => {
-            // Убираем символы и пробелы из строки цены, чтобы получить число
             const priceNumber = parseFloat(item.price.replace(/[^0-9.]/g, ""));
             acc[item.id] = priceNumber;
             return acc;
