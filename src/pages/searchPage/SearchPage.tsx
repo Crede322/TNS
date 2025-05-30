@@ -17,7 +17,7 @@ export default function SearchPage() {
 
   const { resultsCount, resultsCountLoading } = useSearchResultsCount(query);
   const { productList } = useSearchResultsSearchpage(query, page);
-  const { paginationTotalCount } = useFetchTotalPages("cpuName", query || "");
+  const { totalPagesInQuery } = useFetchTotalPages("cpuName", query || "");
 
   return (
     <div className={classes.searchpage_background}>
@@ -26,7 +26,7 @@ export default function SearchPage() {
       ) : resultsCount && resultsCount > 0 ? (
         <div>
           <ProductsTable productList={productList} />
-          <Pagination page={page} totalPages={paginationTotalCount} />
+          <Pagination page={page} totalPages={totalPagesInQuery} />
         </div>
       ) : (
         <SearchNoResults searchResult={query} />

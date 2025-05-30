@@ -5,7 +5,7 @@ import { useComputeProductsPerPage } from "./useComputeProductsPerPage";
 
 export function useSearchResults(
   column: string,
-  query: string | null,
+  query: string | number | boolean | null,
   page: number,
 ) {
   const [productList, setProductList] = useState<TableProductType[]>([]);
@@ -13,34 +13,53 @@ export function useSearchResults(
   const { productsPerPage } = useComputeProductsPerPage();
 
   useEffect(() => {
-    fetchCurrentPageProducts();
-  }, [page, productsPerPage]);
+    let isCancelled = false;
 
-  async function fetchCurrentPageProducts() {
-    setProductListLoading(true);
-    const from = ((page || 1) - 1) * productsPerPage;
-    const to = from + productsPerPage - 1;
+    async function fetchData() {
+      setProductListLoading(true);
+      const from = ((page || 1) - 1) * productsPerPage;
+      const to = from + productsPerPage - 1;
 
-    try {
-      const { data, error } = await supabase
-        .from("cpu")
-        .select(
-          "cpuName, id, img, price, socket, coresNumber, frequency, cacheL2, cacheL3",
-        )
-        .ilike(column, `%${query}%`)
-        .range(from, to);
-
-      if (data) {
-        setProductList(data);
-      } else {
-        throw error;
+      function applyFilter(
+        builder: any,
+        column: string,
+        value: string | number | boolean,
+      ) {
+        return typeof value === "string"
+          ? builder.ilike(column, `%${value}%`)
+          : builder.eq(column, value);
       }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setProductListLoading(false);
+
+      try {
+        const queryBuilder = applyFilter(
+          supabase
+            .from("cpu")
+            .select(
+              "cpuName, id, img, price, socket, coresNumber, frequency, cacheL2, cacheL3",
+            )
+            .range(from, to),
+          query ? column : "cpuName",
+          query ?? "",
+        );
+
+        const { data, error } = await queryBuilder;
+        if (!isCancelled) {
+          if (data) setProductList(data);
+          else throw error;
+        }
+      } catch (error) {
+        if (!isCancelled) console.error(error);
+      } finally {
+        if (!isCancelled) setProductListLoading(false);
+      }
     }
-  }
+
+    fetchData();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [page, productsPerPage, column, query]);
 
   return { productList, productListLoading };
 }

@@ -4,12 +4,15 @@ import { useComputeProductsPerPage } from "./useComputeProductsPerPage";
 
 export function useFetchTotalPages(
   field: string,
-  query: string | number | boolean,
+  query: string | number | boolean | null,
 ) {
-  const [paginationTotalCount, setPaginationTotalCount] = useState(1);
+  const [totalPagesInQuery, setTotalPagesInQuery] = useState(1);
+  const [totalProductsInQuery, setTotalProductsInQuery] = useState(0);
   const { productsPerPage } = useComputeProductsPerPage();
 
   async function fetchCurrentPageProducts() {
+    if (query === null) return;
+
     try {
       let queryBuilder = supabase.from("cpu").select("id");
 
@@ -22,13 +25,8 @@ export function useFetchTotalPages(
       const { data, error } = await queryBuilder;
 
       if (data) {
-        setPaginationTotalCount(Math.ceil(data.length / productsPerPage));
-
-        console.log(
-          `общее количество товаров за запрос ${data.length}`,
-          `количество страниц ${Math.ceil(data.length / productsPerPage)}`,
-          `запрос ${field}, ${query}`,
-        );
+        setTotalPagesInQuery(Math.ceil(data.length / productsPerPage));
+        setTotalProductsInQuery(data.length);
       } else {
         throw error;
       }
@@ -41,5 +39,5 @@ export function useFetchTotalPages(
     fetchCurrentPageProducts();
   }, [field, query, productsPerPage]);
 
-  return { paginationTotalCount };
+  return { totalPagesInQuery, totalProductsInQuery };
 }

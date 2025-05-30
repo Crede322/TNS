@@ -9,7 +9,7 @@ const queriesAssigned: QueryMapEntry[] = [
   ["6 Ядер", ["coresNumber", 6]],
   ["8 Ядер", ["coresNumber", 8]],
   ["12 Потоков", ["threads", 12]],
-  ["Свободный множитель", ["multiplier", false]],
+  ["Свободный множитель", ["multiplier", true]],
   ["Частота RAM: 3200МГц", ["frequency", 3.2]],
   ["Встроенный видеочип", ["integratedGPU", true]],
   ["Amd", ["brand", "amd"]],
@@ -22,10 +22,11 @@ const queriesMap = new Map<string, [string, string | number | boolean]>(
 
 export function useTransformQuery(query: string, instance: string) {
   const [transformedQuery, setTransformedQuery] = useState<
-    [string, string | number | boolean]
-  >(["cpuName", "%%"]);
+    [string, string | number | boolean | null]
+  >(["null", null]);
 
   useEffect(() => {
+    console.log(query);
     const mappedQuery = queriesMap.get(query);
 
     if (mappedQuery) {

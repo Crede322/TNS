@@ -23,7 +23,7 @@ const MainpageSwiper = () => {
   const navigate = useNavigate();
 
   const handleButtonCatalog = () => {
-    navigate("/catalog");
+    navigate("/catalog?q=null&page=1");
   };
 
   return (

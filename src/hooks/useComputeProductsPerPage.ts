@@ -4,7 +4,7 @@ export function useComputeProductsPerPage() {
   const [productsPerPage, setProductsPerPage] = useState(10);
 
   const breakpoints = [
-    { min: 1420, value: 10 },
+    { min: 1480, value: 10 },
     { min: 1200, value: 8 },
     { min: 900, value: 6 },
     { min: 0, value: 6 }, // fallback
