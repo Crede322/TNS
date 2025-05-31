@@ -1,6 +1,7 @@
 .cartPage__background {
   background-color: #f6f6f6;
   padding-block: 40px;
+  min-height: 100vh;
 }
 
 .container {
