@@ -14,7 +14,7 @@
 
 .counter_badge {
   position: absolute;
-  right: 20px;
+  right: 14px;
   top: 6px;
   background-color: var(--main-color);
   color: #fff;
