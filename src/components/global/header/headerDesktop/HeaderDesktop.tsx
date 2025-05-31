@@ -11,7 +11,7 @@ import { clearSearchTerm } from "../../../../features/searchSlice";
 
 import profile from "../../../../img/profile.svg";
 import bell from "../../../../img/nav/login/bell.svg";
-import HeaderFavoriteButton from "../../../shared/nav/NavButtonFavorite";
+import FavButtonHeader from "../../../shared/Fav button/FavButtonHeader";
 
 export default function HeaderDesktop() {
   const [isLoginHovered, setIsLoginHovered] = useState(false);
@@ -41,7 +41,7 @@ export default function HeaderDesktop() {
           </button>
           <HeaderSearch />
           <div className={classes.menu__buttons_row}>
-            <HeaderFavoriteButton />
+            <FavButtonHeader />
             <HeaderCartButton />
             <button
               className={classes.menu__btn}

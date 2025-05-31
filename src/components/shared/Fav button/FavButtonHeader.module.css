@@ -9,14 +9,13 @@
 }
 
 .nav_button p {
-  color: #afafaf;
+  color: #000;
 }
 
 .counter_badge {
   position: absolute;
-  left: 50%;
+  right: 22px;
   top: 6px;
-  transform: translateX(calc(-50% + 14px));
   background-color: var(--main-color);
   color: #fff;
   font-size: 10px;
@@ -40,10 +39,4 @@
 
 .nav_button:hover {
   background-color: var(--lightgray);
-}
-
-.nav_button_active img,
-.nav_button_active p {
-  filter: brightness(0) saturate(100%) invert(34%) sepia(83%) saturate(2966%)
-    hue-rotate(193deg) brightness(99%) contrast(101%);
 }
