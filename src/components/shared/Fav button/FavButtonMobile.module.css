@@ -3,7 +3,8 @@
   align-items: center;
   background-color: var(--lightgray);
   border-radius: 8px;
-  width: fit-content;
+  width: 132px;
+  min-width: 132px;
   height: 30px;
   padding-left: 12px;
   padding-right: 12px;
