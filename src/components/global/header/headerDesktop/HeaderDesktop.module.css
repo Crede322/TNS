@@ -234,9 +234,9 @@
 }
 
 @media (max-width: 1024px) {
-  /* .wrapper {
+  .login_popup {
     display: none;
-  } */
+  }
   .menu__buttons_row {
     display: none;
   }

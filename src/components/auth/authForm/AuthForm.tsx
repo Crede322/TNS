@@ -42,7 +42,7 @@ export default function AuthForm() {
   const handleSignUp = async (email: string, password: string) => {
     const { success, message } = await signUp(email, password);
     if (success) {
-      console.log(message);
+      setSuccessMessage("Письмо с подтверждением отправлено на почту");
     } else {
       console.error("error", message);
     }

@@ -1,10 +1,11 @@
 import classes from "./NavButton.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import profile from "../../../img/profile.svg";
+import { useUserdata } from "../../../hooks/auth/useUserData";
 
 export default function NavButtonLogin() {
   const navigate = useNavigate();
-
+  const { user, loading } = useUserdata();
   const location = useLocation();
   const isActive = location.pathname === "/auth";
 
@@ -18,7 +19,7 @@ export default function NavButtonLogin() {
       onClick={toCart}
     >
       <img src={profile} alt="login" />
-      <p>Войти</p>
+      <p>{loading ? "." : user ? "Вы вошли" : "Войти"}</p>
     </button>
   );
 }

@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { showAuthModal } from "../../../../features/authSlice";
 import { useUserdata } from "../../../../hooks/auth/useUserData";
 import { Link } from "react-router-dom";
-
 import { clearSearchTerm } from "../../../../features/searchSlice";
 
 import profile from "../../../../img/profile.svg";
@@ -53,7 +52,7 @@ export default function HeaderDesktop() {
               }}
             >
               <img src={profile} alt="img_profile" />
-              <h2>{loading ? "Войти" : user ? "Аккаунт" : "Войти"}</h2>
+              <h2>{loading ? "." : user ? "Аккаунт" : "Войти"}</h2>
             </button>
           </div>
         </ul>
@@ -86,14 +85,17 @@ export default function HeaderDesktop() {
             <h3 className={classes.login__title}>
               Получайте бонусы, сохраняйте и отслеживайте заказы
             </h3>
-            <h3 className={classes.user__info}>Вы вошли как {user?.email}</h3>
-            <BlueButton
-              onClick={handleLoginModal}
-              width="230px"
-              height="45px"
-              text="Войти"
-              margin="10px 0 20px 0"
-            />
+            {user && (
+              <h3 className={classes.user__info}>Вы вошли как {user.email}</h3>
+            )}
+            <Link to="/auth">
+              <BlueButton
+                width="230px"
+                height="45px"
+                text={!user ? "Войти" : "В кабинет"}
+                margin="10px 0 20px 0"
+              />
+            </Link>
             <Link to="/">Узнать статус заказа</Link>
             <br />
             <Link to="/">Обратная связь</Link>
