@@ -24,13 +24,13 @@ const Header = () => {
         }}
       >
         <HeaderDesktop />
-        <div
+        {/* <div
           className={classes.popup__form}
           style={{ display: loginModal ? "block" : "none", zIndex: 8 }}
         >
           <Auth />
-        </div>
-        <div
+        </div> */}
+        {/* <div
           className={classes.modal__bg}
           style={{
             height: "100vh",
@@ -45,7 +45,7 @@ const Header = () => {
           onClick={() => {
             dispatch(hideAuthModal());
           }}
-        />
+        /> */}
       </div>
     </header>
   );

@@ -6,10 +6,10 @@ export default function NavButtonLogin() {
   const navigate = useNavigate();
 
   const location = useLocation();
-  const isActive = location.pathname === "/login";
+  const isActive = location.pathname === "/auth";
 
   const toCart = () => {
-    navigate("/login");
+    navigate("/auth");
   };
 
   return (

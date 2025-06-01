@@ -1,0 +1,39 @@
+.auth_page {
+  background-color: #f7f7f7;
+  padding-block: 36px;
+  min-height: 100vh;
+}
+
+.usercard {
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9e8f7;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.usercard img {
+  width: 64px;
+  height: 64px;
+}
+
+.usercard h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.usercard h4 {
+  margin-bottom: 24px;
+}
+
+.usercard button {
+  border: 1px solid var(--main-color);
+  padding: 16px 30px;
+  border-radius: 12px;
+  background-color: #fff;
+}

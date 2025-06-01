@@ -12,6 +12,7 @@ import CartPage from "./pages/cartPage/CartPage";
 import MockupPage from "./pages/mockupPage/MockupPage";
 import Header from "./components/global/header/Header";
 import MobileMenu from "./components/shared/mobileMenu/MobileMenu";
+import AuthPage from "./pages/auth/AuthPage";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/mockup" element={<MockupPage />} />
+            <Route path="/auth" element={<AuthPage />} />
           </Routes>
           <Footer />
           <MobileMenu />

@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { showAuthModal } from "../../../../features/authSlice";
+import { useUserdata } from "../../../../hooks/auth/useUserData";
+import { Link } from "react-router-dom";
 
 import { clearSearchTerm } from "../../../../features/searchSlice";
 
@@ -14,6 +16,7 @@ import bell from "../../../../img/nav/login/bell.svg";
 import FavButtonHeader from "../../../shared/Fav button/FavButtonHeader";
 
 export default function HeaderDesktop() {
+  const { user, loading } = useUserdata();
   const [isLoginHovered, setIsLoginHovered] = useState(false);
   const dispatch = useDispatch();
 
@@ -50,7 +53,7 @@ export default function HeaderDesktop() {
               }}
             >
               <img src={profile} alt="img_profile" />
-              <h2>Войти</h2>
+              <h2>{loading ? "Войти" : user ? "Аккаунт" : "Войти"}</h2>
             </button>
           </div>
         </ul>
@@ -83,6 +86,7 @@ export default function HeaderDesktop() {
             <h3 className={classes.login__title}>
               Получайте бонусы, сохраняйте и отслеживайте заказы
             </h3>
+            <h3 className={classes.user__info}>Вы вошли как {user?.email}</h3>
             <BlueButton
               onClick={handleLoginModal}
               width="230px"
@@ -90,15 +94,11 @@ export default function HeaderDesktop() {
               text="Войти"
               margin="10px 0 20px 0"
             />
-            <a href="https://crede322.github.io/TNS/#/mockup">
-              Узнать статус заказа
-            </a>
+            <Link to="/">Узнать статус заказа</Link>
             <br />
-            <a href="https://crede322.github.io/TNS/#/mockup">Обратная связь</a>
+            <Link to="/">Обратная связь</Link>
             <br />
-            <a href="https://crede322.github.io/TNS/#/mockup">
-              Обмен, возврат, гарантия
-            </a>
+            <Link to="/">Обмен, возврат, гарантия</Link>
             <br />
           </div>
         </div>

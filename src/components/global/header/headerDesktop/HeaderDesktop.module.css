@@ -210,6 +210,11 @@
   color: var(--main-color);
 }
 
+.user__info {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
 .popup__form {
   background-color: #fff;
   width: 320px;
