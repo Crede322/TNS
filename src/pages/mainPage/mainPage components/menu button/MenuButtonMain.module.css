@@ -37,9 +37,11 @@
 }
 
 .button__inner {
+  position: relative;
   border: 1px solid #d9d9d9;
   background-color: #fff;
   width: fit-content;
+  z-index: 1;
   padding: 10px 10px;
   border-radius: 8px;
 }
