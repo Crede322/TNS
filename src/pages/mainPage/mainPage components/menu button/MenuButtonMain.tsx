@@ -1,16 +1,28 @@
 import classes from "./MenuButtonMain.module.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import phoneImg from "../../../../img/mainMenu/phoneImg.jpg";
 
 export default function MenuButtonMain() {
+  const navigate = useNavigate();
+
+  const handleClickOrders = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    navigate("/cart");
+  };
+
+  const handleClickAuth = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    navigate("/auth");
+  };
+
   return (
-    <Link className={classes.button} to="/">
+    <div onClick={handleClickAuth} className={classes.button}>
       <h3>Личный кабинет</h3>
       <h4>Получайте бонусы, отслеживайте заказы и делитесь мнением</h4>
-      <div className={classes.button__inner}>
+      <button onClick={handleClickOrders} className={classes.button__inner}>
         <h5>Мои заказы</h5>
-      </div>
+      </button>
       <img src={phoneImg} alt="cabinet" />
-    </Link>
+    </div>
   );
 }
