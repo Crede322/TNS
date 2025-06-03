@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/TNS/static/css/main.ae2524d5.css",
-    "main.js": "/TNS/static/js/main.3bf0f19a.js",
+    "main.css": "/TNS/static/css/main.9e6c1a45.css",
+    "main.js": "/TNS/static/js/main.18486dda.js",
     "static/js/952.0e1be8cb.chunk.js": "/TNS/static/js/952.0e1be8cb.chunk.js",
     "static/media/no results illust.jpg": "/TNS/static/media/no results illust.1d71f2cc2ef1f6da245c.jpg",
     "static/media/cpuImg.png": "/TNS/static/media/cpuImg.0ad47de2f0b9582d77fa.png",
     "static/media/question.png": "/TNS/static/media/question.7572a94321bc1dab4c31.png",
     "static/media/doubleArrow.png": "/TNS/static/media/doubleArrow.280ac6386aa5bbff8020.png",
     "static/media/catalogueImg.png": "/TNS/static/media/catalogueImg.b8028c3536a293e5afea.png",
+    "static/media/PTSans-Bold.woff2": "/TNS/static/media/PTSans-Bold.4e1974633f8126b20e54.woff2",
     "static/media/gear.png": "/TNS/static/media/gear.23cfd591ae8e61e9d47a.png",
+    "static/media/PTSans-Regular.woff2": "/TNS/static/media/PTSans-Regular.a3a3486bacf6a72eee3b.woff2",
     "static/media/shieldImg.png": "/TNS/static/media/shieldImg.4757674d04cf645db8b7.png",
     "static/media/megaphoneImg.png": "/TNS/static/media/megaphoneImg.94ff3cb6cdabe85e4d27.png",
     "static/media/phoneImg.jpg": "/TNS/static/media/phoneImg.cab44506efa6063b9730.jpg",
@@ -22,17 +24,17 @@
     "static/media/home.svg": "/TNS/static/media/home.764d339cb7b903e64c6b67d332ad5f99.svg",
     "static/media/catalog.svg": "/TNS/static/media/catalog.4e4bdf2fdb33b060b3b1dbf8a02080cd.svg",
     "static/media/profile.svg": "/TNS/static/media/profile.73861c4041a14a98dc650d455227f0d9.svg",
+    "static/media/favoriteColored.svg": "/TNS/static/media/favoriteColored.4f88ded14c3f1cdf8fe26f4f4835de61.svg",
     "static/media/favorite.svg": "/TNS/static/media/favorite.2e3f14a2d0ce358aa68352fe67ed80dd.svg",
-    "static/media/favoriteColored.svg": "/TNS/static/media/favoriteColored.e3b71efdbecb2a42fe3d5bb2485ccb38.svg",
     "static/media/search.svg": "/TNS/static/media/search.b5e2881fe2ca21dcc0c81f085d03d768.svg",
     "static/media/favoritePressed.svg": "/TNS/static/media/favoritePressed.6e3fb6985fbe79dd66dbc862d30734e2.svg",
     "static/media/checkmark.svg": "/TNS/static/media/checkmark.ddaf4d070169777f103b29fe5e722cd9.svg",
-    "main.ae2524d5.css.map": "/TNS/static/css/main.ae2524d5.css.map",
-    "main.3bf0f19a.js.map": "/TNS/static/js/main.3bf0f19a.js.map",
+    "main.9e6c1a45.css.map": "/TNS/static/css/main.9e6c1a45.css.map",
+    "main.18486dda.js.map": "/TNS/static/js/main.18486dda.js.map",
     "952.0e1be8cb.chunk.js.map": "/TNS/static/js/952.0e1be8cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae2524d5.css",
-    "static/js/main.3bf0f19a.js"
+    "static/css/main.9e6c1a45.css",
+    "static/js/main.18486dda.js"
   ]
 }
