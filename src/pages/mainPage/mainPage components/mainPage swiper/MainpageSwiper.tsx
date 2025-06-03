@@ -38,7 +38,7 @@ const MainpageSwiper = () => {
               text="Большой выбор процессоров"
               background="rgb(189, 215, 255)"
               imageSrc={catalogueImg}
-              link="/#/catalog?q=null&page=1"
+              link="/TNS/#/catalog?q=null&page=1"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -49,7 +49,7 @@ const MainpageSwiper = () => {
               text="Скидки, рассрочки, выгодные комплекты"
               background="rgb(202, 238, 255)"
               imageSrc={megaphoneImg}
-              link="/#/discounts"
+              link="/TNS/#/discounts"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -60,7 +60,7 @@ const MainpageSwiper = () => {
               text="Без проблем c совместимостью"
               background="rgb(218, 240, 252)"
               imageSrc={cpuImg}
-              link="/#/match"
+              link="/TNS/#/match"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -71,7 +71,7 @@ const MainpageSwiper = () => {
               text="Лучшие в производительности"
               background="rgb(189, 215, 255)"
               imageSrc={doubleArrow}
-              link="/#/releases"
+              link="/TNS/#/releases"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -82,7 +82,7 @@ const MainpageSwiper = () => {
               text="Гарантия, возврат, обмен и ремонт"
               background="rgb(236, 249, 255)"
               imageSrc={shieldImg}
-              link="/#/service"
+              link="/TNS/#/service"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -93,7 +93,7 @@ const MainpageSwiper = () => {
               text="Проверка и идентификация процессоров"
               background="rgb(202, 238, 255)"
               imageSrc={gear}
-              link="/#/tests"
+              link="/TNS/#/tests"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -104,7 +104,7 @@ const MainpageSwiper = () => {
               text="Частые вопросы, полезная информация"
               background="rgb(218, 240, 252)"
               imageSrc={question}
-              link="/#/help"
+              link="/TNS/#/help"
             />
           </SwiperSlide>
         </Swiper>
