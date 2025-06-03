@@ -148,12 +148,3 @@ div {
   -webkit-tap-highlight-color: transparent !important;
   outline: none;
 }
-
-body {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-body.fonts-loaded {
-  opacity: 1;
-}
