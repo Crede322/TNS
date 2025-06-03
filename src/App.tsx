@@ -13,6 +13,12 @@ import MockupPage from "./pages/mockupPage/MockupPage";
 import Header from "./components/global/header/Header";
 import MobileMenu from "./components/shared/mobileMenu/MobileMenu";
 import AuthPage from "./pages/auth/AuthPage";
+import Discounts from "./pages/discountsPage/Discounts";
+import MatchProduct from "./pages/matchProductPage/MatchProduct";
+import Releases from "./pages/releasesPage/Releases";
+import Service from "./pages/servicePage/Service";
+import Tests from "./pages/testsPage/Tests";
+import Help from "./pages/helpPage/Help";
 
 const App = () => {
   return (
@@ -29,6 +35,12 @@ const App = () => {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/mockup" element={<MockupPage />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/discounts" element={<Discounts />} />
+            <Route path="/match" element={<MatchProduct />} />
+            <Route path="/releases" element={<Releases />} />
+            <Route path="/service" element={<Service />} />
+            <Route path="/tests" element={<Tests />} />
+            <Route path="/help" element={<Help />} />
           </Routes>
           <Footer />
           <MobileMenu />

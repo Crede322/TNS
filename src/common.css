@@ -7,18 +7,34 @@
   --border-gray: #0000001a;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../public/fonts/PT_Sans/PTSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../public/fonts/PT_Sans/PTSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Сброс стилей */
 
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
-
 * {
-  font-family: "PT Sans", sans-serif;
-}
-* {
+  font-family: "PT Sans", "Segoe UI", "Roboto", "Arial", sans-serif;
   padding: 0px;
   margin: 0px;
   border: none;
-  font-family: "PT Sans";
   font-weight: 500;
 }
 
@@ -131,4 +147,13 @@ a,
 div {
   -webkit-tap-highlight-color: transparent !important;
   outline: none;
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fonts-loaded {
+  opacity: 1;
 }

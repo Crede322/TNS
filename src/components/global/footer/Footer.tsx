@@ -1,4 +1,5 @@
 import classes from "./Footer.module.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,20 +9,14 @@ const Footer = () => {
         <ul className={classes.footer_list}>
           <div className={classes.footer_row}>
             <h2 className={classes.footer_title}>Компания</h2>
-            <a href="https://crede322.github.io/TNS/#/mockup">О Компании</a>
-            <a href="https://crede322.github.io/TNS/#/mockup">Новости</a>
-            <a href="https://crede322.github.io/TNS/#/mockup">Партнерам</a>
-            <a href="https://crede322.github.io/TNS/#/mockup">Вакансии</a>
-            <a href="https://crede322.github.io/TNS/#/mockup">
-              Политика конфиденциальности
-            </a>
-            <a href="https://crede322.github.io/TNS/#/mockup">
-              Персональные данные
-            </a>
-            <a href="https://crede322.github.io/TNS/#/mockup">Правила продаж</a>
-            <a href="https://crede322.github.io/TNS/#/mockup">
-              Сервисные центры
-            </a>
+            <Link to="/help">О Компании</Link>
+            <Link to="/help">Новости</Link>
+            <Link to="/help">Партнерам</Link>
+            <Link to="/help">Вакансии</Link>
+            <Link to="/help">Политика конфиденциальности</Link>
+            <Link to="/help">Персональные данные</Link>
+            <Link to="/help">Правила продаж</Link>
+            <Link to="/help">Сервисные центры</Link>
           </div>
           <div className={`${classes.footer_row} ${classes.row_two}`}>
             <h2 className={`${classes.footer_title} ${classes.title_two}`}>
@@ -29,40 +24,20 @@ const Footer = () => {
             </h2>
             <ul className={classes.title_two_divider}>
               <li>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Как оформлять заказ
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Способы оплаты
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">Доставка</a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Статус заказа
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Обмен, возврат, гарантия
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Проверка статуса ремонта
-                </a>
+                <Link to="/help">Как оформлять заказ</Link>
+                <Link to="/help">Способы оплаты</Link>
+                <Link to="/help">Доставка</Link>
+                <Link to="/help">Статус заказа</Link>
+                <Link to="/help">Обмен, возврат, гарантия</Link>
+                <Link to="/help">Проверка статуса ремонта</Link>
               </li>
               <li>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Юридическим лицам
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Проверка счёта
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Корпоративные отделы
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Бонусная программа
-                </a>
-                <a href="https://crede322.github.io/TNS/#/mockup">Помощь</a>
-                <a href="https://crede322.github.io/TNS/#/mockup">
-                  Обратная связь
-                </a>
+                <Link to="/help">Юридическим лицам</Link>
+                <Link to="/help">Проверка счёта</Link>
+                <Link to="/help">Корпоративные отделы</Link>
+                <Link to="/help">Бонусная программа</Link>
+                <Link to="/help">Помощь</Link>
+                <Link to="/help">Обратная связь</Link>
               </li>
             </ul>
           </div>

@@ -1,5 +1,4 @@
 import MenuButton from "../menu button/MenuButton";
-import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -20,12 +19,6 @@ const sliderStyle = {
 };
 
 const MainpageSwiper = () => {
-  const navigate = useNavigate();
-
-  const handleButtonCatalog = () => {
-    navigate("/catalog?q=null&page=1");
-  };
-
   return (
     <div className={classes.mainpage__row}>
       <MenuButtonMain />
@@ -37,7 +30,7 @@ const MainpageSwiper = () => {
           }}
           slidesPerView="auto"
         >
-          <SwiperSlide style={sliderStyle} onClick={handleButtonCatalog}>
+          <SwiperSlide style={sliderStyle}>
             <MenuButton
               width={183}
               height={206}
@@ -45,6 +38,7 @@ const MainpageSwiper = () => {
               text="Большой выбор процессоров"
               background="rgb(189, 215, 255)"
               imageSrc={catalogueImg}
+              link="/#/catalog?q=null&page=1"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -55,7 +49,7 @@ const MainpageSwiper = () => {
               text="Скидки, рассрочки, выгодные комплекты"
               background="rgb(202, 238, 255)"
               imageSrc={megaphoneImg}
-              link="https://crede322.github.io/TNS/#/mockup"
+              link="/#/discounts"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -66,7 +60,7 @@ const MainpageSwiper = () => {
               text="Без проблем c совместимостью"
               background="rgb(218, 240, 252)"
               imageSrc={cpuImg}
-              link="https://crede322.github.io/TNS/#/mockup"
+              link="/#/match"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -77,7 +71,7 @@ const MainpageSwiper = () => {
               text="Лучшие в производительности"
               background="rgb(189, 215, 255)"
               imageSrc={doubleArrow}
-              link="https://crede322.github.io/TNS/#/mockup"
+              link="/#/releases"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -88,7 +82,7 @@ const MainpageSwiper = () => {
               text="Гарантия, возврат, обмен и ремонт"
               background="rgb(236, 249, 255)"
               imageSrc={shieldImg}
-              link="https://crede322.github.io/TNS/#/mockup"
+              link="/#/service"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -99,7 +93,7 @@ const MainpageSwiper = () => {
               text="Проверка и идентификация процессоров"
               background="rgb(202, 238, 255)"
               imageSrc={gear}
-              link="https://crede322.github.io/TNS/#/mockup"
+              link="/#/tests"
             />
           </SwiperSlide>
           <SwiperSlide style={sliderStyle}>
@@ -110,7 +104,7 @@ const MainpageSwiper = () => {
               text="Частые вопросы, полезная информация"
               background="rgb(218, 240, 252)"
               imageSrc={question}
-              link="https://crede322.github.io/TNS/#/mockup"
+              link="/#/help"
             />
           </SwiperSlide>
         </Swiper>

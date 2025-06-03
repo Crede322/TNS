@@ -33,19 +33,17 @@ const Wishlist = () => {
   );
 
   return (
-    <div>
-      <div className={classes.wishlist_background}>
-        {favoriteList.length === 0 ? (
-          noResults
-        ) : (
-          <div className={classes.wishlist_container}>
-            <h1>Избранное</h1>
-            {storedFavorites.map((id) => (
-              <FavoriteProduct id={id} key={id} />
-            ))}
-          </div>
-        )}
-      </div>
+    <div className={classes.wishlist_background}>
+      {favoriteList.length === 0 ? (
+        noResults
+      ) : (
+        <div className={classes.wishlist_container}>
+          <h1>Избранное</h1>
+          {storedFavorites.map((id) => (
+            <FavoriteProduct id={id} key={id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

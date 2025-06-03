@@ -1,7 +1,5 @@
 import { useState } from "react";
 import classes from "./MenuButton.module.css";
-import { useDispatch } from "react-redux";
-import { showAuthModal } from "../../../../features/authSlice";
 
 interface MenuButtonProps {
   width: number;
@@ -28,11 +26,6 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const handleHover = () => {
     setIsHovered(!isHovered);
-  };
-
-  const dispath = useDispatch();
-  const buttonClickCabinet = () => {
-    dispath(showAuthModal());
   };
 
   const buttonStyle = {

@@ -65,6 +65,11 @@
   color: #fff;
 }
 
+.wishlist_noResults {
+  max-width: 93.5vw;
+  margin: auto;
+}
+
 @media (max-width: 768px) {
   .favorite_product {
     flex-direction: column;
