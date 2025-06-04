@@ -35,8 +35,16 @@
 <div style="margin-bottom: 50px;"></div>
 
 
-#### Страница товара
+### Страница товара
 <a href="https://crede322.github.io/TNS/#/product/5" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1productpage.webp" alt="товар"></a>
+<div style="margin-bottom: 50px;"></div>
+
+
+### Страница "Избранные"
+
+Количество избранных товаров всегда актуально и отображается на кнопке в хедере, реализовано через localStorage + redux
+<a href="https://crede322.github.io/TNS/#/wishlist" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1wishlist.jpg" alt="избранные"></a>
+<img src="./screenshots/screenshot2wishlist.jpg" alt="избранные"/>
 <div style="margin-bottom: 50px;"></div>
 
 #### Страница поиска
