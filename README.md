@@ -33,6 +33,8 @@
 
 
 #### Страница товара
+<a href="https://crede322.github.io/TNS/#/product/5" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1productpage.webp" alt="товар"></a>
+
 
 #### Страница поиска
 
