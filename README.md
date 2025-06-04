@@ -19,7 +19,8 @@
 <a href="https://crede322.github.io/TNS/#/" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1mainpage.webp" alt="Главная страница"></a>
 <details>
 <summary>Содержимое главной страницы</summary>
-<img src="./screenshots/screenshot2mainpage.webp" alt="главная страница">
+<img style="margin-bottom: 20px;" src="./screenshots/screenshot2mainpage.webp" alt="главная страница">
+<h2 style="color: #0080f5;">Блок "Вы недавно смотрели"</h2>
 <img src="./screenshots/screenshot3mainpage.webp" alt="главная страница">
 </details>
 #### Каталог
