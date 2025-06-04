@@ -23,7 +23,12 @@
 <h2 style="color: #0080f5;">Блок "Вы недавно смотрели"</h2>
 <img src="./screenshots/screenshot3mainpage.webp" alt="главная страница">
 </details>
-#### Каталог
+
+### Каталог
+
+<img src="./screenshots/screenshot1catalogpage.jpg" alt="каталог">
+<img src="./screenshots/screenshot2catalogpage.jpg" alt="каталог">
+
 
 #### Страница товара
 
