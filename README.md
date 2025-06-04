@@ -24,10 +24,10 @@
 <img src="./screenshots/screenshot3mainpage.webp" alt="главная страница">
 </details>
 
-### Каталог
+### Каталог / Поиск
 <a href="https://crede322.github.io/TNS/#/catalog?q=null&page=1" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1mainpage.webp" alt="каталог"></a>
 <details>
-<summary>Содержимое страницы каталога</summary>
+<summary>Содержимое таблицы товаров</summary>
 <img src="./screenshots/screenshot2catalogpage.jpg" alt="каталог">
 </details>
 
