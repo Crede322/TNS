@@ -68,8 +68,8 @@
 
 При наведении на кнопку "профиля" в хедере показывается popup
 
-<img src="/screenshots/schreenshot1authpage.jpg" alt="авторизация"/>
-<img src="/screenshots/schreenshot2authpage.jpg" alt="авторизация"/>
+<img src="/screenshots/screenshot1authpage.jpg" alt="авторизация"/>
+<img src="/screenshots/screenshot2authpage.jpg" alt="авторизация"/>
 
 ## Описание :
 
