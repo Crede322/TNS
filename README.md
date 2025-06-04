@@ -23,7 +23,7 @@
 <h2 style="color: #0080f5;">Блок "Вы недавно смотрели"</h2>
 <img src="./screenshots/screenshot3mainpage.webp" alt="главная страница">
 </details>
-
+<div style="margin-bottom: 50px;"></div>
 
 
 ### Каталог / Поиск
@@ -32,12 +32,12 @@
 <summary>Содержимое таблицы товаров</summary>
 <img src="./screenshots/screenshot2catalogpage.jpg" alt="каталог">
 </details>
-
+<div style="margin-bottom: 50px;"></div>
 
 
 #### Страница товара
 <a href="https://crede322.github.io/TNS/#/product/5" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1productpage.webp" alt="товар"></a>
-
+<div style="margin-bottom: 50px;"></div>
 
 #### Страница поиска
 
