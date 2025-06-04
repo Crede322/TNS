@@ -27,7 +27,6 @@
 ### Каталог
 <a href="https://crede322.github.io/TNS/#/catalog?q=null&page=1" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1mainpage.webp" alt="каталог"></a>
 <details>
-<details>
 <summary>Содержимое страницы каталога</summary>
 <img src="./screenshots/screenshot2catalogpage.jpg" alt="каталог">
 </details>
