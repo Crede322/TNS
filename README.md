@@ -16,7 +16,7 @@
 ## Страницы сайта :
 
 ### Главная страница
-#### ![Главная страница](./screenshots/screenshot1mainpage.webp)
+#### [![Главная страница](./screenshots/screenshot1mainpage.webp)](https://crede322.github.io/TNS/#/)
 
 #### Каталог
 
