@@ -1,6 +1,6 @@
 # Typescript Networked Store
 
-интернет-магазин центральных процессоров
+Интернет-магазин центральных процессоров (некоммерческое веб-приложение)
 
 ## Стек :
 
@@ -10,12 +10,17 @@
 - Supabase
 - Swiper.js React
 - React Router
+- React-hook-form
 - CRA, node.js v.10.8.0
 
 ## Страницы сайта :
 
-#### Домашняя
-
+### Главная страница
+<a href="https://crede322.github.io/TNS/#/" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1mainpage.webp" alt="Главная страница"></a>
+<details>
+<summary>Содержимое главной страницы</summary>
+<img src="./screenshots/screenshot2mainpage.webp" alt="главная страница">
+</details>
 #### Каталог
 
 #### Страница товара
