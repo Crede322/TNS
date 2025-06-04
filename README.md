@@ -26,8 +26,11 @@
 
 ### Каталог
 
+<details>
+<summary>Содержимое страницы каталога</summary>
 <img src="./screenshots/screenshot1catalogpage.jpg" alt="каталог">
 <img src="./screenshots/screenshot2catalogpage.jpg" alt="каталог">
+</details>
 
 
 #### Страница товара
