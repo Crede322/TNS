@@ -1,6 +1,6 @@
 # Typescript Networked Store
 
-интернет-магазин центральных процессоров
+Интернет-магазин центральных процессоров (некоммерческое веб-приложение)
 
 ## Стек :
 
@@ -10,11 +10,12 @@
 - Supabase
 - Swiper.js React
 - React Router
+- React-hook-form
 - CRA, node.js v.10.8.0
 
 ## Страницы сайта :
 
-#### Домашняя
+#### ![Главная страница](./screenshots/screenshot1mainpage.webp)
 
 #### Каталог
 
