@@ -20,6 +20,7 @@
 <details>
 <summary>Содержимое главной страницы</summary>
 <img src="./screenshots/screenshot2mainpage.webp" alt="главная страница">
+<img src="./screenshots/screenshot3mainpage.webp" alt="главная страница">
 </details>
 #### Каталог
 
