@@ -19,10 +19,7 @@
 <a href="https://crede322.github.io/TNS/#/" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1mainpage.webp" alt="Главная страница"></a>
 <details>
 <summary>Содержимое главной страницы</summary>
-1
-1
-1
-1
+<img src="./screenshots/screenshot2mainpage.webp" alt="главная страница">
 </details>
 #### Каталог
 
