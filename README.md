@@ -64,11 +64,12 @@
 </details>
 <div style="margin-bottom: 50px;"></div>
 
-#### Избранные
+### Страница "Авторизация"
 
-#### Корзина
+При наведении на кнопку "профиля" в хедере показывается popup
 
-#### Мокап-страница
+<img src="/screenshots/schreenshot1authpage.jpg" alt="авторизация"/>
+<img src="/screenshots/schreenshot2authpage.jpg" alt="авторизация"/>
 
 ## Описание :
 
