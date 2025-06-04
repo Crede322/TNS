@@ -52,13 +52,13 @@
 
 При наведении на кнопку корзины в хедере, показывается popup с содержимым,
 также на кнопке отображается число экземпляров товаров в корзине
-<a href="https://crede322.github.io/TNS/#/cart" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1cart.jpg" alt="корзина"></a>
+<a href="https://crede322.github.io/TNS/#/cart" target="_blank" rel="noopener noreferrer"><img src="./screenshots/screenshot1cartpage.jpg" alt="корзина"></a>
 <details>
 <summary>Содержимое страницы корзины</summary>
 Учитываются как экземпляры, так и единицы.
 В левой части карточки товаров, можно менять количество конкретного товара, это отобразится в калькуляторе справа:
 7шт процессора1, 1шт процессора2, 1шт процессора3 - итого 9 товаров на сумму 238 500 рублей.
-<img src="./screenshots/screenshot2cart.jpg" alt="корзина"/>
+<img src="./screenshots/screenshot2cartpage.jpg" alt="корзина"/>
 </details>
 <div style="margin-bottom: 50px;"></div>
 
