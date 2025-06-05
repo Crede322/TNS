@@ -24,7 +24,7 @@
 <details>
 <summary>Содержимое главной страницы</summary>
 <img style="margin-bottom: 20px;" src="./screenshots/screenshot2mainpage.webp" alt="главная страница">
-<h2 style="color: #0080f5;">Блок "Вы недавно смотрели"</h2>
+<h3 style="color: #0080f5;">Блок "Вы недавно смотрели"</h3>
 <img src="./screenshots/screenshot3mainpage.webp" alt="главная страница">
 </details>
 <div style="margin-bottom: 50px;"></div>
