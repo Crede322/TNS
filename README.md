@@ -4,14 +4,18 @@
 
 ## Стек :
 
-- React
+- React v18.2.0
 - Typescript
 - Redux Toolkit
 - Supabase
 - Swiper.js React
 - React Router
 - React-hook-form
-- CRA, node.js v.10.8.0
+- CRA, node.js v10.8.0
+
+## Деплой
+
+[crede322.github.io/TNS/](https://crede322.github.io/TNS/)
 
 ## Страницы сайта :
 
@@ -70,16 +74,6 @@
 
 <img src="/screenshots/screenshot1authpage.jpg" alt="авторизация"/>
 <img src="/screenshots/screenshot2authpage.jpg" alt="авторизация"/>
-
-## Описание :
-
-##### Компоненты функциональные.
-
-##### Авторизация на Supabase и стейт-менеджер Redux привязаны в основном к Header-компоненту.
-
-##### Слайдеры на сайте: Swiper.js.
-
-##### Ссылки ведущие на страницы "не про программирование" ведут на мокап-страницу.
 
 ## Деплой
 
